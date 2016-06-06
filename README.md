@@ -2,7 +2,11 @@
 
 Frontend for Mednafen v0.9.38.x
 
-Only tested with the PSX System Core
+Tested with the following System Cores:
+
+NES
+PSX
+SNES
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
