@@ -10,6 +10,15 @@ Begin VB.Form Form1
    ScaleHeight     =   5235
    ScaleWidth      =   9375
    StartUpPosition =   3  'Windows Default
+   Begin VB.CheckBox Check8 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Review Command Line before execution?"
+      Height          =   435
+      Left            =   1680
+      TabIndex        =   39
+      Top             =   3600
+      Width           =   1935
+   End
    Begin VB.CheckBox Check7 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Frameskip"
@@ -695,7 +704,9 @@ cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 
 cmdstring = cmdstring & Chr(34)
 
+If Check8.Value = 1 Then
 MsgBox cmdstring
+End If
 
 Shell (cmdstring)
 End Sub
@@ -709,7 +720,7 @@ Private Sub Form_Load()
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.0.3"
+Build = "0.0.4"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
 
 Label2.Caption = "Not Set"
@@ -852,6 +863,10 @@ If FSO.FileExists(MedEXE) = True Then
         Label2.Caption = "0.9.38.6-win64 Detected! MD5: D89B755B1616323B7181C9D1931D4E39"
     ElseIf tmp = "D6A8592FB42104327EF7E57D4F0C8ED1" Then
         Label2.Caption = "0.9.38.6-win32 Detected! MD5: D6A8592FB42104327EF7E57D4F0C8ED1"
+    ElseIf tmp = "E7A5FBC376B2DAA55AB4A3FF9C6AF1E1" Then
+        Label2.Caption = "0.9.38.5-win64 Detected! MD5: E7A5FBC376B2DAA55AB4A3FF9C6AF1E1"
+     ElseIf tmp = "74B1D63CBAB0CC4F91A9F3FB5020AB78" Then
+        Label2.Caption = "0.9.38.5-win32 Detected! MD5: 74B1D63CBAB0CC4F91A9F3FB5020AB78"
     Else
         Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
@@ -861,6 +876,12 @@ End Sub
 
 Private Sub Label15_Click()
 Shell ("cmd.exe /c start http://www.NigelTodman.com"), vbHide
+End Sub
+
+Private Sub Label2_Click()
+Clipboard.Clear
+Clipboard.SetText Label2.Caption
+MsgBox "Caption copied to Clipboard"
 End Sub
 
 Private Sub Quit_Click()
