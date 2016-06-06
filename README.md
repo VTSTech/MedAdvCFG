@@ -1,4 +1,4 @@
-# MedAdvCFG v0.0.3
+# MedAdvCFG - Mednafen Advanced Configuration Tool
 
 Frontend for Mednafen v0.9.38.x
 
