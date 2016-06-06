@@ -633,8 +633,12 @@ If FSO.FileExists(MedEXE) = True Then
         Label2.Caption = "0.9.38.6-win32 Detected! MD5: D6A8592FB42104327EF7E57D4F0C8ED1"
     ElseIf tmp = "E7A5FBC376B2DAA55AB4A3FF9C6AF1E1" Then
         Label2.Caption = "0.9.38.5-win64 Detected! MD5: E7A5FBC376B2DAA55AB4A3FF9C6AF1E1"
-     ElseIf tmp = "74B1D63CBAB0CC4F91A9F3FB5020AB78" Then
+    ElseIf tmp = "74B1D63CBAB0CC4F91A9F3FB5020AB78" Then
         Label2.Caption = "0.9.38.5-win32 Detected! MD5: 74B1D63CBAB0CC4F91A9F3FB5020AB78"
+    ElseIf tmp = "A30FC82730A62781BBF39DF0652456D2" Then
+        Label2.Caption = "0.9.37.1-win64 Detected! MD5: A30FC82730A62781BBF39DF0652456D2"
+    ElseIf tmp = "D02DE97F10E0FE544427B8F0BBEED3F1" Then
+        Label2.Caption = "0.9.37.1-win32 Detected! MD5: D02DE97F10E0FE544427B8F0BBEED3F1"
     Else
         Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
@@ -707,7 +711,11 @@ ElseIf Combo1.Text = "wswan (WonderSwan)" Then
 SYSCORE = "wswan"
 End If
 
+If SYSCORE = "psx" Or SYSCORE = "pce" Or SYSCORE = "pce_fast" Then
 cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -loadcd " & SYSCORE
+Else
+cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -force_module " & SYSCORE
+End If
 
 If Combo2.Text = "0 - Disabled" Then
 cmdstring = cmdstring & " -" & SYSCORE & ".stretch 0"
@@ -855,7 +863,7 @@ ActiveFile = "None"
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.0.5"
+Build = "0.0.6"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
 
 Dir1.Path = VB.App.Path
