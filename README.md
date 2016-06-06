@@ -1,5 +1,5 @@
-# MedAdvCFG
-v0.0.2
+# MedAdvCFG v0.0.2
+
 Frontend for Mednafen v0.9.38.x
 
 Only tested with the PSX System Core
