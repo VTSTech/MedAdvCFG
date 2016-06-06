@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
-   Caption         =   "MedAdvCFG v0.0.2 (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
+   Caption         =   "MedAdvCFG v0.0.3 (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
    ClientHeight    =   5235
    ClientLeft      =   225
    ClientTop       =   855
@@ -103,7 +103,6 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check2 
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM Sanity Check"
-      Enabled         =   0   'False
       Height          =   195
       Left            =   7080
       TabIndex        =   15
@@ -131,7 +130,6 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check1 
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS Sanity Check"
-      Enabled         =   0   'False
       Height          =   195
       Left            =   7080
       TabIndex        =   9
