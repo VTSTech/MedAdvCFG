@@ -10,6 +10,15 @@ Begin VB.Form Form1
    ScaleHeight     =   5235
    ScaleWidth      =   9375
    StartUpPosition =   3  'Windows Default
+   Begin VB.CheckBox Check7 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Frameskip"
+      Height          =   195
+      Left            =   6960
+      TabIndex        =   38
+      Top             =   3000
+      Width           =   1095
+   End
    Begin VB.CheckBox Check6 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Fullscreen"
@@ -40,7 +49,6 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check5 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Bilinear interpolation"
-      Enabled         =   0   'False
       Height          =   195
       Left            =   6960
       TabIndex        =   24
@@ -49,7 +57,6 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text3 
       BackColor       =   &H00C0C0C0&
-      Enabled         =   0   'False
       Height          =   285
       Left            =   6480
       TabIndex        =   22
@@ -60,7 +67,6 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check4 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Accumulate color (Tblur)"
-      Enabled         =   0   'False
       Height          =   195
       Left            =   6960
       TabIndex        =   21
@@ -70,7 +76,6 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Temporal Blur"
-      Enabled         =   0   'False
       Height          =   195
       Left            =   5520
       TabIndex        =   20
@@ -354,7 +359,6 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Blur amount:"
-      Enabled         =   0   'False
       Height          =   195
       Left            =   5520
       TabIndex        =   23
@@ -498,11 +502,11 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z, cmdstring
+Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z, cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
 Private Sub About_Click()
-MsgBox "MedAdvCFG v0.0.1 (Mednafen v0.9.38.x Frontend)" & vbCrLf & "Written by Nigel Todman (www.NigelTodman.com)" & vbCrLf & "Primarily written as a PSX Frontend. Other System Cores not tested"
+MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend)" & vbCrLf & "Written by Nigel Todman (www.NigelTodman.com)" & vbCrLf & "Primarily written as a PSX Frontend. Other System Cores not tested"
 End Sub
 
 Private Sub Command1_Click()
@@ -658,9 +662,36 @@ ElseIf Combo3.Text = "ipynotxsharper - Sharper version of ipynotx." Then
 cmdstring = cmdstring & " -" & SYSCORE & ".pixshader ipynotxsharper"
 End If
 
+If Check3.Value = 1 Then
+cmdstring = cmdstring & " -" & SYSCORE & ".tblur 1"
+End If
+
+If Check4.Value = 1 Then
+cmdstring = cmdstring & " -" & SYSCORE & ".tblur.accum 1"
+Sleep (100)
+cmdstring = cmdstring & " -" & SYSCORE & ".tblur.accum.amount " & Text3.Text
+End If
+
+If Check5.Value = 1 Then
+cmdstring = cmdstring & " -" & SYSCORE & ".videoip 1"
+End If
+
 If Check6.Value = 1 Then
 cmdstring = cmdstring & " -video.fs 1"
 End If
+
+If Check7.Value = 1 Then
+cmdstring = cmdstring & " -video.frameskip 1"
+End If
+
+If Check1.Value = 1 Then
+cmdstring = cmdstring & " -" & SYSCORE & ".bios_sanity 1"
+End If
+
+If Check2.Value = 1 Then
+cmdstring = cmdstring & " -" & SYSCORE & ".cd_sanity 1"
+End If
+
 
 cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 
@@ -680,6 +711,8 @@ Private Sub Form_Load()
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
+Build = "0.0.3"
+Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
 
 Label2.Caption = "Not Set"
 'MedEXE = "C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe"
@@ -690,7 +723,7 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
 
 Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
-For x = 1 To 10
+For x = 1 To 15
 Line Input #1, tmp3(x)
 Next x
 Close #1
@@ -704,7 +737,12 @@ ROMSanity = Mid$(tmp3(6), 11, 1)
 Stretch = Mid$(tmp3(7), 9, Len(tmp3(7)))
 PixelShader = Mid$(tmp3(8), 13, Len(tmp3(8)))
 VideoScaler = Mid$(tmp3(9), 13, Len(tmp3(9)))
-FullScreen = Mid$(tmp3(10), 12, 1)
+Fullscreen = Mid$(tmp3(10), 12, 1)
+Frameskip = Mid$(tmp3(11), 11, 1)
+TBlur = Mid$(tmp3(12), 7, 1)
+TblurAccum = Mid$(tmp3(13), 13, Len(tmp3(13)))
+AccumAmount = Mid$(tmp3(14), 11, 1)
+VideoIP = Mid$(tmp3(15), 9, 1)
 
 Text1.Text = BIOSFILE
 Text2.Text = ROMFILE
@@ -722,8 +760,25 @@ If ROMSanity = 1 Then
 Check2.Value = 1
 End If
 
-If FullScreen = 1 Then
+If Fullscreen = 1 Then
 Check6.Value = 1
+End If
+
+If Frameskip = 1 Then
+Check7.Value = 1
+End If
+
+If TBlur = 1 Then
+Check3.Value = 1
+End If
+
+If TblurAccum = 1 Then
+Check4.Value = 1
+Text3.Text = AccumAmount
+End If
+
+If VideoIP = 1 Then
+Check5.Value = 1
 End If
 
 End If
@@ -826,5 +881,10 @@ Print #1, "Stretch=" & Combo2.Text
 Print #1, "PixelShader=" & Combo3.Text
 Print #1, "VideoScaler=" & Combo4.Text
 Print #1, "Fullscreen=" & Check6.Value
+Print #1, "Frameskip=" & Check7.Value
+Print #1, "Tblur=" & Check3.Value
+Print #1, "TblurAccum=" & Check4.Value
+Print #1, "AccumAmount=" & Text3.Text
+Print #1, "VideoIP=" & Check5.Value
 Close #1
 End Sub
