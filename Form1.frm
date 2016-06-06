@@ -10,6 +10,33 @@ Begin VB.Form Form1
    ScaleHeight     =   5235
    ScaleWidth      =   12555
    StartUpPosition =   3  'Windows Default
+   Begin VB.TextBox Text6 
+      BackColor       =   &H00C0C0C0&
+      Height          =   285
+      Left            =   2520
+      TabIndex        =   49
+      Text            =   "1080"
+      Top             =   2760
+      Width           =   495
+   End
+   Begin VB.TextBox Text5 
+      BackColor       =   &H00C0C0C0&
+      Height          =   285
+      Left            =   2040
+      TabIndex        =   48
+      Text            =   "1920"
+      Top             =   2760
+      Width           =   495
+   End
+   Begin VB.TextBox Text4 
+      BackColor       =   &H00C0C0C0&
+      Height          =   285
+      Left            =   2760
+      TabIndex        =   46
+      Text            =   "2"
+      Top             =   3120
+      Width           =   255
+   End
    Begin VB.CommandButton Command4 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Clear BIOS/ROM"
@@ -20,6 +47,7 @@ Begin VB.Form Form1
       Width           =   1455
    End
    Begin VB.DriveListBox Drive1 
+      BackColor       =   &H00C0C0C0&
       Height          =   315
       Left            =   9120
       TabIndex        =   44
@@ -27,6 +55,7 @@ Begin VB.Form Form1
       Width           =   3495
    End
    Begin VB.FileListBox File1 
+      BackColor       =   &H00C0C0C0&
       Height          =   2430
       Left            =   9120
       TabIndex        =   41
@@ -34,6 +63,7 @@ Begin VB.Form Form1
       Width           =   3495
    End
    Begin VB.DirListBox Dir1 
+      BackColor       =   &H00C0C0C0&
       Height          =   1665
       Left            =   9120
       TabIndex        =   40
@@ -44,81 +74,81 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Review Command Line before execution?"
       Height          =   435
-      Left            =   1680
+      Left            =   4440
       TabIndex        =   39
-      Top             =   3600
+      Top             =   3000
       Width           =   1935
    End
    Begin VB.CheckBox Check7 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Frameskip"
       Height          =   195
-      Left            =   6960
+      Left            =   5160
       TabIndex        =   38
-      Top             =   3000
+      Top             =   2520
       Width           =   1095
    End
    Begin VB.CheckBox Check6 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Fullscreen"
+      Caption         =   "Fullscreen (FS)"
       Height          =   195
-      Left            =   5520
+      Left            =   5160
       TabIndex        =   30
-      Top             =   3000
-      Width           =   1095
+      Top             =   2280
+      Width           =   1455
    End
    Begin VB.CommandButton Command3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Launch mednafen.exe"
-      Height          =   615
-      Left            =   3840
+      Height          =   495
+      Left            =   4440
       TabIndex        =   29
-      Top             =   3720
-      Width           =   2055
+      Top             =   3600
+      Width           =   1815
    End
    Begin VB.ComboBox Combo4 
       BackColor       =   &H00C0C0C0&
       Height          =   315
       Left            =   1560
       TabIndex        =   25
-      Text            =   "none - None/Disabled"
-      Top             =   3120
+      Text            =   "None - None/Disabled"
+      Top             =   2400
       Width           =   3375
    End
    Begin VB.CheckBox Check5 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Bilinear interpolation"
       Height          =   195
-      Left            =   6960
+      Left            =   5160
       TabIndex        =   24
-      Top             =   2640
+      Top             =   2040
       Width           =   1815
    End
    Begin VB.TextBox Text3 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   6480
+      Left            =   8160
       TabIndex        =   22
       Text            =   "50"
-      Top             =   2640
-      Width           =   375
+      Top             =   2520
+      Width           =   285
    End
    Begin VB.CheckBox Check4 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Accumulate color (Tblur)"
+      Caption         =   "Accumulate color"
       Height          =   195
-      Left            =   6960
+      Left            =   7080
       TabIndex        =   21
       Top             =   2280
-      Width           =   2055
+      Width           =   1575
    End
    Begin VB.CheckBox Check3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Temporal Blur"
       Height          =   195
-      Left            =   5520
+      Left            =   7080
       TabIndex        =   20
-      Top             =   2280
+      Top             =   2040
       Width           =   1335
    End
    Begin VB.ComboBox Combo3 
@@ -126,8 +156,8 @@ Begin VB.Form Form1
       Height          =   315
       Left            =   1560
       TabIndex        =   18
-      Text            =   "none - None/Disabled"
-      Top             =   2760
+      Text            =   "None - None/Disabled"
+      Top             =   2040
       Width           =   3375
    End
    Begin VB.ComboBox Combo2 
@@ -136,7 +166,7 @@ Begin VB.Form Form1
       Left            =   1560
       TabIndex        =   16
       Text            =   "0 - Disabled"
-      Top             =   2280
+      Top             =   1680
       Width           =   2775
    End
    Begin VB.CheckBox Check2 
@@ -145,7 +175,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   15
-      Top             =   1680
+      Top             =   1560
       Width           =   1695
    End
    Begin VB.CommandButton Command2 
@@ -163,7 +193,7 @@ Begin VB.Form Form1
       Left            =   1560
       TabIndex        =   11
       Text            =   "Not Set"
-      Top             =   1560
+      Top             =   1200
       Width           =   4575
    End
    Begin VB.CheckBox Check1 
@@ -172,7 +202,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   9
-      Top             =   960
+      Top             =   840
       Width           =   1695
    End
    Begin VB.CommandButton Command1 
@@ -190,7 +220,7 @@ Begin VB.Form Form1
       Left            =   1560
       TabIndex        =   5
       Text            =   "Not Set"
-      Top             =   840
+      Top             =   680
       Width           =   4575
    End
    Begin VB.ComboBox Combo1 
@@ -201,6 +231,34 @@ Begin VB.Form Form1
       Text            =   "gb (GameBoy (Color))"
       Top             =   360
       Width           =   4575
+   End
+   Begin VB.Image Image1 
+      Height          =   1095
+      Left            =   6960
+      Picture         =   "Form1.frx":0000
+      Stretch         =   -1  'True
+      Top             =   3600
+      Width           =   1785
+   End
+   Begin VB.Label Label26 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Resolution Override (FS)"
+      Height          =   195
+      Left            =   120
+      TabIndex        =   50
+      Top             =   2760
+      Width           =   1725
+   End
+   Begin VB.Label Label25 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Global Scaling Factor (FS/W)"
+      Height          =   195
+      Left            =   120
+      TabIndex        =   47
+      Top             =   3120
+      Width           =   2085
    End
    Begin VB.Label Label24 
       AutoSize        =   -1  'True
@@ -397,9 +455,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H00FFFF80&
       Height          =   195
-      Left            =   6810
+      Left            =   1890
       TabIndex        =   28
-      Top             =   4080
+      Top             =   3840
       Width           =   1995
    End
    Begin VB.Label Label14 
@@ -417,9 +475,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H00FFFF80&
       Height          =   195
-      Left            =   6750
+      Left            =   1830
       TabIndex        =   27
-      Top             =   3840
+      Top             =   3600
       Width           =   2115
    End
    Begin VB.Label Label13 
@@ -429,7 +487,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   26
-      Top             =   3120
+      Top             =   2400
       Width           =   900
    End
    Begin VB.Label Label12 
@@ -437,9 +495,9 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Blur amount:"
       Height          =   195
-      Left            =   5520
+      Left            =   7080
       TabIndex        =   23
-      Top             =   2640
+      Top             =   2520
       Width           =   885
    End
    Begin VB.Label Label11 
@@ -449,7 +507,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   19
-      Top             =   2760
+      Top             =   2040
       Width           =   885
    End
    Begin VB.Label Label10 
@@ -459,7 +517,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   17
-      Top             =   2280
+      Top             =   1680
       Width           =   1305
    End
    Begin VB.Label Label9 
@@ -469,7 +527,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1560
       TabIndex        =   14
-      Top             =   1920
+      Top             =   1500
       Width           =   540
    End
    Begin VB.Label Label8 
@@ -479,7 +537,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   13
-      Top             =   1920
+      Top             =   1440
       Width           =   810
    End
    Begin VB.Label Label7 
@@ -489,7 +547,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   10
-      Top             =   1560
+      Top             =   1200
       Width           =   900
    End
    Begin VB.Label Label6 
@@ -499,7 +557,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1560
       TabIndex        =   8
-      Top             =   1200
+      Top             =   960
       Width           =   540
    End
    Begin VB.Label Label5 
@@ -509,7 +567,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   6
-      Top             =   1200
+      Top             =   960
       Width           =   810
    End
    Begin VB.Label Label4 
@@ -519,7 +577,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   4
-      Top             =   840
+      Top             =   720
       Width           =   975
    End
    Begin VB.Label Label3 
@@ -631,7 +689,6 @@ If FSO.FileExists(MedEXE) = True Then
             Line Input #1, tmp
         Close #1
     End If
-    Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
     If tmp = "8F0BC836E2B6023371B99E94829B5CF1" Then
         Label2.Caption = "0.9.38.7-win64 Detected! MD5: 8F0BC836E2B6023371B99E94829B5CF1"
     ElseIf tmp = "C2CA5F8A9A4CF93BB05297272F029B9C" Then
@@ -651,6 +708,7 @@ If FSO.FileExists(MedEXE) = True Then
     Else
         Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
+    Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
 End If
 Validate_MedEXE = tmp
 End Function
@@ -775,18 +833,7 @@ ElseIf Combo2.Text = "aspect_mult2 - Aspect Preserve + Integer Multiple-of-2 Sca
 cmdstring = cmdstring & " -" & SYSCORE & ".stretch aspect_mult2"
 End If
 
-'none - None/Disabled", 0
-'autoip - Auto Interpolation", 1
-'autoipsharper - Sharper Auto Interpolation", 2
-'scale2x - Scale2x", 3
-'sabr - SABR v3.0", 4
-'ipsharper - Sharper bilinear interpolation.", 5
-'ipxnoty - Linear interpolation on X axis only.", 6
-'ipynotx - Linear interpolation on Y axis only.", 7
-'ipxnotysharper - Sharper version of ipxnoty.", 8
-'ipynotxsharper - Sharper version of ipynotx.", 9
-
-If Combo3.Text = "none - None/Disabled" Then
+If Combo3.Text = "None - None/Disabled" Then
 cmdstring = cmdstring & " -" & SYSCORE & ".pixshader none"
 ElseIf Combo3.Text = "autoip - Auto Interpolation" Then
 cmdstring = cmdstring & " -" & SYSCORE & ".pixshader autoip"
@@ -806,6 +853,38 @@ ElseIf Combo3.Text = "ipxnotysharper - Sharper version of ipxnoty." Then
 cmdstring = cmdstring & " -" & SYSCORE & ".pixshader ipynotysharper"
 ElseIf Combo3.Text = "ipynotxsharper - Sharper version of ipynotx." Then
 cmdstring = cmdstring & " -" & SYSCORE & ".pixshader ipynotxsharper"
+End If
+
+If Combo4.Text = "None - None/Disabled" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special none"
+ElseIf Combo4.Text = "hq2x - hq2x" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special hq2x"
+ElseIf Combo4.Text = "hq3x -hq3x" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special hq3x"
+ElseIf Combo4.Text = "hq4x -hq4x" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special hq4x"
+ElseIf Combo4.Text = "scale2x -scale2x" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special scale2x"
+ElseIf Combo4.Text = "scale3x -scale3x" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special scale3x"
+ElseIf Combo4.Text = "scale4x -scale4x" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special scale4x"
+ElseIf Combo4.Text = "2xsai - 2xSaI" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special 2xsai"
+ElseIf Combo4.Text = "supereagle - Super Eagle" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special supereagle"
+ElseIf Combo4.Text = "nn2x - Nearest-neighbor 2x" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special nn2x"
+ElseIf Combo4.Text = "nn3x - Nearest-neighbor 3x" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special nn3x"
+ElseIf Combo4.Text = "nn4x - Nearest-neighbor 4x" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special nn4x"
+ElseIf Combo4.Text = "nny2x - Nearest-neighbor 2x, y axis only" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special nny2x"
+ElseIf Combo4.Text = "nny3x - Nearest-neighbor 3x, y axis only" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special nny3x"
+ElseIf Combo4.Text = "nny4x - Nearest-neighbor 4x, y axis only" Then
+cmdstring = cmdstring & " -" & SYSCORE & ".special nny4x"
 End If
 
 If Check3.Value = 1 Then
@@ -838,6 +917,17 @@ If Check2.Value = 1 Then
 cmdstring = cmdstring & " -" & SYSCORE & ".cd_sanity 1"
 End If
 
+If Val(Text4.Text) > 1 Then
+cmdstring = cmdstring & " -" & SYSCORE & ".xscale " & Text4.Text & " -" & SYSCORE & ".yscale " & Text4.Text & " -" & SYSCORE & ".xscalefs " & Text4.Text & " -" & SYSCORE & ".yscalefs " & Text4.Text
+End If
+
+If Len(Text5.Text) > 0 Then
+cmdstring = cmdstring & " -" & SYSCORE & ".xres " & Text5.Text
+End If
+
+If Len(Text6.Text) > 0 Then
+cmdstring = cmdstring & " -" & SYSCORE & ".yres " & Text6.Text
+End If
 
 cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 
@@ -916,7 +1006,7 @@ ActiveFile = "None"
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.0.7"
+Build = "0.0.8"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
 
 Dir1.Path = VB.App.Path
@@ -1016,7 +1106,7 @@ Combo2.AddItem "aspect - Aspect Preserve", 2
 Combo2.AddItem "aspect_int - Aspect Preserve + Integer Scale", 3
 Combo2.AddItem "aspect_mult2 - Aspect Preserve + Integer Multiple-of-2 Scale", 4
 
-Combo3.AddItem "none - None/Disabled", 0
+Combo3.AddItem "None - None/Disabled", 0
 Combo3.AddItem "autoip - Auto Interpolation", 1
 Combo3.AddItem "autoipsharper - Sharper Auto Interpolation", 2
 Combo3.AddItem "scale2x - Scale2x", 3
@@ -1027,7 +1117,7 @@ Combo3.AddItem "ipynotx - Linear interpolation on Y axis only.", 7
 Combo3.AddItem "ipxnotysharper - Sharper version of ipxnoty.", 8
 Combo3.AddItem "ipynotxsharper - Sharper version of ipynotx.", 9
 
-Combo4.AddItem "None -None / Disabled", 0
+Combo4.AddItem "None - None/Disabled", 0
 Combo4.AddItem "hq2x - hq2x", 1
 Combo4.AddItem "hq3x -hq3x", 2
 Combo4.AddItem "hq4x -hq4x", 3
@@ -1053,6 +1143,9 @@ End If
 
 End Sub
 
+Private Sub Image1_Click()
+Shell ("cmd.exe /c start http://mednafen.fobby.net/"), vbHide
+End Sub
 
 Private Sub Label15_Click()
 Shell ("cmd.exe /c start http://www.NigelTodman.com"), vbHide
@@ -1061,7 +1154,19 @@ End Sub
 Private Sub Label2_Click()
 Clipboard.Clear
 Clipboard.SetText Label2.Caption
-MsgBox "Caption copied to Clipboard"
+MsgBox "MD5 copied to Clipboard"
+End Sub
+
+Private Sub Label6_Click()
+Clipboard.Clear
+Clipboard.SetText Label2.Caption
+MsgBox "MD5 copied to Clipboard"
+End Sub
+
+Private Sub Label9_Click()
+Clipboard.Clear
+Clipboard.SetText Label2.Caption
+MsgBox "MD5 copied to Clipboard"
 End Sub
 
 Private Sub Quit_Click()
