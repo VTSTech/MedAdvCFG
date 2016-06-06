@@ -1159,13 +1159,13 @@ End Sub
 
 Private Sub Label6_Click()
 Clipboard.Clear
-Clipboard.SetText Label2.Caption
+Clipboard.SetText Label6.Caption
 MsgBox "MD5 copied to Clipboard"
 End Sub
 
 Private Sub Label9_Click()
 Clipboard.Clear
-Clipboard.SetText Label2.Caption
+Clipboard.SetText Label9.Caption
 MsgBox "MD5 copied to Clipboard"
 End Sub
 
