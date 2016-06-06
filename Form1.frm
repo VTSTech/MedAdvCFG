@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
-   Caption         =   "MedAdvCFG v0.0.3 (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
+   Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
    ClientHeight    =   5235
    ClientLeft      =   225
    ClientTop       =   855
@@ -275,7 +275,7 @@ Begin VB.Form Form1
    Begin VB.Label Label17 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
-      Caption         =   "ALT + SHIFT + 1: Configure butons for Controller Port (Where 1 is which Port/Player)"
+      Caption         =   "ALT + SHIFT + 1: Configure buttons for Controller Port (Where 1 is which Port/Player)"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -290,7 +290,7 @@ Begin VB.Form Form1
       Left            =   120
       TabIndex        =   32
       Top             =   4920
-      Width           =   7245
+      Width           =   7305
    End
    Begin VB.Label Label16 
       AutoSize        =   -1  'True
