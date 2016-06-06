@@ -10,6 +10,15 @@ Begin VB.Form Form1
    ScaleHeight     =   5235
    ScaleWidth      =   12555
    StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton Command4 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Clear BIOS/ROM"
+      Height          =   315
+      Left            =   6240
+      TabIndex        =   45
+      Top             =   360
+      Width           =   1455
+   End
    Begin VB.DriveListBox Drive1 
       Height          =   315
       Left            =   9120
@@ -647,7 +656,44 @@ Validate_MedEXE = tmp
 End Function
 
 Private Sub About_Click()
-MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend)" & vbCrLf & "Written by Nigel Todman (www.NigelTodman.com)" & vbCrLf & "Primarily written as a PSX Frontend. Other System Cores not tested"
+MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend)" & vbCrLf & "Written by Nigel Todman (www.NigelTodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, VB"
+End Sub
+
+Private Sub Combo1_Change()
+'MsgBox Combo1.Text
+If Combo1.Text = "psx (Sony PlayStation)" Then
+Check1.Enabled = True
+Check2.Enabled = True
+Else
+Check1.Value = 0
+Check2.Value = 0
+Check1.Enabled = False
+Check2.Enabled = False
+End If
+End Sub
+
+Private Sub Combo1_Click()
+'MsgBox Combo1.Text
+If Combo1.Text = "psx (Sony PlayStation)" Then
+Check1.Enabled = True
+Check2.Enabled = True
+Else
+Check1.Value = 0
+Check2.Value = 0
+Check1.Enabled = False
+Check2.Enabled = False
+End If
+
+'Combo1.AddItem "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)", 7
+'Combo1.AddItem "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)", 8
+'Combo1.AddItem "pcfx (PC-FX)", 9
+'Combo1.AddItem "psx (Sony PlayStation)", 10
+
+If Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Or Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
+MsgBox "BIOS Image File: syscard3.pce is expected"
+ElseIf Combo1.Text = "psx (Sony PlayStation)" Then
+MsgBox "BIOS Image File: scph5500.bin/scph5501.bin/scph5502.bin is expected"
+End If
 End Sub
 
 Private Sub Command1_Click()
@@ -804,6 +850,13 @@ End If
 Shell (cmdstring)
 End Sub
 
+Private Sub Command4_Click()
+Text1.Text = ""
+Text2.Text = ""
+Label6.Caption = "Not Set"
+Label9.Caption = "Not Set"
+End Sub
+
 Private Sub Dir1_Change()
 File1.Path = Dir1.Path
 End Sub
@@ -863,7 +916,7 @@ ActiveFile = "None"
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.0.6"
+Build = "0.0.7"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
 
 Dir1.Path = VB.App.Path
