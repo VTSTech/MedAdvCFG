@@ -1,6 +1,6 @@
 # MedAdvCFG - Mednafen Advanced Configuration Tool
 
-Frontend for Mednafen v0.9.38.x
+Frontend for <a href="http://mednafen.fobby.net/releases/">Mednafen</a> v0.9.38.x
 
 Tested with the following System Cores:
 
