@@ -1,15 +1,36 @@
 VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
-   Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
+   Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.38.x Frontend) by Nigel Todman"
    ClientHeight    =   5235
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   9375
+   ClientWidth     =   12555
    LinkTopic       =   "Form1"
    ScaleHeight     =   5235
-   ScaleWidth      =   9375
+   ScaleWidth      =   12555
    StartUpPosition =   3  'Windows Default
+   Begin VB.DriveListBox Drive1 
+      Height          =   315
+      Left            =   9120
+      TabIndex        =   44
+      Top             =   0
+      Width           =   3495
+   End
+   Begin VB.FileListBox File1 
+      Height          =   2430
+      Left            =   9120
+      TabIndex        =   41
+      Top             =   2040
+      Width           =   3495
+   End
+   Begin VB.DirListBox Dir1 
+      Height          =   1665
+      Left            =   9120
+      TabIndex        =   40
+      Top             =   360
+      Width           =   3495
+   End
    Begin VB.CheckBox Check8 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Review Command Line before execution?"
@@ -171,6 +192,46 @@ Begin VB.Form Form1
       Text            =   "gb (GameBoy (Color))"
       Top             =   360
       Width           =   4575
+   End
+   Begin VB.Label Label24 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Double click File to Set and collapse panel"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   195
+      Left            =   9000
+      TabIndex        =   43
+      Top             =   4920
+      Width           =   3675
+   End
+   Begin VB.Label Label23 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Double click Folder to change File List"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   195
+      Left            =   9000
+      TabIndex        =   42
+      Top             =   4680
+      Width           =   3300
    End
    Begin VB.Label Label22 
       AutoSize        =   -1  'True
@@ -509,60 +570,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z, cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP
+Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z, cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
-Private Sub About_Click()
-MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend)" & vbCrLf & "Written by Nigel Todman (www.NigelTodman.com)" & vbCrLf & "Primarily written as a PSX Frontend. Other System Cores not tested"
-End Sub
-
-Private Sub Command1_Click()
-If Len(Text1.Text) >= 1 Then
-ResetBios = MsgBox("Reset BIOS?", vbYesNo, "Reset BIOS?")
-If ResetRom = vbYes Then
-BIOSFILE = ""
-Else
-End If
-End If
-
-If FSO.FileExists(BIOSFILE) = False Then
-    BIOSFILE = InputBox("Select BIOS Image", "Select BIOS Image")
-End If
-If FSO.FileExists(BIOSFILE) = True Then
-    Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-    Sleep (200)
-    If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-        Open VB.App.Path & "\md5.txt" For Input As #1
-            Line Input #1, tmp
-        Close #1
-    End If
-    Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-    Text1.Text = BIOSFILE
-    If tmp = "8F0BC836E2B6023371B99E94829B5CF1" Then
-        Label6.Caption = "0.9.38.7-win64 Detected! MD5: 8F0BC836E2B6023371B99E94829B5CF1"
-    ElseIf tmp = "C2CA5F8A9A4CF93BB05297272F029B9C" Then
-        Label6.Caption = "0.9.38.7-win32 Detected! MD5: C2CA5F8A9A4CF93BB05297272F029B9C"
-    ElseIf tmp = "D89B755B1616323B7181C9D1931D4E39" Then
-        Label6.Caption = "0.9.38.6-win64 Detected! MD5: D89B755B1616323B7181C9D1931D4E39"
-    ElseIf tmp = "D6A8592FB42104327EF7E57D4F0C8ED1" Then
-        Label6.Caption = "0.9.38.6-win32 Detected! MD5: D6A8592FB42104327EF7E57D4F0C8ED1"
-    Else
-        Label6.Caption = "MD5: " & tmp
-    End If
-End If
-End Sub
-
-Private Sub Command2_Click()
-If Len(Text2.Text) >= 1 Then
-ResetRom = MsgBox("Reset Rom?", vbYesNo, "Reset Rom?")
-If ResetRom = vbYes Then
-ROMFILE = ""
-Else
-End If
-End If
-
+Private Function Validate_Rom()
 If FSO.FileExists(ROMFILE) = False Then
-    ROMFILE = InputBox("Select ROM Image (CUE/BIN/IMG)", "Select ROM Image (CUE/BIN/IMG)")
+    'ROMFILE = InputBox("Select ROM Image (CUE/BIN/IMG)", "Select ROM Image (CUE/BIN/IMG)")
 End If
 If FSO.FileExists(ROMFILE) = True Then
     Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & ROMFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
@@ -574,18 +587,90 @@ If FSO.FileExists(ROMFILE) = True Then
     End If
     Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
     Text2.Text = ROMFILE
+    Label9.Caption = "MD5: " & tmp
+End If
+
+Validate_Rom = tmp
+
+End Function
+Private Function Validate_Bios()
+If FSO.FileExists(BIOSFILE) = False Then
+    'ROMFILE = InputBox("Select ROM Image (CUE/BIN/IMG)", "Select ROM Image (CUE/BIN/IMG)")
+End If
+If FSO.FileExists(BIOSFILE) = True Then
+    Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
+    Sleep (200)
+    If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
+        Open VB.App.Path & "\md5.txt" For Input As #1
+            Line Input #1, tmp
+        Close #1
+    End If
+    Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
+    Text1.Text = BIOSFILE
+    Label6.Caption = "MD5: " & tmp
+End If
+
+Validate_Bios = tmp
+
+End Function
+Function Validate_MedEXE()
+If FSO.FileExists(MedEXE) = True Then
+    Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & MedEXE & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
+    Sleep (200)
+    If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
+        Open VB.App.Path & "\md5.txt" For Input As #1
+            Line Input #1, tmp
+        Close #1
+    End If
+    Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
     If tmp = "8F0BC836E2B6023371B99E94829B5CF1" Then
-        Label6.Caption = "0.9.38.7-win64 Detected! MD5: 8F0BC836E2B6023371B99E94829B5CF1"
+        Label2.Caption = "0.9.38.7-win64 Detected! MD5: 8F0BC836E2B6023371B99E94829B5CF1"
     ElseIf tmp = "C2CA5F8A9A4CF93BB05297272F029B9C" Then
-        Label6.Caption = "0.9.38.7-win32 Detected! MD5: C2CA5F8A9A4CF93BB05297272F029B9C"
+        Label2.Caption = "0.9.38.7-win32 Detected! MD5: C2CA5F8A9A4CF93BB05297272F029B9C"
     ElseIf tmp = "D89B755B1616323B7181C9D1931D4E39" Then
-        Label6.Caption = "0.9.38.6-win64 Detected! MD5: D89B755B1616323B7181C9D1931D4E39"
+        Label2.Caption = "0.9.38.6-win64 Detected! MD5: D89B755B1616323B7181C9D1931D4E39"
     ElseIf tmp = "D6A8592FB42104327EF7E57D4F0C8ED1" Then
-        Label6.Caption = "0.9.38.6-win32 Detected! MD5: D6A8592FB42104327EF7E57D4F0C8ED1"
+        Label2.Caption = "0.9.38.6-win32 Detected! MD5: D6A8592FB42104327EF7E57D4F0C8ED1"
+    ElseIf tmp = "E7A5FBC376B2DAA55AB4A3FF9C6AF1E1" Then
+        Label2.Caption = "0.9.38.5-win64 Detected! MD5: E7A5FBC376B2DAA55AB4A3FF9C6AF1E1"
+     ElseIf tmp = "74B1D63CBAB0CC4F91A9F3FB5020AB78" Then
+        Label2.Caption = "0.9.38.5-win32 Detected! MD5: 74B1D63CBAB0CC4F91A9F3FB5020AB78"
     Else
-        Label9.Caption = "MD5: " & tmp
+        Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
 End If
+Validate_MedEXE = tmp
+End Function
+
+Private Sub About_Click()
+MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend)" & vbCrLf & "Written by Nigel Todman (www.NigelTodman.com)" & vbCrLf & "Primarily written as a PSX Frontend. Other System Cores not tested"
+End Sub
+
+Private Sub Command1_Click()
+Form1.Width = 12945
+ActiveFile = "BIOS"
+If Len(Text1.Text) >= 1 Then
+ResetBios = MsgBox("Reset BIOS?", vbYesNo, "Reset BIOS?")
+If ResetRom = vbYes Then
+BIOSFILE = ""
+Else
+a = Validate_Bios()
+End If
+End If
+End Sub
+
+Private Sub Command2_Click()
+Form1.Width = 12945
+ActiveFile = "ROM"
+If Len(Text2.Text) >= 1 Then
+ResetRom = MsgBox("Reset Rom?", vbYesNo, "Reset Rom?")
+If ResetRom = vbYes Then
+ROMFILE = ""
+Else
+a = Validate_Rom()
+End If
+End If
+
 End Sub
 
 Private Sub Command3_Click()
@@ -711,7 +796,57 @@ End If
 Shell (cmdstring)
 End Sub
 
+Private Sub Dir1_Change()
+File1.Path = Dir1.Path
+End Sub
+
+Private Sub Drive1_Change()
+Dir1.Path = Drive1.Drive
+End Sub
+
+Private Sub File1_Click()
+If ActiveFile = "MEDEXE" Then
+    tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+    If tmp2 = vbYes Then
+        MedEXE = Dir1.Path & "\" & File1.FileName
+        Form1.Width = 9240
+        ActiveFile = "None"
+        tmp2 = ""
+        a = Validate_MedEXE()
+    End If
+End If
+
+If ActiveFile = "BIOS" Then
+    tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+    If tmp2 = vbYes Then
+        Text1.Text = Dir1.Path & "\" & File1.FileName
+        BIOSFILE = Text1.Text
+        Form1.Width = 9240
+        ActiveFile = "None"
+        tmp2 = ""
+        a = Validate_Bios()
+    End If
+End If
+
+If ActiveFile = "ROM" Then
+    tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+    If tmp2 = vbYes Then
+        Text2.Text = Dir1.Path & "\" & File1.FileName
+        ROMFILE = Text2.Text
+        Form1.Width = 9240
+        ActiveFile = "None"
+        tmp2 = ""
+        a = Validate_Rom()
+    End If
+End If
+
+End Sub
+
 Private Sub Form_Load()
+'12945
+'9240
+Form1.Width = 9240
+ActiveFile = "None"
 'Comments
 'C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe
 'MD5 8F0BC836E2B6023371B99E94829B5CF1
@@ -720,8 +855,11 @@ Private Sub Form_Load()
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.0.4"
+Build = "0.0.5"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
+
+Dir1.Path = VB.App.Path
+File1.Path = VB.App.Path
 
 Label2.Caption = "Not Set"
 'MedEXE = "C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe"
@@ -790,6 +928,9 @@ If VideoIP = 1 Then
 Check5.Value = 1
 End If
 
+a = Validate_MedEXE()
+a = Validate_Rom()
+a = Validate_Bios()
 End If
 
 Combo1.AddItem "gb (GameBoy (Color))", 0
@@ -843,34 +984,12 @@ Combo4.AddItem "nny3x - Nearest-neighbor 3x, y axis only", 14
 Combo4.AddItem "nny4x - Nearest-neighbor 4x, y axis only", 15
 
 If FSO.FileExists(MedEXE) = False Then
-    MedEXE = InputBox("Select Mednafen EXE", "Select Mednafen EXE")
+Form1.Width = 12945
+ActiveFile = "MEDEXE"
+MsgBox "Select your Mednafen EXE to get started!"
 End If
 
-If FSO.FileExists(MedEXE) = True Then
-    Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & MedEXE & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-    Sleep (200)
-    If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-        Open VB.App.Path & "\md5.txt" For Input As #1
-            Line Input #1, tmp
-        Close #1
-    End If
-    Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-    If tmp = "8F0BC836E2B6023371B99E94829B5CF1" Then
-        Label2.Caption = "0.9.38.7-win64 Detected! MD5: 8F0BC836E2B6023371B99E94829B5CF1"
-    ElseIf tmp = "C2CA5F8A9A4CF93BB05297272F029B9C" Then
-        Label2.Caption = "0.9.38.7-win32 Detected! MD5: C2CA5F8A9A4CF93BB05297272F029B9C"
-    ElseIf tmp = "D89B755B1616323B7181C9D1931D4E39" Then
-        Label2.Caption = "0.9.38.6-win64 Detected! MD5: D89B755B1616323B7181C9D1931D4E39"
-    ElseIf tmp = "D6A8592FB42104327EF7E57D4F0C8ED1" Then
-        Label2.Caption = "0.9.38.6-win32 Detected! MD5: D6A8592FB42104327EF7E57D4F0C8ED1"
-    ElseIf tmp = "E7A5FBC376B2DAA55AB4A3FF9C6AF1E1" Then
-        Label2.Caption = "0.9.38.5-win64 Detected! MD5: E7A5FBC376B2DAA55AB4A3FF9C6AF1E1"
-     ElseIf tmp = "74B1D63CBAB0CC4F91A9F3FB5020AB78" Then
-        Label2.Caption = "0.9.38.5-win32 Detected! MD5: 74B1D63CBAB0CC4F91A9F3FB5020AB78"
-    Else
-        Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
-    End If
-End If
+
 End Sub
 
 
