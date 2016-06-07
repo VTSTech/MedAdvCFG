@@ -6,10 +6,30 @@ Begin VB.Form Form1
    ClientLeft      =   225
    ClientTop       =   855
    ClientWidth     =   12555
+   Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   5235
    ScaleWidth      =   12555
    StartUpPosition =   3  'Windows Default
+   Begin VB.CheckBox Check10 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "BIOS MD5 Check"
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   52
+      Top             =   960
+      Value           =   1  'Checked
+      Width           =   1695
+   End
+   Begin VB.CheckBox Check9 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "ROM MD5 Check"
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   51
+      Top             =   1440
+      Width           =   1695
+   End
    Begin VB.TextBox Text6 
       BackColor       =   &H00C0C0C0&
       Height          =   285
@@ -175,7 +195,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   15
-      Top             =   1560
+      Top             =   1200
       Width           =   1695
    End
    Begin VB.CommandButton Command2 
@@ -184,7 +204,7 @@ Begin VB.Form Form1
       Height          =   315
       Left            =   6240
       TabIndex        =   12
-      Top             =   1560
+      Top             =   1200
       Width           =   615
    End
    Begin VB.TextBox Text2 
@@ -202,7 +222,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   9
-      Top             =   840
+      Top             =   720
       Width           =   1695
    End
    Begin VB.CommandButton Command1 
@@ -211,7 +231,7 @@ Begin VB.Form Form1
       Height          =   315
       Left            =   6240
       TabIndex        =   7
-      Top             =   840
+      Top             =   720
       Width           =   615
    End
    Begin VB.TextBox Text1 
@@ -235,7 +255,7 @@ Begin VB.Form Form1
    Begin VB.Image Image1 
       Height          =   1095
       Left            =   6960
-      Picture         =   "Form1.frx":0000
+      Picture         =   "Form1.frx":851A
       Stretch         =   -1  'True
       Top             =   3600
       Width           =   1785
@@ -637,16 +657,14 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z, cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile
+Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z, cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
 Private Function Validate_Rom()
-If FSO.FileExists(ROMFILE) = False Then
-    'ROMFILE = InputBox("Select ROM Image (CUE/BIN/IMG)", "Select ROM Image (CUE/BIN/IMG)")
-End If
+If Check9.Value = 1 Then
 If FSO.FileExists(ROMFILE) = True Then
     Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & ROMFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-    Sleep (200)
+    Sleep (500)
     If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
         Open VB.App.Path & "\md5.txt" For Input As #1
             Line Input #1, tmp
@@ -656,14 +674,13 @@ If FSO.FileExists(ROMFILE) = True Then
     Text2.Text = ROMFILE
     Label9.Caption = "MD5: " & tmp
 End If
-
+Else
+Label9.Caption = "MD5: ROM MD5 Disabled"
+End If
 Validate_Rom = tmp
-
 End Function
 Private Function Validate_Bios()
-If FSO.FileExists(BIOSFILE) = False Then
-    'ROMFILE = InputBox("Select ROM Image (CUE/BIN/IMG)", "Select ROM Image (CUE/BIN/IMG)")
-End If
+If Check10.Value = 1 Then
 If FSO.FileExists(BIOSFILE) = True Then
     Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
     Sleep (200)
@@ -676,7 +693,9 @@ If FSO.FileExists(BIOSFILE) = True Then
     Text1.Text = BIOSFILE
     Label6.Caption = "MD5: " & tmp
 End If
-
+Else
+Label6.Caption = "MD5: BIOS MD5 Disabled"
+End If
 Validate_Bios = tmp
 
 End Function
@@ -714,7 +733,7 @@ Validate_MedEXE = tmp
 End Function
 
 Private Sub About_Click()
-MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend)" & vbCrLf & "Written by Nigel Todman (www.NigelTodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, VB"
+MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend)" & vbCrLf & "Written by Nigel Todman (nigel@nigeltodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, VB" & vbCrLf & vbCrLf & "Homepage: www.NigelTodman.com" & vbCrLf & "Facebook: facebook.com/nigel.todman.3" & vbCrLf & "Twitter: @Veritas_83" & vbCrLf & "YouTube: Veritas0923"
 End Sub
 
 Private Sub Combo1_Change()
@@ -1006,8 +1025,8 @@ ActiveFile = "None"
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.0.8"
-Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman (www.NigelTodman.com)"
+Build = "0.0.9"
+Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
 
 Dir1.Path = VB.App.Path
 File1.Path = VB.App.Path
@@ -1021,7 +1040,8 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
 
 Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
-For x = 1 To 15
+For x = 1 To 19
+On Error Resume Next
 Line Input #1, tmp3(x)
 Next x
 Close #1
@@ -1041,9 +1061,19 @@ TBlur = Mid$(tmp3(12), 7, 1)
 TblurAccum = Mid$(tmp3(13), 13, Len(tmp3(13)))
 AccumAmount = Mid$(tmp3(14), 11, 1)
 VideoIP = Mid$(tmp3(15), 9, 1)
+XRes = Mid$(tmp3(16), 6, Len(tmp3(16)))
+YRes = Mid$(tmp3(17), 6, Len(tmp3(17)))
+ScaleFactor = Mid$(tmp3(18), 13, 1)
+LastPath = Mid$(tmp3(19), 10, Len(tmp3(19)))
 
 Text1.Text = BIOSFILE
 Text2.Text = ROMFILE
+Text4.Text = ScaleFactor
+Text5.Text = XRes
+Text6.Text = YRes
+
+Dir1.Path = LastPath
+File1.Path = LastPath
 
 Combo1.Text = SystemCore
 Combo2.Text = Stretch
@@ -1190,5 +1220,9 @@ Print #1, "Tblur=" & Check3.Value
 Print #1, "TblurAccum=" & Check4.Value
 Print #1, "AccumAmount=" & Text3.Text
 Print #1, "VideoIP=" & Check5.Value
+Print #1, "XRes=" & Text5.Text
+Print #1, "YRes=" & Text6.Text
+Print #1, "ScaleFactor=" & Text4.Text
+Print #1, "LastPath=" & File1.Path
 Close #1
 End Sub
