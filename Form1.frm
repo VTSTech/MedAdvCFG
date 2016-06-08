@@ -18,7 +18,6 @@ Begin VB.Form Form1
       Left            =   7080
       TabIndex        =   52
       Top             =   960
-      Value           =   1  'Checked
       Width           =   1695
    End
    Begin VB.CheckBox Check9 
@@ -657,6 +656,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+'Written by Nigel Todman (nigel@nigeltodman.com)
+'Website: www.NigelTodman.com
+'GitHub: https://github.com/Veritas83/MedAdvCFG
+
 Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z, cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
@@ -744,6 +747,8 @@ Check2.Enabled = True
 Else
 Check1.Value = 0
 Check2.Value = 0
+Check9.Value = 0
+Check10.Value = 0
 Check1.Enabled = False
 Check2.Enabled = False
 End If
@@ -757,6 +762,8 @@ Check2.Enabled = True
 Else
 Check1.Value = 0
 Check2.Value = 0
+Check9.Value = 0
+Check10.Value = 0
 Check1.Enabled = False
 Check2.Enabled = False
 End If
@@ -777,27 +784,35 @@ Private Sub Command1_Click()
 Form1.Width = 12945
 ActiveFile = "BIOS"
 If Len(Text1.Text) >= 1 Then
-ResetBios = MsgBox("Reset BIOS?", vbYesNo, "Reset BIOS?")
-If ResetRom = vbYes Then
-BIOSFILE = ""
-Else
-a = Validate_Bios()
+    If Text1.Text = "Not Set" Then
+        ResetBios = vbYes
+    Else
+        ResetBios = MsgBox("Reset Bios?", vbYesNo, "Reset Bios?")
+    End If
+    If ResetBios = vbYes Then
+        BIOSFILE = ""
+    Else
+        a = Validate_Bios()
+    End If
 End If
-End If
+
 End Sub
 
 Private Sub Command2_Click()
 Form1.Width = 12945
 ActiveFile = "ROM"
 If Len(Text2.Text) >= 1 Then
-ResetRom = MsgBox("Reset Rom?", vbYesNo, "Reset Rom?")
-If ResetRom = vbYes Then
-ROMFILE = ""
-Else
-a = Validate_Rom()
+    If Text2.Text = "Not Set" Then
+        ResetRom = vbYes
+    Else
+        ResetRom = MsgBox("Reset Rom?", vbYesNo, "Reset Rom?")
+    End If
+    If ResetRom = vbYes Then
+        ROMFILE = ""
+    Else
+        a = Validate_Rom()
+    End If
 End If
-End If
-
 End Sub
 
 Private Sub Command3_Click()
@@ -918,14 +933,20 @@ End If
 
 If Check5.Value = 1 Then
 cmdstring = cmdstring & " -" & SYSCORE & ".videoip 1"
+Else
+cmdstring = cmdstring & " -" & SYSCORE & ".videoip 0"
 End If
 
 If Check6.Value = 1 Then
 cmdstring = cmdstring & " -video.fs 1"
+Else
+cmdstring = cmdstring & " -video.fs 0"
 End If
 
 If Check7.Value = 1 Then
 cmdstring = cmdstring & " -video.frameskip 1"
+Else
+cmdstring = cmdstring & " -video.frameskip 0"
 End If
 
 If Check1.Value = 1 Then
@@ -953,7 +974,7 @@ cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 cmdstring = cmdstring & Chr(34)
 
 If Check8.Value = 1 Then
-MsgBox cmdstring
+    MsgBox cmdstring
 End If
 
 Shell (cmdstring)
@@ -1025,7 +1046,7 @@ ActiveFile = "None"
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.0.9"
+Build = "0.1.0"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
 
 Dir1.Path = VB.App.Path
