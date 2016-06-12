@@ -8,7 +8,41 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/04177dbdf36fa1f04d32dcf628b3d239.png">
+<img src="https://i.gyazo.com/146deaf14b2a56cf933b7e762d3c4522.png">
+
+v0.1.1 06-12-2016 12:48 AM
+
+
+Now supports custom Save/Memory Card/State path
+
+Remembers Bios/Firmware Path
+
+Now validates every PSX Bios that has been dumped to date!
+
+Selection of PSX Region now supported.
+
+Auto selects PSX Region based on BIOS Region if known.
+
+Now actually passes PCE/PSX Bios to cmdline
+
+Resized main form slightly
+
+
+v0.1.0 06-07-2016 6:08 PM
+
+
+Suppresses 'Reset ROM/BIOS' Confirmation if a ROM/BIOS is not set.
+
+Now passes video.fs 0 if Fullscreen is unchecked.
+
+Now passes videoip 0 if Bilinear interpolation is unchecked.
+
+Turns off MD5 Checks on System Core change.
+
+Release compression changed to zip format
+
+Changelog now has timestamps
+
 
 v0.0.9 06-07-2016
 
