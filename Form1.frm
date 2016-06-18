@@ -11,6 +11,16 @@ Begin VB.Form Form1
    ScaleHeight     =   6135
    ScaleWidth      =   12555
    StartUpPosition =   3  'Windows Default
+   Begin VB.CheckBox Check14 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "untrusted_fip_check"
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   61
+      Top             =   3840
+      Value           =   1  'Checked
+      Width           =   1815
+   End
    Begin VB.CheckBox Check13 
       BackColor       =   &H00C0C0C0&
       Caption         =   "PAL"
@@ -746,7 +756,7 @@ Attribute VB_Exposed = False
 
 Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
-Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad
+Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR
 
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
@@ -1044,6 +1054,7 @@ If Len(Text1.Text) >= 1 Then
         ResetBios = MsgBox("Reset Bios?", vbYesNo, "Reset Bios?")
     End If
     If ResetBios = vbYes Then
+        If Len(BiosPathLoad) > 0 Then Dir1.Path = BiosPathLoad
         BIOSFILE = ""
     Else
         a = Validate_Bios()
@@ -1062,6 +1073,7 @@ If Len(Text2.Text) >= 1 Then
         ResetRom = MsgBox("Reset Rom?", vbYesNo, "Reset Rom?")
     End If
     If ResetRom = vbYes Then
+        If Len(ROMDIR) > 0 Then Dir1.Path = ROMDIR
         ROMFILE = ""
     Else
         a = Validate_Rom()
@@ -1242,6 +1254,11 @@ End If
 If Len(Text7.Text) > 0 Then
     cmdstring = cmdstring & " -filesys.path_state " & Chr(34) & Text7.Text & Chr(34) & " -filesys.path_sav " & Chr(34) & Text7.Text & Chr(34)
 End If
+
+If Check14.Value = 0 Then
+    cmdstring = cmdstring & " -filesys.untrusted_fip_check 0"
+End If
+
 '
 cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 
@@ -1263,6 +1280,8 @@ Text1.Text = ""
 Text2.Text = ""
 Label6.Caption = "Not Set"
 Label9.Caption = "Not Set"
+ROMFILE = ""
+BIOSFILE = ""
 End Sub
 
 Private Sub Command5_Click()
@@ -1336,6 +1355,7 @@ If ActiveFile = "ROM" Then
     tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
     If tmp2 = vbYes Then
         Text2.Text = Dir1.Path & "\" & File1.FileName
+        ROMDIR = Dir1.Path
         ROMFILE = Text2.Text
         Form1.Width = 9240
         ActiveFile = "None"
@@ -1361,7 +1381,7 @@ Label29.Visible = False
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.1.1"
+Build = "0.1.2"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
 
 Dir1.Path = VB.App.Path
@@ -1376,7 +1396,7 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
 
 Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
-    For x = 1 To 22
+    For x = 1 To 23
         On Error Resume Next
         Line Input #1, tmp3(x)
     Next x
@@ -1404,6 +1424,7 @@ LastPath = Mid$(tmp3(19), 10, Len(tmp3(19)))
 BiosPathLoad = Mid$(tmp3(20), 14, Len(tmp3(20)))
 SavePath = Mid$(tmp3(21), 10, Len(tmp3(21)))
 SystemRegion = Mid$(tmp3(22), 14, Len(tmp3(22)))
+RomPathLoad = Mid$(tmp3(23), 9, Len(tmp3(23)))
 
 Text1.Text = BIOSFILE
 Text2.Text = ROMFILE
@@ -1414,6 +1435,9 @@ Text7.Text = SavePath
 
 Dir1.Path = LastPath
 File1.Path = LastPath
+
+ROMDIR = RomPathLoad
+BIOSPATH = BiosPathLoad
 
 Combo1.Text = SystemCore
 Combo2.Text = Stretch
@@ -1457,6 +1481,31 @@ ElseIf SystemRegion = "NTSC-J" Then
     Check12.Value = 1
 ElseIf SystemRegion = "PAL" Then
     Check13.Value = 1
+End If
+
+If Combo1.Text = "psx (Sony PlayStation)" Then
+    Check1.Enabled = True
+    Check2.Enabled = True
+    Check11.Enabled = True
+    Check12.Enabled = True
+    Check13.Enabled = True
+    Check1.Value = 1
+    Check2.Value = 1
+    Check9.Value = 1
+    Check10.Value = 1
+Else
+    Check1.Value = 0
+    Check2.Value = 0
+    Check9.Value = 0
+    Check10.Value = 0
+    Check11.Value = 0
+    Check12.Value = 0
+    Check13.Value = 0
+    Check1.Enabled = False
+    Check2.Enabled = False
+    Check11.Enabled = False
+    Check12.Enabled = False
+    Check13.Enabled = False
 End If
 
 a = Validate_MedEXE()
@@ -1585,6 +1634,7 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #1
     ElseIf Check13.Value = 1 Then
         Print #1, "SystemRegion=PAL"
     End If
+    Print #1, "RomPath=" & ROMDIR
 Close #1
 End Sub
 

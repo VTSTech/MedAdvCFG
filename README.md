@@ -8,7 +8,23 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/146deaf14b2a56cf933b7e762d3c4522.png">
+<img src="https://i.gyazo.com/3d8484b6d3f12c209cdd171d0e000f33.png">
+
+v0.1.2 06-17-2016 5:44 PM
+
+
+Supports toggle of untrusted_fip_check parameter.
+
+Used for Multi-Disc games specifying CUE/BIN in diff folders
+
+Supports Multi-Disc games via M3U file.
+
+M3U Generation coming in next build.
+
+Now saves RomPath.
+
+If RomPath or BiosPath exists, Resetting defaults to that path
+
 
 v0.1.1 06-12-2016 12:48 AM
 
