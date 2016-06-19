@@ -11,13 +11,33 @@ Begin VB.Form Form1
    ScaleHeight     =   6135
    ScaleWidth      =   12555
    StartUpPosition =   3  'Windows Default
+   Begin VB.TextBox Text8 
+      BackColor       =   &H00C0C0C0&
+      Height          =   285
+      Left            =   7080
+      TabIndex        =   64
+      Text            =   "1"
+      Top             =   4080
+      Width           =   285
+   End
+   Begin VB.ComboBox Combo5 
+      BackColor       =   &H00C0C0C0&
+      Height          =   315
+      ItemData        =   "Form1.frx":851A
+      Left            =   1320
+      List            =   "Form1.frx":851C
+      TabIndex        =   62
+      Text            =   "gamepad - SCPH-1080 PlayStation Digital Gamepad"
+      Top             =   3960
+      Width           =   4575
+   End
    Begin VB.CheckBox Check14 
       BackColor       =   &H00C0C0C0&
       Caption         =   "untrusted_fip_check"
       Height          =   195
       Left            =   7080
       TabIndex        =   61
-      Top             =   3840
+      Top             =   3600
       Value           =   1  'Checked
       Width           =   1815
    End
@@ -54,7 +74,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   54
       Text            =   "Not Set"
-      Top             =   3720
+      Top             =   3600
       Width           =   4575
    End
    Begin VB.CommandButton Command5 
@@ -63,7 +83,7 @@ Begin VB.Form Form1
       Height          =   315
       Left            =   6000
       TabIndex        =   53
-      Top             =   3720
+      Top             =   3600
       Width           =   615
    End
    Begin VB.CheckBox Check10 
@@ -72,7 +92,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   52
-      Top             =   1200
+      Top             =   1080
       Width           =   1695
    End
    Begin VB.CheckBox Check9 
@@ -130,7 +150,7 @@ Begin VB.Form Form1
    End
    Begin VB.FileListBox File1 
       BackColor       =   &H00C0C0C0&
-      Height          =   2820
+      Height          =   3210
       Left            =   9000
       TabIndex        =   41
       Top             =   2400
@@ -150,7 +170,7 @@ Begin VB.Form Form1
       Height          =   435
       Left            =   4440
       TabIndex        =   39
-      Top             =   4200
+      Top             =   4440
       Width           =   1935
    End
    Begin VB.CheckBox Check7 
@@ -177,7 +197,7 @@ Begin VB.Form Form1
       Height          =   495
       Left            =   4440
       TabIndex        =   29
-      Top             =   4680
+      Top             =   4920
       Width           =   1815
    End
    Begin VB.ComboBox Combo4 
@@ -240,8 +260,8 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   16
       Text            =   "0 - Disabled"
-      Top             =   2520
-      Width           =   2775
+      Top             =   2400
+      Width           =   3375
    End
    Begin VB.CheckBox Check2 
       BackColor       =   &H00C0C0C0&
@@ -276,7 +296,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   9
-      Top             =   960
+      Top             =   840
       Width           =   1695
    End
    Begin VB.CommandButton Command1 
@@ -305,6 +325,26 @@ Begin VB.Form Form1
       Text            =   "gb (GameBoy (Color))"
       Top             =   240
       Width           =   4575
+   End
+   Begin VB.Label Label31 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "# of Players:"
+      Height          =   195
+      Left            =   6120
+      TabIndex        =   65
+      Top             =   4080
+      Width           =   885
+   End
+   Begin VB.Label Label30 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Controller:"
+      Height          =   195
+      Left            =   120
+      TabIndex        =   63
+      Top             =   3960
+      Width           =   705
    End
    Begin VB.Label Label29 
       AutoSize        =   -1  'True
@@ -342,15 +382,15 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   55
-      Top             =   3720
+      Top             =   3600
       Width           =   795
    End
    Begin VB.Image Image1 
       Height          =   1095
       Left            =   6960
-      Picture         =   "Form1.frx":851A
+      Picture         =   "Form1.frx":851E
       Stretch         =   -1  'True
-      Top             =   4320
+      Top             =   4560
       Width           =   1785
    End
    Begin VB.Label Label26 
@@ -390,7 +430,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   9000
       TabIndex        =   43
-      Top             =   5640
+      Top             =   5880
       Width           =   3435
    End
    Begin VB.Label Label23 
@@ -410,7 +450,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   9360
       TabIndex        =   42
-      Top             =   5400
+      Top             =   5640
       Width           =   2655
    End
    Begin VB.Label Label22 
@@ -430,7 +470,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   37
-      Top             =   4440
+      Top             =   4680
       Width           =   1320
    End
    Begin VB.Label Label21 
@@ -450,7 +490,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   36
-      Top             =   4680
+      Top             =   4920
       Width           =   1305
    End
    Begin VB.Label Label20 
@@ -470,7 +510,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   35
-      Top             =   4920
+      Top             =   5160
       Width           =   1680
    End
    Begin VB.Label Label19 
@@ -490,7 +530,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   34
-      Top             =   5160
+      Top             =   5400
       Width           =   3075
    End
    Begin VB.Label Label18 
@@ -510,7 +550,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   33
-      Top             =   5400
+      Top             =   5640
       Width           =   6270
    End
    Begin VB.Label Label17 
@@ -530,7 +570,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   32
-      Top             =   5640
+      Top             =   5880
       Width           =   7305
    End
    Begin VB.Label Label16 
@@ -550,7 +590,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   31
-      Top             =   4200
+      Top             =   4440
       Width           =   765
    End
    Begin VB.Label Label15 
@@ -570,7 +610,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1890
       TabIndex        =   28
-      Top             =   4560
+      Top             =   4800
       Width           =   1995
    End
    Begin VB.Label Label14 
@@ -590,7 +630,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1830
       TabIndex        =   27
-      Top             =   4320
+      Top             =   4560
       Width           =   2115
    End
    Begin VB.Label Label13 
@@ -630,7 +670,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   17
-      Top             =   2520
+      Top             =   2400
       Width           =   750
    End
    Begin VB.Label Label9 
@@ -640,7 +680,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1320
       TabIndex        =   14
-      Top             =   2160
+      Top             =   2040
       Width           =   540
    End
    Begin VB.Label Label8 
@@ -650,7 +690,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   13
-      Top             =   2160
+      Top             =   2040
       Width           =   810
    End
    Begin VB.Label Label7 
@@ -734,6 +774,9 @@ Begin VB.Form Form1
    End
    Begin VB.Menu File 
       Caption         =   "File"
+      Begin VB.Menu Gen_M3U 
+         Caption         =   "Generate Multi-Disc M3U"
+      End
       Begin VB.Menu Save_Settings 
          Caption         =   "Save Settings"
       End
@@ -756,10 +799,18 @@ Attribute VB_Exposed = False
 
 Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
-Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR
+Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile
 
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+Private Function Generate_M3U(M3USize As Integer)
+'*** v0.1.3
+Form1.Width = 12945
+ActiveFile = "M3U"
+MsgBox "Select the first disc"
+z = 0
+Open VB.App.Path & "\multi.m3u" For Output As #2
 
+End Function
 Private Function Validate_Rom()
 If Check9.Value = 1 Then
     If FSO.FileExists(ROMFILE) = True Then
@@ -993,6 +1044,11 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check11.Enabled = True
     Check12.Enabled = True
     Check13.Enabled = True
+    Combo5.Enabled = True
+    Check1.Value = 1
+    Check2.Value = 1
+    Check9.Value = 1
+    Check10.Value = 1
 Else
     Check1.Value = 0
     Check2.Value = 0
@@ -1006,6 +1062,7 @@ Else
     Check11.Enabled = False
     Check12.Enabled = False
     Check13.Enabled = False
+    Combo5.Enabled = False
 End If
 End Sub
 
@@ -1017,6 +1074,11 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check11.Enabled = True
     Check12.Enabled = True
     Check13.Enabled = True
+    Combo5.Enabled = True
+    Check1.Value = 1
+    Check2.Value = 1
+    Check9.Value = 1
+    Check10.Value = 1
 Else
     Check1.Value = 0
     Check2.Value = 0
@@ -1030,6 +1092,7 @@ Else
     Check11.Enabled = False
     Check12.Enabled = False
     Check13.Enabled = False
+    Combo5.Enabled = False
 End If
 
 'Combo1.AddItem "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)", 7
@@ -1082,7 +1145,6 @@ End If
 End Sub
 
 Private Sub Command3_Click()
-
 If Combo1.Text = "gb (GameBoy (Color))" Then
     SYSCORE = "gb"
 ElseIf Combo1.Text = "gba (GameBoy Advanced)" Then
@@ -1202,6 +1264,58 @@ ElseIf Combo4.Text = "nny3x - Nearest-neighbor 3x, y axis only" Then
 ElseIf Combo4.Text = "nny4x - Nearest-neighbor 4x, y axis only" Then
     cmdstring = cmdstring & " -" & SYSCORE & ".special nny4x"
 End If
+
+'*** v0.1.3
+If Combo5.Enabled = True Then
+    If Val(Text8.Text) > 1 Then
+        For y = 1 To Val(Text8.Text)
+            If Combo5.ListIndex = 0 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
+            ElseIf Combo5.ListIndex = 1 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
+            ElseIf Combo5.ListIndex = 2 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dualshock"
+            ElseIf Combo5.ListIndex = 3 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dualanalog"
+            ElseIf Combo5.ListIndex = 4 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " analogjoy"
+            ElseIf Combo5.ListIndex = 5 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " mouse"
+            ElseIf Combo5.ListIndex = 6 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " negcon"
+            ElseIf Combo5.ListIndex = 7 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " guncon"
+            ElseIf Combo5.ListIndex = 8 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " justifier"
+            ElseIf Combo5.ListIndex = 9 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dancepad"
+            End If
+        Next y
+    ElseIf Val(Text8.Text) = 1 Then
+            If Combo5.ListIndex = 0 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
+            ElseIf Combo5.ListIndex = 1 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
+            ElseIf Combo5.ListIndex = 2 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dualshock"
+            ElseIf Combo5.ListIndex = 3 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dualanalog"
+            ElseIf Combo5.ListIndex = 4 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 analogjoy"
+            ElseIf Combo5.ListIndex = 5 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 mouse"
+            ElseIf Combo5.ListIndex = 6 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 negcon"
+            ElseIf Combo5.ListIndex = 7 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 guncon"
+            ElseIf Combo5.ListIndex = 8 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 justifier"
+            ElseIf Combo5.ListIndex = 9 Then
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dancepad"
+            End If
+    End If
+End If
+
 
 If Check3.Value = 1 Then
     cmdstring = cmdstring & " -" & SYSCORE & ".tblur 1"
@@ -1364,6 +1478,41 @@ If ActiveFile = "ROM" Then
     End If
 End If
 
+If ActiveFile = "M3U" Then
+        If z = 0 Then
+            tmp2 = MsgBox("Set Disc 1: " & File1.FileName, vbYesNo, "Set this file?")
+            If tmp2 = vbYes Then
+                Print #2, Dir1.Path & "\" & File1.FileName
+                tmp1 = File1.FileName
+            End If
+            tmp2 = ""
+            z = z + 1
+            MsgBox ("Now select the next disc")
+        ElseIf z >= 1 And z <= Val(M3USize) Then
+            Do
+                If File1.FileName <> tmp1 And Len(File1.FileName) > 1 And z <= Val(M3USize) And File1.FileName <> LastFile Then
+                    tmp2 = MsgBox("Set Disc " & z + 1 & ": " & File1.FileName, vbYesNo, "Set this file?")
+                    LastFile = File1.FileName
+                    If tmp2 = vbYes Then
+                        Print #2, Dir1.Path & "\" & File1.FileName
+                        z = z + 1
+                        If z <> Val(M3USize) Then
+                            MsgBox ("Now select the next disc")
+                        End If
+                    ElseIf tmp2 = vbNo Then
+                        File1.FileName = ""
+                    End If
+                End If
+                DoEvents
+            Loop Until z = Val(M3USize) Or z > Val(M3USize)
+            tmp2 = ""
+            ActiveFile = "None"
+            Form1.Width = 9240
+            Close #2
+            MsgBox "M3U Generated! Written to: " & VB.App.Path & "\multi.m3u" & vbCrLf & vbCrLf & "You should rename your multi.m3u" & vbCrLf & vbCrLf & "Your Memory Card and Save State filenames will be based on it." & vbCrLf & vbCrLf & "Use F8 to 'Eject/Close' and F6 to cycle thru the Disc Set"
+            Text2.Text = VB.App.Path & "\multi.m3u"
+        End If
+End If
 End Sub
 
 Private Sub Form_Load()
@@ -1381,7 +1530,7 @@ Label29.Visible = False
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.1.2"
+Build = "0.1.3"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
 
 Dir1.Path = VB.App.Path
@@ -1473,7 +1622,7 @@ If VideoIP = 1 Then
     Check5.Value = 1
 End If
 
-If SystemRegion = None Then
+If SystemRegion = none Then
     a = a
 ElseIf SystemRegion = "NTSC-U" Then
     Check11.Value = 1
@@ -1489,6 +1638,7 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check11.Enabled = True
     Check12.Enabled = True
     Check13.Enabled = True
+    Combo5.Enabled = True
     Check1.Value = 1
     Check2.Value = 1
     Check9.Value = 1
@@ -1506,6 +1656,7 @@ Else
     Check11.Enabled = False
     Check12.Enabled = False
     Check13.Enabled = False
+    Combo5.Enabled = False
 End If
 
 a = Validate_MedEXE()
@@ -1563,6 +1714,44 @@ Combo4.AddItem "nny2x - Nearest-neighbor 2x, y axis only", 13
 Combo4.AddItem "nny3x - Nearest-neighbor 3x, y axis only", 14
 Combo4.AddItem "nny4x - Nearest-neighbor 4x, y axis only", 15
 
+Combo5.AddItem "none", 0
+Combo5.AddItem "gamepad - SCPH-1080 PlayStation Digital Gamepad", 1
+Combo5.AddItem "dualshock - SCPH-1200 PlayStation DualShock Gamepad", 2
+Combo5.AddItem "dualanalog - SCPH-1180 PlayStation DualAnalog Gamepad", 3
+Combo5.AddItem "analogjoy - SCPH-1110 PlayStation Analog Joystick", 4
+Combo5.AddItem "mouse - SCPH-1090 PlayStation Mouse", 5
+Combo5.AddItem "negcon - NPC-101 Namco neGcon", 6
+Combo5.AddItem "guncon - NPC-103 Namco GunCon", 7
+Combo5.AddItem "justifier - SLUH-00017 Konami Justifier", 8
+Combo5.AddItem "dancepad - SLUH-00071 Konami Dancepad", 9
+Combo5.ListIndex = 1
+
+'SySCore = PSX
+'none
+'gamepad
+'dualshock
+'dualanalog
+'analogjoy
+'mouse
+'negcon
+'guncon
+'justifier
+'dancepad
+
+'SysCore = SNES
+'none
+'gamepad
+'mouse
+'superscope - port2 only
+
+'SysCore = NES
+'none
+'gamepad
+'zapper
+'powerpada
+'powerpadb
+'arkanoid
+
 If FSO.FileExists(MedEXE) = False Then
     Form1.Width = 12945
     ActiveFile = "MEDEXE"
@@ -1570,6 +1759,15 @@ If FSO.FileExists(MedEXE) = False Then
 End If
 
 
+End Sub
+
+Private Sub Gen_M3U_Click()
+M3USize = InputBox("How many discs total?", "How many discs total?")
+If M3USize <= 1 Then
+    MsgBox "Mutli-Disc M3U not needed for a single disc game. If you want to load a single disc game after Gameshark. Enter 2, First is GameShark CD, Second is Game CD"
+Else
+Generate_M3U (M3USize)
+End If
 End Sub
 
 Private Sub Image1_Click()

@@ -8,7 +8,22 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/3d8484b6d3f12c209cdd171d0e000f33.png">
+<img src="https://i.gyazo.com/f6dc2dc33b466b74e7d01a1e7ff09d1a.png">
+
+
+v0.1.3 06-17-2016 9:34 PM
+
+
+M3U Generation now supported!
+
+Select File - Generate Multi-Disc M3U. Enter # of Discs, Select them. Done
+
+Outputs multi.m3u into current folder for MedAdvCFG.exe
+
+Support Controller Selection (PSX Only for now)
+
+Added Players Count, Will add this many input(x) to command line for controller
+
 
 v0.1.2 06-17-2016 5:44 PM
 
