@@ -2,22 +2,30 @@ VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.38.x Frontend) by Nigel Todman"
-   ClientHeight    =   6135
+   ClientHeight    =   6510
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   12555
+   ClientWidth     =   12615
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6135
-   ScaleWidth      =   12555
+   ScaleHeight     =   6510
+   ScaleWidth      =   12615
    StartUpPosition =   3  'Windows Default
+   Begin VB.TextBox Text9 
+      BackColor       =   &H00C0C0C0&
+      Height          =   285
+      Left            =   1320
+      TabIndex        =   64
+      Top             =   4320
+      Width           =   4575
+   End
    Begin VB.TextBox Text8 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   7080
-      TabIndex        =   64
+      Left            =   8640
+      TabIndex        =   62
       Text            =   "1"
-      Top             =   4080
+      Top             =   4275
       Width           =   285
    End
    Begin VB.ComboBox Combo5 
@@ -26,7 +34,7 @@ Begin VB.Form Form1
       ItemData        =   "Form1.frx":851A
       Left            =   1320
       List            =   "Form1.frx":851C
-      TabIndex        =   62
+      TabIndex        =   60
       Text            =   "gamepad - SCPH-1080 PlayStation Digital Gamepad"
       Top             =   3960
       Width           =   4575
@@ -36,8 +44,8 @@ Begin VB.Form Form1
       Caption         =   "untrusted_fip_check"
       Height          =   195
       Left            =   7080
-      TabIndex        =   61
-      Top             =   3600
+      TabIndex        =   59
+      Top             =   2880
       Value           =   1  'Checked
       Width           =   1815
    End
@@ -46,8 +54,8 @@ Begin VB.Form Form1
       Caption         =   "PAL"
       Height          =   195
       Left            =   4080
-      TabIndex        =   58
-      Top             =   600
+      TabIndex        =   56
+      Top             =   720
       Width           =   735
    End
    Begin VB.CheckBox Check12 
@@ -55,8 +63,8 @@ Begin VB.Form Form1
       Caption         =   "NTSC-J"
       Height          =   195
       Left            =   2640
-      TabIndex        =   57
-      Top             =   600
+      TabIndex        =   55
+      Top             =   720
       Width           =   975
    End
    Begin VB.CheckBox Check11 
@@ -64,15 +72,15 @@ Begin VB.Form Form1
       Caption         =   "NTSC-U"
       Height          =   195
       Left            =   1320
-      TabIndex        =   56
-      Top             =   600
+      TabIndex        =   54
+      Top             =   720
       Width           =   975
    End
    Begin VB.TextBox Text7 
       BackColor       =   &H00C0C0C0&
       Height          =   285
       Left            =   1320
-      TabIndex        =   54
+      TabIndex        =   52
       Text            =   "Not Set"
       Top             =   3600
       Width           =   4575
@@ -82,7 +90,7 @@ Begin VB.Form Form1
       Caption         =   "Set"
       Height          =   315
       Left            =   6000
-      TabIndex        =   53
+      TabIndex        =   51
       Top             =   3600
       Width           =   615
    End
@@ -91,8 +99,8 @@ Begin VB.Form Form1
       Caption         =   "BIOS MD5 Check"
       Height          =   195
       Left            =   7080
-      TabIndex        =   52
-      Top             =   1080
+      TabIndex        =   50
+      Top             =   840
       Width           =   1695
    End
    Begin VB.CheckBox Check9 
@@ -100,104 +108,104 @@ Begin VB.Form Form1
       Caption         =   "ROM MD5 Check"
       Height          =   195
       Left            =   7080
-      TabIndex        =   51
-      Top             =   1920
+      TabIndex        =   49
+      Top             =   1320
       Width           =   1695
    End
    Begin VB.TextBox Text6 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   7920
-      TabIndex        =   49
+      Left            =   8400
+      TabIndex        =   47
       Text            =   "1080"
-      Top             =   3240
+      Top             =   3360
       Width           =   515
    End
    Begin VB.TextBox Text5 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   7440
-      TabIndex        =   48
+      Left            =   7920
+      TabIndex        =   46
       Text            =   "1920"
-      Top             =   3240
+      Top             =   3360
       Width           =   495
    End
    Begin VB.TextBox Text4 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   8160
-      TabIndex        =   46
+      Left            =   8640
+      TabIndex        =   44
       Text            =   "2"
-      Top             =   3000
+      Top             =   3650
       Width           =   285
    End
    Begin VB.CommandButton Command4 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Clear BIOS/ROM"
+      Caption         =   "Clear"
       Height          =   315
       Left            =   6000
-      TabIndex        =   45
-      Top             =   240
-      Width           =   1455
+      TabIndex        =   43
+      Top             =   480
+      Width           =   615
    End
    Begin VB.DriveListBox Drive1 
       BackColor       =   &H00C0C0C0&
       Height          =   315
       Left            =   9000
-      TabIndex        =   44
-      Top             =   0
+      TabIndex        =   42
+      Top             =   120
       Width           =   3615
    End
    Begin VB.FileListBox File1 
       BackColor       =   &H00C0C0C0&
       Height          =   3210
       Left            =   9000
-      TabIndex        =   41
-      Top             =   2400
+      TabIndex        =   39
+      Top             =   2760
       Width           =   3615
    End
    Begin VB.DirListBox Dir1 
       BackColor       =   &H00C0C0C0&
-      Height          =   2115
+      Height          =   2340
       Left            =   9000
-      TabIndex        =   40
-      Top             =   360
+      TabIndex        =   38
+      Top             =   480
       Width           =   3615
    End
    Begin VB.CheckBox Check8 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Review Command Line before execution?"
       Height          =   435
-      Left            =   4440
-      TabIndex        =   39
-      Top             =   4440
+      Left            =   4920
+      TabIndex        =   37
+      Top             =   2400
       Width           =   1935
    End
    Begin VB.CheckBox Check7 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Frameskip"
       Height          =   195
-      Left            =   5160
-      TabIndex        =   38
-      Top             =   2760
+      Left            =   7080
+      TabIndex        =   36
+      Top             =   2160
       Width           =   1095
    End
    Begin VB.CheckBox Check6 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Fullscreen (FS)"
       Height          =   195
-      Left            =   5160
-      TabIndex        =   30
-      Top             =   2520
+      Left            =   7080
+      TabIndex        =   28
+      Top             =   1920
       Width           =   1455
    End
    Begin VB.CommandButton Command3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Launch mednafen.exe"
       Height          =   495
-      Left            =   4440
-      TabIndex        =   29
-      Top             =   4920
+      Left            =   4920
+      TabIndex        =   27
+      Top             =   2880
       Width           =   1815
    End
    Begin VB.ComboBox Combo4 
@@ -213,18 +221,18 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Bilinear interpolation"
       Height          =   195
-      Left            =   5160
+      Left            =   7080
       TabIndex        =   24
-      Top             =   2280
+      Top             =   3120
       Width           =   1815
    End
    Begin VB.TextBox Text3 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   8160
+      Left            =   8640
       TabIndex        =   22
       Text            =   "50"
-      Top             =   2760
+      Top             =   3960
       Width           =   285
    End
    Begin VB.CheckBox Check4 
@@ -233,7 +241,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   21
-      Top             =   2520
+      Top             =   2640
       Width           =   1575
    End
    Begin VB.CheckBox Check3 
@@ -242,7 +250,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   20
-      Top             =   2280
+      Top             =   2400
       Width           =   1335
    End
    Begin VB.ComboBox Combo3 
@@ -260,7 +268,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   16
       Text            =   "0 - Disabled"
-      Top             =   2400
+      Top             =   2520
       Width           =   3375
    End
    Begin VB.CheckBox Check2 
@@ -269,7 +277,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   15
-      Top             =   1680
+      Top             =   1080
       Width           =   1695
    End
    Begin VB.CommandButton Command2 
@@ -278,7 +286,7 @@ Begin VB.Form Form1
       Height          =   315
       Left            =   6000
       TabIndex        =   12
-      Top             =   1680
+      Top             =   1920
       Width           =   615
    End
    Begin VB.TextBox Text2 
@@ -287,7 +295,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   11
       Text            =   "Not Set"
-      Top             =   1680
+      Top             =   1920
       Width           =   4575
    End
    Begin VB.CheckBox Check1 
@@ -296,7 +304,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   9
-      Top             =   840
+      Top             =   600
       Width           =   1695
    End
    Begin VB.CommandButton Command1 
@@ -305,7 +313,7 @@ Begin VB.Form Form1
       Height          =   315
       Left            =   6000
       TabIndex        =   7
-      Top             =   840
+      Top             =   960
       Width           =   615
    End
    Begin VB.TextBox Text1 
@@ -314,7 +322,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   5
       Text            =   "Not Set"
-      Top             =   840
+      Top             =   960
       Width           =   4575
    End
    Begin VB.ComboBox Combo1 
@@ -323,17 +331,69 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   2
       Text            =   "gb (GameBoy (Color))"
-      Top             =   240
+      Top             =   360
       Width           =   4575
+   End
+   Begin VB.Image Image7 
+      Height          =   480
+      Left            =   4440
+      Picture         =   "Form1.frx":851E
+      Top             =   5040
+      Width           =   480
+   End
+   Begin VB.Image Image6 
+      Height          =   480
+      Left            =   3720
+      Picture         =   "Form1.frx":91E8
+      Top             =   5040
+      Width           =   480
+   End
+   Begin VB.Image Image5 
+      Height          =   480
+      Left            =   5880
+      Picture         =   "Form1.frx":9EB2
+      Top             =   5040
+      Width           =   480
+   End
+   Begin VB.Image Image4 
+      Height          =   480
+      Left            =   5160
+      Picture         =   "Form1.frx":AB7C
+      Top             =   5040
+      Width           =   480
+   End
+   Begin VB.Image Image3 
+      Height          =   480
+      Left            =   3000
+      Picture         =   "Form1.frx":B846
+      Top             =   5040
+      Width           =   480
+   End
+   Begin VB.Image Image2 
+      Height          =   480
+      Left            =   2280
+      Picture         =   "Form1.frx":C510
+      Top             =   5040
+      Width           =   480
+   End
+   Begin VB.Label Label32 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Custom Params:"
+      Height          =   195
+      Left            =   120
+      TabIndex        =   65
+      Top             =   4320
+      Width           =   1140
    End
    Begin VB.Label Label31 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "# of Players:"
       Height          =   195
-      Left            =   6120
-      TabIndex        =   65
-      Top             =   4080
+      Left            =   7440
+      TabIndex        =   63
+      Top             =   4275
       Width           =   885
    End
    Begin VB.Label Label30 
@@ -342,7 +402,7 @@ Begin VB.Form Form1
       Caption         =   "Controller:"
       Height          =   195
       Left            =   120
-      TabIndex        =   63
+      TabIndex        =   61
       Top             =   3960
       Width           =   705
    End
@@ -361,9 +421,9 @@ Begin VB.Form Form1
       EndProperty
       Height          =   195
       Left            =   1320
-      TabIndex        =   60
-      Top             =   1440
-      Width           =   660
+      TabIndex        =   58
+      Top             =   1560
+      Width           =   6900
    End
    Begin VB.Label Label28 
       AutoSize        =   -1  'True
@@ -371,8 +431,8 @@ Begin VB.Form Form1
       Caption         =   "System Region:"
       Height          =   195
       Left            =   120
-      TabIndex        =   59
-      Top             =   600
+      TabIndex        =   57
+      Top             =   720
       Width           =   1110
    End
    Begin VB.Label Label27 
@@ -381,14 +441,14 @@ Begin VB.Form Form1
       Caption         =   "Save Path:"
       Height          =   195
       Left            =   120
-      TabIndex        =   55
+      TabIndex        =   53
       Top             =   3600
       Width           =   795
    End
    Begin VB.Image Image1 
       Height          =   1095
-      Left            =   6960
-      Picture         =   "Form1.frx":851E
+      Left            =   6600
+      Picture         =   "Form1.frx":D1DA
       Stretch         =   -1  'True
       Top             =   4560
       Width           =   1785
@@ -396,22 +456,22 @@ Begin VB.Form Form1
    Begin VB.Label Label26 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Resolution Override (FS)"
+      Caption         =   "FS Resolution"
       Height          =   195
-      Left            =   5160
-      TabIndex        =   50
-      Top             =   3300
-      Width           =   1725
+      Left            =   6840
+      TabIndex        =   48
+      Top             =   3360
+      Width           =   990
    End
    Begin VB.Label Label25 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Global Scaling Factor (FS/W)"
+      Caption         =   "Scaling Factor (FS/W)"
       Height          =   195
-      Left            =   5160
-      TabIndex        =   47
-      Top             =   3050
-      Width           =   2085
+      Left            =   6840
+      TabIndex        =   45
+      Top             =   3650
+      Width           =   1590
    End
    Begin VB.Label Label24 
       AutoSize        =   -1  'True
@@ -429,8 +489,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00000000&
       Height          =   195
       Left            =   9000
-      TabIndex        =   43
-      Top             =   5880
+      TabIndex        =   41
+      Top             =   6240
       Width           =   3435
    End
    Begin VB.Label Label23 
@@ -449,8 +509,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00000000&
       Height          =   195
       Left            =   9360
-      TabIndex        =   42
-      Top             =   5640
+      TabIndex        =   40
+      Top             =   6000
       Width           =   2655
    End
    Begin VB.Label Label22 
@@ -469,8 +529,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00000000&
       Height          =   195
       Left            =   120
-      TabIndex        =   37
-      Top             =   4680
+      TabIndex        =   35
+      Top             =   5040
       Width           =   1320
    End
    Begin VB.Label Label21 
@@ -489,8 +549,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00000000&
       Height          =   195
       Left            =   120
-      TabIndex        =   36
-      Top             =   4920
+      TabIndex        =   34
+      Top             =   5280
       Width           =   1305
    End
    Begin VB.Label Label20 
@@ -509,8 +569,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00000000&
       Height          =   195
       Left            =   120
-      TabIndex        =   35
-      Top             =   5160
+      TabIndex        =   33
+      Top             =   5520
       Width           =   1680
    End
    Begin VB.Label Label19 
@@ -529,8 +589,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00000000&
       Height          =   195
       Left            =   120
-      TabIndex        =   34
-      Top             =   5400
+      TabIndex        =   32
+      Top             =   5760
       Width           =   3075
    End
    Begin VB.Label Label18 
@@ -549,8 +609,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00000000&
       Height          =   195
       Left            =   120
-      TabIndex        =   33
-      Top             =   5640
+      TabIndex        =   31
+      Top             =   6000
       Width           =   6270
    End
    Begin VB.Label Label17 
@@ -569,8 +629,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00000000&
       Height          =   195
       Left            =   120
-      TabIndex        =   32
-      Top             =   5880
+      TabIndex        =   30
+      Top             =   6240
       Width           =   7305
    End
    Begin VB.Label Label16 
@@ -589,49 +649,9 @@ Begin VB.Form Form1
       ForeColor       =   &H00000000&
       Height          =   195
       Left            =   120
-      TabIndex        =   31
-      Top             =   4440
-      Width           =   765
-   End
-   Begin VB.Label Label15 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "www.NigelTodman.com"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFF80&
-      Height          =   195
-      Left            =   1890
-      TabIndex        =   28
+      TabIndex        =   29
       Top             =   4800
-      Width           =   1995
-   End
-   Begin VB.Label Label14 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "Written by Nigel Todman"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFF80&
-      Height          =   195
-      Left            =   1830
-      TabIndex        =   27
-      Top             =   4560
-      Width           =   2115
+      Width           =   765
    End
    Begin VB.Label Label13 
       AutoSize        =   -1  'True
@@ -648,9 +668,9 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Blur amount:"
       Height          =   195
-      Left            =   7080
+      Left            =   7440
       TabIndex        =   23
-      Top             =   2760
+      Top             =   3960
       Width           =   885
    End
    Begin VB.Label Label11 
@@ -670,7 +690,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   17
-      Top             =   2400
+      Top             =   2520
       Width           =   750
    End
    Begin VB.Label Label9 
@@ -680,7 +700,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1320
       TabIndex        =   14
-      Top             =   2040
+      Top             =   2280
       Width           =   540
    End
    Begin VB.Label Label8 
@@ -690,7 +710,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   13
-      Top             =   2040
+      Top             =   2280
       Width           =   810
    End
    Begin VB.Label Label7 
@@ -700,7 +720,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   10
-      Top             =   1680
+      Top             =   1920
       Width           =   900
    End
    Begin VB.Label Label6 
@@ -710,7 +730,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1320
       TabIndex        =   8
-      Top             =   1200
+      Top             =   1320
       Width           =   540
    End
    Begin VB.Label Label5 
@@ -720,7 +740,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   6
-      Top             =   1200
+      Top             =   1320
       Width           =   810
    End
    Begin VB.Label Label4 
@@ -730,7 +750,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   4
-      Top             =   840
+      Top             =   960
       Width           =   975
    End
    Begin VB.Label Label3 
@@ -740,7 +760,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   3
-      Top             =   240
+      Top             =   360
       Width           =   930
    End
    Begin VB.Label Label2 
@@ -759,7 +779,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1320
       TabIndex        =   1
-      Top             =   45
+      Top             =   120
       Width           =   6225
    End
    Begin VB.Label Label1 
@@ -769,7 +789,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   0
-      Top             =   50
+      Top             =   120
       Width           =   1125
    End
    Begin VB.Menu File 
@@ -1373,6 +1393,9 @@ If Check14.Value = 0 Then
     cmdstring = cmdstring & " -filesys.untrusted_fip_check 0"
 End If
 
+If Len(Text9.Text) > 1 Then
+cmdstring = cmdstring & " " & Text9.Text
+End If
 '
 cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 
@@ -1530,7 +1553,11 @@ Label29.Visible = False
 'md5.exe Source: https://www.fourmilab.ch/md5/
 'MD5.EXE ACKNOWLEDGEMENTS
 'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-Build = "0.1.3"
+'Social Media Icons from Rogie King, http://rog.ie/blog/free-social-media-icons
+'"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
+'You can has link backs.
+
+Build = "0.1.4"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
 
 Dir1.Path = VB.App.Path
@@ -1776,6 +1803,30 @@ End Sub
 
 Private Sub Label15_Click()
 Shell ("cmd.exe /c start http://www.NigelTodman.com"), vbHide
+End Sub
+
+Private Sub Image2_Click()
+Shell ("cmd.exe /c start http://www.facebook.com/nigel.todman.3"), vbHide
+End Sub
+
+Private Sub Image3_Click()
+Shell ("cmd.exe /c start http://www.twitter.com/Veritas_83"), vbHide
+End Sub
+
+Private Sub Image4_Click()
+Shell ("cmd.exe /c start http://steamcommunity.com/id/veritas_/"), vbHide
+End Sub
+
+Private Sub Image5_Click()
+Shell ("cmd.exe /c start https://www.youtube.com/user/Veritas0923/videos"), vbHide
+End Sub
+
+Private Sub Image6_Click()
+Shell ("cmd.exe /c start http://www.nigeltodman.com/"), vbHide
+End Sub
+
+Private Sub Image7_Click()
+Shell ("cmd.exe /c start https://github.com/Veritas83"), vbHide
 End Sub
 
 Private Sub Label2_Click()

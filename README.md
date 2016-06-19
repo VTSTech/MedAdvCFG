@@ -8,10 +8,20 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/f6dc2dc33b466b74e7d01a1e7ff09d1a.png">
+<img src="https://i.gyazo.com/a5618717f9bb303c9860c138c9a704f9.png">
 
 
-v0.1.3 06-17-2016 9:34 PM
+v0.1.4 06-19-2016 1:27 AM
+
+
+Reorganized main controls
+
+Added Social Media Links/Icons
+
+Now supports custom parameters
+
+
+v0.1.3 06-18-2016 9:34 PM
 
 
 M3U Generation now supported!
