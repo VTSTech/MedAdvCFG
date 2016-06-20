@@ -2,21 +2,76 @@ VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.38.x Frontend) by Nigel Todman"
-   ClientHeight    =   6510
+   ClientHeight    =   6765
    ClientLeft      =   225
    ClientTop       =   855
    ClientWidth     =   12615
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6510
+   ScaleHeight     =   6765
    ScaleWidth      =   12615
    StartUpPosition =   3  'Windows Default
+   Begin VB.TextBox Text11 
+      BackColor       =   &H00C0C0C0&
+      Height          =   285
+      Left            =   8520
+      TabIndex        =   73
+      Text            =   "1.00"
+      Top             =   4680
+      Width           =   405
+   End
+   Begin VB.CheckBox Check18 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "weave"
+      Height          =   195
+      Left            =   1320
+      TabIndex        =   71
+      Top             =   2880
+      Value           =   1  'Checked
+      Width           =   855
+   End
+   Begin VB.CheckBox Check17 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "bob"
+      Height          =   195
+      Left            =   2200
+      TabIndex        =   70
+      Top             =   2880
+      Width           =   615
+   End
+   Begin VB.CheckBox Check16 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "bob_offset"
+      Height          =   195
+      Left            =   3050
+      TabIndex        =   69
+      Top             =   2880
+      Width           =   1095
+   End
+   Begin VB.TextBox Text10 
+      BackColor       =   &H00C0C0C0&
+      Height          =   285
+      Left            =   8640
+      TabIndex        =   67
+      Text            =   "0"
+      Top             =   4320
+      Width           =   285
+   End
+   Begin VB.CheckBox Check15 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Yes to All Promts(!)"
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   66
+      Top             =   360
+      Width           =   2055
+   End
    Begin VB.TextBox Text9 
       BackColor       =   &H00C0C0C0&
       Height          =   285
       Left            =   1320
       TabIndex        =   64
-      Top             =   4320
+      Top             =   4560
       Width           =   4575
    End
    Begin VB.TextBox Text8 
@@ -25,7 +80,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   62
       Text            =   "1"
-      Top             =   4275
+      Top             =   5040
       Width           =   285
    End
    Begin VB.ComboBox Combo5 
@@ -36,7 +91,7 @@ Begin VB.Form Form1
       List            =   "Form1.frx":851C
       TabIndex        =   60
       Text            =   "gamepad - SCPH-1080 PlayStation Digital Gamepad"
-      Top             =   3960
+      Top             =   4200
       Width           =   4575
    End
    Begin VB.CheckBox Check14 
@@ -45,7 +100,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   59
-      Top             =   2880
+      Top             =   3000
       Value           =   1  'Checked
       Width           =   1815
    End
@@ -53,7 +108,7 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "PAL"
       Height          =   195
-      Left            =   4080
+      Left            =   3050
       TabIndex        =   56
       Top             =   720
       Width           =   735
@@ -62,7 +117,7 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "NTSC-J"
       Height          =   195
-      Left            =   2640
+      Left            =   2200
       TabIndex        =   55
       Top             =   720
       Width           =   975
@@ -82,7 +137,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   52
       Text            =   "Not Set"
-      Top             =   3600
+      Top             =   3840
       Width           =   4575
    End
    Begin VB.CommandButton Command5 
@@ -91,7 +146,7 @@ Begin VB.Form Form1
       Height          =   315
       Left            =   6000
       TabIndex        =   51
-      Top             =   3600
+      Top             =   3840
       Width           =   615
    End
    Begin VB.CheckBox Check10 
@@ -118,7 +173,7 @@ Begin VB.Form Form1
       Left            =   8400
       TabIndex        =   47
       Text            =   "1080"
-      Top             =   3360
+      Top             =   3240
       Width           =   515
    End
    Begin VB.TextBox Text5 
@@ -127,7 +182,7 @@ Begin VB.Form Form1
       Left            =   7920
       TabIndex        =   46
       Text            =   "1920"
-      Top             =   3360
+      Top             =   3240
       Width           =   495
    End
    Begin VB.TextBox Text4 
@@ -136,7 +191,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   44
       Text            =   "2"
-      Top             =   3650
+      Top             =   3600
       Width           =   285
    End
    Begin VB.CommandButton Command4 
@@ -176,9 +231,9 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Review Command Line before execution?"
       Height          =   435
-      Left            =   4920
+      Left            =   4800
       TabIndex        =   37
-      Top             =   2400
+      Top             =   2520
       Width           =   1935
    End
    Begin VB.CheckBox Check7 
@@ -187,7 +242,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   36
-      Top             =   2160
+      Top             =   2040
       Width           =   1095
    End
    Begin VB.CheckBox Check6 
@@ -196,16 +251,16 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   28
-      Top             =   1920
+      Top             =   1800
       Width           =   1455
    End
    Begin VB.CommandButton Command3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Launch mednafen.exe"
       Height          =   495
-      Left            =   4920
+      Left            =   4800
       TabIndex        =   27
-      Top             =   2880
+      Top             =   3000
       Width           =   1815
    End
    Begin VB.ComboBox Combo4 
@@ -214,7 +269,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   25
       Text            =   "None - None/Disabled"
-      Top             =   3240
+      Top             =   3480
       Width           =   3375
    End
    Begin VB.CheckBox Check5 
@@ -223,7 +278,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   24
-      Top             =   3120
+      Top             =   2760
       Width           =   1815
    End
    Begin VB.TextBox Text3 
@@ -241,7 +296,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   21
-      Top             =   2640
+      Top             =   2520
       Width           =   1575
    End
    Begin VB.CheckBox Check3 
@@ -250,7 +305,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   20
-      Top             =   2400
+      Top             =   2280
       Width           =   1335
    End
    Begin VB.ComboBox Combo3 
@@ -259,7 +314,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   18
       Text            =   "None - None/Disabled"
-      Top             =   2880
+      Top             =   3120
       Width           =   3375
    End
    Begin VB.ComboBox Combo2 
@@ -334,6 +389,36 @@ Begin VB.Form Form1
       Top             =   360
       Width           =   4575
    End
+   Begin VB.Label Label33 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Axis Scale:"
+      Height          =   195
+      Left            =   6840
+      TabIndex        =   74
+      Top             =   4680
+      Width           =   780
+   End
+   Begin VB.Label Label15 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Deinterlacer:"
+      Height          =   195
+      Left            =   120
+      TabIndex        =   72
+      Top             =   2880
+      Width           =   900
+   End
+   Begin VB.Label Label14 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Scanlines:"
+      Height          =   195
+      Left            =   6840
+      TabIndex        =   68
+      Top             =   4320
+      Width           =   735
+   End
    Begin VB.Image Image7 
       Height          =   480
       Left            =   4440
@@ -383,18 +468,18 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   65
-      Top             =   4320
+      Top             =   4560
       Width           =   1140
    End
    Begin VB.Label Label31 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "# of Players:"
+      Caption         =   "Number of Players:"
       Height          =   195
-      Left            =   7440
+      Left            =   6840
       TabIndex        =   63
-      Top             =   4275
-      Width           =   885
+      Top             =   5040
+      Width           =   1335
    End
    Begin VB.Label Label30 
       AutoSize        =   -1  'True
@@ -403,7 +488,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   61
-      Top             =   3960
+      Top             =   4200
       Width           =   705
    End
    Begin VB.Label Label29 
@@ -442,36 +527,36 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   53
-      Top             =   3600
+      Top             =   3840
       Width           =   795
    End
    Begin VB.Image Image1 
       Height          =   1095
-      Left            =   6600
+      Left            =   6840
       Picture         =   "Form1.frx":D1DA
       Stretch         =   -1  'True
-      Top             =   4560
+      Top             =   5280
       Width           =   1785
    End
    Begin VB.Label Label26 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "FS Resolution"
+      Caption         =   "Resolution"
       Height          =   195
       Left            =   6840
       TabIndex        =   48
-      Top             =   3360
-      Width           =   990
+      Top             =   3240
+      Width           =   750
    End
    Begin VB.Label Label25 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Scaling Factor (FS/W)"
+      Caption         =   "Scaling Factor"
       Height          =   195
       Left            =   6840
       TabIndex        =   45
-      Top             =   3650
-      Width           =   1590
+      Top             =   3600
+      Width           =   1020
    End
    Begin VB.Label Label24 
       AutoSize        =   -1  'True
@@ -530,7 +615,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   35
-      Top             =   5040
+      Top             =   5280
       Width           =   1320
    End
    Begin VB.Label Label21 
@@ -550,7 +635,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   34
-      Top             =   5280
+      Top             =   5520
       Width           =   1305
    End
    Begin VB.Label Label20 
@@ -570,7 +655,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   33
-      Top             =   5520
+      Top             =   5760
       Width           =   1680
    End
    Begin VB.Label Label19 
@@ -590,7 +675,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   32
-      Top             =   5760
+      Top             =   6000
       Width           =   3075
    End
    Begin VB.Label Label18 
@@ -610,7 +695,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   31
-      Top             =   6000
+      Top             =   6240
       Width           =   6270
    End
    Begin VB.Label Label17 
@@ -630,7 +715,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   30
-      Top             =   6240
+      Top             =   6480
       Width           =   7305
    End
    Begin VB.Label Label16 
@@ -650,7 +735,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   29
-      Top             =   4800
+      Top             =   5040
       Width           =   765
    End
    Begin VB.Label Label13 
@@ -660,18 +745,18 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   26
-      Top             =   3240
+      Top             =   3480
       Width           =   900
    End
    Begin VB.Label Label12 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Blur amount:"
+      Caption         =   "Temporal Blur amount:"
       Height          =   195
-      Left            =   7440
+      Left            =   6840
       TabIndex        =   23
       Top             =   3960
-      Width           =   885
+      Width           =   1590
    End
    Begin VB.Label Label11 
       AutoSize        =   -1  'True
@@ -680,7 +765,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   19
-      Top             =   2880
+      Top             =   3120
       Width           =   885
    End
    Begin VB.Label Label10 
@@ -837,9 +922,9 @@ If Check9.Value = 1 Then
         Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & ROMFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
         Sleep (500)
         If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-            Open VB.App.Path & "\md5.txt" For Input As #1
-                Line Input #1, tmp
-            Close #1
+            Open VB.App.Path & "\md5.txt" For Input As #3
+                Line Input #3, tmp
+            Close #3
         End If
         Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
         Text2.Text = ROMFILE
@@ -856,9 +941,9 @@ If Check10.Value = 1 Then
         Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSPATH & "\" & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
         Sleep (200)
         If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-            Open VB.App.Path & "\md5.txt" For Input As #1
-                Line Input #1, tmp
-            Close #1
+            Open VB.App.Path & "\md5.txt" For Input As #5
+                Line Input #5, tmp
+            Close #5
         End If
         Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
         Text1.Text = BIOSFILE
@@ -1009,9 +1094,9 @@ If FSO.FileExists(MedEXE) = True Then
     Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & MedEXE & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
     Sleep (200)
     If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-        Open VB.App.Path & "\md5.txt" For Input As #1
-            Line Input #1, tmp
-        Close #1
+        Open VB.App.Path & "\md5.txt" For Input As #4
+            Line Input #4, tmp
+        Close #4
     End If
     If tmp = "8F0BC836E2B6023371B99E94829B5CF1" Then
         Label2.Caption = "0.9.38.7-win64 Detected! MD5: 8F0BC836E2B6023371B99E94829B5CF1"
@@ -1056,6 +1141,37 @@ Check11.Value = 0
 Check12.Value = 0
 End Sub
 
+Private Sub Check15_Click()
+If Check15.Value = 1 Then
+    a = a
+Else
+    tmp = MsgBox("Auto Confirm all prompts like this one?", vbYesNo)
+End If
+
+If tmp = vbYes Then
+    Check15.Value = 1
+End If
+
+If tmp = vbNo Then
+    Check15.Value = 0
+End If
+End Sub
+
+Private Sub Check16_Click()
+Check17.Value = 0
+Check18.Value = 0
+End Sub
+
+Private Sub Check17_Click()
+Check18.Value = 0
+Check16.Value = 0
+End Sub
+
+Private Sub Check18_Click()
+Check17.Value = 0
+Check16.Value = 0
+End Sub
+
 Private Sub Combo1_Change()
 'MsgBox Combo1.Text
 If Combo1.Text = "psx (Sony PlayStation)" Then
@@ -1069,6 +1185,7 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check2.Value = 1
     Check9.Value = 1
     Check10.Value = 1
+    Label29.Visible = True
 Else
     Check1.Value = 0
     Check2.Value = 0
@@ -1083,6 +1200,7 @@ Else
     Check12.Enabled = False
     Check13.Enabled = False
     Combo5.Enabled = False
+    Label29.Visible = False
 End If
 End Sub
 
@@ -1099,6 +1217,7 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check2.Value = 1
     Check9.Value = 1
     Check10.Value = 1
+    Label29.Visible = True
 Else
     Check1.Value = 0
     Check2.Value = 0
@@ -1113,6 +1232,7 @@ Else
     Check12.Enabled = False
     Check13.Enabled = False
     Combo5.Enabled = False
+    Label29.Visible = False
 End If
 
 'Combo1.AddItem "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)", 7
@@ -1121,9 +1241,10 @@ End If
 'Combo1.AddItem "psx (Sony PlayStation)", 10
 
 If Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Or Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
-MsgBox "BIOS Image File: syscard3.pce is expected"
+    
+    MsgBox "BIOS Image File: syscard3.pce is expected"
 ElseIf Combo1.Text = "psx (Sony PlayStation)" Then
-MsgBox "BIOS Image File: scph5500.bin/scph5501.bin/scph5502.bin is expected"
+    MsgBox "BIOS Image File: scph5500.bin/scph5501.bin/scph5502.bin is expected"
 End If
 End Sub
 
@@ -1134,7 +1255,12 @@ If Len(Text1.Text) >= 1 Then
     If Text1.Text = "Not Set" Then
         ResetBios = vbYes
     Else
-        ResetBios = MsgBox("Reset Bios?", vbYesNo, "Reset Bios?")
+        If Check15.Value = 1 Then
+            a = a
+            ResetBios = vbYes
+        Else
+            ResetBios = MsgBox("Reset Bios?", vbYesNo, "Reset Bios?")
+        End If
     End If
     If ResetBios = vbYes Then
         If Len(BiosPathLoad) > 0 Then Dir1.Path = BiosPathLoad
@@ -1153,7 +1279,12 @@ If Len(Text2.Text) >= 1 Then
     If Text2.Text = "Not Set" Then
         ResetRom = vbYes
     Else
-        ResetRom = MsgBox("Reset Rom?", vbYesNo, "Reset Rom?")
+        If Check15.Value = 1 Then
+            a = a
+            ResetRom = vbYes
+        Else
+            ResetRom = MsgBox("Reset Rom?", vbYesNo, "Reset Rom?")
+        End If
     End If
     If ResetRom = vbYes Then
         If Len(ROMDIR) > 0 Then Dir1.Path = ROMDIR
@@ -1204,6 +1335,9 @@ End If
 If SYSCORE = "psx" Or SYSCORE = "pce" Or SYSCORE = "pce_fast" Then
     cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -loadcd " & SYSCORE
     If SYSCORE = "psx" Then
+        If Len(BIOSPATH) > 1 Then
+            cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
+        End If
         If Check11.Value = 1 Then
             cmdstring = cmdstring & " -psx.bios_na " & Chr(34) & BIOSFILE & Chr(34)
         ElseIf Check12.Value = 1 Then
@@ -1213,6 +1347,9 @@ If SYSCORE = "psx" Or SYSCORE = "pce" Or SYSCORE = "pce_fast" Then
         End If
     End If
     If SYSCORE = "pce" Or SYSCORE = "pce_fast" Then
+        If Len(BIOSPATH) > 1 Then
+            cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
+        End If
         cmdstring = cmdstring & "-pce.cdbios " & Chr(34) & BIOSFILE & Chr(34)
     End If
 Else
@@ -1334,6 +1471,18 @@ If Combo5.Enabled = True Then
                 cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dancepad"
             End If
     End If
+    'psx.input.port1.analogjoy.axis_scale
+    'psx.input.port1.dualanalog.axis_scale
+    'psx.input.port1.dualshock.axis_scale
+    If Val(Text11.Text) <> "1.00" Then
+        If Val(Text8.Text) > 1 Then
+            For y = 1 To Val(Text8.Text)
+                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & ".analogjoy.axis_scale " & Val(Text11.Text) & " -" & SYSCORE & ".input.port" & y & ".dualanalog.axis_scale " & Val(Text11.Text) & " -" & SYSCORE & ".input.port" & y & ".dualshock.axis_scale " & Val(Text11.Text)
+            Next y
+        ElseIf Val(Text8.Text) = 1 Then
+            cmdstring = cmdstring & " -" & SYSCORE & ".input.port1.analogjoy.axis_scale " & Val(Text11.Text) & " -" & SYSCORE & ".input.port1.dualanalog.axis_scale " & Val(Text11.Text) & " -" & SYSCORE & ".input.port1.dualshock.axis_scale " & Val(Text11.Text)
+        End If
+    End If
 End If
 
 
@@ -1373,6 +1522,15 @@ If Check2.Value = 1 Then
     cmdstring = cmdstring & " -" & SYSCORE & ".cd_sanity 1"
 End If
 
+If Check18.Value = 1 Then
+    cmdstring = cmdstring & " -video.deinterlacer weave"
+ElseIf Check17.Value = 1 Then
+    cmdstring = cmdstring & " -video.deinterlacer bob"
+ElseIf Check16.Value = 1 Then
+    cmdstring = cmdstring & " -video.deinterlacer bob_offset"
+End If
+
+
 If Val(Text4.Text) > 1 Then
     cmdstring = cmdstring & " -" & SYSCORE & ".xscale " & Text4.Text & " -" & SYSCORE & ".yscale " & Text4.Text & " -" & SYSCORE & ".xscalefs " & Text4.Text & " -" & SYSCORE & ".yscalefs " & Text4.Text
 End If
@@ -1396,6 +1554,11 @@ End If
 If Len(Text9.Text) > 1 Then
 cmdstring = cmdstring & " " & Text9.Text
 End If
+
+If Val(Text10.Text) <> 0 Then
+    cmdstring = cmdstring & " -" & SYSCORE & ".scanlines " & Val(Text10.Text)
+End If
+
 '
 cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 
@@ -1428,7 +1591,12 @@ If Len(Text7.Text) >= 1 Then
     If Text7.Text = "Not Set" Then
         ResetSave = vbYes
     Else
-        ResetSave = MsgBox("Reset Save Path?", vbYesNo, "Reset Save Path?")
+        If Check15.Value = 1 Then
+            a = a
+            ResetSave = vbYes
+        Else
+            ResetSave = MsgBox("Reset Save Path?", vbYesNo, "Reset Save Path?")
+        End If
     End If
     If ResetSave = vbYes Then
         SavePath = ""
@@ -1442,7 +1610,12 @@ End Sub
 Private Sub Dir1_Change()
 File1.Path = Dir1.Path
 If ActiveFile = "SAVE" Then
-    tmp2 = MsgBox("Set Path: " & Dir1.Path, vbYesNo, "Set this path?")
+        If Check15.Value = 1 Then
+            a = a
+            tmp2 = vbYes
+        Else
+            tmp2 = MsgBox("Set Path: " & Dir1.Path, vbYesNo, "Set this path?")
+        End If
     If tmp2 = vbYes Then
         Text7.Text = Dir1.Path
         SavePath = Text7.Text
@@ -1465,7 +1638,12 @@ End Sub
 
 Private Sub File1_Click()
 If ActiveFile = "MEDEXE" Then
-    tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+        If Check15.Value = 1 Then
+            a = a
+            tmp2 = vbYes
+        Else
+            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+        End If
     If tmp2 = vbYes Then
         MedEXE = Dir1.Path & "\" & File1.FileName
         Form1.Width = 9240
@@ -1476,7 +1654,12 @@ If ActiveFile = "MEDEXE" Then
 End If
 
 If ActiveFile = "BIOS" Then
-    tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+        If Check15.Value = 1 Then
+            a = a
+            tmp2 = vbYes
+        Else
+            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+        End If
     If tmp2 = vbYes Then
         BIOSPATH = Dir1.Path
         BIOSFILE = File1.FileName
@@ -1489,7 +1672,12 @@ If ActiveFile = "BIOS" Then
 End If
 
 If ActiveFile = "ROM" Then
-    tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+        If Check15.Value = 1 Then
+            a = a
+            tmp2 = vbYes
+        Else
+            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+        End If
     If tmp2 = vbYes Then
         Text2.Text = Dir1.Path & "\" & File1.FileName
         ROMDIR = Dir1.Path
@@ -1503,7 +1691,12 @@ End If
 
 If ActiveFile = "M3U" Then
         If z = 0 Then
+        If Check15.Value = 1 Then
+            a = a
+            tmp2 = vbYes
+        Else
             tmp2 = MsgBox("Set Disc 1: " & File1.FileName, vbYesNo, "Set this file?")
+        End If
             If tmp2 = vbYes Then
                 Print #2, Dir1.Path & "\" & File1.FileName
                 tmp1 = File1.FileName
@@ -1514,7 +1707,12 @@ If ActiveFile = "M3U" Then
         ElseIf z >= 1 And z <= Val(M3USize) Then
             Do
                 If File1.FileName <> tmp1 And Len(File1.FileName) > 1 And z <= Val(M3USize) And File1.FileName <> LastFile Then
-                    tmp2 = MsgBox("Set Disc " & z + 1 & ": " & File1.FileName, vbYesNo, "Set this file?")
+                    If Check15.Value = 1 Then
+                        a = a
+                        tmp2 = vbYes
+                    Else
+                        tmp2 = MsgBox("Set Disc " & z + 1 & ": " & File1.FileName, vbYesNo, "Set this file?")
+                    End If
                     LastFile = File1.FileName
                     If tmp2 = vbYes Then
                         Print #2, Dir1.Path & "\" & File1.FileName
@@ -1557,7 +1755,7 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.1.4"
+Build = "0.1.5"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
 
 Dir1.Path = VB.App.Path
@@ -1852,39 +2050,37 @@ Unload Form1
 End Sub
 
 Private Sub Save_Settings_Click()
-Open VB.App.Path & "\MedAdvCFG.dat" For Output As #1
-    Print #1, "MedEXE=" & MedEXE
-    Print #1, "SystemCore=" & Combo1.Text
-    Print #1, "SystemBIOS=" & BIOSPATH & "\" & BIOSFILE
-    Print #1, "BIOSSanity=" & Check1.Value
-    Print #1, "RomImage=" & ROMFILE
-    Print #1, "ROMSanity=" & Check2.Value
-    Print #1, "Stretch=" & Combo2.Text
-    Print #1, "PixelShader=" & Combo3.Text
-    Print #1, "VideoScaler=" & Combo4.Text
-    Print #1, "Fullscreen=" & Check6.Value
-    Print #1, "Frameskip=" & Check7.Value
-    Print #1, "Tblur=" & Check3.Value
-    Print #1, "TblurAccum=" & Check4.Value
-    Print #1, "AccumAmount=" & Text3.Text
-    Print #1, "VideoIP=" & Check5.Value
-    Print #1, "XRes=" & Text5.Text
-    Print #1, "YRes=" & Text6.Text
-    Print #1, "ScaleFactor=" & Text4.Text
-    Print #1, "LastPath=" & File1.Path
-    Print #1, "BiosPathLoad=" & BIOSPATH
-    Print #1, "SavePath=" & Text7.Text
+Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
+    Print #6, "MedEXE=" & MedEXE
+    Print #6, "SystemCore=" & Combo1.Text
+    Print #6, "SystemBIOS=" & BIOSPATH & "\" & BIOSFILE
+    Print #6, "BIOSSanity=" & Check1.Value
+    Print #6, "RomImage=" & ROMFILE
+    Print #6, "ROMSanity=" & Check2.Value
+    Print #6, "Stretch=" & Combo2.Text
+    Print #6, "PixelShader=" & Combo3.Text
+    Print #6, "VideoScaler=" & Combo4.Text
+    Print #6, "Fullscreen=" & Check6.Value
+    Print #6, "Frameskip=" & Check7.Value
+    Print #6, "Tblur=" & Check3.Value
+    Print #6, "TblurAccum=" & Check4.Value
+    Print #6, "AccumAmount=" & Text3.Text
+    Print #6, "VideoIP=" & Check5.Value
+    Print #6, "XRes=" & Text5.Text
+    Print #6, "YRes=" & Text6.Text
+    Print #6, "ScaleFactor=" & Text4.Text
+    Print #6, "LastPath=" & File1.Path
+    Print #6, "BiosPathLoad=" & BIOSPATH
+    Print #6, "SavePath=" & Text7.Text
     If Check11.Value = 0 And Check12.Value = 0 And Check13.Value = 0 Then
-        Print #1, "SystemRegion=None"
+        Print #6, "SystemRegion=None"
     ElseIf Check11.Value = 1 Then
-        Print #1, "SystemRegion=NTSC-U"
+        Print #6, "SystemRegion=NTSC-U"
     ElseIf Check12.Value = 1 Then
-        Print #1, "SystemRegion=NTSC-J"
+        Print #6, "SystemRegion=NTSC-J"
     ElseIf Check13.Value = 1 Then
-        Print #1, "SystemRegion=PAL"
+        Print #6, "SystemRegion=PAL"
     End If
-    Print #1, "RomPath=" & ROMDIR
-Close #1
+    Print #6, "RomPath=" & ROMDIR
+Close #6
 End Sub
-
-
