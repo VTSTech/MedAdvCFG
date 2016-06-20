@@ -8,7 +8,25 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/a5618717f9bb303c9860c138c9a704f9.png">
+<img src="https://i.gyazo.com/3505cba23e040ae11a5f700ef9dc4d2c.png">
+
+
+v0.1.5 06-20-2016 12:48 AM
+
+
+Reorganized main controls
+
+Added Scanlines
+
+Added Video Deinterlacer
+
+Added Axis Scale
+
+Added Option to Suppress All Confirmations!
+
+Now hides Detailed Bios Verification information when PSX not emulated
+
+Various code optimizations
 
 
 v0.1.4 06-19-2016 1:27 AM
