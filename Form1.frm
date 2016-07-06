@@ -59,7 +59,7 @@ Begin VB.Form Form1
    End
    Begin VB.CheckBox Check15 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Yes to All Promts(!)"
+      Caption         =   "Yes to All Prompts(!)"
       Height          =   195
       Left            =   7080
       TabIndex        =   66
@@ -1186,6 +1186,10 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check9.Value = 1
     Check10.Value = 1
     Label29.Visible = True
+ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
+    For z = 0 To Combo5.ListCount
+    'Combo5.RemoveItem (z)
+    Next z
 Else
     Check1.Value = 0
     Check2.Value = 0
@@ -1207,6 +1211,20 @@ End Sub
 Private Sub Combo1_Click()
 'MsgBox Combo1.Text
 If Combo1.Text = "psx (Sony PlayStation)" Then
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - SCPH-1080 PlayStation Digital Gamepad", 1
+    Combo5.AddItem "dualshock - SCPH-1200 PlayStation DualShock Gamepad", 2
+    Combo5.AddItem "dualanalog - SCPH-1180 PlayStation DualAnalog Gamepad", 3
+    Combo5.AddItem "analogjoy - SCPH-1110 PlayStation Analog Joystick", 4
+    Combo5.AddItem "mouse - SCPH-1090 PlayStation Mouse", 5
+    Combo5.AddItem "negcon - NPC-101 Namco neGcon", 6
+    Combo5.AddItem "guncon - NPC-103 Namco GunCon", 7
+    Combo5.AddItem "justifier - SLUH-00017 Konami Justifier", 8
+    Combo5.AddItem "dancepad - SLUH-00071 Konami Dancepad", 9
+    Combo5.ListIndex = 1
     Check1.Enabled = True
     Check2.Enabled = True
     Check11.Enabled = True
@@ -1218,6 +1236,28 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check9.Value = 1
     Check10.Value = 1
     Label29.Visible = True
+ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - SNS-005 Super Nintendo Controller", 1
+    Combo5.AddItem "mouse - SNS-016 Super Nintendo Mouse Controller", 2
+    Combo5.AddItem "superscope - SNS-013 Super Nintendo Super Scope", 3
+    Combo5.ListIndex = 1
+    Combo5.Enabled = True
+ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - NES-004 Nintendo Control Pad", 1
+    Combo5.AddItem "zapper - NES-005 Nintendo Zapper", 2
+    Combo5.AddItem "powerpada - NES-028 Nintendo Power Pad", 3
+    Combo5.AddItem "powerpadb - NES-028 Nintendo Power Pad", 3
+    Combo5.AddItem "arkanoid - NES-XXX Taito Arkanoid Vaus Controller", 3
+    Combo5.ListIndex = 1
+    Combo5.Enabled = True
 Else
     Check1.Value = 0
     Check2.Value = 0
@@ -1426,54 +1466,109 @@ End If
 If Combo5.Enabled = True Then
     If Val(Text8.Text) > 1 Then
         For y = 1 To Val(Text8.Text)
-            If Combo5.ListIndex = 0 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
-            ElseIf Combo5.ListIndex = 1 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
-            ElseIf Combo5.ListIndex = 2 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dualshock"
-            ElseIf Combo5.ListIndex = 3 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dualanalog"
-            ElseIf Combo5.ListIndex = 4 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " analogjoy"
-            ElseIf Combo5.ListIndex = 5 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " mouse"
-            ElseIf Combo5.ListIndex = 6 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " negcon"
-            ElseIf Combo5.ListIndex = 7 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " guncon"
-            ElseIf Combo5.ListIndex = 8 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " justifier"
-            ElseIf Combo5.ListIndex = 9 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dancepad"
+            If SYSCORE = "psx" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dualshock"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dualanalog"
+                ElseIf Combo5.ListIndex = 4 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " analogjoy"
+                ElseIf Combo5.ListIndex = 5 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " mouse"
+                ElseIf Combo5.ListIndex = 6 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " negcon"
+                ElseIf Combo5.ListIndex = 7 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " guncon"
+                ElseIf Combo5.ListIndex = 8 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " justifier"
+                ElseIf Combo5.ListIndex = 9 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dancepad"
+                End If
+            ElseIf SYSCORE = "snes" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " mouse"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad -" & SYSCORE & ".input.port2 superscope"
+                End If
+            ElseIf SYSCORE = "nes" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " zapper"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " powerpada"
+                ElseIf Combo5.ListIndex = 4 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " powerpadb"
+                ElseIf Combo5.ListIndex = 5 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " arkanoid"
+                End If
             End If
         Next y
     ElseIf Val(Text8.Text) = 1 Then
-            If Combo5.ListIndex = 0 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
-            ElseIf Combo5.ListIndex = 1 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
-            ElseIf Combo5.ListIndex = 2 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dualshock"
-            ElseIf Combo5.ListIndex = 3 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dualanalog"
-            ElseIf Combo5.ListIndex = 4 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 analogjoy"
-            ElseIf Combo5.ListIndex = 5 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 mouse"
-            ElseIf Combo5.ListIndex = 6 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 negcon"
-            ElseIf Combo5.ListIndex = 7 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 guncon"
-            ElseIf Combo5.ListIndex = 8 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 justifier"
-            ElseIf Combo5.ListIndex = 9 Then
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dancepad"
+            If SYSCORE = "psx" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dualshock"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dualanalog"
+                ElseIf Combo5.ListIndex = 4 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 analogjoy"
+                ElseIf Combo5.ListIndex = 5 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 mouse"
+                ElseIf Combo5.ListIndex = 6 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 negcon"
+                ElseIf Combo5.ListIndex = 7 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 guncon"
+                ElseIf Combo5.ListIndex = 8 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 justifier"
+                ElseIf Combo5.ListIndex = 9 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dancepad"
+                End If
+            ElseIf SYSCORE = "snes" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 mouse"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad -" & SYSCORE & ".input.port2 superscope"
+                End If
+            ElseIf SYSCORE = "nes" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 zapper"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 powerpada"
+                ElseIf Combo5.ListIndex = 4 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 powerpadb"
+                ElseIf Combo5.ListIndex = 5 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 arkanoid"
+                End If
             End If
     End If
-    'psx.input.port1.analogjoy.axis_scale
-    'psx.input.port1.dualanalog.axis_scale
-    'psx.input.port1.dualshock.axis_scale
+'none
+'gamepad
+'zapper
+'powerpada
+'powerpadb
+'arkanoid
     If Val(Text11.Text) <> "1.00" Then
         If Val(Text8.Text) > 1 Then
             For y = 1 To Val(Text8.Text)
@@ -1514,12 +1609,14 @@ Else
     cmdstring = cmdstring & " -video.frameskip 0"
 End If
 
-If Check1.Value = 1 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".bios_sanity 1"
-End If
-
-If Check2.Value = 1 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".cd_sanity 1"
+If SYSCORE = "psx" Then
+    If Check1.Value = 1 Then
+        cmdstring = cmdstring & " -" & SYSCORE & ".bios_sanity 1"
+    End If
+    
+    If Check2.Value = 1 Then
+        cmdstring = cmdstring & " -" & SYSCORE & ".cd_sanity 1"
+    End If
 End If
 
 If Check18.Value = 1 Then
@@ -1755,7 +1852,7 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.1.5"
+Build = "0.1.6"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
 
 Dir1.Path = VB.App.Path
