@@ -8,7 +8,18 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/3505cba23e040ae11a5f700ef9dc4d2c.png">
+<img src="https://i.gyazo.com/931cc7a3bb793dda77bd99afee8e9c2b.png">
+
+v0.1.6 07-06-2016 11:19 AM
+
+
+Now supports SNES/NES Controllers
+
+Auto-Clears/Auto-Populates based on SysCore
+
+Now ignores BIOS/ROM Sanity checks on all SysCore except PSX
+
+Various code optimizations
 
 
 v0.1.5 06-20-2016 12:48 AM
