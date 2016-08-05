@@ -1,6 +1,6 @@
 Type=Exe
 Form=Form1.frm
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\WINDOWS\SysWow64\stdole2.tlb#OLE Automation
 IconForm="Form1"
 Startup="Form1"
 HelpFile=""
@@ -12,7 +12,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=0
 MinorVer=1
-RevisionVer=5
+RevisionVer=7
 AutoIncrementVer=0
 ServerSupportFiles=0
 VersionCompanyName="Nigel Todman"
@@ -35,3 +35,6 @@ Unattended=0
 Retained=0
 ThreadPerObject=0
 MaxNumberOfThreads=1
+
+[MS Transaction Server]
+AutoRefresh=1

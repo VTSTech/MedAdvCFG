@@ -2,27 +2,144 @@ VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.38.x Frontend) by Nigel Todman"
-   ClientHeight    =   6765
+   ClientHeight    =   7590
    ClientLeft      =   225
    ClientTop       =   855
    ClientWidth     =   12615
+   BeginProperty Font 
+      Name            =   "MS Sans Serif"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   -1  'True
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6765
+   ScaleHeight     =   7590
    ScaleWidth      =   12615
    StartUpPosition =   3  'Windows Default
+   Begin VB.CheckBox Check22 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "video.blit_timesync"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   83
+      Top             =   3480
+      Width           =   1815
+   End
+   Begin VB.CheckBox Check21 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Disable Sound"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   82
+      Top             =   3240
+      Width           =   1455
+   End
+   Begin VB.CheckBox Check20 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Force Mono"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   81
+      Top             =   3000
+      Width           =   1215
+   End
+   Begin VB.CheckBox Check19 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "video.glvsync"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   80
+      Top             =   3720
+      Width           =   1455
+   End
+   Begin VB.ComboBox Combo6 
+      BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   315
+      Left            =   1320
+      TabIndex        =   78
+      Text            =   "None - None/Disabled"
+      Top             =   3240
+      Width           =   3375
+   End
    Begin VB.TextBox Text11 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   8520
       TabIndex        =   73
       Text            =   "1.00"
-      Top             =   4680
+      Top             =   5760
       Width           =   405
    End
    Begin VB.CheckBox Check18 
       BackColor       =   &H00C0C0C0&
       Caption         =   "weave"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   1320
       TabIndex        =   71
@@ -33,6 +150,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check17 
       BackColor       =   &H00C0C0C0&
       Caption         =   "bob"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   2200
       TabIndex        =   70
@@ -42,6 +168,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check16 
       BackColor       =   &H00C0C0C0&
       Caption         =   "bob_offset"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   3050
       TabIndex        =   69
@@ -50,63 +185,126 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text10 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   8640
       TabIndex        =   67
       Text            =   "0"
-      Top             =   4320
+      Top             =   5400
       Width           =   285
    End
    Begin VB.CheckBox Check15 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Yes to All Prompts(!)"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   66
       Top             =   360
-      Width           =   2055
+      Width           =   1935
    End
    Begin VB.TextBox Text9 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   1320
       TabIndex        =   64
-      Top             =   4560
+      Top             =   5040
       Width           =   4575
    End
    Begin VB.TextBox Text8 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   8640
       TabIndex        =   62
       Text            =   "1"
-      Top             =   5040
+      Top             =   6120
       Width           =   285
    End
    Begin VB.ComboBox Combo5 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       ItemData        =   "Form1.frx":851A
       Left            =   1320
       List            =   "Form1.frx":851C
       TabIndex        =   60
       Text            =   "gamepad - SCPH-1080 PlayStation Digital Gamepad"
-      Top             =   4200
+      Top             =   4680
       Width           =   4575
    End
    Begin VB.CheckBox Check14 
       BackColor       =   &H00C0C0C0&
       Caption         =   "untrusted_fip_check"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   59
-      Top             =   3000
+      Top             =   3960
       Value           =   1  'Checked
       Width           =   1815
    End
    Begin VB.CheckBox Check13 
       BackColor       =   &H00C0C0C0&
       Caption         =   "PAL"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   3050
       TabIndex        =   56
@@ -116,6 +314,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check12 
       BackColor       =   &H00C0C0C0&
       Caption         =   "NTSC-J"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   2200
       TabIndex        =   55
@@ -125,6 +332,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check11 
       BackColor       =   &H00C0C0C0&
       Caption         =   "NTSC-U"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   1320
       TabIndex        =   54
@@ -133,25 +349,52 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text7 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   1320
       TabIndex        =   52
       Text            =   "Not Set"
-      Top             =   3840
+      Top             =   4320
       Width           =   4575
    End
    Begin VB.CommandButton Command5 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Set"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   6000
       TabIndex        =   51
-      Top             =   3840
+      Top             =   4320
       Width           =   615
    End
    Begin VB.CheckBox Check10 
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS MD5 Check"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   50
@@ -161,6 +404,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check9 
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM MD5 Check"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   49
@@ -169,34 +421,70 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text6 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   8400
       TabIndex        =   47
       Text            =   "1080"
-      Top             =   3240
+      Top             =   4320
       Width           =   515
    End
    Begin VB.TextBox Text5 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   7920
       TabIndex        =   46
       Text            =   "1920"
-      Top             =   3240
+      Top             =   4320
       Width           =   495
    End
    Begin VB.TextBox Text4 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   8640
       TabIndex        =   44
       Text            =   "2"
-      Top             =   3600
+      Top             =   4680
       Width           =   285
    End
    Begin VB.CommandButton Command4 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Clear"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   6000
       TabIndex        =   43
@@ -205,6 +493,15 @@ Begin VB.Form Form1
    End
    Begin VB.DriveListBox Drive1 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   9000
       TabIndex        =   42
@@ -213,23 +510,50 @@ Begin VB.Form Form1
    End
    Begin VB.FileListBox File1 
       BackColor       =   &H00C0C0C0&
-      Height          =   3210
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   3405
       Left            =   9000
       TabIndex        =   39
-      Top             =   2760
+      Top             =   3480
       Width           =   3615
    End
    Begin VB.DirListBox Dir1 
       BackColor       =   &H00C0C0C0&
-      Height          =   2340
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   3015
       Left            =   9000
       TabIndex        =   38
-      Top             =   480
+      Top             =   455
       Width           =   3615
    End
    Begin VB.CheckBox Check8 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Review Command Line before execution?"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   435
       Left            =   4800
       TabIndex        =   37
@@ -239,6 +563,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check7 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Frameskip"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   36
@@ -248,6 +581,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check6 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Fullscreen (FS)"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   28
@@ -257,6 +599,15 @@ Begin VB.Form Form1
    Begin VB.CommandButton Command3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Launch mednafen.exe"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   495
       Left            =   4800
       TabIndex        =   27
@@ -265,16 +616,34 @@ Begin VB.Form Form1
    End
    Begin VB.ComboBox Combo4 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   1320
       TabIndex        =   25
       Text            =   "None - None/Disabled"
-      Top             =   3480
+      Top             =   3960
       Width           =   3375
    End
    Begin VB.CheckBox Check5 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Bilinear interpolation"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   24
@@ -283,16 +652,34 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text3 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   8640
       TabIndex        =   22
       Text            =   "50"
-      Top             =   3960
+      Top             =   5040
       Width           =   285
    End
    Begin VB.CheckBox Check4 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Accumulate color"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   21
@@ -302,6 +689,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Temporal Blur"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   20
@@ -310,15 +706,33 @@ Begin VB.Form Form1
    End
    Begin VB.ComboBox Combo3 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   1320
       TabIndex        =   18
       Text            =   "None - None/Disabled"
-      Top             =   3120
+      Top             =   3600
       Width           =   3375
    End
    Begin VB.ComboBox Combo2 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   1320
       TabIndex        =   16
@@ -329,6 +743,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check2 
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM Sanity Check"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   15
@@ -338,6 +761,15 @@ Begin VB.Form Form1
    Begin VB.CommandButton Command2 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Set"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   6000
       TabIndex        =   12
@@ -346,6 +778,15 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text2 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   1320
       TabIndex        =   11
@@ -356,6 +797,15 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check1 
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS Sanity Check"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   7080
       TabIndex        =   9
@@ -365,6 +815,15 @@ Begin VB.Form Form1
    Begin VB.CommandButton Command1 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Set"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   6000
       TabIndex        =   7
@@ -373,6 +832,15 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text1 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   285
       Left            =   1320
       TabIndex        =   5
@@ -382,6 +850,15 @@ Begin VB.Form Form1
    End
    Begin VB.ComboBox Combo1 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   1320
       TabIndex        =   2
@@ -389,20 +866,117 @@ Begin VB.Form Form1
       Top             =   360
       Width           =   4575
    End
+   Begin VB.Label Label37 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Video Driver"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   120
+      TabIndex        =   79
+      Top             =   3240
+      Width           =   870
+   End
+   Begin VB.Label Label36 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Homepage: www.NigelTodman.com"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FF0000&
+      Height          =   195
+      Left            =   5880
+      TabIndex        =   77
+      Top             =   7320
+      Width           =   3015
+   End
+   Begin VB.Label Label35 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "Written by Nigel Todman"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FF0000&
+      Height          =   195
+      Left            =   2880
+      TabIndex        =   76
+      Top             =   7320
+      Width           =   2115
+   End
+   Begin VB.Label Label34 
+      AutoSize        =   -1  'True
+      BackStyle       =   0  'Transparent
+      Caption         =   "MedAdvCFG v0.0.0"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FF0000&
+      Height          =   195
+      Left            =   120
+      TabIndex        =   75
+      Top             =   7320
+      Width           =   1665
+   End
    Begin VB.Label Label33 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Axis Scale:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   6840
       TabIndex        =   74
-      Top             =   4680
+      Top             =   5760
       Width           =   780
    End
    Begin VB.Label Label15 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Deinterlacer:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   72
@@ -413,82 +987,118 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Scanlines:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   6840
       TabIndex        =   68
-      Top             =   4320
+      Top             =   5400
       Width           =   735
    End
    Begin VB.Image Image7 
       Height          =   480
-      Left            =   4440
+      Left            =   4680
       Picture         =   "Form1.frx":851E
-      Top             =   5040
+      Top             =   5520
       Width           =   480
    End
    Begin VB.Image Image6 
       Height          =   480
-      Left            =   3720
+      Left            =   3960
       Picture         =   "Form1.frx":91E8
-      Top             =   5040
+      Top             =   5520
       Width           =   480
    End
    Begin VB.Image Image5 
       Height          =   480
-      Left            =   5880
+      Left            =   6120
       Picture         =   "Form1.frx":9EB2
-      Top             =   5040
+      Top             =   5520
       Width           =   480
    End
    Begin VB.Image Image4 
       Height          =   480
-      Left            =   5160
+      Left            =   5400
       Picture         =   "Form1.frx":AB7C
-      Top             =   5040
+      Top             =   5520
       Width           =   480
    End
    Begin VB.Image Image3 
       Height          =   480
-      Left            =   3000
+      Left            =   3240
       Picture         =   "Form1.frx":B846
-      Top             =   5040
+      Top             =   5520
       Width           =   480
    End
    Begin VB.Image Image2 
       Height          =   480
-      Left            =   2280
+      Left            =   2520
       Picture         =   "Form1.frx":C510
-      Top             =   5040
+      Top             =   5520
       Width           =   480
    End
    Begin VB.Label Label32 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Custom Params:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   65
-      Top             =   4560
+      Top             =   5040
       Width           =   1140
    End
    Begin VB.Label Label31 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Number of Players:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   6840
       TabIndex        =   63
-      Top             =   5040
+      Top             =   6120
       Width           =   1335
    End
    Begin VB.Label Label30 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Controller:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   61
-      Top             =   4200
+      Top             =   4680
       Width           =   705
    End
    Begin VB.Label Label29 
@@ -514,6 +1124,15 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "System Region:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   57
@@ -524,38 +1143,65 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Save Path:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   53
-      Top             =   3840
+      Top             =   4320
       Width           =   795
    End
    Begin VB.Image Image1 
       Height          =   1095
-      Left            =   6840
+      Left            =   4800
       Picture         =   "Form1.frx":D1DA
       Stretch         =   -1  'True
-      Top             =   5280
+      Top             =   6240
       Width           =   1785
    End
    Begin VB.Label Label26 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Resolution"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   6840
       TabIndex        =   48
-      Top             =   3240
+      Top             =   4320
       Width           =   750
    End
    Begin VB.Label Label25 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Scaling Factor"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   6840
       TabIndex        =   45
-      Top             =   3600
+      Top             =   4680
       Width           =   1020
    End
    Begin VB.Label Label24 
@@ -575,7 +1221,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   9000
       TabIndex        =   41
-      Top             =   6240
+      Top             =   7320
       Width           =   3435
    End
    Begin VB.Label Label23 
@@ -595,7 +1241,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   9360
       TabIndex        =   40
-      Top             =   6000
+      Top             =   7080
       Width           =   2655
    End
    Begin VB.Label Label22 
@@ -615,7 +1261,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   35
-      Top             =   5280
+      Top             =   5880
       Width           =   1320
    End
    Begin VB.Label Label21 
@@ -635,7 +1281,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   34
-      Top             =   5520
+      Top             =   6120
       Width           =   1305
    End
    Begin VB.Label Label20 
@@ -655,7 +1301,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   33
-      Top             =   5760
+      Top             =   6360
       Width           =   1680
    End
    Begin VB.Label Label19 
@@ -675,13 +1321,13 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   32
-      Top             =   6000
+      Top             =   6600
       Width           =   3075
    End
    Begin VB.Label Label18 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "CTRL + SHIFT + 1: Select Controller Type (Where 1 is which Port/Player)"
+      Caption         =   "CTRL + SHIFT + 1: Select Controller Type"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -695,13 +1341,13 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   31
-      Top             =   6240
-      Width           =   6270
+      Top             =   6840
+      Width           =   3600
    End
    Begin VB.Label Label17 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
-      Caption         =   "ALT + SHIFT + 1: Configure buttons for Controller Port (Where 1 is which Port/Player)"
+      Caption         =   "ALT + SHIFT + 1: Configure buttons for Controller Port "
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -715,8 +1361,8 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   30
-      Top             =   6480
-      Width           =   7305
+      Top             =   7080
+      Width           =   4695
    End
    Begin VB.Label Label16 
       AutoSize        =   -1  'True
@@ -735,43 +1381,79 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   29
-      Top             =   5040
+      Top             =   5520
       Width           =   765
    End
    Begin VB.Label Label13 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Video Scaler"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   26
-      Top             =   3480
+      Top             =   3960
       Width           =   900
    End
    Begin VB.Label Label12 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Temporal Blur amount:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   6840
       TabIndex        =   23
-      Top             =   3960
+      Top             =   5040
       Width           =   1590
    End
    Begin VB.Label Label11 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Pixel Shader"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   19
-      Top             =   3120
+      Top             =   3600
       Width           =   885
    End
    Begin VB.Label Label10 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "FS Stretch"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   17
@@ -782,6 +1464,15 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Not Set"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   1320
       TabIndex        =   14
@@ -792,6 +1483,15 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM MD5:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   13
@@ -802,6 +1502,15 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM Image:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   10
@@ -812,6 +1521,15 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Not Set"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   1320
       TabIndex        =   8
@@ -822,6 +1540,15 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS MD5:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   6
@@ -832,6 +1559,15 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "System BIOS:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   4
@@ -842,6 +1578,15 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "System Core:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   3
@@ -871,6 +1616,15 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Mednafen EXE:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   195
       Left            =   120
       TabIndex        =   0
@@ -884,6 +1638,9 @@ Begin VB.Form Form1
       End
       Begin VB.Menu Save_Settings 
          Caption         =   "Save Settings"
+      End
+      Begin VB.Menu Reset_Settings 
+         Caption         =   "Reset Settings"
       End
       Begin VB.Menu Quit 
          Caption         =   "Quit"
@@ -904,7 +1661,7 @@ Attribute VB_Exposed = False
 
 Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
-Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile
+Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
 
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Private Function Generate_M3U(M3USize As Integer)
@@ -1091,8 +1848,9 @@ Validate_Bios = tmp
 End Function
 Function Validate_MedEXE()
 If FSO.FileExists(MedEXE) = True Then
-    Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & MedEXE & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-    Sleep (200)
+    Shell ("cmd.exe /c " & Chr(34) & Chr(34) & VB.App.Path & "\md5.exe" & Chr(34) & " -n " & Chr(34) & MedEXE & Chr(34) & " >> " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34) & Chr(34)), vbHide
+    'MsgBox ("cmd.exe /c " & Chr(34) & Chr(34) & VB.App.Path & "\md5.exe" & Chr(34) & " -n " & Chr(34) & MedEXE & Chr(34) & " >> " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34) & Chr(34)), vbHide
+    Sleep (800)
     If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
         Open VB.App.Path & "\md5.txt" For Input As #4
             Line Input #4, tmp
@@ -1581,6 +2339,45 @@ If Combo5.Enabled = True Then
 End If
 
 
+'Combo6.AddItem "OpenGL - OpenGL + SDL", 0
+'Combo6.AddItem "SDL - SDL Surface", 1
+'Combo6.AddItem "Overlay - SDL Overlay", 2
+'**v0.1.7
+If Combo6.Text = "OpenGL - OpenGL + SDL" Then
+    cmdstring = cmdstring & " -video.driver opengl"
+ElseIf Combo6.Text = "SDL - SDL Surface" Then
+    cmdstring = cmdstring & " -video.driver sdl"
+ElseIf Combo6.Text = "Overlay - SDL Overlay" Then
+    cmdstring = cmdstring & " -video.driver overlay"
+End If
+
+If Check19.Value = 1 Then
+    cmdstring = cmdstring & " -video.glvsync 1"
+ElseIf Check19.Value = 0 Then
+    cmdstring = cmdstring & " -video.glvsync 0"
+End If
+
+If Check20.Value = 1 Then
+    cmdstring = cmdstring & " -" & SYSCORE & ".forcemono 1"
+'ElseIf Check20.Value = 0 Then
+'    cmdstring = cmdstring & " -" & SYSCORE & ".forcemono 0"
+End If
+
+If Check21.Value = 1 Then
+    cmdstring = cmdstring & " -sound 0"
+ElseIf Check21.Value = 0 Then
+    cmdstring = cmdstring & " -sound 1"
+End If
+
+If Check22.Value = 1 Then
+    cmdstring = cmdstring & " -video.blit_timesync 1"
+ElseIf Check22.Value = 0 Then
+    cmdstring = cmdstring & " -video.blit_timesync 0"
+End If
+
+'**
+
+
 If Check3.Value = 1 Then
     cmdstring = cmdstring & " -" & SYSCORE & ".tblur 1"
 End If
@@ -1607,6 +2404,13 @@ If Check7.Value = 1 Then
     cmdstring = cmdstring & " -video.frameskip 1"
 Else
     cmdstring = cmdstring & " -video.frameskip 0"
+End If
+
+'video.glvsync
+If Check19.Value = 1 Then
+    cmdtring = cmdstrig & "-video.glvsync 1"
+Else
+    cmdtring = cmdstrig & "-video.glvsync 0"
 End If
 
 If SYSCORE = "psx" Then
@@ -1716,7 +2520,7 @@ If ActiveFile = "SAVE" Then
     If tmp2 = vbYes Then
         Text7.Text = Dir1.Path
         SavePath = Text7.Text
-        Form1.Width = 9240
+        Form1.Width = 9075
         ActiveFile = "None"
         tmp2 = ""
     End If
@@ -1743,7 +2547,7 @@ If ActiveFile = "MEDEXE" Then
         End If
     If tmp2 = vbYes Then
         MedEXE = Dir1.Path & "\" & File1.FileName
-        Form1.Width = 9240
+        Form1.Width = 9075
         ActiveFile = "None"
         tmp2 = ""
         a = Validate_MedEXE()
@@ -1761,7 +2565,7 @@ If ActiveFile = "BIOS" Then
         BIOSPATH = Dir1.Path
         BIOSFILE = File1.FileName
         Text1.Text = BIOSPATH & "\" & BIOSFILE
-        Form1.Width = 9240
+        Form1.Width = 9075
         ActiveFile = "None"
         tmp2 = ""
         a = Validate_Bios()
@@ -1779,7 +2583,8 @@ If ActiveFile = "ROM" Then
         Text2.Text = Dir1.Path & "\" & File1.FileName
         ROMDIR = Dir1.Path
         ROMFILE = Text2.Text
-        Form1.Width = 9240
+        'Form1.Width = 12735
+        Form1.Width = 9075
         ActiveFile = "None"
         tmp2 = ""
         a = Validate_Rom()
@@ -1825,7 +2630,7 @@ If ActiveFile = "M3U" Then
             Loop Until z = Val(M3USize) Or z > Val(M3USize)
             tmp2 = ""
             ActiveFile = "None"
-            Form1.Width = 9240
+            Form1.Width = 9075
             Close #2
             MsgBox "M3U Generated! Written to: " & VB.App.Path & "\multi.m3u" & vbCrLf & vbCrLf & "You should rename your multi.m3u" & vbCrLf & vbCrLf & "Your Memory Card and Save State filenames will be based on it." & vbCrLf & vbCrLf & "Use F8 to 'Eject/Close' and F6 to cycle thru the Disc Set"
             Text2.Text = VB.App.Path & "\multi.m3u"
@@ -1837,7 +2642,7 @@ Private Sub Form_Load()
 '12945
 '9240
 FatalError = False
-Form1.Width = 9240
+Form1.Width = 9075
 ActiveFile = "None"
 Label29.Visible = False
 'Comments
@@ -1852,9 +2657,9 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.1.6"
+Build = "0.1.7"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
-
+Label34.Caption = "MedAdvCFG v" & Build
 Dir1.Path = VB.App.Path
 File1.Path = VB.App.Path
 
@@ -1914,6 +2719,7 @@ Combo1.Text = SystemCore
 Combo2.Text = Stretch
 Combo3.Text = PixelShader
 Combo4.Text = VideoScaler
+Combo6.Text = VideoDriver
 
 If BIOSSanity = 1 Then
     Check1.Value = 1
@@ -2048,6 +2854,11 @@ Combo5.AddItem "justifier - SLUH-00017 Konami Justifier", 8
 Combo5.AddItem "dancepad - SLUH-00071 Konami Dancepad", 9
 Combo5.ListIndex = 1
 
+Combo6.AddItem "OpenGL - OpenGL + SDL", 0
+Combo6.AddItem "SDL - SDL Surface", 1
+Combo6.AddItem "Overlay - SDL Overlay", 2
+Combo6.ListIndex = 0
+
 'SySCore = PSX
 'none
 'gamepad
@@ -2144,6 +2955,17 @@ End Sub
 
 Private Sub Quit_Click()
 Unload Form1
+End Sub
+
+Private Sub Reset_Settings_Click()
+tmp = 0
+tmp = MsgBox("Are you sure you want to reset settings?", vbYesNo)
+If tmp = vbYes Then
+Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\MedAdvCFG.dat" & Chr(34))
+Sleep (750)
+Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\MedAdvCFG.exe" & Chr(34))
+Unload Form1
+End If
 End Sub
 
 Private Sub Save_Settings_Click()

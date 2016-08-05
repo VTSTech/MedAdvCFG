@@ -8,7 +8,29 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/931cc7a3bb793dda77bd99afee8e9c2b.png">
+<img src="https://i.gyazo.com/b75273a35a77c850ab2ce2a008009a10.png">
+
+v0.1.7 08-05-2016 10:01AM
+
+
+Added menu option to Reset All Settings.
+
+Added Video Driver option.
+
+Added Disable Sound option
+
+Added Force Mono Sound option
+
+Added video.blit_timesync option
+
+Added video.glvsync option
+
+Resized main form slightly
+
+Improved path handling involved spaces
+
+Various code optimizations
+
 
 v0.1.6 07-06-2016 11:19 AM
 
