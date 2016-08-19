@@ -1836,6 +1836,24 @@ If Check10.Value = 1 Then
             Label29.Caption = "Valid: PAL v4.5E BIOS SCPH-102"
             Check13.Value = 1
             Check13.Value = 1
+        ElseIf LCase(tmp) = "3240872c70984b6cbfda1586cab68dbe" Then
+            Label6.Caption = "MD5: " & tmp
+            Label29.Visible = True
+            Label29.Caption = "Valid: SEGA SATURN V1.01A US/EU"
+            Check11.Value = 1
+            Check11.Value = 1
+        ElseIf LCase(tmp) = "85ec9ca47d8f6807718151cbcca8b964" Then
+            Label6.Caption = "MD5: " & tmp
+            Label29.Visible = True
+            Label29.Caption = "Valid: SEGA SATURN V1.01 JP"
+            Check12.Value = 1
+            Check12.Value = 1
+        ElseIf LCase(tmp) = "af5828fdff51384f99b3c4926be27762" Then
+            Label6.Caption = "MD5: " & tmp
+            Label29.Visible = True
+            Label29.Caption = "Valid: SEGA SATURN V1.00 JP"
+            Check12.Value = 1
+            Check12.Value = 1
         Else
             Label29.Visible = False
             Label6.Caption = "MD5: " & tmp
@@ -1872,6 +1890,11 @@ If FSO.FileExists(MedEXE) = True Then
         Label2.Caption = "0.9.37.1-win64 Detected! MD5: A30FC82730A62781BBF39DF0652456D2"
     ElseIf tmp = "D02DE97F10E0FE544427B8F0BBEED3F1" Then
         Label2.Caption = "0.9.37.1-win32 Detected! MD5: D02DE97F10E0FE544427B8F0BBEED3F1"
+    ElseIf tmp = "9357B96CB347AA52E5F2796AB9A062BD" Then
+        Label2.Caption = "0.9.39-unstable-win64 Detected! MD5: 9357B96CB347AA52E5F2796AB9A062BD"
+    ElseIf tmp = "84438BB30BB5F15488AEAE662D91E56C" Then
+        Label2.Caption = "0.9.39-unstable-win32 Detected! MD5: 84438BB30BB5F15488AEAE662D91E56C"
+'84438BB30BB5F15488AEAE662D91E56C
     Else
         Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
@@ -2012,8 +2035,20 @@ ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
     Combo5.AddItem "gamepad - NES-004 Nintendo Control Pad", 1
     Combo5.AddItem "zapper - NES-005 Nintendo Zapper", 2
     Combo5.AddItem "powerpada - NES-028 Nintendo Power Pad", 3
-    Combo5.AddItem "powerpadb - NES-028 Nintendo Power Pad", 3
-    Combo5.AddItem "arkanoid - NES-XXX Taito Arkanoid Vaus Controller", 3
+    Combo5.AddItem "powerpadb - NES-028 Nintendo Power Pad", 4
+    Combo5.AddItem "arkanoid - NES-XXX Taito Arkanoid Vaus Controller", 5
+    Combo5.ListIndex = 1
+    Combo5.Enabled = True
+ElseIf Combo1.Text = "ss (Sega Saturn)" Then
+    Check9.Value = 1
+    Check10.Value = 1
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - MK-80100 Sega Saturn Controller", 1
+    Combo5.AddItem "3dpad - MK-80117 Sega Saturn 3D Control Pad", 2
+    Combo5.AddItem "mouse - HSS-0139 Sega Saturn Shuttle Mouse", 3
     Combo5.ListIndex = 1
     Combo5.Enabled = True
 Else
@@ -2039,10 +2074,11 @@ End If
 'Combo1.AddItem "psx (Sony PlayStation)", 10
 
 If Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Or Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
-    
     MsgBox "BIOS Image File: syscard3.pce is expected"
 ElseIf Combo1.Text = "psx (Sony PlayStation)" Then
     MsgBox "BIOS Image File: scph5500.bin/scph5501.bin/scph5502.bin is expected"
+ElseIf Combo1.Text = "ss (Sega Saturn)" Then
+    MsgBox "BIOS Image File: sega_101.bin/mpr-17933.bin is expected"
 End If
 End Sub
 
@@ -2124,13 +2160,17 @@ ElseIf Combo1.Text = "sms (Sega Master System)" Then
     SYSCORE = "sms"
 ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
     SYSCORE = "snes"
+'v0.1.8
+'Combo1.AddItem "ss (Sega Saturn)", 13
+ElseIf Combo1.Text = "ss (Sega Saturn)" Then
+    SYSCORE = "ss"
 ElseIf Combo1.Text = "VB (Virtual Boy)" Then
     SYSCORE = "vb"
 ElseIf Combo1.Text = "wswan (WonderSwan)" Then
     SYSCORE = "wswan"
 End If
 
-If SYSCORE = "psx" Or SYSCORE = "pce" Or SYSCORE = "pce_fast" Then
+If SYSCORE = "psx" Or SYSCORE = "pce" Or SYSCORE = "pce_fast" Or SYSCORE = "ss" Then
     cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -loadcd " & SYSCORE
     If SYSCORE = "psx" Then
         If Len(BIOSPATH) > 1 Then
@@ -2149,6 +2189,16 @@ If SYSCORE = "psx" Or SYSCORE = "pce" Or SYSCORE = "pce_fast" Then
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
         cmdstring = cmdstring & "-pce.cdbios " & Chr(34) & BIOSFILE & Chr(34)
+    End If
+    If SYSCORE = "ss" Then
+        If Len(BIOSPATH) > 1 Then
+            cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
+        End If
+        If Check12.Value = 1 Then
+            cmdstring = cmdstring & "-ss.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
+        Else
+            cmdstring = cmdstring & "-ss.bios_na_eu " & Chr(34) & BIOSFILE & Chr(34)
+        End If
     End If
 Else
     cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -force_module " & SYSCORE
@@ -2270,6 +2320,16 @@ If Combo5.Enabled = True Then
                 ElseIf Combo5.ListIndex = 5 Then
                     cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " arkanoid"
                 End If
+            ElseIf SYSCORE = "ss" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " 3dpad"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " mouse"
+                End If
             End If
         Next y
     ElseIf Val(Text8.Text) = 1 Then
@@ -2318,6 +2378,16 @@ If Combo5.Enabled = True Then
                     cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 powerpadb"
                 ElseIf Combo5.ListIndex = 5 Then
                     cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 arkanoid"
+                End If
+            ElseIf SYSCORE = "ss" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 3dpad"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 mouse"
                 End If
             End If
     End If
@@ -2520,7 +2590,7 @@ If ActiveFile = "SAVE" Then
     If tmp2 = vbYes Then
         Text7.Text = Dir1.Path
         SavePath = Text7.Text
-        Form1.Width = 9075
+        Form1.Width = 9240
         ActiveFile = "None"
         tmp2 = ""
     End If
@@ -2547,7 +2617,7 @@ If ActiveFile = "MEDEXE" Then
         End If
     If tmp2 = vbYes Then
         MedEXE = Dir1.Path & "\" & File1.FileName
-        Form1.Width = 9075
+        Form1.Width = 9240
         ActiveFile = "None"
         tmp2 = ""
         a = Validate_MedEXE()
@@ -2565,7 +2635,7 @@ If ActiveFile = "BIOS" Then
         BIOSPATH = Dir1.Path
         BIOSFILE = File1.FileName
         Text1.Text = BIOSPATH & "\" & BIOSFILE
-        Form1.Width = 9075
+        Form1.Width = 9240
         ActiveFile = "None"
         tmp2 = ""
         a = Validate_Bios()
@@ -2584,7 +2654,7 @@ If ActiveFile = "ROM" Then
         ROMDIR = Dir1.Path
         ROMFILE = Text2.Text
         'Form1.Width = 12735
-        Form1.Width = 9075
+        Form1.Width = 9240
         ActiveFile = "None"
         tmp2 = ""
         a = Validate_Rom()
@@ -2630,7 +2700,7 @@ If ActiveFile = "M3U" Then
             Loop Until z = Val(M3USize) Or z > Val(M3USize)
             tmp2 = ""
             ActiveFile = "None"
-            Form1.Width = 9075
+            Form1.Width = 9240
             Close #2
             MsgBox "M3U Generated! Written to: " & VB.App.Path & "\multi.m3u" & vbCrLf & vbCrLf & "You should rename your multi.m3u" & vbCrLf & vbCrLf & "Your Memory Card and Save State filenames will be based on it." & vbCrLf & vbCrLf & "Use F8 to 'Eject/Close' and F6 to cycle thru the Disc Set"
             Text2.Text = VB.App.Path & "\multi.m3u"
@@ -2642,7 +2712,7 @@ Private Sub Form_Load()
 '12945
 '9240
 FatalError = False
-Form1.Width = 9075
+Form1.Width = 9240
 ActiveFile = "None"
 Label29.Visible = False
 'Comments
@@ -2657,7 +2727,7 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.1.7"
+Build = "0.1.8"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
 Label34.Caption = "MedAdvCFG v" & Build
 Dir1.Path = VB.App.Path
@@ -2805,8 +2875,9 @@ Combo1.AddItem "pcfx (PC-FX)", 9
 Combo1.AddItem "psx (Sony PlayStation)", 10
 Combo1.AddItem "sms (Sega Master System)", 11
 Combo1.AddItem "snes (Super Nintendo Entertainment System)", 12
-Combo1.AddItem "VB (Virtual Boy)", 13
-Combo1.AddItem "wswan (WonderSwan)", 14
+Combo1.AddItem "ss (Sega Saturn)", 13
+Combo1.AddItem "VB (Virtual Boy)", 14
+Combo1.AddItem "wswan (WonderSwan)", 15
 
 Combo2.AddItem "0 - Disabled", 0
 Combo2.AddItem "full - Full", 1
@@ -3003,3 +3074,5 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     Print #6, "RomPath=" & ROMDIR
 Close #6
 End Sub
+
+
