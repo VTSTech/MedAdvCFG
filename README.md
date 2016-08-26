@@ -8,7 +8,29 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/443d419091b760674788777620816671.png">
+<img src="https://i.gyazo.com/26d629c9964ccc332f3890107feec510.png">
+
+
+v0.2.0 08-26-2016 2:49AM
+
+
+More accurate population of Controller list
+
+Now verifies BIOS on Load if BIOS is set.
+
+Now actually passes sanity checks to cmdline w\ Saturn Core.
+
+Now saves many more settings. Specifically saves:
+
+
+Force Mono, Disable Sound, Scanlines, video.blit_timesync
+
+video.glvsync, untrusted_fip_check, cd.image_memcache
+
+Axis Scale, Number of Players & Custom Params
+
+
+Various code optimizations
 
 
 v0.1.9 08-25-2016 11:56PM

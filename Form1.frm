@@ -1680,6 +1680,7 @@ Attribute VB_Exposed = False
 Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
 Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
+Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untrusted_fip_check, cd_image_memcache, scanlines, numplayers, customparams
 
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Private Function Generate_M3U(M3USize As Integer)
@@ -1722,6 +1723,20 @@ If Check10.Value = 1 Then
         End If
         Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
         Text1.Text = BIOSFILE
+    End If
+    'v0.2.0
+    If FSO.FileExists(BIOSFILE) = True Then
+        Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
+        Sleep (200)
+        If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
+            Open VB.App.Path & "\md5.txt" For Input As #5
+                Line Input #5, tmp
+            Close #5
+        End If
+        Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
+        Text1.Text = BIOSFILE
+    End If
+
         If LCase(tmp) = "239665b1a3dade1b5a52c06338011044" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
@@ -1876,7 +1891,6 @@ If Check10.Value = 1 Then
             Label29.Visible = False
             Label6.Caption = "MD5: " & tmp
         End If
-    End If
 Else
     Label6.Caption = "MD5: BIOS MD5 Disabled"
 End If
@@ -2074,8 +2088,11 @@ ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
     Combo5.ListIndex = 1
     Combo5.Enabled = True
 ElseIf Combo1.Text = "ss (Sega Saturn)" Then
+    Check1.Enabled = True
+    Check2.Enabled = True
     Check9.Value = 1
     Check10.Value = 1
+    Label29.Visible = True
     For z = 1 To Combo5.ListCount
         Combo5.RemoveItem 0
     Next z
@@ -2198,7 +2215,7 @@ ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
 'Combo1.AddItem "ss (Sega Saturn)", 13
 ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     SYSCORE = "ss"
-ElseIf Combo1.Text = "VB (Virtual Boy)" Then
+ElseIf Combo1.Text = "vb (Virtual Boy)" Then
     SYSCORE = "vb"
 ElseIf Combo1.Text = "wswan (WonderSwan)" Then
     SYSCORE = "wswan"
@@ -2524,7 +2541,7 @@ Else
     cmdtring = cmdstrig & "-video.glvsync 0"
 End If
 
-If SYSCORE = "psx" Then
+If SYSCORE = "psx" Or SYSCORE = "ss" Then
     If Check1.Value = 1 Then
         cmdstring = cmdstring & " -" & SYSCORE & ".bios_sanity 1"
     End If
@@ -2768,7 +2785,7 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.1.9"
+Build = "0.2.0"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
 Label34.Caption = "MedAdvCFG v" & Build
 Dir1.Path = VB.App.Path
@@ -2783,7 +2800,7 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
 
 Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
-    For x = 1 To 23
+    For x = 1 To 33
         On Error Resume Next
         Line Input #1, tmp3(x)
     Next x
@@ -2812,6 +2829,16 @@ BiosPathLoad = Mid$(tmp3(20), 14, Len(tmp3(20)))
 SavePath = Mid$(tmp3(21), 10, Len(tmp3(21)))
 SystemRegion = Mid$(tmp3(22), 14, Len(tmp3(22)))
 RomPathLoad = Mid$(tmp3(23), 9, Len(tmp3(23)))
+DisableSound = Mid$(tmp3(24), 14, Len(tmp3(24)))
+ForceMono = Mid$(tmp3(25), 11, Len(tmp3(25)))
+video_blit_timesync = Mid$(tmp3(26), 21, Len(tmp3(26)))
+video_glvsync = Mid$(tmp3(27), 15, Len(tmp3(27)))
+untrusted_fip_check = Mid$(tmp3(28), 21, Len(tmp3(28)))
+cd_image_memcache = Mid$(tmp3(29), 19, Len(tmp3(29)))
+scanlines = Mid$(tmp3(30), 11, Len(tmp3(30)))
+axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
+numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
+customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
 
 Text1.Text = BIOSFILE
 Text2.Text = ROMFILE
@@ -2819,6 +2846,7 @@ Text4.Text = ScaleFactor
 Text5.Text = XRes
 Text6.Text = YRes
 Text7.Text = SavePath
+Text8.Text = numplayers
 
 Dir1.Path = LastPath
 File1.Path = LastPath
@@ -2840,14 +2868,6 @@ If ROMSanity = 1 Then
     Check2.Value = 1
 End If
 
-If Fullscreen = 1 Then
-    Check6.Value = 1
-End If
-
-If Frameskip = 1 Then
-    Check7.Value = 1
-End If
-
 If TBlur = 1 Then
     Check3.Value = 1
 End If
@@ -2861,6 +2881,14 @@ If VideoIP = 1 Then
     Check5.Value = 1
 End If
 
+If Fullscreen = 1 Then
+    Check6.Value = 1
+End If
+
+If Frameskip = 1 Then
+    Check7.Value = 1
+End If
+
 If SystemRegion = none Then
     a = a
 ElseIf SystemRegion = "NTSC-U" Then
@@ -2869,6 +2897,42 @@ ElseIf SystemRegion = "NTSC-J" Then
     Check12.Value = 1
 ElseIf SystemRegion = "PAL" Then
     Check13.Value = 1
+End If
+
+If untrusted_fip_check = 1 Then
+    Check14.Value = 1
+ElseIf untrusted_fip_check = 0 Then
+    Check14.Value = 0
+End If
+
+If video_glvsync = 1 Then
+    Check19.Value = 1
+ElseIf video_glvsync = 0 Then
+    Check19.Value = 0
+End If
+
+If ForceMono = 1 Then
+    Check20.Value = 1
+ElseIf ForceMono = 0 Then
+    Check20.Value = 0
+End If
+
+If DisableSound = 1 Then
+    Check21.Value = 1
+ElseIf DisableSound = 0 Then
+    Check21.Value = 0
+End If
+
+If video_blit_timesync = 1 Then
+    Check22.Value = 1
+ElseIf video_blit_timesync = 0 Then
+    Check22.Value = 0
+End If
+
+If cd_image_memcache = 1 Then
+    Check23.Value = 1
+ElseIf cd_image_memcache = 0 Then
+    Check23.Value = 0
 End If
 
 If Combo1.Text = "psx (Sony PlayStation)" Then
@@ -2882,6 +2946,23 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check2.Value = 1
     Check9.Value = 1
     Check10.Value = 1
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - SCPH-1080 PlayStation Digital Gamepad", 1
+    Combo5.AddItem "dualshock - SCPH-1200 PlayStation DualShock Gamepad", 2
+    Combo5.AddItem "dualanalog - SCPH-1180 PlayStation DualAnalog Gamepad", 3
+    Combo5.AddItem "analogjoy - SCPH-1110 PlayStation Analog Joystick", 4
+    Combo5.AddItem "mouse - SCPH-1090 PlayStation Mouse", 5
+    Combo5.AddItem "negcon - NPC-101 Namco neGcon", 6
+    Combo5.AddItem "guncon - NPC-103 Namco GunCon", 7
+    Combo5.AddItem "justifier - SLUH-00017 Konami Justifier", 8
+    Combo5.AddItem "dancepad - SLUH-00071 Konami Dancepad", 9
+    Combo5.ListIndex = 1
+ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - SNS-005 Super Nintendo Controller", 1
+    Combo5.AddItem "mouse - SNS-016 Super Nintendo Mouse Controller", 2
+    Combo5.AddItem "superscope - SNS-013 Super Nintendo Super Scope", 3
+    Combo5.ListIndex = 1
 ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     Check1.Enabled = True
     Check2.Enabled = True
@@ -2893,7 +2974,12 @@ ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     Check2.Value = 1
     Check9.Value = 1
     Check10.Value = 1
-    Label29.Visible = True
+    'Label29.Visible = True
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - MK-80100 Sega Saturn Controller", 1
+    Combo5.AddItem "3dpad - MK-80117 Sega Saturn 3D Control Pad", 2
+    Combo5.AddItem "mouse - HSS-0139 Sega Saturn Shuttle Mouse", 3
+    Combo5.ListIndex = 1
 Else
     Check1.Value = 0
     Check2.Value = 0
@@ -2929,7 +3015,7 @@ Combo1.AddItem "psx (Sony PlayStation)", 10
 Combo1.AddItem "sms (Sega Master System)", 11
 Combo1.AddItem "snes (Super Nintendo Entertainment System)", 12
 Combo1.AddItem "ss (Sega Saturn)", 13
-Combo1.AddItem "VB (Virtual Boy)", 14
+Combo1.AddItem "vb (Virtual Boy)", 14
 Combo1.AddItem "wswan (WonderSwan)", 15
 
 Combo2.AddItem "0 - Disabled", 0
@@ -2965,18 +3051,6 @@ Combo4.AddItem "nn4x - Nearest-neighbor 4x", 12
 Combo4.AddItem "nny2x - Nearest-neighbor 2x, y axis only", 13
 Combo4.AddItem "nny3x - Nearest-neighbor 3x, y axis only", 14
 Combo4.AddItem "nny4x - Nearest-neighbor 4x, y axis only", 15
-
-Combo5.AddItem "none", 0
-Combo5.AddItem "gamepad - SCPH-1080 PlayStation Digital Gamepad", 1
-Combo5.AddItem "dualshock - SCPH-1200 PlayStation DualShock Gamepad", 2
-Combo5.AddItem "dualanalog - SCPH-1180 PlayStation DualAnalog Gamepad", 3
-Combo5.AddItem "analogjoy - SCPH-1110 PlayStation Analog Joystick", 4
-Combo5.AddItem "mouse - SCPH-1090 PlayStation Mouse", 5
-Combo5.AddItem "negcon - NPC-101 Namco neGcon", 6
-Combo5.AddItem "guncon - NPC-103 Namco GunCon", 7
-Combo5.AddItem "justifier - SLUH-00017 Konami Justifier", 8
-Combo5.AddItem "dancepad - SLUH-00071 Konami Dancepad", 9
-Combo5.ListIndex = 1
 
 Combo6.AddItem "OpenGL - OpenGL + SDL", 0
 Combo6.AddItem "SDL - SDL Surface", 1
@@ -3125,6 +3199,16 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
         Print #6, "SystemRegion=PAL"
     End If
     Print #6, "RomPath=" & ROMDIR
+    Print #6, "DisableSound=" & Check21.Value
+    Print #6, "ForceMono=" & Check20.Value
+    Print #6, "video.blit_timesync=" & Check22.Value
+    Print #6, "video.glvsync=" & Check19.Value
+    Print #6, "untrusted_fip_check=" & Check14.Value
+    Print #6, "cd.image_memcache=" & Check23.Value
+    Print #6, "scanlines=" & Text10.Text
+    Print #6, "axisscale=" & Text11.Text
+    Print #6, "numplayers=" & Text8.Text
+    Print #6, "customparams=" & Text9.Text
 Close #6
 End Sub
 
