@@ -1,14 +1,47 @@
 # MedAdvCFG - Mednafen Advanced Configuration Tool
 
-Frontend for <a href="http://mednafen.fobby.net/releases/">Mednafen</a> v0.9.38.x
+Frontend for <a href="http://mednafen.fobby.net/releases/">Mednafen</a> v0.9.x.x
 
 Tested with the following System Cores:
 
-GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,VB
+GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/b75273a35a77c850ab2ce2a008009a10.png">
+<img src="https://i.gyazo.com/443d419091b760674788777620816671.png">
+
+
+v0.1.9 08-25-2016 11:56PM
+
+
+Updated for Mednafen v0.9.39.1-win32/64
+
+Added cd.image_memcache option
+
+Reorganized main form controls
+
+Changed Window Title/About text to reflect 0.9.x.x support.
+
+Various code optimizations
+
+
+v0.1.8 08-19-2016 2:54PM
+
+
+Updated for Mednafen v0.9.39-unstable
+
+Added support for Sega Saturn!
+
+Added Controllers for Saturn
+
+Validates various BIOS for Saturn
+
+Auto Selects US/JP region based on BIOS
+
+Resized main form slightly
+
+Various code optimizations
+
 
 v0.1.7 08-05-2016 10:01AM
 

@@ -20,6 +20,24 @@ Begin VB.Form Form1
    ScaleHeight     =   7590
    ScaleWidth      =   12615
    StartUpPosition =   3  'Windows Default
+   Begin VB.CheckBox Check23 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "cd.image_memcache"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   84
+      Top             =   4200
+      Width           =   1815
+   End
    Begin VB.CheckBox Check22 
       BackColor       =   &H00C0C0C0&
       Caption         =   "video.blit_timesync"
@@ -125,7 +143,7 @@ Begin VB.Form Form1
       Left            =   8520
       TabIndex        =   73
       Text            =   "1.00"
-      Top             =   5760
+      Top             =   5880
       Width           =   405
    End
    Begin VB.CheckBox Check18 
@@ -198,7 +216,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   67
       Text            =   "0"
-      Top             =   5400
+      Top             =   5520
       Width           =   285
    End
    Begin VB.CheckBox Check15 
@@ -251,7 +269,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   62
       Text            =   "1"
-      Top             =   6120
+      Top             =   6240
       Width           =   285
    End
    Begin VB.ComboBox Combo5 
@@ -434,7 +452,7 @@ Begin VB.Form Form1
       Left            =   8400
       TabIndex        =   47
       Text            =   "1080"
-      Top             =   4320
+      Top             =   4440
       Width           =   515
    End
    Begin VB.TextBox Text5 
@@ -452,7 +470,7 @@ Begin VB.Form Form1
       Left            =   7920
       TabIndex        =   46
       Text            =   "1920"
-      Top             =   4320
+      Top             =   4440
       Width           =   495
    End
    Begin VB.TextBox Text4 
@@ -470,7 +488,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   44
       Text            =   "2"
-      Top             =   4680
+      Top             =   4800
       Width           =   285
    End
    Begin VB.CommandButton Command4 
@@ -665,7 +683,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   22
       Text            =   "50"
-      Top             =   5040
+      Top             =   5160
       Width           =   285
    End
    Begin VB.CheckBox Check4 
@@ -961,7 +979,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   74
-      Top             =   5760
+      Top             =   5880
       Width           =   780
    End
    Begin VB.Label Label15 
@@ -999,7 +1017,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   68
-      Top             =   5400
+      Top             =   5520
       Width           =   735
    End
    Begin VB.Image Image7 
@@ -1079,7 +1097,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   63
-      Top             =   6120
+      Top             =   6240
       Width           =   1335
    End
    Begin VB.Label Label30 
@@ -1182,7 +1200,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   48
-      Top             =   4320
+      Top             =   4440
       Width           =   750
    End
    Begin VB.Label Label25 
@@ -1201,7 +1219,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   45
-      Top             =   4680
+      Top             =   4800
       Width           =   1020
    End
    Begin VB.Label Label24 
@@ -1419,7 +1437,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   23
-      Top             =   5040
+      Top             =   5160
       Width           =   1590
    End
    Begin VB.Label Label11 
@@ -1894,7 +1912,11 @@ If FSO.FileExists(MedEXE) = True Then
         Label2.Caption = "0.9.39-unstable-win64 Detected! MD5: 9357B96CB347AA52E5F2796AB9A062BD"
     ElseIf tmp = "84438BB30BB5F15488AEAE662D91E56C" Then
         Label2.Caption = "0.9.39-unstable-win32 Detected! MD5: 84438BB30BB5F15488AEAE662D91E56C"
-'84438BB30BB5F15488AEAE662D91E56C
+    ElseIf tmp = "942641E6C569B6AC26A66BA9051FCD1C" Then
+        Label2.Caption = "0.9.39.1-win64 Detected! MD5: 942641E6C569B6AC26A66BA9051FCD1C"
+    ElseIf tmp = "213AE98231F8F96D26B0C409085DAB73" Then
+        Label2.Caption = "0.9.39.1-win32 Detected! MD5: 213AE98231F8F96D26B0C409085DAB73"
+'Unknown Mednafen Version! MD5: 213AE98231F8F96D26B0C409085DAB73
     Else
         Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
@@ -1904,7 +1926,7 @@ Validate_MedEXE = tmp
 End Function
 
 Private Sub About_Click()
-MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend)" & vbCrLf & "Written by Nigel Todman (nigel@nigeltodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, VB" & vbCrLf & vbCrLf & "Homepage: www.NigelTodman.com" & vbCrLf & "Facebook: facebook.com/nigel.todman.3" & vbCrLf & "Twitter: @Veritas_83" & vbCrLf & "YouTube: Veritas0923"
+MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Written by Nigel Todman (nigel@nigeltodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, SS, VB" & vbCrLf & vbCrLf & "Homepage: www.NigelTodman.com" & vbCrLf & "Facebook: facebook.com/nigel.todman.3" & vbCrLf & "Twitter: @Veritas_83" & vbCrLf & "YouTube: Veritas0923"
 End Sub
 
 Private Sub Check11_Click()
@@ -1971,6 +1993,18 @@ ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
     For z = 0 To Combo5.ListCount
     'Combo5.RemoveItem (z)
     Next z
+ElseIf Combo1.Text = "ss (Sega Saturn)" Then
+    Check1.Enabled = True
+    Check2.Enabled = True
+    Check11.Enabled = True
+    Check12.Enabled = True
+    Check13.Enabled = True
+    Combo5.Enabled = True
+    Check1.Value = 1
+    Check2.Value = 1
+    Check9.Value = 1
+    Check10.Value = 1
+    Label29.Visible = True
 Else
     Check1.Value = 0
     Check2.Value = 0
@@ -2445,6 +2479,13 @@ ElseIf Check22.Value = 0 Then
     cmdstring = cmdstring & " -video.blit_timesync 0"
 End If
 
+'v0.1.9
+If Check23.Value = 1 Then
+    cmdstring = cmdstring & " -cd.image_memcache 1"
+'ElseIf Check23.Value = 0 Then
+'    cmdstring = cmdstring & " -cd.image_memcache 0"
+End If
+
 '**
 
 
@@ -2727,8 +2768,8 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.1.8"
-Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.38.x Frontend) by Nigel Todman"
+Build = "0.1.9"
+Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
 Label34.Caption = "MedAdvCFG v" & Build
 Dir1.Path = VB.App.Path
 File1.Path = VB.App.Path
@@ -2841,6 +2882,18 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check2.Value = 1
     Check9.Value = 1
     Check10.Value = 1
+ElseIf Combo1.Text = "ss (Sega Saturn)" Then
+    Check1.Enabled = True
+    Check2.Enabled = True
+    Check11.Enabled = True
+    Check12.Enabled = True
+    Check13.Enabled = True
+    Combo5.Enabled = True
+    Check1.Value = 1
+    Check2.Value = 1
+    Check9.Value = 1
+    Check10.Value = 1
+    Label29.Visible = True
 Else
     Check1.Value = 0
     Check2.Value = 0
