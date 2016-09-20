@@ -8,7 +8,20 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 
 Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
 
-<img src="https://i.gyazo.com/26d629c9964ccc332f3890107feec510.png">
+<img src="https://i.gyazo.com/e07ca4343b416b47407ac479afcb1b6d.png">
+
+v0.2.1 09-20-2016 4:34PM
+
+
+Updated for Mednafen v0.9.39.2-win32/64
+
+Reorganized main form controls
+
+Resized main form slightly
+
+Added non-functional fields for Netplay support
+
+Various code optimizations
 
 
 v0.2.0 08-26-2016 2:49AM
