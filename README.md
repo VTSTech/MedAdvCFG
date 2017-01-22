@@ -6,9 +6,21 @@ Tested with the following System Cores:
 
 GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 
-Homepage: http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/
+Homepage: http://www.nigeltodman.com/medadvcfg
 
-<img src="https://i.gyazo.com/e07ca4343b416b47407ac479afcb1b6d.png">
+<img src="https://i.gyazo.com/23d66bd5b868a3492ffc08adca9300d6.png">
+
+v0.2.2 01-22-2017 12:13PM
+
+
+Updated for Mednafen v0.9.41-win32/64
+
+Added 'Basic Mode' - Not finished yet
+
+Normal view up until now is 'Advanced Mode' - Default
+
+Various code optimizations
+
 
 v0.2.1 09-20-2016 4:34PM
 

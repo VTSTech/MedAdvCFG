@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
-   Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.38.x Frontend) by Nigel Todman"
+   Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.38.x Frontend) by Nigel Todman [ADV MODE]"
    ClientHeight    =   6810
    ClientLeft      =   225
    ClientTop       =   855
@@ -1701,6 +1701,16 @@ Begin VB.Form Form1
          Caption         =   "Quit"
       End
    End
+   Begin VB.Menu mode 
+      Caption         =   "Mode"
+      Begin VB.Menu advanced 
+         Caption         =   "Advanced"
+         Checked         =   -1  'True
+      End
+      Begin VB.Menu basic 
+         Caption         =   "Basic"
+      End
+   End
    Begin VB.Menu About 
       Caption         =   "About"
    End
@@ -1729,7 +1739,7 @@ z = 0
 Open VB.App.Path & "\multi.m3u" For Output As #2
 
 End Function
-Private Function Validate_Rom()
+Public Function Validate_Rom()
 If Check9.Value = 1 Then
     If FSO.FileExists(ROMFILE) = True Then
         Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & ROMFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
@@ -1748,7 +1758,7 @@ Else
 End If
 Validate_Rom = tmp
 End Function
-Private Function Validate_Bios()
+Public Function Validate_Bios()
 If Check10.Value = 1 Then
     If FSO.FileExists(BIOSPATH & "\" & BIOSFILE) = True Then
         Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSPATH & "\" & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
@@ -1933,7 +1943,7 @@ Else
 End If
 Validate_Bios = tmp
 End Function
-Function Validate_MedEXE()
+Public Function Validate_MedEXE()
 If FSO.FileExists(MedEXE) = True Then
     Shell ("cmd.exe /c " & Chr(34) & Chr(34) & VB.App.Path & "\md5.exe" & Chr(34) & " -n " & Chr(34) & MedEXE & Chr(34) & " >> " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34) & Chr(34)), vbHide
     'MsgBox ("cmd.exe /c " & Chr(34) & Chr(34) & VB.App.Path & "\md5.exe" & Chr(34) & " -n " & Chr(34) & MedEXE & Chr(34) & " >> " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34) & Chr(34)), vbHide
@@ -1971,8 +1981,14 @@ If FSO.FileExists(MedEXE) = True Then
         Label2.Caption = "0.9.39.2-win64 Detected! MD5: A5AFC70E3B2B267A0E81F64B7366C8C3"
     ElseIf tmp = "AEF947A6E5A35FF108B954683CD3698A" Then
         Label2.Caption = "0.9.39.2-win32 Detected! MD5: AEF947A6E5A35FF108B954683CD3698A"
+    ElseIf tmp = "6AADC9A8A196DA610E6DB43367B339B4" Then
+        Label2.Caption = "0.9.41.0-win64 Detected! MD5: 6AADC9A8A196DA610E6DB43367B339B4"
+    ElseIf tmp = "DE8348EFB4EA79C58711990031FD7505" Then
+        Label2.Caption = "0.9.41.0-win32 Detected! MD5: DE8348EFB4EA79C58711990031FD7505"
 'Unknown Mednafen Version! MD5: A5AFC70E3B2B267A0E81F64B7366C8C3 x64
 'Unknown Mednafen Version! MD5: AEF947A6E5A35FF108B954683CD3698A x86
+'Unknown Mednafen Version! MD5: 6AADC9A8A196DA610E6DB43367B339B4 x64
+'Unknown Mednafen Version! MD5: DE8348EFB4EA79C58711990031FD7505 x86
     Else
         Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
@@ -1983,6 +1999,20 @@ End Function
 
 Private Sub About_Click()
 MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Written by Nigel Todman (nigel@nigeltodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, SS, VB" & vbCrLf & vbCrLf & "Homepage: www.NigelTodman.com" & vbCrLf & "Facebook: facebook.com/nigel.todman.3" & vbCrLf & "Twitter: @Veritas_83" & vbCrLf & "YouTube: Veritas0923"
+End Sub
+
+Private Sub Advanced_Click()
+Advanced.Checked = True
+Basic.Checked = False
+Form1.Visible = True
+Form2.Visible = False
+End Sub
+
+Private Sub Basic_Click()
+Advanced.Checked = False
+Basic.Checked = True
+Form1.Visible = False
+Form2.Visible = True
 End Sub
 
 Private Sub Check11_Click()
@@ -2827,7 +2857,7 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.2.1"
+Build = "0.2.2"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
 Label34.Caption = "MedAdvCFG v" & Build
 Dir1.Path = VB.App.Path
