@@ -10,6 +10,25 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/23d66bd5b868a3492ffc08adca9300d6.png">
 
+<img src="https://i.gyazo.com/92a29a9a1149ff763fc6fb98a8292e3e.png">
+
+<img src="https://i.gyazo.com/c98c6105efcf218ee89e9760b22fd18b.png">
+
+
+v0.2.3 01-25-2017 4:50PM
+
+
+Basic Mode Update. Semi-Functional
+
+Now parsing covers from /covers/psx/, /covers/snes/, etc
+
+Will search for roms/cues for NES, SNES and PSX for now.
+
+Displays detected covers. Click on cover to launch.
+
+Many code optimizations
+
+
 v0.2.2 01-22-2017 12:13PM
 
 

@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
-   Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.38.x Frontend) by Nigel Todman [ADV MODE]"
+   Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.x.x Frontend) by Nigel Todman [ADV MODE]"
    ClientHeight    =   6810
    ClientLeft      =   225
    ClientTop       =   855
@@ -1651,7 +1651,7 @@ Begin VB.Form Form1
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "0.9.38.7-win64 Detected! MD5: 8F0BC836E2B6023371B99E94829B5CF1"
+      Caption         =   "0.9.41.0-win64 Detected! MD5: 6AADC9A8A196DA610E6DB43367B339B4"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -1665,7 +1665,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   1
       Top             =   120
-      Width           =   6225
+      Width           =   6345
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
@@ -1983,12 +1983,13 @@ If FSO.FileExists(MedEXE) = True Then
         Label2.Caption = "0.9.39.2-win32 Detected! MD5: AEF947A6E5A35FF108B954683CD3698A"
     ElseIf tmp = "6AADC9A8A196DA610E6DB43367B339B4" Then
         Label2.Caption = "0.9.41.0-win64 Detected! MD5: 6AADC9A8A196DA610E6DB43367B339B4"
-    ElseIf tmp = "DE8348EFB4EA79C58711990031FD7505" Then
-        Label2.Caption = "0.9.41.0-win32 Detected! MD5: DE8348EFB4EA79C58711990031FD7505"
+    ElseIf tmp = "74EA6CD12BF60ADF1A93A40854CD4686" Then
+        Label2.Caption = "0.9.41.0-win32 Detected! MD5: 74EA6CD12BF60ADF1A93A40854CD4686"
 'Unknown Mednafen Version! MD5: A5AFC70E3B2B267A0E81F64B7366C8C3 x64
 'Unknown Mednafen Version! MD5: AEF947A6E5A35FF108B954683CD3698A x86
 'Unknown Mednafen Version! MD5: 6AADC9A8A196DA610E6DB43367B339B4 x64
 'Unknown Mednafen Version! MD5: DE8348EFB4EA79C58711990031FD7505 x86
+'Unknown Mednafen Version! MD5: 74EA6CD12BF60ADF1A93A40854CD4686 x86
     Else
         Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
@@ -2857,7 +2858,7 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.2.2"
+Build = "0.2.3"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
 Label34.Caption = "MedAdvCFG v" & Build
 Dir1.Path = VB.App.Path
@@ -3233,6 +3234,8 @@ End Sub
 
 Private Sub Quit_Click()
 Unload Form1
+Unload Form2
+Unload Form3
 End Sub
 
 Private Sub Reset_Settings_Click()
