@@ -5,7 +5,7 @@ Begin VB.Form Form1
    ClientHeight    =   6810
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   10875
+   ClientWidth     =   11280
    BeginProperty Font 
       Name            =   "MS Sans Serif"
       Size            =   8.25
@@ -18,7 +18,7 @@ Begin VB.Form Form1
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   6810
-   ScaleWidth      =   10875
+   ScaleWidth      =   11280
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox Text13 
       BackColor       =   &H00C0C0C0&
@@ -1724,7 +1724,7 @@ Attribute VB_Exposed = False
 'Website: www.NigelTodman.com
 'GitHub: https://github.com/Veritas83/MedAdvCFG
 
-Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z
+Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, SysCore, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
 Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
 Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untrusted_fip_check, cd_image_memcache, scanlines, numplayers, customparams
@@ -1758,7 +1758,7 @@ Else
 End If
 Validate_Rom = tmp
 End Function
-Public Function Validate_Bios()
+Function Validate_Bios()
 If Check10.Value = 1 Then
     If FSO.FileExists(BIOSPATH & "\" & BIOSFILE) = True Then
         Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSPATH & "\" & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
@@ -1943,6 +1943,58 @@ Else
 End If
 Validate_Bios = tmp
 End Function
+Public Function SetSysCore()
+If Form1.Combo1.Text = "gb (GameBoy (Color))" Then
+    SysCore = "gb"
+    Form3.Text1.Text = "gb (GameBoy (Color))" & vbCrLf
+ElseIf Form1.Combo1.Text = "gba (GameBoy Advanced)" Then
+    SysCore = "gba"
+    Form3.Text1.Text = "gba (GameBoy Advanced)" & vbCrLf
+ElseIf Form1.Combo1.Text = "gg (Sega Game Gear)" Then
+    SysCore = "gg"
+    Form3.Text1.Text = "gg (Sega Game Gear)" & vbCrLf
+ElseIf Form1.Combo1.Text = "lynx (Atari Lynx)" Then
+    SysCore = "lynx"
+    Form3.Text1.Text = "lynx (Atari Lynx)" & vbCrLf
+ElseIf Form1.Combo1.Text = "md (Sega Genesis/MegaDrive)" Then
+    SysCore = "md"
+    Form3.Text1.Text = "md (Sega Genesis/MegaDrive)" & vbCrLf
+ElseIf Form1.Combo1.Text = "nes (Nintendo Entertainment System)" Then
+    SysCore = "nes"
+    Form3.Text1.Text = "nes (Nintendo Entertainment System)" & vbCrLf
+ElseIf Form1.Combo1.Text = "ngp (Neo Geo Pocket (Color))" Then
+    SysCore = "ngp"
+    Form3.Text1.Text = "ngp (Neo Geo Pocket (Color))" & vbCrLf
+ElseIf Form1.Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
+    SysCore = "pce"
+    Form3.Text1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" & vbCrLf
+ElseIf Form1.Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
+    SysCore = "pce_fast"
+    Form3.Text1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" & vbCrLf
+ElseIf Form1.Combo1.Text = "pcfx (PC-FX)" Then
+    SysCore = "pcfx"
+    Form3.Text1.Text = "pcfx (PC-FX)" & vbCrLf
+ElseIf Form1.Combo1.Text = "psx (Sony PlayStation)" Then
+    SysCore = "psx"
+    Form3.Text1.Text = "psx (Sony PlayStation)" & vbCrLf
+ElseIf Form1.Combo1.Text = "sms (Sega Master System)" Then
+    SysCore = "sms"
+    Form3.Text1.Text = "sms (Sega Master System)" & vbCrLf
+ElseIf Form1.Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
+    SysCore = "snes"
+    Form3.Text1.Text = "snes (Super Nintendo Entertainment System)" & vbCrLf
+ElseIf Form1.Combo1.Text = "ss (Sega Saturn)" Then
+    SysCore = "ss"
+    Form3.Text1.Text = "ss (Sega Saturn)" & vbCrLf
+ElseIf Form1.Combo1.Text = "vb (Virtual Boy)" Then
+    SysCore = "vb"
+    Form3.Text1.Text = "vb (Virtual Boy)" & vbCrLf
+ElseIf Form1.Combo1.Text = "wswan (WonderSwan)" Then
+    SysCore = "wswan"
+    Form3.Text1.Text = "wswan (WonderSwan)" & vbCrLf
+End If
+SetSysCore = SysCore
+End Function
 Public Function Validate_MedEXE()
 If FSO.FileExists(MedEXE) = True Then
     Shell ("cmd.exe /c " & Chr(34) & Chr(34) & VB.App.Path & "\md5.exe" & Chr(34) & " -n " & Chr(34) & MedEXE & Chr(34) & " >> " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34) & Chr(34)), vbHide
@@ -2003,15 +2055,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Advanced.Checked = True
-Basic.Checked = False
+advanced.Checked = True
+basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Advanced.Checked = False
-Basic.Checked = True
+advanced.Checked = False
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -2255,48 +2307,48 @@ End Sub
 
 Private Sub Command3_Click()
 If Combo1.Text = "gb (GameBoy (Color))" Then
-    SYSCORE = "gb"
+    SysCore = "gb"
 ElseIf Combo1.Text = "gba (GameBoy Advanced)" Then
-    SYSCORE = "gba"
+    SysCore = "gba"
 ElseIf Combo1.Text = "gg (Sega Game Gear)" Then
-    SYSCORE = "gg"
+    SysCore = "gg"
 ElseIf Combo1.Text = "lynx (Atari Lynx)" Then
-    SYSCORE = "lynx"
+    SysCore = "lynx"
 ElseIf Combo1.Text = "md (Sega Genesis/MegaDrive)" Then
-    SYSCORE = "md"
+    SysCore = "md"
 ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
-    SYSCORE = "nes"
+    SysCore = "nes"
 ElseIf Combo1.Text = "ngp (Neo Geo Pocket (Color))" Then
-    SYSCORE = "ngp"
+    SysCore = "ngp"
 ElseIf Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
-    SYSCORE = "pce"
+    SysCore = "pce"
 ElseIf Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
-    SYSCORE = "pce_fast"
+    SysCore = "pce_fast"
 ElseIf Combo1.Text = "pcfx (PC-FX)" Then
-    SYSCORE = "pcfx"
+    SysCore = "pcfx"
 ElseIf Combo1.Text = "psx (Sony PlayStation)" Then
-    SYSCORE = "psx"
+    SysCore = "psx"
     If Check11.Value = 0 And Check12.Value = 0 And Check13.Value = 0 Then
         MsgBox "A System Region must be select for PlayStation!", vbCritical, "Error!"
         FatalError = True
     End If
 ElseIf Combo1.Text = "sms (Sega Master System)" Then
-    SYSCORE = "sms"
+    SysCore = "sms"
 ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
-    SYSCORE = "snes"
+    SysCore = "snes"
 'v0.1.8
 'Combo1.AddItem "ss (Sega Saturn)", 13
 ElseIf Combo1.Text = "ss (Sega Saturn)" Then
-    SYSCORE = "ss"
+    SysCore = "ss"
 ElseIf Combo1.Text = "vb (Virtual Boy)" Then
-    SYSCORE = "vb"
+    SysCore = "vb"
 ElseIf Combo1.Text = "wswan (WonderSwan)" Then
-    SYSCORE = "wswan"
+    SysCore = "wswan"
 End If
 
-If SYSCORE = "psx" Or SYSCORE = "pce" Or SYSCORE = "pce_fast" Or SYSCORE = "ss" Then
-    cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -loadcd " & SYSCORE
-    If SYSCORE = "psx" Then
+If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" Then
+    cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -loadcd " & SysCore
+    If SysCore = "psx" Then
         If Len(BIOSPATH) > 1 Then
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
@@ -2308,13 +2360,13 @@ If SYSCORE = "psx" Or SYSCORE = "pce" Or SYSCORE = "pce_fast" Or SYSCORE = "ss" 
             cmdstring = cmdstring & " -psx.bios_eu " & Chr(34) & BIOSFILE & Chr(34)
         End If
     End If
-    If SYSCORE = "pce" Or SYSCORE = "pce_fast" Then
+    If SysCore = "pce" Or SysCore = "pce_fast" Then
         If Len(BIOSPATH) > 1 Then
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
         cmdstring = cmdstring & "-pce.cdbios " & Chr(34) & BIOSFILE & Chr(34)
     End If
-    If SYSCORE = "ss" Then
+    If SysCore = "ss" Then
         If Len(BIOSPATH) > 1 Then
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
@@ -2325,193 +2377,193 @@ If SYSCORE = "psx" Or SYSCORE = "pce" Or SYSCORE = "pce_fast" Or SYSCORE = "ss" 
         End If
     End If
 Else
-    cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -force_module " & SYSCORE
+    cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -force_module " & SysCore
 End If
 
 If Combo2.Text = "0 - Disabled" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".stretch 0"
+    cmdstring = cmdstring & " -" & SysCore & ".stretch 0"
 ElseIf Combo2.Text = "full - Full" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".stretch full"
+    cmdstring = cmdstring & " -" & SysCore & ".stretch full"
 ElseIf Combo2.Text = "aspect - Aspect Preserve" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".stretch aspect"
+    cmdstring = cmdstring & " -" & SysCore & ".stretch aspect"
 ElseIf Combo2.Text = "aspect_int - Aspect Preserve + Integer Scale" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".stretch aspect_int"
+    cmdstring = cmdstring & " -" & SysCore & ".stretch aspect_int"
 ElseIf Combo2.Text = "aspect_mult2 - Aspect Preserve + Integer Multiple-of-2 Scale" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".stretch aspect_mult2"
+    cmdstring = cmdstring & " -" & SysCore & ".stretch aspect_mult2"
 End If
 
 If Combo3.Text = "None - None/Disabled" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader none"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader none"
 ElseIf Combo3.Text = "autoip - Auto Interpolation" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader autoip"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader autoip"
 ElseIf Combo3.Text = "autoipsharper - Sharper Auto Interpolation" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader autoipsharper"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader autoipsharper"
 ElseIf Combo3.Text = "scale2x - Scale2x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader scale2x"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader scale2x"
 ElseIf Combo3.Text = "sabr - SABR v3.0" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader sabr"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader sabr"
 ElseIf Combo3.Text = "ipsharper - Sharper bilinear interpolation." Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader ipsharper"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipsharper"
 ElseIf Combo3.Text = "ipxnoty - Linear interpolation on X axis only." Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader ipxnoty"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipxnoty"
 ElseIf Combo3.Text = "ipynotx - Linear interpolation on Y axis only." Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader ipynotx"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipynotx"
 ElseIf Combo3.Text = "ipxnotysharper - Sharper version of ipxnoty." Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader ipynotysharper"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipynotysharper"
 ElseIf Combo3.Text = "ipynotxsharper - Sharper version of ipynotx." Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".pixshader ipynotxsharper"
+    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipynotxsharper"
 End If
 
 If Combo4.Text = "None - None/Disabled" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special none"
+    cmdstring = cmdstring & " -" & SysCore & ".special none"
 ElseIf Combo4.Text = "hq2x - hq2x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special hq2x"
+    cmdstring = cmdstring & " -" & SysCore & ".special hq2x"
 ElseIf Combo4.Text = "hq3x -hq3x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special hq3x"
+    cmdstring = cmdstring & " -" & SysCore & ".special hq3x"
 ElseIf Combo4.Text = "hq4x -hq4x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special hq4x"
+    cmdstring = cmdstring & " -" & SysCore & ".special hq4x"
 ElseIf Combo4.Text = "scale2x -scale2x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special scale2x"
+    cmdstring = cmdstring & " -" & SysCore & ".special scale2x"
 ElseIf Combo4.Text = "scale3x -scale3x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special scale3x"
+    cmdstring = cmdstring & " -" & SysCore & ".special scale3x"
 ElseIf Combo4.Text = "scale4x -scale4x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special scale4x"
+    cmdstring = cmdstring & " -" & SysCore & ".special scale4x"
 ElseIf Combo4.Text = "2xsai - 2xSaI" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special 2xsai"
+    cmdstring = cmdstring & " -" & SysCore & ".special 2xsai"
 ElseIf Combo4.Text = "supereagle - Super Eagle" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special supereagle"
+    cmdstring = cmdstring & " -" & SysCore & ".special supereagle"
 ElseIf Combo4.Text = "nn2x - Nearest-neighbor 2x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special nn2x"
+    cmdstring = cmdstring & " -" & SysCore & ".special nn2x"
 ElseIf Combo4.Text = "nn3x - Nearest-neighbor 3x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special nn3x"
+    cmdstring = cmdstring & " -" & SysCore & ".special nn3x"
 ElseIf Combo4.Text = "nn4x - Nearest-neighbor 4x" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special nn4x"
+    cmdstring = cmdstring & " -" & SysCore & ".special nn4x"
 ElseIf Combo4.Text = "nny2x - Nearest-neighbor 2x, y axis only" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special nny2x"
+    cmdstring = cmdstring & " -" & SysCore & ".special nny2x"
 ElseIf Combo4.Text = "nny3x - Nearest-neighbor 3x, y axis only" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special nny3x"
+    cmdstring = cmdstring & " -" & SysCore & ".special nny3x"
 ElseIf Combo4.Text = "nny4x - Nearest-neighbor 4x, y axis only" Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".special nny4x"
+    cmdstring = cmdstring & " -" & SysCore & ".special nny4x"
 End If
 
 '*** v0.1.3
 If Combo5.Enabled = True Then
     If Val(Text8.Text) > 1 Then
         For y = 1 To Val(Text8.Text)
-            If SYSCORE = "psx" Then
+            If SysCore = "psx" Then
                 If Combo5.ListIndex = 0 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " none"
                 ElseIf Combo5.ListIndex = 1 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " gamepad"
                 ElseIf Combo5.ListIndex = 2 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dualshock"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " dualshock"
                 ElseIf Combo5.ListIndex = 3 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dualanalog"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " dualanalog"
                 ElseIf Combo5.ListIndex = 4 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " analogjoy"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " analogjoy"
                 ElseIf Combo5.ListIndex = 5 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " mouse"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " mouse"
                 ElseIf Combo5.ListIndex = 6 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " negcon"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " negcon"
                 ElseIf Combo5.ListIndex = 7 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " guncon"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " guncon"
                 ElseIf Combo5.ListIndex = 8 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " justifier"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " justifier"
                 ElseIf Combo5.ListIndex = 9 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " dancepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " dancepad"
                 End If
-            ElseIf SYSCORE = "snes" Then
+            ElseIf SysCore = "snes" Then
                 If Combo5.ListIndex = 0 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " none"
                 ElseIf Combo5.ListIndex = 1 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " gamepad"
                 ElseIf Combo5.ListIndex = 2 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " mouse"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " mouse"
                 ElseIf Combo5.ListIndex = 3 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad -" & SYSCORE & ".input.port2 superscope"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad -" & SysCore & ".input.port2 superscope"
                 End If
-            ElseIf SYSCORE = "nes" Then
+            ElseIf SysCore = "nes" Then
                 If Combo5.ListIndex = 0 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " none"
                 ElseIf Combo5.ListIndex = 1 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " gamepad"
                 ElseIf Combo5.ListIndex = 2 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " zapper"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " zapper"
                 ElseIf Combo5.ListIndex = 3 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " powerpada"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " powerpada"
                 ElseIf Combo5.ListIndex = 4 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " powerpadb"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " powerpadb"
                 ElseIf Combo5.ListIndex = 5 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " arkanoid"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " arkanoid"
                 End If
-            ElseIf SYSCORE = "ss" Then
+            ElseIf SysCore = "ss" Then
                 If Combo5.ListIndex = 0 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " none"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " none"
                 ElseIf Combo5.ListIndex = 1 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " gamepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " gamepad"
                 ElseIf Combo5.ListIndex = 2 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " 3dpad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " 3dpad"
                 ElseIf Combo5.ListIndex = 3 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & " mouse"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & " mouse"
                 End If
             End If
         Next y
     ElseIf Val(Text8.Text) = 1 Then
-            If SYSCORE = "psx" Then
+            If SysCore = "psx" Then
                 If Combo5.ListIndex = 0 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 none"
                 ElseIf Combo5.ListIndex = 1 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad"
                 ElseIf Combo5.ListIndex = 2 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dualshock"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 dualshock"
                 ElseIf Combo5.ListIndex = 3 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dualanalog"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 dualanalog"
                 ElseIf Combo5.ListIndex = 4 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 analogjoy"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 analogjoy"
                 ElseIf Combo5.ListIndex = 5 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 mouse"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 mouse"
                 ElseIf Combo5.ListIndex = 6 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 negcon"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 negcon"
                 ElseIf Combo5.ListIndex = 7 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 guncon"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 guncon"
                 ElseIf Combo5.ListIndex = 8 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 justifier"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 justifier"
                 ElseIf Combo5.ListIndex = 9 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 dancepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 dancepad"
                 End If
-            ElseIf SYSCORE = "snes" Then
+            ElseIf SysCore = "snes" Then
                 If Combo5.ListIndex = 0 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 none"
                 ElseIf Combo5.ListIndex = 1 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad"
                 ElseIf Combo5.ListIndex = 2 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 mouse"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 mouse"
                 ElseIf Combo5.ListIndex = 3 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad -" & SYSCORE & ".input.port2 superscope"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad -" & SysCore & ".input.port2 superscope"
                 End If
-            ElseIf SYSCORE = "nes" Then
+            ElseIf SysCore = "nes" Then
                 If Combo5.ListIndex = 0 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 none"
                 ElseIf Combo5.ListIndex = 1 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad"
                 ElseIf Combo5.ListIndex = 2 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 zapper"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 zapper"
                 ElseIf Combo5.ListIndex = 3 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 powerpada"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 powerpada"
                 ElseIf Combo5.ListIndex = 4 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 powerpadb"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 powerpadb"
                 ElseIf Combo5.ListIndex = 5 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 arkanoid"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 arkanoid"
                 End If
-            ElseIf SYSCORE = "ss" Then
+            ElseIf SysCore = "ss" Then
                 If Combo5.ListIndex = 0 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 none"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 none"
                 ElseIf Combo5.ListIndex = 1 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 gamepad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad"
                 ElseIf Combo5.ListIndex = 2 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 3dpad"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 3dpad"
                 ElseIf Combo5.ListIndex = 3 Then
-                    cmdstring = cmdstring & " -" & SYSCORE & ".input.port1 mouse"
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 mouse"
                 End If
             End If
     End If
@@ -2524,10 +2576,10 @@ If Combo5.Enabled = True Then
     If Val(Text11.Text) <> "1.00" Then
         If Val(Text8.Text) > 1 Then
             For y = 1 To Val(Text8.Text)
-                cmdstring = cmdstring & " -" & SYSCORE & ".input.port" & y & ".analogjoy.axis_scale " & Val(Text11.Text) & " -" & SYSCORE & ".input.port" & y & ".dualanalog.axis_scale " & Val(Text11.Text) & " -" & SYSCORE & ".input.port" & y & ".dualshock.axis_scale " & Val(Text11.Text)
+                cmdstring = cmdstring & " -" & SysCore & ".input.port" & y & ".analogjoy.axis_scale " & Val(Text11.Text) & " -" & SysCore & ".input.port" & y & ".dualanalog.axis_scale " & Val(Text11.Text) & " -" & SysCore & ".input.port" & y & ".dualshock.axis_scale " & Val(Text11.Text)
             Next y
         ElseIf Val(Text8.Text) = 1 Then
-            cmdstring = cmdstring & " -" & SYSCORE & ".input.port1.analogjoy.axis_scale " & Val(Text11.Text) & " -" & SYSCORE & ".input.port1.dualanalog.axis_scale " & Val(Text11.Text) & " -" & SYSCORE & ".input.port1.dualshock.axis_scale " & Val(Text11.Text)
+            cmdstring = cmdstring & " -" & SysCore & ".input.port1.analogjoy.axis_scale " & Val(Text11.Text) & " -" & SysCore & ".input.port1.dualanalog.axis_scale " & Val(Text11.Text) & " -" & SysCore & ".input.port1.dualshock.axis_scale " & Val(Text11.Text)
         End If
     End If
 End If
@@ -2552,7 +2604,7 @@ ElseIf Check19.Value = 0 Then
 End If
 
 If Check20.Value = 1 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".forcemono 1"
+    cmdstring = cmdstring & " -" & SysCore & ".forcemono 1"
 'ElseIf Check20.Value = 0 Then
 '    cmdstring = cmdstring & " -" & SYSCORE & ".forcemono 0"
 End If
@@ -2580,19 +2632,19 @@ End If
 
 
 If Check3.Value = 1 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".tblur 1"
+    cmdstring = cmdstring & " -" & SysCore & ".tblur 1"
 End If
 
 If Check4.Value = 1 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".tblur.accum 1"
+    cmdstring = cmdstring & " -" & SysCore & ".tblur.accum 1"
     Sleep (100)
-    cmdstring = cmdstring & " -" & SYSCORE & ".tblur.accum.amount " & Text3.Text
+    cmdstring = cmdstring & " -" & SysCore & ".tblur.accum.amount " & Text3.Text
 End If
 
 If Check5.Value = 1 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".videoip 1"
+    cmdstring = cmdstring & " -" & SysCore & ".videoip 1"
 Else
-    cmdstring = cmdstring & " -" & SYSCORE & ".videoip 0"
+    cmdstring = cmdstring & " -" & SysCore & ".videoip 0"
 End If
 
 If Check6.Value = 1 Then
@@ -2614,13 +2666,13 @@ Else
     cmdtring = cmdstrig & "-video.glvsync 0"
 End If
 
-If SYSCORE = "psx" Or SYSCORE = "ss" Then
+If SysCore = "psx" Or SysCore = "ss" Then
     If Check1.Value = 1 Then
-        cmdstring = cmdstring & " -" & SYSCORE & ".bios_sanity 1"
+        cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 1"
     End If
     
     If Check2.Value = 1 Then
-        cmdstring = cmdstring & " -" & SYSCORE & ".cd_sanity 1"
+        cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 1"
     End If
 End If
 
@@ -2634,15 +2686,15 @@ End If
 
 
 If Val(Text4.Text) > 1 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".xscale " & Text4.Text & " -" & SYSCORE & ".yscale " & Text4.Text & " -" & SYSCORE & ".xscalefs " & Text4.Text & " -" & SYSCORE & ".yscalefs " & Text4.Text
+    cmdstring = cmdstring & " -" & SysCore & ".xscale " & Text4.Text & " -" & SysCore & ".yscale " & Text4.Text & " -" & SysCore & ".xscalefs " & Text4.Text & " -" & SysCore & ".yscalefs " & Text4.Text
 End If
 
 If Len(Text5.Text) > 0 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".xres " & Text5.Text
+    cmdstring = cmdstring & " -" & SysCore & ".xres " & Text5.Text
 End If
 
 If Len(Text6.Text) > 0 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".yres " & Text6.Text
+    cmdstring = cmdstring & " -" & SysCore & ".yres " & Text6.Text
 End If
 
 If Len(Text7.Text) > 0 Then
@@ -2658,7 +2710,9 @@ cmdstring = cmdstring & " " & Text9.Text
 End If
 
 If Val(Text10.Text) <> 0 Then
-    cmdstring = cmdstring & " -" & SYSCORE & ".scanlines " & Val(Text10.Text)
+    cmdstring = cmdstring & " -" & SysCore & ".scanlines " & Val(Text10.Text)
+Else
+    cmdstring = cmdstring & " -" & SysCore & ".scanlines 0"
 End If
 
 '
@@ -2744,10 +2798,10 @@ If ActiveFile = "MEDEXE" Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set File: " & File1.Filename, vbYesNo, "Set this file?")
         End If
     If tmp2 = vbYes Then
-        MedEXE = Dir1.Path & "\" & File1.FileName
+        MedEXE = Dir1.Path & "\" & File1.Filename
         Form1.Width = 9240
         ActiveFile = "None"
         tmp2 = ""
@@ -2760,11 +2814,11 @@ If ActiveFile = "BIOS" Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set File: " & File1.Filename, vbYesNo, "Set this file?")
         End If
     If tmp2 = vbYes Then
         BIOSPATH = Dir1.Path
-        BIOSFILE = File1.FileName
+        BIOSFILE = File1.Filename
         Text1.Text = BIOSPATH & "\" & BIOSFILE
         Form1.Width = 9240
         ActiveFile = "None"
@@ -2778,10 +2832,10 @@ If ActiveFile = "ROM" Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set File: " & File1.Filename, vbYesNo, "Set this file?")
         End If
     If tmp2 = vbYes Then
-        Text2.Text = Dir1.Path & "\" & File1.FileName
+        Text2.Text = Dir1.Path & "\" & File1.Filename
         ROMDIR = Dir1.Path
         ROMFILE = Text2.Text
         'Form1.Width = 12735
@@ -2798,33 +2852,33 @@ If ActiveFile = "M3U" Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set Disc 1: " & File1.FileName, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set Disc 1: " & File1.Filename, vbYesNo, "Set this file?")
         End If
             If tmp2 = vbYes Then
-                Print #2, Dir1.Path & "\" & File1.FileName
-                tmp1 = File1.FileName
+                Print #2, Dir1.Path & "\" & File1.Filename
+                tmp1 = File1.Filename
             End If
             tmp2 = ""
             z = z + 1
             MsgBox ("Now select the next disc")
         ElseIf z >= 1 And z <= Val(M3USize) Then
             Do
-                If File1.FileName <> tmp1 And Len(File1.FileName) > 1 And z <= Val(M3USize) And File1.FileName <> LastFile Then
+                If File1.Filename <> tmp1 And Len(File1.Filename) > 1 And z <= Val(M3USize) And File1.Filename <> LastFile Then
                     If Check15.Value = 1 Then
                         a = a
                         tmp2 = vbYes
                     Else
-                        tmp2 = MsgBox("Set Disc " & z + 1 & ": " & File1.FileName, vbYesNo, "Set this file?")
+                        tmp2 = MsgBox("Set Disc " & z + 1 & ": " & File1.Filename, vbYesNo, "Set this file?")
                     End If
-                    LastFile = File1.FileName
+                    LastFile = File1.Filename
                     If tmp2 = vbYes Then
-                        Print #2, Dir1.Path & "\" & File1.FileName
+                        Print #2, Dir1.Path & "\" & File1.Filename
                         z = z + 1
                         If z <> Val(M3USize) Then
                             MsgBox ("Now select the next disc")
                         End If
                     ElseIf tmp2 = vbNo Then
-                        File1.FileName = ""
+                        File1.Filename = ""
                     End If
                 End If
                 DoEvents
@@ -2838,42 +2892,14 @@ If ActiveFile = "M3U" Then
         End If
 End If
 End Sub
-
-Private Sub Form_Load()
-'12945
-'9240
-FatalError = False
-Form1.Width = 9240
-ActiveFile = "None"
-Label29.Visible = False
-'Comments
-'C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe
-'MD5 8F0BC836E2B6023371B99E94829B5CF1
-
-'Credits
-'md5.exe Source: https://www.fourmilab.ch/md5/
-'MD5.EXE ACKNOWLEDGEMENTS
-'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-'Social Media Icons from Rogie King, http://rog.ie/blog/free-social-media-icons
-'"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
-'You can has link backs.
-
-Build = "0.2.3"
-Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
-Label34.Caption = "MedAdvCFG v" & Build
-Dir1.Path = VB.App.Path
-File1.Path = VB.App.Path
-
-Label2.Caption = "Not Set"
-'MedEXE = "C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe"
-
-Label16.Caption = "Hotkeys:"
+Function LoadSettings()
+'Load Settings
 Set FSO = CreateObject("Scripting.FileSystemObject")
 
 If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
 
 Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
-    For x = 1 To 33
+    For x = 1 To 34
         On Error Resume Next
         Line Input #1, tmp3(x)
     Next x
@@ -2901,7 +2927,7 @@ LastPath = Mid$(tmp3(19), 10, Len(tmp3(19)))
 BiosPathLoad = Mid$(tmp3(20), 14, Len(tmp3(20)))
 SavePath = Mid$(tmp3(21), 10, Len(tmp3(21)))
 SystemRegion = Mid$(tmp3(22), 14, Len(tmp3(22)))
-RomPathLoad = Mid$(tmp3(23), 9, Len(tmp3(23)))
+ROMPathLoad = Mid$(tmp3(23), 9, Len(tmp3(23)))
 DisableSound = Mid$(tmp3(24), 14, Len(tmp3(24)))
 ForceMono = Mid$(tmp3(25), 11, Len(tmp3(25)))
 video_blit_timesync = Mid$(tmp3(26), 21, Len(tmp3(26)))
@@ -2912,6 +2938,41 @@ scanlines = Mid$(tmp3(30), 11, Len(tmp3(30)))
 axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
 numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
 customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
+BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(33)))
+End If
+'End Load Settings
+End Function
+Private Sub Form_Load()
+'12945
+'9240
+FatalError = False
+Form1.Width = 9240
+ActiveFile = "None"
+Label29.Visible = False
+'Comments
+'C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe
+'MD5 8F0BC836E2B6023371B99E94829B5CF1
+
+'Credits
+'md5.exe Source: https://www.fourmilab.ch/md5/
+'MD5.EXE ACKNOWLEDGEMENTS
+'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
+'Social Media Icons from Rogie King, http://rog.ie/blog/free-social-media-icons
+'"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
+'You can has link backs.
+
+Build = "0.2.4"
+Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
+Label34.Caption = "MedAdvCFG v" & Build
+Dir1.Path = VB.App.Path
+File1.Path = VB.App.Path
+
+Label2.Caption = "Not Set"
+'MedEXE = "C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe"
+
+Label16.Caption = "Hotkeys:"
+
+a = Form1.LoadSettings()
 
 Text1.Text = BIOSFILE
 Text2.Text = ROMFILE
@@ -2924,7 +2985,7 @@ Text8.Text = numplayers
 Dir1.Path = LastPath
 File1.Path = LastPath
 
-ROMDIR = RomPathLoad
+ROMDIR = ROMPathLoad
 BIOSPATH = BiosPathLoad
 
 Combo1.Text = SystemCore
@@ -3072,7 +3133,6 @@ End If
 a = Validate_MedEXE()
 a = Validate_Rom()
 a = Validate_Bios()
-End If
 
 Combo1.AddItem "gb (GameBoy (Color))", 0
 Combo1.AddItem "gba (GameBoy Advanced)", 1
@@ -3157,7 +3217,7 @@ Combo6.ListIndex = 0
 'arkanoid
 
 If FSO.FileExists(MedEXE) = False Then
-    Form1.Width = 12945
+    Form1.Width = 12900
     ActiveFile = "MEDEXE"
     MsgBox "Select your Mednafen EXE to get started!"
 End If
@@ -3236,6 +3296,7 @@ Private Sub Quit_Click()
 Unload Form1
 Unload Form2
 Unload Form3
+Unload Form4
 End Sub
 
 Private Sub Reset_Settings_Click()
@@ -3250,10 +3311,15 @@ End If
 End Sub
 
 Private Sub Save_Settings_Click()
+Close #6
 Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     Print #6, "MedEXE=" & MedEXE
     Print #6, "SystemCore=" & Combo1.Text
-    Print #6, "SystemBIOS=" & BIOSPATH & "\" & BIOSFILE
+    If FSO.FileExists(BIOSPATH & "\" & BIOSFILE) Then
+        Print #6, "SystemBIOS=" & BIOSPATH & "\" & BIOSFILE
+    ElseIf FSO.FileExists(BIOSFILE) Then
+        Print #6, "SystemBIOS=" & BIOSFILE
+    End If
     Print #6, "BIOSSanity=" & Check1.Value
     Print #6, "RomImage=" & ROMFILE
     Print #6, "ROMSanity=" & Check2.Value

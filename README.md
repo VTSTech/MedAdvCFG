@@ -14,6 +14,28 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/c98c6105efcf218ee89e9760b22fd18b.png">
 
+v0.2.4 01-26-2017 3:38PM
+
+Basic Mode Update.
+
+Added much needed 'No Cover' place holder.
+
+Adds ability to launch all games from Basic Mode. (Even without covers)
+
+Added 'Quick Launch' (is default)
+
+Not 'Quick Launching' will display an extra large cover with:
+Rom Filename, Cover Searched, BIOS, MD5's and a Play/Back button.
+
+Resized SNES Box Art and PSX Box Art slightly
+
+Console Logo is now centered upon selection
+
+Mouse Over Cover will show its 'Cover Searched' name
+
+Basic Mode ROM Folder can now be saved.
+
+BIOS is now auto-verified if it is set.
 
 v0.2.3 01-25-2017 4:50PM
 

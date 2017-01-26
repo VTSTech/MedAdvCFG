@@ -1,16 +1,26 @@
 VERSION 5.00
 Begin VB.Form Form2 
    BackColor       =   &H00000000&
-   Caption         =   "MedAdvCFG v0.2.3 (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
+   Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
    ClientHeight    =   7110
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   11010
+   ClientWidth     =   10905
    LinkTopic       =   "Form2"
    ScaleHeight     =   15979.9
    ScaleMode       =   0  'User
-   ScaleWidth      =   11010
+   ScaleWidth      =   10905
    StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton Command4 
+      BackColor       =   &H00000000&
+      Caption         =   "Back"
+      Height          =   315
+      Left            =   10200
+      TabIndex        =   21
+      Top             =   120
+      Visible         =   0   'False
+      Width           =   615
+   End
    Begin VB.CheckBox Check1 
       BackColor       =   &H00000000&
       Caption         =   "Quick Launch (Skip Info)"
@@ -25,11 +35,11 @@ Begin VB.Form Form2
    End
    Begin VB.TextBox Text3 
       Height          =   2055
-      Left            =   4800
+      Left            =   9840
       MultiLine       =   -1  'True
       TabIndex        =   19
       Text            =   "Form2.frx":0000
-      Top             =   4800
+      Top             =   6600
       Visible         =   0   'False
       Width           =   6015
    End
@@ -407,21 +417,21 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, SYSCORE, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z
+Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, SysCore, BIOSSanity, ROMSanity, Stretch, PixelShader, VideoScaler, x, y, z
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
 Dim ResetBios, ResetRom, ResetRomDir, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
 Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untrusted_fip_check, cd_image_memcache, scanlines, numplayers, customparams
-Dim MedAdvGAMES, MedAdvCOVERS, MedAdvEXT
+Dim MedAdvGAMES, MedAdvCOVERS, MedAdvEXT, BasicModeFolder
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Private Sub Advanced_Click()
-Basic.Checked = False
+basic.Checked = False
 Form1.Visible = True
-Form1.Advanced.Checked = True
+Form1.advanced.Checked = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Basic.Checked = True
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -453,8 +463,8 @@ Function Validate_Bios()
             Close #5
         End If
         Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-        Text1.Text = BIOSFILE
-    'v0.2.0
+        Text1.Text = BIOSPATH & "\" & BIOSFILE
+    End If
     If FSO.FileExists(BIOSFILE) = True Then
         Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
         Sleep (200)
@@ -470,161 +480,158 @@ Function Validate_Bios()
         If LCase(tmp) = "239665b1a3dade1b5a52c06338011044" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-J v1.0J BIOS SCPH-1000/DTL-H1000"
+            Label6.Caption = "NTSC-J v1.0J BIOS SCPH-1000/DTL-H1000"
             'Check12.Value = 1
             'Check12.Value = 1
         ElseIf LCase(tmp) = "849515939161e62f6b866f6853006780" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-J v1.1J BIOS SCPH-3000/DTL-H1000H"
+            Label6.Caption = "NTSC-J v1.1J BIOS SCPH-3000/DTL-H1000H"
             'Check12.Value = 1
             'Check12.Value = 1
         ElseIf LCase(tmp) = "dc2b9bf8da62ec93e868cfd29f0d067d" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-U v2.0A BIOS DTL-H1001"
+            Label6.Caption = "NTSC-U v2.0A BIOS DTL-H1001"
             'Check11.Value = 1
             'Check11.Value = 1
         ElseIf LCase(tmp) = "54847e693405ffeb0359c6287434cbef" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: PAL v2.0E BIOS DTL-H1002/SCPH-1002"
+            Label6.Caption = "PAL v2.0E BIOS DTL-H1002/SCPH-1002"
             'Check13.Value = 1
             'Check13.Value = 1
         ElseIf LCase(tmp) = "cba733ceeff5aef5c32254f1d617fa62" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-J v2.1J BIOS SCPH-3500"
+            Label6.Caption = "NTSC-J v2.1J BIOS SCPH-3500"
             'Check12.Value = 1
             'Check12.Value = 1
         ElseIf LCase(tmp) = "da27e8b6dab242d8f91a9b25d80c63b8" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-U v2.1A BIOS DTL-H1101"
+            Label6.Caption = "NTSC-U v2.1A BIOS DTL-H1101"
             'Check11.Value = 1
             'Check11.Value = 1
         ElseIf LCase(tmp) = "417b34706319da7cf001e76e40136c23" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: PAL v2.1E BIOS SCPH-1002/DTL-H1102"
+            Label6.Caption = "PAL v2.1E BIOS SCPH-1002/DTL-H1102"
             'Check13.Value = 1
             'Check13.Value = 1
         ElseIf LCase(tmp) = "57a06303dfa9cf9351222dfcbb4a29d9" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-J v2.2J BIOS SCPH-5000/DTL-H1200/DTL-H3000"
+            Label6.Caption = "NTSC-J v2.2J BIOS SCPH-5000/DTL-H1200/DTL-H3000"
             'Check12.Value = 1
             'Check12.Value = 1
         ElseIf LCase(tmp) = "924e392ed05558ffdb115408c263dccf" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-U v2.2A BIOS SCPH-1001/SCPH-5003/DTL-H1201/DTL-H3001"
+            Label6.Caption = "NTSC-U v2.2A BIOS SCPH-1001/SCPH-5003/DTL-H1201/DTL-H3001"
             'Check11.Value = 1
             'Check11.Value = 1
         ElseIf LCase(tmp) = "e2110b8a2b97a8e0b857a45d32f7e187" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label29.Caption = "Valid: PAL v2.2E BIOS SCPH-1002/DTL-H1202/DTL-H3002"
+            Label29.Caption = "PAL v2.2E BIOS SCPH-1002/DTL-H1202/DTL-H3002"
             'Check13.Value = 1
             'Check13.Value = 1
         ElseIf LCase(tmp) = "ca5cfc321f916756e3f0effbfaeba13b" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-J v2.2D BIOS DTL-H1100"
+            Label6.Caption = "NTSC-J v2.2D BIOS DTL-H1100"
             'Check12.Value = 1
             'Check12.Value = 1
         ElseIf LCase(tmp) = "490f666e1afb15b7362b406ed1cea246" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-U v3.0A BIOS SCPH-5501/SCPH-5503/SCPH-7003"
+            Label6.Caption = "NTSC-U v3.0A BIOS SCPH-5501/SCPH-5503/SCPH-7003"
             'Check11.Value = 1
             'Check11.Value = 1
         ElseIf LCase(tmp) = "8dd7d5296a650fac7319bce665a6a53c" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-J v3.0J BIOS SCPH-5500"
+            Label6.Caption = "NTSC-J v3.0J BIOS SCPH-5500"
             'Check12.Value = 1
             'Check12.Value = 1
         ElseIf LCase(tmp) = "32736f17079d0b2b7024407c39bd3050" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: PAL v3.0E BIOS SCPH-5502/SCPH-5552"
+            Label6.Caption = "PAL v3.0E BIOS SCPH-5502/SCPH-5552"
             'Check13.Value = 1
             'Check13.Value = 1
         ElseIf LCase(tmp) = "8e4c14f567745eff2f0408c8129f72a6" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-J v4.0J BIOS SCPH-7000/SCPH-7500/SCPH-9000"
+            Label6.Caption = "NTSC-J v4.0J BIOS SCPH-7000/SCPH-7500/SCPH-9000"
             'Check12.Value = 1
             'Check12.Value = 1
         ElseIf LCase(tmp) = "b84be139db3ee6cbd075630aa20a6553" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-U v4.1A BIOS SCPH-7000W"
+            Label6.Caption = "NTSC-U v4.1A BIOS SCPH-7000W"
             'Check11.Value = 1
             'Check11.Value = 1
         ElseIf LCase(tmp) = "1e68c231d0896b7eadcad1d7d8e76129" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-U v4.1A BIOS SCPH-7001/SCPH-7501/SCPH-7503/SCPH-9001/SCPH-9003"
+            Label6.Caption = "NTSC-U v4.1A BIOS SCPH-7001/SCPH-7501/SCPH-7503/SCPH-9001/SCPH-9003"
             'Check11.Value = 1
             'Check11.Value = 1
         ElseIf LCase(tmp) = "b9d9a0286c33dc6b7237bb13cd46fdee" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: PAL v4.1E BIOS SCPH-7002/SCPH-7502/SCPH-9002"
+            Label6.Caption = "PAL v4.1E BIOS SCPH-7002/SCPH-7502/SCPH-9002"
             'Check13.Value = 1
             'Check13.Value = 1
         ElseIf LCase(tmp) = "8abc1b549a4a80954addc48ef02c4521" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-J v4.3J BIOS SCPH-100"
+            Label6.Caption = "NTSC-J v4.3J BIOS SCPH-100"
             'Check12.Value = 1
             'Check12.Value = 1
         ElseIf LCase(tmp) = "b10f5e0e3d9eb60e5159690680b1e774" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: PAL v4.4E BIOS SCPH-102"
+            Label6.Caption = "PAL v4.4E BIOS SCPH-102"
             'Check13.Value = 1
             'Check13.Value = 1
         ElseIf LCase(tmp) = "6e3735ff4c7dc899ee98981385f6f3d0" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: NTSC-U v4.5A BIOS SCPH-101"
+            Label6.Caption = "NTSC-U v4.5A BIOS SCPH-101"
             'Check11.Value = 1
             'Check11.Value = 1
         ElseIf LCase(tmp) = "de93caec13d1a141a40a79f5c86168d6" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: PAL v4.5E BIOS SCPH-102"
+            Label6.Caption = "PAL v4.5E BIOS SCPH-102"
             'Check13.Value = 1
             'Check13.Value = 1
         ElseIf LCase(tmp) = "3240872c70984b6cbfda1586cab68dbe" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: SEGA SATURN V1.01A US/EU"
+            Label6.Caption = "SEGA SATURN V1.01A US/EU"
             'Check11.Value = 1
             'Check11.Value = 1
         ElseIf LCase(tmp) = "85ec9ca47d8f6807718151cbcca8b964" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: SEGA SATURN V1.01 JP"
+            Label6.Caption = "SEGA SATURN V1.01 JP"
             'Check12.Value = 1
             'Check12.Value = 1
         ElseIf LCase(tmp) = "af5828fdff51384f99b3c4926be27762" Then
             'Label6.Caption = "MD5: " & tmp
             'Label29.Visible = True
-            Label6.Caption = "Valid: SEGA SATURN V1.00 JP"
+            Label6.Caption = "SEGA SATURN V1.00 JP"
             'Check12.Value = 1
             'Check12.Value = 1
         Else
-            Label29.Visible = False
-            Label6.Caption = "MD5: " & tmp
+            'Label29.Visible = False
+            'Label6.Caption = "MD5: " & tmp
         End If
-Else
-    Label6.Caption = "MD5: BIOS MD5 Disabled"
-End If
-Validate_Bios = tmp
+        Validate_Bios = tmp
 End Function
 Function Validate_MedEXE()
 If FSO.FileExists(MedEXE) = True Then
@@ -752,15 +759,15 @@ CurrFolder = Dir(Dir1.Path, vbDirectory)
 'Create list of extracted cue sheets
 Dim colFiles As New Collection
 
-If SYSCORE = "psx" Then
+If SysCore = "psx" Then
     MedAdvGAMES = VB.App.Path & "\MedAdvPSX.dat"
     MedAdvCOVERS = VB.App.Path & "\MedAdvPSXCOVERS.dat"
     MedAdvEXT = "cue"
-ElseIf SYSCORE = "snes" Then
+ElseIf SysCore = "snes" Then
     MedAdvGAMES = VB.App.Path & "\MedAdvSNES.dat"
     MedAdvCOVERS = VB.App.Path & "\MedAdvSNESCOVERS.dat"
     MedAdvEXT = "smc"
-ElseIf SYSCORE = "nes" Then
+ElseIf SysCore = "nes" Then
     MedAdvGAMES = VB.App.Path & "\MedAdvNES.dat"
     MedAdvCOVERS = VB.App.Path & "\MedAdvNESCOVERS.dat"
     MedAdvEXT = "nes"
@@ -797,6 +804,11 @@ Private Sub ListFiles(strPath As String, Optional Extention As String)
         File = Dir$
     Loop
 End Sub
+
+Private Sub Command4_Click()
+a = Unhide_Buttons()
+End Sub
+
 Private Sub Dir1_Change()
 File1.Path = Dir1.Path
 If ActiveFile = "SAVE" Then
@@ -832,10 +844,10 @@ If ActiveFile = "MEDEXE" Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set File: " & File1.Filename, vbYesNo, "Set this file?")
         End If
     If tmp2 = vbYes Then
-        MedEXE = Dir1.Path & "\" & File1.FileName
+        MedEXE = Dir1.Path & "\" & File1.Filename
         Form1.Width = 9240
         ActiveFile = "None"
         tmp2 = ""
@@ -844,10 +856,10 @@ If ActiveFile = "MEDEXE" Then
 End If
 
 If ActiveFile = "BIOS" Then
-            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set File: " & File1.Filename, vbYesNo, "Set this file?")
     If tmp2 = vbYes Then
         BIOSPATH = Dir1.Path
-        BIOSFILE = File1.FileName
+        BIOSFILE = File1.Filename
         Text1.Text = BIOSPATH & "\" & BIOSFILE
         Form1.Width = 9240
         ActiveFile = "None"
@@ -861,10 +873,10 @@ If ActiveFile = "ROM" Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set File: " & File1.Filename, vbYesNo, "Set this file?")
         End If
     If tmp2 = vbYes Then
-        Text2.Text = Dir1.Path & "\" & File1.FileName
+        Text2.Text = Dir1.Path & "\" & File1.Filename
         ROMDIR = Dir1.Path
         ROMFILE = Text2.Text
         'Form1.Width = 12735
@@ -881,33 +893,33 @@ If ActiveFile = "M3U" Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set Disc 1: " & File1.FileName, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set Disc 1: " & File1.Filename, vbYesNo, "Set this file?")
         End If
             If tmp2 = vbYes Then
-                Print #2, Dir1.Path & "\" & File1.FileName
-                tmp1 = File1.FileName
+                Print #2, Dir1.Path & "\" & File1.Filename
+                tmp1 = File1.Filename
             End If
             tmp2 = ""
             z = z + 1
             MsgBox ("Now select the next disc")
         ElseIf z >= 1 And z <= Val(M3USize) Then
             Do
-                If File1.FileName <> tmp1 And Len(File1.FileName) > 1 And z <= Val(M3USize) And File1.FileName <> LastFile Then
+                If File1.Filename <> tmp1 And Len(File1.Filename) > 1 And z <= Val(M3USize) And File1.Filename <> LastFile Then
                     If Check15.Value = 1 Then
                         a = a
                         tmp2 = vbYes
                     Else
-                        tmp2 = MsgBox("Set Disc " & z + 1 & ": " & File1.FileName, vbYesNo, "Set this file?")
+                        tmp2 = MsgBox("Set Disc " & z + 1 & ": " & File1.Filename, vbYesNo, "Set this file?")
                     End If
-                    LastFile = File1.FileName
+                    LastFile = File1.Filename
                     If tmp2 = vbYes Then
-                        Print #2, Dir1.Path & "\" & File1.FileName
+                        Print #2, Dir1.Path & "\" & File1.Filename
                         z = z + 1
                         If z <> Val(M3USize) Then
                             MsgBox ("Now select the next disc")
                         End If
                     ElseIf tmp2 = vbNo Then
-                        File1.FileName = ""
+                        File1.Filename = ""
                     End If
                 End If
                 DoEvents
@@ -923,12 +935,36 @@ End If
 End Sub
 
 Private Sub Form_Load()
+Build = "0.2.4"
+Form2.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
+Set FSO = CreateObject("Scripting.FileSystemObject")
+a = LoadSettings()
+Text1.Text = BIOSFILE
+Text2.Text = BasicModeFolder
+'Text4.Text = ScaleFactor
+Text5.Text = XRes
+Text6.Text = YRes
+'Text7.Text = SavePath
+'Text8.Text = numplayers
+
+Dir1.Path = LastPath
+File1.Path = LastPath
+
+ROMDIR = ROMPathLoad
+BIOSPATH = BiosPathLoad
+Text2.Text = ROMDIR
+a = Validate_MedEXE()
+a = Validate_Bios()
+
+End Sub
+Function LoadSettings()
+'Load Settings
 Set FSO = CreateObject("Scripting.FileSystemObject")
 
 If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
 
 Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
-    For x = 1 To 33
+    For x = 1 To 34
         On Error Resume Next
         Line Input #1, tmp3(x)
     Next x
@@ -967,25 +1003,10 @@ scanlines = Mid$(tmp3(30), 11, Len(tmp3(30)))
 axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
 numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
 customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
-
-Text1.Text = BIOSFILE
-Text2.Text = ROMPathLoad
-'Text4.Text = ScaleFactor
-Text5.Text = XRes
-Text6.Text = YRes
-'Text7.Text = SavePath
-'Text8.Text = numplayers
-
-Dir1.Path = LastPath
-File1.Path = LastPath
-
-ROMDIR = ROMPathLoad
-BIOSPATH = BiosPathLoad
-Text2.Text = ROMDIR
-a = Validate_MedEXE()
+BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(33)))
 End If
-
-End Sub
+'End Load Settings
+End Function
 
 '**
 'Form1.Combo1.Text "gb (GameBoy (Color))", 0
@@ -1009,8 +1030,10 @@ Private Sub Image1_Click()
 'PSX
 Form1.Combo1.Text = "psx (Sony PlayStation)"
 a = Hide_Buttons()
+Image1.Left = 4740
+Image1.Top = 809.109
 Image1.Visible = True
-SYSCORE = "psx"
+SysCore = "psx"
 End Sub
 Function Validate_Rom()
 If Check9.Value = 1 Then
@@ -1049,15 +1072,47 @@ Image14.Visible = False
 Image15.Visible = False
 b = Step2()
 End Function
+Public Function Unhide_Buttons()
+Image1.Visible = True
+Image2.Visible = True
+Image3.Visible = True
+Image4.Visible = True
+Image5.Visible = True
+Image6.Visible = True
+Image7.Visible = True
+Image8.Visible = True
+Image9.Visible = True
+Image10.Visible = True
+Image11.Visible = True
+Image12.Visible = True
+Image13.Visible = True
+Image14.Visible = True
+Image15.Visible = True
+Command1.Visible = False
+Command2.Visible = False
+Command3.Visible = False
+Command4.Visible = False
+Text1.Visible = False
+Text2.Visible = False
+Label4.Visible = False
+Label7.Visible = False
+Label26.Visible = False
+Check1.Visible = False
+Check23.Visible = False
+Text5.Visible = False
+Text6.Visible = False
+End Function
 Public Function Step2()
 Command1.Visible = True
 Command2.Visible = True
 Command3.Visible = True
+Command4.Visible = True
 Text1.Visible = True
 Text2.Visible = True
 Label4.Visible = True
 Label7.Visible = True
 Label26.Visible = True
+Check1.Visible = True
 Check23.Visible = True
 Text5.Visible = True
 Text6.Visible = True
@@ -1066,16 +1121,20 @@ Private Sub Image10_Click()
 'NeoGeo
 a = Hide_Buttons()
 Image10.Visible = True
-SYSCORE = "ngp"
+SysCore = "ngp"
 Form1.Combo1.Text = "ngp (Neo Geo Pocket (Color))"
+Image10.Left = 4740
+Image10.Top = 809.109
 End Sub
 
 Private Sub Image11_Click()
 'Sega Master System
 a = Hide_Buttons()
 Image11.Visible = True
-SYSCORE = "sms"
+SysCore = "sms"
 Form1.Combo1.Text = "sms (Sega Master System)"
+Image11.Left = 4740
+Image11.Top = 809.109
 End Sub
 
 Private Sub Image12_Click()
@@ -1083,6 +1142,8 @@ Private Sub Image12_Click()
 a = Hide_Buttons()
 Image12.Visible = True
 Form1.Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)"
+Image12.Left = 4740
+Image12.Top = 809.109
 End Sub
 
 Private Sub Image13_Click()
@@ -1090,13 +1151,15 @@ Private Sub Image13_Click()
 a = Hide_Buttons()
 Image13.Visible = True
 Form1.Combo1.Text = "pcfx (PC-FX)"
+Image13.Left = 4740
+Image13.Top = 809.109
 End Sub
 
 Private Sub Image14_Click()
 'VB
 a = Hide_Buttons()
 Image14.Visible = True
-SYSCORE = "vb"
+SysCore = "vb"
 Form1.Combo1.Text = "vb (Virtual Boy)"
 End Sub
 
@@ -1104,85 +1167,110 @@ Private Sub Image15_Click()
 'Wonderswan
 a = Hide_Buttons()
 Image15.Visible = True
-SYSCORE = "wswan"
+SysCore = "wswan"
 Form1.Combo1.Text = "wswan (WonderSwan)"
+Image15.Left = 4740
+Image15.Top = 809.109
 End Sub
 
 Private Sub Image2_Click()
 'NES
 a = Hide_Buttons()
 Image2.Visible = True
-SYSCORE = "nes"
+SysCore = "nes"
 Form1.Combo1.Text = "nes (Nintendo Entertainment System)"
+Image2.Left = 4740
+Image2.Top = 809.109
 End Sub
 
 Private Sub Image3_Click()
 'SNES
 a = Hide_Buttons()
 Image3.Visible = True
-SYSCORE = "snes"
+SysCore = "snes"
 Form1.Combo1.Text = "snes (Super Nintendo Entertainment System)"
+Image3.Left = 4740
+Image3.Top = 809.109
 End Sub
 
 Private Sub Image4_Click()
 'Genesis
 a = Hide_Buttons()
 Image4.Visible = True
-SYSCORE = "md"
+SysCore = "md"
 Form1.Combo1.Text = "md (Sega Genesis/MegaDrive)"
+Image4.Left = 4740
+Image4.Top = 809.109
 End Sub
 
 Private Sub Image5_Click()
 'Gameboy
 a = Hide_Buttons()
 Image5.Visible = True
-SYSCORE = "gb"
+SysCore = "gb"
 Form1.Combo1.Text = "gb (GameBoy (Color))"
+Image5.Left = 4740
+Image5.Top = 809.109
 End Sub
 
 Private Sub Image6_Click()
 'GameBoy Adv
 a = Hide_Buttons()
 Image6.Visible = True
-SYSCORE = "gba"
+SysCore = "gba"
 Form1.Combo1.Text = "gba (GameBoy Advanced)"
+Image6.Left = 4740
+Image6.Top = 809.109
 End Sub
 
 Private Sub Image7_Click()
 'GameGear
 a = Hide_Buttons()
 Image7.Visible = True
-SYSCORE = "gg"
+SysCore = "gg"
 Form1.Combo1.Text = "gg (Sega Game Gear)"
+Image7.Left = 4740
+Image7.Top = 809.109
 End Sub
 
 Private Sub Image8_Click()
 'Saturn
 a = Hide_Buttons()
 Image8.Visible = True
-SYSCORE = "ss"
+SysCore = "ss"
 Form1.Combo1.Text = "ss (Sega Saturn)"
+Image8.Left = 4740
+Image8.Top = 809.109
 End Sub
 
 Private Sub Image9_Click()
 'Atari
 a = Hide_Buttons()
 Image9.Visible = True
-SYSCORE = "lynx"
+SysCore = "lynx"
 Form1.Combo1.Text = "lynx (Atari Lynx)"
+Image9.Left = 4740
+Image9.Top = 809.109
 End Sub
 
 Private Sub Quit_Click()
 Unload Form1
 Unload Form2
 Unload Form3
+Unload Form4
 End Sub
 
 Private Sub Save_Click()
+Set FSO = CreateObject("Scripting.FileSystemObject")
+Close #6
 Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     Print #6, "MedEXE=" & MedEXE
-    Print #6, "SystemCore=" & SYSCORE
-    Print #6, "SystemBIOS=" & BIOSPATH & "\" & BIOSFILE
+    Print #6, "SystemCore=" & Form1.Combo1.Text
+    If FSO.FileExists(BIOSPATH & "\" & BIOSFILE) Then
+        Print #6, "SystemBIOS=" & BIOSPATH & "\" & BIOSFILE
+    ElseIf FSO.FileExists(BIOSFILE) Then
+        Print #6, "SystemBIOS=" & BIOSFILE
+    End If
     Print #6, "BIOSSanity=0"
     Print #6, "RomImage=" & ROMFILE
     Print #6, "ROMSanity=0"
@@ -1213,6 +1301,7 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     Print #6, "axisscale=1.00"
     Print #6, "numplayers=1"
     Print #6, "customparams="
+    Print #6, "BasicModeFolder=" & Text2.Text
 Close #6
 End Sub
 
