@@ -2055,15 +2055,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-advanced.Checked = True
-basic.Checked = False
+Advanced.Checked = True
+Basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-advanced.Checked = False
-basic.Checked = True
+Advanced.Checked = False
+Basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -2393,25 +2393,25 @@ ElseIf Combo2.Text = "aspect_mult2 - Aspect Preserve + Integer Multiple-of-2 Sca
 End If
 
 If Combo3.Text = "None - None/Disabled" Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader none"
+    cmdstring = cmdstring & " -" & SysCore & ".shader none"
 ElseIf Combo3.Text = "autoip - Auto Interpolation" Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader autoip"
+    cmdstring = cmdstring & " -" & SysCore & ".shader autoip"
 ElseIf Combo3.Text = "autoipsharper - Sharper Auto Interpolation" Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader autoipsharper"
+    cmdstring = cmdstring & " -" & SysCore & ".shader autoipsharper"
 ElseIf Combo3.Text = "scale2x - Scale2x" Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader scale2x"
+    cmdstring = cmdstring & " -" & SysCore & ".shader scale2x"
 ElseIf Combo3.Text = "sabr - SABR v3.0" Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader sabr"
+    cmdstring = cmdstring & " -" & SysCore & ".shader sabr"
 ElseIf Combo3.Text = "ipsharper - Sharper bilinear interpolation." Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipsharper"
+    cmdstring = cmdstring & " -" & SysCore & ".shader ipsharper"
 ElseIf Combo3.Text = "ipxnoty - Linear interpolation on X axis only." Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipxnoty"
+    cmdstring = cmdstring & " -" & SysCore & ".shader ipxnoty"
 ElseIf Combo3.Text = "ipynotx - Linear interpolation on Y axis only." Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipynotx"
+    cmdstring = cmdstring & " -" & SysCore & ".shader ipynotx"
 ElseIf Combo3.Text = "ipxnotysharper - Sharper version of ipxnoty." Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipynotysharper"
+    cmdstring = cmdstring & " -" & SysCore & ".shader ipynotysharper"
 ElseIf Combo3.Text = "ipynotxsharper - Sharper version of ipynotx." Then
-    cmdstring = cmdstring & " -" & SysCore & ".pixshader ipynotxsharper"
+    cmdstring = cmdstring & " -" & SysCore & ".shader ipynotxsharper"
 End If
 
 If Combo4.Text = "None - None/Disabled" Then
@@ -2961,7 +2961,7 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.2.4"
+Build = "0.2.5"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
 Label34.Caption = "MedAdvCFG v" & Build
 Dir1.Path = VB.App.Path

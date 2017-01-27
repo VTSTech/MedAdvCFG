@@ -500,7 +500,7 @@ Function Validate_Bios()
             Label9.Caption = tmp
             
             Label8.Caption = "PAL v4.1E BIOS SCPH-7002/SCPH-7502/SCPH-9002"
-            Check13.Value = 1
+            Form1.Check13.Value = 1
             Form1.Check13.Value = 1
         ElseIf LCase(tmp) = "8abc1b549a4a80954addc48ef02c4521" Then
             Label9.Caption = tmp
@@ -512,26 +512,26 @@ Function Validate_Bios()
             Label9.Caption = tmp
             
             Label8.Caption = "PAL v4.4E BIOS SCPH-102"
-            Check13.Value = 1
-            Check13.Value = 1
+            Form1.Check13.Value = 1
+            Form1.Check13.Value = 1
         ElseIf LCase(tmp) = "6e3735ff4c7dc899ee98981385f6f3d0" Then
             Label9.Caption = tmp
             
             Label8.Caption = "NTSC-U v4.5A BIOS SCPH-101"
-            Check11.Value = 1
-            Check11.Value = 1
+            Form1.Check11.Value = 1
+            Form1.Check11.Value = 1
         ElseIf LCase(tmp) = "de93caec13d1a141a40a79f5c86168d6" Then
             Label9.Caption = tmp
             
             Label8.Caption = "PAL v4.5E BIOS SCPH-102"
-            Check13.Value = 1
-            Check13.Value = 1
+            Form1.Check13.Value = 1
+            Form1.Check13.Value = 1
         ElseIf LCase(tmp) = "3240872c70984b6cbfda1586cab68dbe" Then
             Label9.Caption = tmp
             
             Label8.Caption = "SEGA SATURN V1.01A US/EU"
-            Check11.Value = 1
-            Check11.Value = 1
+            Form1.Check11.Value = 1
+            Form1.Check11.Value = 1
         ElseIf LCase(tmp) = "85ec9ca47d8f6807718151cbcca8b964" Then
             Label9.Caption = tmp
             
@@ -550,7 +550,7 @@ Function Validate_Bios()
 End Function
 
 Private Sub Form_Load()
-Build = "0.2.4"
+Build = "0.2.5"
 Form4.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 
 Set FSO = CreateObject("Scripting.FileSystemObject")

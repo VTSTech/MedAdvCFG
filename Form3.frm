@@ -6,11 +6,11 @@ Begin VB.Form Form3
    ClientHeight    =   8670
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   11280
+   ClientWidth     =   12120
    LinkTopic       =   "Form3"
    ScaleHeight     =   8670
    ScaleMode       =   0  'User
-   ScaleWidth      =   11010
+   ScaleWidth      =   11829.89
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox Text1 
       Height          =   1335
@@ -268,30 +268,22 @@ Else
     PageOn = PageOn + 1
     Label2.Caption = "Page: " & PageOn & "/" & PageTotal
     a = Find_Covers()
-    Form3.Refresh
-    For y = 1 To 12
-    Image1(y).Refresh
-    Next y
 End If
 End Sub
 
 Private Sub Command2_Click()
-If (PageOn - 1) <= 0 Then
+If (PageOn - 1) <= 1 Then
     PageOn = 1
 Else
     PageOn = PageOn - 1
     Label2.Caption = "Page: " & PageOn & "/" & PageTotal
     a = Find_Covers()
-    Form3.Refresh
-    For y = 1 To 12
-    Image1(y).Refresh
-    Next y
 End If
 End Sub
 
 Private Sub Form_Load()
 Form3.Width = 12345
-Build = "0.2.4"
+Build = "0.2.5"
 Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Text1.Text = ""
 SysCore = Form1.SetSysCore
@@ -345,7 +337,7 @@ Close #8
 
 TotalGames = x
 PageOn = 1
-PageTotal = Int(Round(TotalGames / 12))
+PageTotal = Int(Round(TotalGames / 10))
 Label1.Caption = "Total Games: " & TotalGames
 Label2.Caption = "Page: 1/" & PageTotal
 x = 1
@@ -467,10 +459,10 @@ If PageOn = 1 Then
         tmp = FileNameCleanup()
         CoverSearched = tmp
             For z = 1 To TotalCovers
-            If InStr(1, LCase(CoversList(z)), LCase(CoverSearched), 1) >= 1 Then
+            If InStr(1, LCase(CoversList(z)), LCase(CoverSearched), 1) <> 0 Then
                 'MsgBox "Cover: " & PSXCovers(x) & " for " & tmp
                 If y = 13 Then
-                    y = 1
+                    y = y
                 Else
                     CoverFound = True
                     Image1(y).Picture = LoadPicture(CoversList(z))
@@ -490,7 +482,7 @@ If PageOn = 1 Then
         Next x
 ElseIf PageOn >= 2 Then
     y = 1
-    For x = ((12 * PageOn) - 13) To TotalGames - 1
+    For x = ((12 * PageOn) - 14) To TotalGames - 1
         z = 1
         CoverFound = False
         tmparray(x) = Split(GamesList(x), "\")
@@ -498,10 +490,16 @@ ElseIf PageOn >= 2 Then
         tmp = FileNameCleanup()
         CoverSearched = tmp
         For z = 1 To TotalCovers
-            If InStr(1, LCase(CoversList(z)), LCase(CoverSearched), 1) >= 1 Then
+            If InStr(1, LCase(CoversList(z)), LCase(CoverSearched), 1) <> 0 Then
                 'MsgBox "Cover: " & PSXCovers(x) & " for " & tmp
                 If y = 13 Then
                     y = 1
+                    Image1(y).Picture = LoadPicture(CoversList(z))
+                    Image1(y).Tag = GamesList(x)
+                    Image1(y).ToolTipText = CoverSearched
+                    z = TotalCovers
+                    y = y + 1
+                    CoverFound = True
                 Else
                     Image1(y).Picture = LoadPicture(CoversList(z))
                     Image1(y).Tag = GamesList(x)
@@ -520,6 +518,10 @@ ElseIf PageOn >= 2 Then
         End If
         Next x
 End If
+    Form3.Refresh
+    For y = 1 To 12
+    Image1(y).Refresh
+    Next y
 End Function
 
 Private Sub Image1_Click(Index As Integer)
@@ -607,12 +609,12 @@ ElseIf Form2.Check1.Value = 0 Then
     Text1.Text = Text1.Text & vbCrLf & Form3.Image1(Index).Tag & vbCrLf & Image1(Index).ToolTipText & vbCrLf
     tmparray(1) = Split(Form3.Image1(Index).Tag, "\")
     Form3.Visible = False
+    Form4.Visible = True
     Form4.Image1(1).Picture = Form3.Image1(Index).Picture
     Form4.Label2.Caption = tmparray(1)(FNIndex)
     Form4.Image1(1).Tag = Form3.Image1(Index).Tag
     Form4.Label11.Caption = Image1(Index).ToolTipText
     a = Form4.Validate_Rom(Form4.Image1(1).Tag)
-    Form4.Visible = True
 End If
 End Sub
 

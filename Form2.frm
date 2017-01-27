@@ -148,6 +148,7 @@ Begin VB.Form Form2
       Left            =   3720
       TabIndex        =   0
       Top             =   3600
+      Value           =   1  'Checked
       Visible         =   0   'False
       Width           =   1215
    End
@@ -424,14 +425,14 @@ Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untru
 Dim MedAdvGAMES, MedAdvCOVERS, MedAdvEXT, BasicModeFolder
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Private Sub Advanced_Click()
-basic.Checked = False
+Basic.Checked = False
 Form1.Visible = True
-Form1.advanced.Checked = True
+Form1.Advanced.Checked = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-basic.Checked = True
+Basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -935,7 +936,7 @@ End If
 End Sub
 
 Private Sub Form_Load()
-Build = "0.2.4"
+Build = "0.2.5"
 Form2.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Set FSO = CreateObject("Scripting.FileSystemObject")
 a = LoadSettings()
