@@ -5,11 +5,11 @@ Begin VB.Form Form4
    ClientHeight    =   7965
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   13080
+   ClientWidth     =   11280
    ForeColor       =   &H0000FF00&
    LinkTopic       =   "Form4"
    ScaleHeight     =   7965
-   ScaleWidth      =   13080
+   ScaleWidth      =   11280
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command2 
       Caption         =   "Back"
@@ -550,7 +550,7 @@ Function Validate_Bios()
 End Function
 
 Private Sub Form_Load()
-Build = "0.2.5"
+Build = "0.2.6"
 Form4.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 
 Set FSO = CreateObject("Scripting.FileSystemObject")

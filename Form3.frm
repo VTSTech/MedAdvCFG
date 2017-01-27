@@ -6,11 +6,11 @@ Begin VB.Form Form3
    ClientHeight    =   8670
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   12120
+   ClientWidth     =   12150
    LinkTopic       =   "Form3"
    ScaleHeight     =   8670
    ScaleMode       =   0  'User
-   ScaleWidth      =   11829.89
+   ScaleWidth      =   11859.17
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox Text1 
       Height          =   1335
@@ -283,30 +283,60 @@ End Sub
 
 Private Sub Form_Load()
 Form3.Width = 12345
-Build = "0.2.5"
+Build = "0.2.6"
 Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Text1.Text = ""
 SysCore = Form1.SetSysCore
 Set FSO = CreateObject("Scripting.FileSystemObject")
 '12 Games per page..
 If SysCore = "psx" Then
-    MedAdvGAMES = VB.App.Path & "\MedAdvPSX.dat"
-    MedAdvCOVERS = VB.App.Path & "\MedAdvPSXCOVERS.dat"
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvPSX.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvPSXCOVERS.dat"
     MedAdvEXT = "cue"
-    For x = 1 To 12
-        Image1(x).Height = 2592
-    Next x
 ElseIf SysCore = "snes" Then
-    MedAdvGAMES = VB.App.Path & "\MedAdvSNES.dat"
-    MedAdvCOVERS = VB.App.Path & "\MedAdvSNESCOVERS.dat"
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvSNES.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvSNESCOVERS.dat"
     MedAdvEXT = "smc"
-    For x = 1 To 12
-        Image1(x).Height = 2000
-    Next x
 ElseIf SysCore = "nes" Then
-    MedAdvGAMES = VB.App.Path & "\MedAdvNES.dat"
-    MedAdvCOVERS = VB.App.Path & "\MedAdvNESCOVERS.dat"
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvNES.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvNESCOVERS.dat"
     MedAdvEXT = "nes"
+ElseIf SysCore = "ss" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvSS.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvSSCOVERS.dat"
+    MedAdvEXT = "cue"
+ElseIf SysCore = "gba" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvGBA.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGBACOVERS.dat"
+    MedAdvEXT = "gba"
+ElseIf SysCore = "gb" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvGB.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGBCOVERS.dat"
+    MedAdvEXT = "gbc"
+ElseIf SysCore = "gg" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvGG.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGGCOVERS.dat"
+    MedAdvEXT = "gg"
+ElseIf SysCore = "pce" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvPCE.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvPCECOVERS.dat"
+    MedAdvEXT = "cue"
+ElseIf SysCore = "pce_fast" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvPCE.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvPCECOVERS.dat"
+    MedAdvEXT = "cue"
+ElseIf SysCore = "md" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvMD.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvMDCOVERS.dat"
+    MedAdvEXT = "bin"
+ElseIf SysCore = "lynx" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvLYNX.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvLYNXCOVERS.dat"
+    MedAdvEXT = "lnx"
+ElseIf SysCore = "vb" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvVB.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvVBCOVERS.dat"
+    MedAdvEXT = "vb"
 End If
 
 x = 1
@@ -337,7 +367,7 @@ Close #8
 
 TotalGames = x
 PageOn = 1
-PageTotal = Int(Round(TotalGames / 10))
+PageTotal = Int(Round(TotalGames / 12))
 Label1.Caption = "Total Games: " & TotalGames
 Label2.Caption = "Page: 1/" & PageTotal
 x = 1
@@ -461,28 +491,44 @@ If PageOn = 1 Then
             For z = 1 To TotalCovers
             If InStr(1, LCase(CoversList(z)), LCase(CoverSearched), 1) <> 0 Then
                 'MsgBox "Cover: " & PSXCovers(x) & " for " & tmp
-                If y = 13 Then
-                    y = y
-                Else
-                    CoverFound = True
+                If y >= 12 Then
+                    x = TotalGames
+                    y = 12
                     Image1(y).Picture = LoadPicture(CoversList(z))
                     Image1(y).Tag = GamesList(x)
                     Image1(y).ToolTipText = CoverSearched
                     z = TotalCovers
                     y = y + 1
+                    CoverFound = True
+                Else
+                    Image1(y).Picture = LoadPicture(CoversList(z))
+                    Image1(y).Tag = GamesList(x)
+                    Image1(y).ToolTipText = CoverSearched
+                    z = TotalCovers
+                    y = y + 1
+                    CoverFound = True
                 End If
             End If
             Next z
         If CoverFound = False Then
-            Image1(y).Picture = LoadPicture(VB.App.Path & "\covers\" & SysCore & "\nocover.jpg")
-            Image1(y).Tag = GamesList(x)
-            Image1(y).ToolTipText = CoverSearched
-            y = y + 1
+            If y >= 12 Then
+                x = TotalGames
+                y = 12
+                Image1(y).Picture = LoadPicture(VB.App.Path & "\covers\" & SysCore & "\nocover.jpg")
+                Image1(y).Tag = GamesList(x)
+                Image1(y).ToolTipText = CoverSearched
+                y = y + 1
+            Else
+                Image1(y).Picture = LoadPicture(VB.App.Path & "\covers\" & SysCore & "\nocover.jpg")
+                Image1(y).Tag = GamesList(x)
+                Image1(y).ToolTipText = CoverSearched
+                y = y + 1
+            End If
         End If
         Next x
 ElseIf PageOn >= 2 Then
     y = 1
-    For x = ((12 * PageOn) - 14) To TotalGames - 1
+    For x = ((12 * PageOn) - 12) To TotalGames - 1
         z = 1
         CoverFound = False
         tmparray(x) = Split(GamesList(x), "\")
@@ -492,8 +538,9 @@ ElseIf PageOn >= 2 Then
         For z = 1 To TotalCovers
             If InStr(1, LCase(CoversList(z)), LCase(CoverSearched), 1) <> 0 Then
                 'MsgBox "Cover: " & PSXCovers(x) & " for " & tmp
-                If y = 13 Then
-                    y = 1
+                If y >= 12 Then
+                    x = TotalGames
+                    y = 12
                     Image1(y).Picture = LoadPicture(CoversList(z))
                     Image1(y).Tag = GamesList(x)
                     Image1(y).ToolTipText = CoverSearched
@@ -511,17 +558,28 @@ ElseIf PageOn >= 2 Then
             End If
             Next z
         If CoverFound = False Then
-            Image1(y).Picture = LoadPicture(VB.App.Path & "\covers\" & SysCore & "\nocover.jpg")
-            Image1(y).Tag = GamesList(x)
-            Image1(y).ToolTipText = CoverSearched
-            y = y + 1
+            If y >= 12 Then
+                x = TotalGames
+                y = 12
+                Image1(y).Picture = LoadPicture(VB.App.Path & "\covers\" & SysCore & "\nocover.jpg")
+                Image1(y).Tag = GamesList(x)
+                Image1(y).ToolTipText = CoverSearched
+                y = y + 1
+            Else
+                Image1(y).Picture = LoadPicture(VB.App.Path & "\covers\" & SysCore & "\nocover.jpg")
+                Image1(y).Tag = GamesList(x)
+                Image1(y).ToolTipText = CoverSearched
+                y = y + 1
+            End If
         End If
         Next x
 End If
-    Form3.Refresh
-    For y = 1 To 12
-    Image1(y).Refresh
-    Next y
+
+Form3.Refresh
+For x = 1 To 12
+    Image1(x).Refresh
+Next x
+
 End Function
 
 Private Sub Image1_Click(Index As Integer)

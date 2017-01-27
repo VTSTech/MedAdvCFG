@@ -761,17 +761,53 @@ CurrFolder = Dir(Dir1.Path, vbDirectory)
 Dim colFiles As New Collection
 
 If SysCore = "psx" Then
-    MedAdvGAMES = VB.App.Path & "\MedAdvPSX.dat"
-    MedAdvCOVERS = VB.App.Path & "\MedAdvPSXCOVERS.dat"
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvPSX.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvPSXCOVERS.dat"
     MedAdvEXT = "cue"
 ElseIf SysCore = "snes" Then
-    MedAdvGAMES = VB.App.Path & "\MedAdvSNES.dat"
-    MedAdvCOVERS = VB.App.Path & "\MedAdvSNESCOVERS.dat"
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvSNES.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvSNESCOVERS.dat"
     MedAdvEXT = "smc"
 ElseIf SysCore = "nes" Then
-    MedAdvGAMES = VB.App.Path & "\MedAdvNES.dat"
-    MedAdvCOVERS = VB.App.Path & "\MedAdvNESCOVERS.dat"
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvNES.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvNESCOVERS.dat"
     MedAdvEXT = "nes"
+ElseIf SysCore = "ss" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvSS.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvSSCOVERS.dat"
+    MedAdvEXT = "cue"
+ElseIf SysCore = "gba" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvGBA.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGBACOVERS.dat"
+    MedAdvEXT = "gba"
+ElseIf SysCore = "gb" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvGB.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGBCOVERS.dat"
+    MedAdvEXT = "gbc"
+ElseIf SysCore = "gg" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvGG.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGGCOVERS.dat"
+    MedAdvEXT = "gg"
+ElseIf SysCore = "pce" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvPCE.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvPCECOVERS.dat"
+    MedAdvEXT = "cue"
+ElseIf SysCore = "pce_fast" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvPCE.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvPCECOVERS.dat"
+    MedAdvEXT = "cue"
+ElseIf SysCore = "md" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvMD.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvMDCOVERS.dat"
+    MedAdvEXT = "bin"
+ElseIf SysCore = "lynx" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvLYNX.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvLYNXCOVERS.dat"
+    MedAdvEXT = "lnx"
+ElseIf SysCore = "vb" Then
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvVB.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvVBCOVERS.dat"
+    MedAdvEXT = "vb"
 End If
 
 RecursiveDir colFiles, Dir1.Path, "*." & MedAdvEXT, True
@@ -936,7 +972,7 @@ End If
 End Sub
 
 Private Sub Form_Load()
-Build = "0.2.5"
+Build = "0.2.6"
 Form2.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Set FSO = CreateObject("Scripting.FileSystemObject")
 a = LoadSettings()

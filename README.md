@@ -14,6 +14,30 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/c98c6105efcf218ee89e9760b22fd18b.png">
 
+v0.2.6 01-27-2017 12:01AM
+
+Basic Mode Update.
+
+Page flipping is much faster.
+
+Getting covers for only next page, Not entire list now :)
+
+Basic Mode will now rom/cover search for following SysCores
+
+GB, GBC, LYNX, SS, MD, VB, GG, PCE, NES, SNES, PSX
+
+.dat files storing lists of roms/covers now located in /dat/
+
+Various code optimizations
+
+
+v0.2.5 01-26-2017 10:32PM                
+                                         
+Changed .pixshader to .shader            
+
+Added 'nocover.jpg' placeholder to GitHub
+
+
 v0.2.4 01-26-2017 3:38PM
 
 Basic Mode Update.
