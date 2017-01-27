@@ -422,7 +422,7 @@ Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, S
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
 Dim ResetBios, ResetRom, ResetRomDir, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
 Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untrusted_fip_check, cd_image_memcache, scanlines, numplayers, customparams
-Dim MedAdvGAMES, MedAdvCOVERS, MedAdvEXT, BasicModeFolder
+Dim MedAdvGAMES, MedAdvCOVERS, MedAdvEXT, BasicModeFolder, LogoTop, LogoLeft
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Private Sub Advanced_Click()
 Basic.Checked = False
@@ -755,8 +755,9 @@ Public Function TrailingSlash(strFolder As String) As String
 End Function
 Private Sub Command3_Click()
 'Text3.Visible = True
-ROMDIR = Dir1.Path
-CurrFolder = Dir(Dir1.Path, vbDirectory)
+ROMDIR = Text2.Text
+CurrFolder = Dir(Text2.Text, vbDirectory)
+
 'Create list of extracted cue sheets
 Dim colFiles As New Collection
 
@@ -810,7 +811,7 @@ ElseIf SysCore = "vb" Then
     MedAdvEXT = "vb"
 End If
 
-RecursiveDir colFiles, Dir1.Path, "*." & MedAdvEXT, True
+RecursiveDir colFiles, Text2.Text, "*." & MedAdvEXT, True
 Dim vFile As Variant
 Close #7
 Open MedAdvGAMES For Output As #7
@@ -972,8 +973,9 @@ End If
 End Sub
 
 Private Sub Form_Load()
-Build = "0.2.6"
+Build = "0.2.7"
 Form2.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
+Form2.Width = 11145
 Set FSO = CreateObject("Scripting.FileSystemObject")
 a = LoadSettings()
 Text1.Text = BIOSFILE
@@ -987,9 +989,8 @@ Text6.Text = YRes
 Dir1.Path = LastPath
 File1.Path = LastPath
 
-ROMDIR = ROMPathLoad
+ROMDIR = BasicModeFolder
 BIOSPATH = BiosPathLoad
-Text2.Text = ROMDIR
 a = Validate_MedEXE()
 a = Validate_Bios()
 
@@ -1040,7 +1041,7 @@ scanlines = Mid$(tmp3(30), 11, Len(tmp3(30)))
 axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
 numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
 customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
-BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(33)))
+BasicModeFolder = Mid$(tmp3(34), 17, Len(tmp3(34)))
 End If
 'End Load Settings
 End Function
@@ -1067,10 +1068,13 @@ Private Sub Image1_Click()
 'PSX
 Form1.Combo1.Text = "psx (Sony PlayStation)"
 a = Hide_Buttons()
+LogoTop = Image1.Top
+LogoLeft = Image1.Left
 Image1.Left = 4740
 Image1.Top = 809.109
 Image1.Visible = True
 SysCore = "psx"
+
 End Sub
 Function Validate_Rom()
 If Check9.Value = 1 Then
@@ -1138,6 +1142,53 @@ Check1.Visible = False
 Check23.Visible = False
 Text5.Visible = False
 Text6.Visible = False
+
+If SysCore = "psx" Then
+    Image1.Left = LogoLeft
+    Image1.Top = LogoTop
+ElseIf SysCore = "nes" Then
+    Image2.Left = LogoLeft
+    Image2.Top = LogoTop
+ElseIf SysCore = "snes" Then
+    Image3.Left = LogoLeft
+    Image3.Top = LogoTop
+ElseIf SysCore = "md" Then
+    Image4.Left = LogoLeft
+    Image4.Top = LogoTop
+ElseIf SysCore = "gb" Then
+    Image5.Left = LogoLeft
+    Image5.Top = LogoTop
+ElseIf SysCore = "gba" Then
+    Image6.Left = LogoLeft
+    Image6.Top = LogoTop
+ElseIf SysCore = "gg" Then
+    Image7.Left = LogoLeft
+    Image7.Top = LogoTop
+ElseIf SysCore = "ss" Then
+    Image8.Left = LogoLeft
+    Image8.Top = LogoTop
+ElseIf SysCore = "lynx" Then
+    Image9.Left = LogoLeft
+    Image9.Top = LogoTop
+ElseIf SysCore = "ngp" Then
+    Image10.Left = LogoLeft
+    Image10.Top = LogoTop
+ElseIf SysCore = "sms" Then
+    Image11.Left = LogoLeft
+    Image11.Top = LogoTop
+ElseIf SysCore = "pce" Then
+    Image12.Left = LogoLeft
+    Image12.Top = LogoTop
+ElseIf SysCore = "pcfx" Then
+    Image13.Left = LogoLeft
+    Image13.Top = LogoTop
+ElseIf SysCore = "vb" Then
+    Image14.Left = LogoLeft
+    Image14.Top = LogoTop
+ElseIf SysCore = "wswan" Then
+    Image15.Left = LogoLeft
+    Image15.Top = LogoTop
+End If
 End Function
 Public Function Step2()
 Command1.Visible = True
@@ -1160,6 +1211,8 @@ a = Hide_Buttons()
 Image10.Visible = True
 SysCore = "ngp"
 Form1.Combo1.Text = "ngp (Neo Geo Pocket (Color))"
+LogoTop = Image10.Top
+LogoLeft = Image10.Left
 Image10.Left = 4740
 Image10.Top = 809.109
 End Sub
@@ -1170,6 +1223,8 @@ a = Hide_Buttons()
 Image11.Visible = True
 SysCore = "sms"
 Form1.Combo1.Text = "sms (Sega Master System)"
+LogoTop = Image11.Top
+LogoLeft = Image11.Left
 Image11.Left = 4740
 Image11.Top = 809.109
 End Sub
@@ -1178,7 +1233,10 @@ Private Sub Image12_Click()
 'PC-Engine/Turbografx
 a = Hide_Buttons()
 Image12.Visible = True
+SysCore = "pce"
 Form1.Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)"
+LogoTop = Image12.Top
+LogoLeft = Image12.Left
 Image12.Left = 4740
 Image12.Top = 809.109
 End Sub
@@ -1187,7 +1245,10 @@ Private Sub Image13_Click()
 'PC-FX
 a = Hide_Buttons()
 Image13.Visible = True
+SysCore = "pcfx"
 Form1.Combo1.Text = "pcfx (PC-FX)"
+LogoTop = Image13.Top
+LogoLeft = Image13.Left
 Image13.Left = 4740
 Image13.Top = 809.109
 End Sub
@@ -1198,6 +1259,10 @@ a = Hide_Buttons()
 Image14.Visible = True
 SysCore = "vb"
 Form1.Combo1.Text = "vb (Virtual Boy)"
+LogoTop = Image14.Top
+LogoLeft = Image14.Left
+Image14.Left = 4740
+Image14.Top = 809.109
 End Sub
 
 Private Sub Image15_Click()
@@ -1206,6 +1271,8 @@ a = Hide_Buttons()
 Image15.Visible = True
 SysCore = "wswan"
 Form1.Combo1.Text = "wswan (WonderSwan)"
+LogoTop = Image5.Top
+LogoLeft = Image5.Left
 Image15.Left = 4740
 Image15.Top = 809.109
 End Sub
@@ -1216,6 +1283,8 @@ a = Hide_Buttons()
 Image2.Visible = True
 SysCore = "nes"
 Form1.Combo1.Text = "nes (Nintendo Entertainment System)"
+LogoTop = Image2.Top
+LogoLeft = Image2.Left
 Image2.Left = 4740
 Image2.Top = 809.109
 End Sub
@@ -1226,6 +1295,8 @@ a = Hide_Buttons()
 Image3.Visible = True
 SysCore = "snes"
 Form1.Combo1.Text = "snes (Super Nintendo Entertainment System)"
+LogoTop = Image3.Top
+LogoLeft = Image3.Left
 Image3.Left = 4740
 Image3.Top = 809.109
 End Sub
@@ -1236,6 +1307,8 @@ a = Hide_Buttons()
 Image4.Visible = True
 SysCore = "md"
 Form1.Combo1.Text = "md (Sega Genesis/MegaDrive)"
+LogoTop = Image4.Top
+LogoLeft = Image4.Left
 Image4.Left = 4740
 Image4.Top = 809.109
 End Sub
@@ -1246,6 +1319,8 @@ a = Hide_Buttons()
 Image5.Visible = True
 SysCore = "gb"
 Form1.Combo1.Text = "gb (GameBoy (Color))"
+LogoTop = Image5.Top
+LogoLeft = Image5.Left
 Image5.Left = 4740
 Image5.Top = 809.109
 End Sub
@@ -1256,6 +1331,8 @@ a = Hide_Buttons()
 Image6.Visible = True
 SysCore = "gba"
 Form1.Combo1.Text = "gba (GameBoy Advanced)"
+LogoTop = Image6.Top
+LogoLeft = Image6.Left
 Image6.Left = 4740
 Image6.Top = 809.109
 End Sub
@@ -1266,6 +1343,8 @@ a = Hide_Buttons()
 Image7.Visible = True
 SysCore = "gg"
 Form1.Combo1.Text = "gg (Sega Game Gear)"
+LogoTop = Image7.Top
+LogoLeft = Image7.Left
 Image7.Left = 4740
 Image7.Top = 809.109
 End Sub
@@ -1276,6 +1355,8 @@ a = Hide_Buttons()
 Image8.Visible = True
 SysCore = "ss"
 Form1.Combo1.Text = "ss (Sega Saturn)"
+LogoTop = Image8.Top
+LogoLeft = Image8.Left
 Image8.Left = 4740
 Image8.Top = 809.109
 End Sub
@@ -1286,6 +1367,8 @@ a = Hide_Buttons()
 Image9.Visible = True
 SysCore = "lynx"
 Form1.Combo1.Text = "lynx (Atari Lynx)"
+LogoTop = Image9.Top
+LogoLeft = Image9.Left
 Image9.Left = 4740
 Image9.Top = 809.109
 End Sub

@@ -14,6 +14,23 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/c98c6105efcf218ee89e9760b22fd18b.png">
 
+v0.2.7 01-27-2017 3:54PM
+
+Added back buttons to navigate thru Basic Mode
+
+Page Flipping improved further. Can now flip back to Page 1, Flipping beyond last page will rollover to Page 1
+
+Improved Basic Mode ROM Folder loading
+
+Improved Cover Searching, fixes trailing '_The'
+
+Resizing SNES Covers (again)
+
+Resizing NES, Saturn & Genesis Covers
+
+Fixed bug in rom detection if extention was used in folder name.
+
+
 v0.2.6 01-27-2017 12:01AM
 
 Basic Mode Update.

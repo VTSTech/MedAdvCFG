@@ -5,7 +5,7 @@ Begin VB.Form Form1
    ClientHeight    =   6810
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   11280
+   ClientWidth     =   12630
    BeginProperty Font 
       Name            =   "MS Sans Serif"
       Size            =   8.25
@@ -18,7 +18,7 @@ Begin VB.Form Form1
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   6810
-   ScaleWidth      =   11280
+   ScaleWidth      =   12630
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox Text13 
       BackColor       =   &H00C0C0C0&
@@ -2055,15 +2055,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Advanced.Checked = True
-Basic.Checked = False
+advanced.Checked = True
+basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Advanced.Checked = False
-Basic.Checked = True
+advanced.Checked = False
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -2938,7 +2938,7 @@ scanlines = Mid$(tmp3(30), 11, Len(tmp3(30)))
 axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
 numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
 customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
-BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(33)))
+BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(34)))
 End If
 'End Load Settings
 End Function
@@ -2961,7 +2961,7 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.2.6"
+Build = "0.2.7"
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
 Label34.Caption = "MedAdvCFG v" & Build
 Dir1.Path = VB.App.Path

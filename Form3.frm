@@ -6,12 +6,21 @@ Begin VB.Form Form3
    ClientHeight    =   8670
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   12150
+   ClientWidth     =   12105
    LinkTopic       =   "Form3"
    ScaleHeight     =   8670
    ScaleMode       =   0  'User
-   ScaleWidth      =   11859.17
+   ScaleWidth      =   11815.25
    StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton Command4 
+      BackColor       =   &H00000000&
+      Caption         =   "Back"
+      Height          =   315
+      Left            =   11400
+      TabIndex        =   5
+      Top             =   120
+      Width           =   615
+   End
    Begin VB.TextBox Text1 
       Height          =   1335
       Left            =   11880
@@ -48,9 +57,9 @@ Begin VB.Form Form3
       Caption         =   "Page: 1/x"
       ForeColor       =   &H0000FF00&
       Height          =   195
-      Left            =   5670
+      Left            =   5880
       TabIndex        =   3
-      Top             =   8400
+      Top             =   120
       Width           =   705
    End
    Begin VB.Label Label1 
@@ -59,9 +68,9 @@ Begin VB.Form Form3
       Caption         =   "Total Games: x"
       ForeColor       =   &H0000FF00&
       Height          =   195
-      Left            =   10200
+      Left            =   9480
       TabIndex        =   2
-      Top             =   8400
+      Top             =   120
       Width           =   1065
    End
    Begin VB.Image Image1 
@@ -70,7 +79,7 @@ Begin VB.Form Form3
       Left            =   8880
       Picture         =   "Form3.frx":0011
       Stretch         =   -1  'True
-      Top             =   5160
+      Top             =   5520
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -79,7 +88,7 @@ Begin VB.Form Form3
       Left            =   6120
       Picture         =   "Form3.frx":2B40B
       Stretch         =   -1  'True
-      Top             =   5160
+      Top             =   5520
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -88,7 +97,7 @@ Begin VB.Form Form3
       Left            =   3360
       Picture         =   "Form3.frx":56805
       Stretch         =   -1  'True
-      Top             =   5160
+      Top             =   5520
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -97,7 +106,7 @@ Begin VB.Form Form3
       Left            =   600
       Picture         =   "Form3.frx":81BFF
       Stretch         =   -1  'True
-      Top             =   5160
+      Top             =   5520
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -106,7 +115,7 @@ Begin VB.Form Form3
       Left            =   8880
       Picture         =   "Form3.frx":ACFF9
       Stretch         =   -1  'True
-      Top             =   2640
+      Top             =   3000
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -115,7 +124,7 @@ Begin VB.Form Form3
       Left            =   6120
       Picture         =   "Form3.frx":D83F3
       Stretch         =   -1  'True
-      Top             =   2640
+      Top             =   3000
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -124,7 +133,7 @@ Begin VB.Form Form3
       Left            =   3360
       Picture         =   "Form3.frx":1037ED
       Stretch         =   -1  'True
-      Top             =   2640
+      Top             =   3000
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -133,44 +142,44 @@ Begin VB.Form Form3
       Left            =   600
       Picture         =   "Form3.frx":12EBE7
       Stretch         =   -1  'True
-      Top             =   2640
+      Top             =   3000
       Width           =   2655
    End
    Begin VB.Image Image1 
-      Height          =   2592
+      Height          =   2595
       Index           =   4
       Left            =   8880
       Picture         =   "Form3.frx":159FE1
       Stretch         =   -1  'True
-      Top             =   120
-      Width           =   2656
+      Top             =   480
+      Width           =   2655
    End
    Begin VB.Image Image1 
-      Height          =   2592
+      Height          =   2595
       Index           =   3
       Left            =   6120
       Picture         =   "Form3.frx":1853DB
       Stretch         =   -1  'True
-      Top             =   120
-      Width           =   2656
+      Top             =   480
+      Width           =   2655
    End
    Begin VB.Image Image1 
-      Height          =   2592
+      Height          =   2595
       Index           =   2
       Left            =   3360
       Picture         =   "Form3.frx":1B07D5
       Stretch         =   -1  'True
-      Top             =   120
-      Width           =   2656
+      Top             =   480
+      Width           =   2655
    End
    Begin VB.Image Image1 
-      Height          =   2592
+      Height          =   2595
       Index           =   1
       Left            =   600
       Picture         =   "Form3.frx":1DBBCF
       Stretch         =   -1  'True
-      Top             =   120
-      Width           =   2656
+      Top             =   480
+      Width           =   2655
    End
    Begin VB.Image Image1 
       Height          =   2655
@@ -264,6 +273,8 @@ End Function
 Private Sub Command1_Click()
 If (PageOn + 1) > PageTotal Then
     PageOn = 1
+    Label2.Caption = "Page: " & PageOn & "/" & PageTotal
+    a = Find_Covers()
 Else
     PageOn = PageOn + 1
     Label2.Caption = "Page: " & PageOn & "/" & PageTotal
@@ -274,6 +285,8 @@ End Sub
 Private Sub Command2_Click()
 If (PageOn - 1) <= 1 Then
     PageOn = 1
+    Label2.Caption = "Page: " & PageOn & "/" & PageTotal
+    a = Find_Covers()
 Else
     PageOn = PageOn - 1
     Label2.Caption = "Page: " & PageOn & "/" & PageTotal
@@ -281,14 +294,24 @@ Else
 End If
 End Sub
 
+Private Sub Command4_Click()
+Form3.Visible = False
+Form2.Visible = True
+End Sub
+
 Private Sub Form_Load()
 Form3.Width = 12345
-Build = "0.2.6"
+Build = "0.2.7"
 Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Text1.Text = ""
 SysCore = Form1.SetSysCore
 Set FSO = CreateObject("Scripting.FileSystemObject")
 '12 Games per page..
+For y = 1 To 12
+    Image1(y).Height = 2592
+    Image1(y).Width = 2592
+Next y
+y = 1
 If SysCore = "psx" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvPSX.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvPSXCOVERS.dat"
@@ -297,14 +320,26 @@ ElseIf SysCore = "snes" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvSNES.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvSNESCOVERS.dat"
     MedAdvEXT = "smc"
+    For y = 1 To 12
+        Image1(y).Height = 2000
+    Next y
+    y = 1
 ElseIf SysCore = "nes" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvNES.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvNESCOVERS.dat"
     MedAdvEXT = "nes"
+    For y = 1 To 12
+        Image1(y).Width = 1880
+    Next y
+    y = 1
 ElseIf SysCore = "ss" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvSS.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvSSCOVERS.dat"
     MedAdvEXT = "cue"
+    For y = 1 To 12
+        Image1(y).Width = 1650
+    Next y
+    y = 1
 ElseIf SysCore = "gba" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvGBA.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGBACOVERS.dat"
@@ -329,6 +364,10 @@ ElseIf SysCore = "md" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvMD.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvMDCOVERS.dat"
     MedAdvEXT = "bin"
+    For y = 1 To 12
+        Image1(y).Width = 1880
+    Next y
+    y = 1
 ElseIf SysCore = "lynx" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvLYNX.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvLYNXCOVERS.dat"
@@ -391,6 +430,8 @@ tmp = Replace(tmp, ".smc", "")
 tmp = Replace(tmp, ".nes", "")
 tmp = Replace(tmp, ".iso", "")
 tmp = Replace(tmp, ".bin", "")
+tmp = Replace(tmp, ".gg", "")
+tmp = Replace(tmp, ".lnx", "")
 tmp = Replace(tmp, " (USA) ", "")
 tmp = Replace(tmp, " (USA)", "")
 tmp = Replace(tmp, "(USA)", "")
@@ -430,14 +471,17 @@ tmp = Replace(tmp, "(En,Fr,De,Sv)", "")
 tmp = Replace(tmp, "(Namco)", "")
 tmp = Replace(tmp, "(Tengen)", "")
 tmp = Replace(tmp, "(Hack)", "")
+tmp = Replace(tmp, "(Beta)", "")
 tmp = Replace(tmp, "[!]", "")
 tmp = Replace(tmp, "(U)", "")
 tmp = Replace(tmp, "(J)", "")
 tmp = Replace(tmp, "(E)", "")
 tmp = Replace(tmp, "(G)", "")
 tmp = Replace(tmp, "(W)", "")
+tmp = Replace(tmp, "(R)", "")
 tmp = Replace(tmp, "(VC)", "")
 tmp = Replace(tmp, "(JU)", "")
+tmp = Replace(tmp, "(JE)", "")
 tmp = Replace(tmp, "(M2)", "")
 tmp = Replace(tmp, "(GDI)", "")
 tmp = Replace(tmp, "(NOD)", "")
@@ -445,21 +489,53 @@ tmp = Replace(tmp, "(ECD)", "")
 tmp = Replace(tmp, "(PRG0)", "")
 tmp = Replace(tmp, "(PRG1)", "")
 tmp = Replace(tmp, "(PC10)", "")
-tmp = Replace(tmp, "[o1]", "")
-tmp = Replace(tmp, "[o2]", "")
-tmp = Replace(tmp, "[o3]", "")
+tmp = Replace(tmp, "(REV00)", "")
+tmp = Replace(tmp, "(REV01)", "")
+tmp = Replace(tmp, "(UE)", "")
+tmp = Replace(tmp, "[a1]", "")
 tmp = Replace(tmp, "[b1]", "")
+tmp = Replace(tmp, "[b1+1C]", "")
+tmp = Replace(tmp, "[b1+2C]", "")
 tmp = Replace(tmp, "[b2]", "")
 tmp = Replace(tmp, "[b3]", "")
 tmp = Replace(tmp, "[b4]", "")
 tmp = Replace(tmp, "[b5]", "")
 tmp = Replace(tmp, "[b6]", "")
+tmp = Replace(tmp, "[b7]", "")
+tmp = Replace(tmp, "[b8]", "")
+tmp = Replace(tmp, "[b9]", "")
+tmp = Replace(tmp, "[c]", "")
+tmp = Replace(tmp, "[f1]", "")
+tmp = Replace(tmp, "[f1+1C]", "")
+tmp = Replace(tmp, "[f1+2C]", "")
+tmp = Replace(tmp, "[f1+3C]", "")
+tmp = Replace(tmp, "[f1+4C]", "")
+tmp = Replace(tmp, "[f1+5C]", "")
+tmp = Replace(tmp, "[f2]", "")
+tmp = Replace(tmp, "[f2+1C]", "")
+tmp = Replace(tmp, "[f2+2C]", "")
+tmp = Replace(tmp, "[f2+3C]", "")
+tmp = Replace(tmp, "[o1]", "")
+tmp = Replace(tmp, "[o2]", "")
+tmp = Replace(tmp, "[o3]", "")
+tmp = Replace(tmp, "[p1]", "")
+tmp = Replace(tmp, "[p2]", "")
+tmp = Replace(tmp, "[p3]", "")
+tmp = Replace(tmp, "[p4]", "")
+tmp = Replace(tmp, "[p5]", "")
 tmp = Replace(tmp, "[t1]", "")
 tmp = Replace(tmp, "[t2]", "")
 tmp = Replace(tmp, "[t3]", "")
 tmp = Replace(tmp, "[t4]", "")
 tmp = Replace(tmp, "[t5]", "")
 tmp = Replace(tmp, "[t6]", "")
+tmp = Replace(tmp, "[hI]", "")
+tmp = Replace(tmp, "[hI+C]", "")
+tmp = Replace(tmp, "[h1C]", "")
+tmp = Replace(tmp, "[h2C]", "")
+tmp = Replace(tmp, "[h3C]", "")
+tmp = Replace(tmp, "[h4C]", "")
+tmp = Replace(tmp, "[h5C]", "")
 tmp = Replace(tmp, "'", "")
 tmp = Replace(tmp, ",", "")
 tmp = Replace(tmp, ".", "")
@@ -468,13 +544,16 @@ tmp = Replace(tmp, "  ", " ")
 tmp = Replace(tmp, "_-_", "-")
 tmp = LTrim(RTrim(tmp))
 tmp = Replace(tmp, " ", "_")
+If LCase(Mid$(tmp, Len(tmp) - 4, 4)) = "_the" Then
+    tmp = "The_" & tmp
+End If
 FileNameCleanup = tmp
 End Function
 Function Find_Covers()
 For t = 1 To 32
     On Error Resume Next
     tmparray(t) = Split(GamesList(1), "\")
-    If InStr(1, tmparray(1)(t), LCase(MedAdvEXT), 1) <> 0 Then
+    If InStr(1, tmparray(1)(t), "." & LCase(MedAdvEXT), 1) <> 0 Then
         FNIndex = t
         t = 32
     End If

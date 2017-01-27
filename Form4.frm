@@ -5,11 +5,11 @@ Begin VB.Form Form4
    ClientHeight    =   7965
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   11280
+   ClientWidth     =   13215
    ForeColor       =   &H0000FF00&
    LinkTopic       =   "Form4"
    ScaleHeight     =   7965
-   ScaleWidth      =   11280
+   ScaleWidth      =   13215
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command2 
       Caption         =   "Back"
@@ -550,9 +550,9 @@ Function Validate_Bios()
 End Function
 
 Private Sub Form_Load()
-Build = "0.2.6"
+Build = "0.2.7"
 Form4.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
-
+Form4.Width = 13455
 Set FSO = CreateObject("Scripting.FileSystemObject")
 a = LoadSettings()
 
@@ -612,7 +612,7 @@ scanlines = Mid$(tmp3(30), 11, Len(tmp3(30)))
 axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
 numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
 customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
-BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(33)))
+BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(34)))
 End If
 'End Load Settings
 End Function
