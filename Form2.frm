@@ -2,22 +2,22 @@ VERSION 5.00
 Begin VB.Form Form2 
    BackColor       =   &H00000000&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
-   ClientHeight    =   7110
+   ClientHeight    =   5250
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   10905
+   ClientWidth     =   10920
    LinkTopic       =   "Form2"
-   ScaleHeight     =   15979.9
+   ScaleHeight     =   11799.5
    ScaleMode       =   0  'User
-   ScaleWidth      =   10905
+   ScaleWidth      =   10920
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command4 
       BackColor       =   &H00000000&
       Caption         =   "Back"
       Height          =   315
-      Left            =   10200
+      Left            =   10320
       TabIndex        =   21
-      Top             =   120
+      Top             =   0
       Visible         =   0   'False
       Width           =   615
    End
@@ -45,7 +45,7 @@ Begin VB.Form Form2
    End
    Begin VB.DirListBox Dir1 
       BackColor       =   &H00C0C0C0&
-      Height          =   3015
+      Height          =   1890
       Left            =   11160
       TabIndex        =   16
       Top             =   450
@@ -53,10 +53,10 @@ Begin VB.Form Form2
    End
    Begin VB.FileListBox File1 
       BackColor       =   &H00C0C0C0&
-      Height          =   3210
+      Height          =   2820
       Left            =   11160
       TabIndex        =   15
-      Top             =   3480
+      Top             =   2280
       Width           =   3615
    End
    Begin VB.DriveListBox Drive1 
@@ -272,123 +272,123 @@ Begin VB.Form Form2
    End
    Begin VB.Image Image15 
       Height          =   1335
-      Left            =   4740
+      Left            =   4440
       Picture         =   "Form2.frx":0007
       Stretch         =   -1  'True
-      Top             =   5040
+      Top             =   3480
       Width           =   1695
    End
    Begin VB.Image Image14 
       Height          =   1335
-      Left            =   8880
+      Left            =   9000
       Picture         =   "Form2.frx":0BD9
       Stretch         =   -1  'True
-      Top             =   2760
-      Width           =   1695
+      Top             =   2040
+      Width           =   1935
    End
    Begin VB.Image Image13 
       Height          =   1335
-      Left            =   6810
+      Left            =   6360
       Picture         =   "Form2.frx":4586
       Stretch         =   -1  'True
-      Top             =   5160
-      Width           =   1695
+      Top             =   3600
+      Width           =   2415
    End
    Begin VB.Image Image12 
       Height          =   1335
-      Left            =   600
-      Picture         =   "Form2.frx":7C17
+      Left            =   240
+      Picture         =   "Form2.frx":5A41
       Stretch         =   -1  'True
-      Top             =   2640
-      Width           =   1695
+      Top             =   1680
+      Width           =   1095
    End
    Begin VB.Image Image11 
       Height          =   1335
-      Left            =   4740
-      Picture         =   "Form2.frx":DF3E
+      Left            =   4440
+      Picture         =   "Form2.frx":BD68
       Stretch         =   -1  'True
-      Top             =   360
-      Width           =   1695
+      Top             =   240
+      Width           =   1815
    End
    Begin VB.Image Image10 
-      Height          =   1335
-      Left            =   2640
-      Picture         =   "Form2.frx":16313
+      Height          =   1575
+      Left            =   2040
+      Picture         =   "Form2.frx":1413D
       Stretch         =   -1  'True
-      Top             =   5040
-      Width           =   1695
+      Top             =   3360
+      Width           =   1455
    End
    Begin VB.Image Image9 
       Height          =   1335
-      Left            =   600
-      Picture         =   "Form2.frx":17A30
+      Left            =   120
+      Picture         =   "Form2.frx":1585A
       Stretch         =   -1  'True
-      Top             =   240
-      Width           =   1695
+      Top             =   120
+      Width           =   1575
    End
    Begin VB.Image Image8 
       Height          =   1335
-      Left            =   6810
-      Picture         =   "Form2.frx":20B77
+      Left            =   7080
+      Picture         =   "Form2.frx":1E9A1
       Stretch         =   -1  'True
-      Top             =   2640
+      Top             =   2040
       Width           =   1695
    End
    Begin VB.Image Image7 
       Height          =   1335
-      Left            =   2670
-      Picture         =   "Form2.frx":430A4
+      Left            =   1680
+      Picture         =   "Form2.frx":40ECE
       Stretch         =   -1  'True
-      Top             =   2640
+      Top             =   1680
       Width           =   1695
    End
    Begin VB.Image Image6 
-      Height          =   1335
-      Left            =   8880
-      Picture         =   "Form2.frx":46FC1
+      Height          =   1575
+      Left            =   9000
+      Picture         =   "Form2.frx":43473
       Stretch         =   -1  'True
-      Top             =   5160
-      Width           =   1695
+      Top             =   3360
+      Width           =   1575
    End
    Begin VB.Image Image5 
       Height          =   1335
-      Left            =   6810
-      Picture         =   "Form2.frx":4E3AD
+      Left            =   6480
+      Picture         =   "Form2.frx":4A85F
       Stretch         =   -1  'True
       Top             =   240
-      Width           =   1695
+      Width           =   1935
    End
    Begin VB.Image Image4 
-      Height          =   1215
-      Left            =   8880
-      Picture         =   "Form2.frx":516D2
+      Height          =   975
+      Left            =   8280
+      Picture         =   "Form2.frx":4EC15
       Stretch         =   -1  'True
-      Top             =   360
-      Width           =   1695
+      Top             =   480
+      Width           =   2535
    End
    Begin VB.Image Image3 
       Height          =   1335
-      Left            =   4740
-      Picture         =   "Form2.frx":63401
+      Left            =   3840
+      Picture         =   "Form2.frx":5E225
       Stretch         =   -1  'True
-      Top             =   2640
-      Width           =   1695
+      Top             =   1920
+      Width           =   3015
    End
    Begin VB.Image Image2 
       Height          =   1335
-      Left            =   2670
-      Picture         =   "Form2.frx":69672
+      Left            =   1680
+      Picture         =   "Form2.frx":5F682
       Stretch         =   -1  'True
       Top             =   240
-      Width           =   1695
+      Width           =   2295
    End
    Begin VB.Image Image1 
-      Height          =   1335
-      Left            =   600
-      Picture         =   "Form2.frx":6AE2E
+      Height          =   1725
+      Left            =   120
+      Picture         =   "Form2.frx":655C9
       Stretch         =   -1  'True
-      Top             =   5040
-      Width           =   1695
+      Top             =   3360
+      Width           =   1665
    End
    Begin VB.Menu File 
       Caption         =   "File"
@@ -973,7 +973,7 @@ End If
 End Sub
 
 Private Sub Form_Load()
-Build = "0.2.7"
+Build = Form1.GetBuild()
 Form2.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Form2.Width = 11145
 Set FSO = CreateObject("Scripting.FileSystemObject")
@@ -993,7 +993,10 @@ ROMDIR = BasicModeFolder
 BIOSPATH = BiosPathLoad
 a = Validate_MedEXE()
 a = Validate_Bios()
-
+Label6.Visible = False
+Label5.Visible = False
+Label3.Visible = False
+Label2.Visible = False
 End Sub
 Function LoadSettings()
 'Load Settings
@@ -1142,6 +1145,10 @@ Check1.Visible = False
 Check23.Visible = False
 Text5.Visible = False
 Text6.Visible = False
+Label6.Visible = False
+Label5.Visible = False
+Label3.Visible = False
+Label2.Visible = False
 
 If SysCore = "psx" Then
     Image1.Left = LogoLeft
@@ -1204,6 +1211,10 @@ Check1.Visible = True
 Check23.Visible = True
 Text5.Visible = True
 Text6.Visible = True
+Label6.Visible = True
+Label5.Visible = True
+Label3.Visible = True
+Label2.Visible = True
 End Function
 Private Sub Image10_Click()
 'NeoGeo

@@ -2055,15 +2055,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-advanced.Checked = True
-basic.Checked = False
+Advanced.Checked = True
+Basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-advanced.Checked = False
-basic.Checked = True
+Advanced.Checked = False
+Basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -2942,6 +2942,9 @@ BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(34)))
 End If
 'End Load Settings
 End Function
+Public Function GetBuild()
+GetBuild = "0.2.8"
+End Function
 Private Sub Form_Load()
 '12945
 '9240
@@ -2961,7 +2964,7 @@ Label29.Visible = False
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
 
-Build = "0.2.7"
+Build = Form1.GetBuild()
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
 Label34.Caption = "MedAdvCFG v" & Build
 Dir1.Path = VB.App.Path

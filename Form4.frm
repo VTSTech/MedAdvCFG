@@ -550,7 +550,7 @@ Function Validate_Bios()
 End Function
 
 Private Sub Form_Load()
-Build = "0.2.7"
+Build = Form1.GetBuild()
 Form4.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Form4.Width = 13455
 Set FSO = CreateObject("Scripting.FileSystemObject")

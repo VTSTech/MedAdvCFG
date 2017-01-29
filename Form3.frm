@@ -16,9 +16,9 @@ Begin VB.Form Form3
       BackColor       =   &H00000000&
       Caption         =   "Back"
       Height          =   315
-      Left            =   11400
+      Left            =   11520
       TabIndex        =   5
-      Top             =   120
+      Top             =   0
       Width           =   615
    End
    Begin VB.TextBox Text1 
@@ -79,7 +79,7 @@ Begin VB.Form Form3
       Left            =   8880
       Picture         =   "Form3.frx":0011
       Stretch         =   -1  'True
-      Top             =   5520
+      Top             =   5760
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -88,7 +88,7 @@ Begin VB.Form Form3
       Left            =   6120
       Picture         =   "Form3.frx":2B40B
       Stretch         =   -1  'True
-      Top             =   5520
+      Top             =   5760
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -97,7 +97,7 @@ Begin VB.Form Form3
       Left            =   3360
       Picture         =   "Form3.frx":56805
       Stretch         =   -1  'True
-      Top             =   5520
+      Top             =   5760
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -106,7 +106,7 @@ Begin VB.Form Form3
       Left            =   600
       Picture         =   "Form3.frx":81BFF
       Stretch         =   -1  'True
-      Top             =   5520
+      Top             =   5760
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -151,7 +151,7 @@ Begin VB.Form Form3
       Left            =   8880
       Picture         =   "Form3.frx":159FE1
       Stretch         =   -1  'True
-      Top             =   480
+      Top             =   360
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -160,7 +160,7 @@ Begin VB.Form Form3
       Left            =   6120
       Picture         =   "Form3.frx":1853DB
       Stretch         =   -1  'True
-      Top             =   480
+      Top             =   360
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -169,7 +169,7 @@ Begin VB.Form Form3
       Left            =   3360
       Picture         =   "Form3.frx":1B07D5
       Stretch         =   -1  'True
-      Top             =   480
+      Top             =   360
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -178,7 +178,7 @@ Begin VB.Form Form3
       Left            =   600
       Picture         =   "Form3.frx":1DBBCF
       Stretch         =   -1  'True
-      Top             =   480
+      Top             =   360
       Width           =   2655
    End
    Begin VB.Image Image1 
@@ -301,7 +301,7 @@ End Sub
 
 Private Sub Form_Load()
 Form3.Width = 12345
-Build = "0.2.7"
+Build = Form1.GetBuild()
 Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Text1.Text = ""
 SysCore = Form1.SetSysCore
@@ -435,20 +435,12 @@ tmp = Replace(tmp, ".lnx", "")
 tmp = Replace(tmp, " (USA) ", "")
 tmp = Replace(tmp, " (USA)", "")
 tmp = Replace(tmp, "(USA)", "")
-tmp = Replace(tmp, " (v1.0)", "")
-tmp = Replace(tmp, " (v1.1)", "")
-tmp = Replace(tmp, " (v1.2)", "")
-tmp = Replace(tmp, " (v1.3)", "")
-tmp = Replace(tmp, " (v1.4)", "")
-tmp = Replace(tmp, " (v1.5)", "")
-tmp = Replace(tmp, " (v1.6)", "")
-tmp = Replace(tmp, "(v1.0)", "")
-tmp = Replace(tmp, "(v1.1)", "")
-tmp = Replace(tmp, "(v1.2)", "")
-tmp = Replace(tmp, "(v1.3)", "")
-tmp = Replace(tmp, "(v1.4)", "")
-tmp = Replace(tmp, "(v1.5)", "")
-tmp = Replace(tmp, "(v1.6)", "")
+For z = 0 To 9
+    tmp = Replace(tmp, " (v1." & z & ")", "")
+    tmp = Replace(tmp, " (V1." & z & ")", "")
+    tmp = Replace(tmp, "(v1." & z & ")", "")
+    tmp = Replace(tmp, "(V1." & z & ")", "")
+Next z
 tmp = Replace(tmp, "_(Arcade)", "")
 tmp = Replace(tmp, "_(Arcade Mode)", "")
 tmp = Replace(tmp, "(Arcade)", "")
@@ -473,6 +465,9 @@ tmp = Replace(tmp, "(Tengen)", "")
 tmp = Replace(tmp, "(Hack)", "")
 tmp = Replace(tmp, "(Beta)", "")
 tmp = Replace(tmp, "[!]", "")
+tmp = Replace(tmp, "!!!!", "!")
+tmp = Replace(tmp, "!!!", "!")
+tmp = Replace(tmp, "!!", "!")
 tmp = Replace(tmp, "(U)", "")
 tmp = Replace(tmp, "(J)", "")
 tmp = Replace(tmp, "(E)", "")
@@ -544,8 +539,10 @@ tmp = Replace(tmp, "  ", " ")
 tmp = Replace(tmp, "_-_", "-")
 tmp = LTrim(RTrim(tmp))
 tmp = Replace(tmp, " ", "_")
-If LCase(Mid$(tmp, Len(tmp) - 4, 4)) = "_the" Then
-    tmp = "The_" & tmp
+tmp = Replace(tmp, "-", "_")
+tmp = LCase(tmp)
+If Mid$(tmp, Len(tmp) - 3, 4) = "_the" Then
+    tmp = "the_" & Mid$(tmp, 1, Len(tmp) - 4)
 End If
 FileNameCleanup = tmp
 End Function
@@ -742,6 +739,7 @@ If Form2.Check1.Value = 1 Then
         FatalError = False
     End If
 ElseIf Form2.Check1.Value = 0 Then
+    On Error Resume Next
     'SysCore & vbcrlf & FullPath to Rom & CoverSearched
     Text1.Text = Text1.Text & vbCrLf & Form3.Image1(Index).Tag & vbCrLf & Image1(Index).ToolTipText & vbCrLf
     tmparray(1) = Split(Form3.Image1(Index).Tag, "\")
