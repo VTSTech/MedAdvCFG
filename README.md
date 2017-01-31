@@ -8,11 +8,53 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 
 Homepage: http://www.nigeltodman.com/medadvcfg
 
-<img src="https://i.gyazo.com/23d66bd5b868a3492ffc08adca9300d6.png">
 
-<img src="https://i.gyazo.com/92a29a9a1149ff763fc6fb98a8292e3e.png">
+<img src="https://i.gyazo.com/303eeb67905ecf7cfc39ce33800686b9.png">
+
+<img src="https://i.gyazo.com/b184de2928c24e8c356f21518e8869ba.png">
 
 <img src="https://i.gyazo.com/c98c6105efcf218ee89e9760b22fd18b.png">
+
+
+v0.2.9 01-30-2017 9:06PM
+
+Resizing SNES cover in 'Large Cover' view
+
+Now detects PSX Game ID for NTSC-U Region
+
+Game IDs stored in /dat/psx-usa-id.dat
+
+Displays PSX Game ID in Advanced Mode and Basic Mode
+
+Resized Advanced Mode screen and reorganized controls slightly
+
+Better Handling of 'Input Past End of File' Error w\ Large Cover launch
+
+Updated /covers/ on GitHub
+
+Various Code Optimizations
+
+
+v0.2.8 01-29-2017 2:26AM
+
+Resized and updated some of the Console logos.
+
+Hid unused labels on 1st step of basic mode
+
+Resized console selection window
+
+Increased vertical spacing between covers
+
+Now using www.CoversDB.org Covers!
+
+Now using standardized filenames for cover search
+All [space] are _
+All - are _
+All ,'".*:? symbols are removed
+Entire name is lowercased
+
+Various code optimizations
+
 
 v0.2.7 01-27-2017 3:54PM
 
@@ -28,7 +70,7 @@ Resizing SNES Covers (again)
 
 Resizing NES, Saturn & Genesis Covers
 
-Fixed bug in rom detection if extention was used in folder name.
+Fixed bug in rom detection if extension was used in folder name.
 
 
 v0.2.6 01-27-2017 12:01AM

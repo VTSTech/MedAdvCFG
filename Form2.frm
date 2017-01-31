@@ -425,14 +425,14 @@ Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untru
 Dim MedAdvGAMES, MedAdvCOVERS, MedAdvEXT, BasicModeFolder, LogoTop, LogoLeft
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Private Sub Advanced_Click()
-Basic.Checked = False
+basic.Checked = False
 Form1.Visible = True
-Form1.Advanced.Checked = True
+Form1.advanced.Checked = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Basic.Checked = True
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -976,6 +976,7 @@ Private Sub Form_Load()
 Build = Form1.GetBuild()
 Form2.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Form2.Width = 11145
+Form2.Height = 6120
 Set FSO = CreateObject("Scripting.FileSystemObject")
 a = LoadSettings()
 Text1.Text = BIOSFILE
@@ -1198,21 +1199,28 @@ ElseIf SysCore = "wswan" Then
 End If
 End Function
 Public Function Step2()
-Command1.Visible = True
+
 Command2.Visible = True
 Command3.Visible = True
 Command4.Visible = True
-Text1.Visible = True
+
 Text2.Visible = True
-Label4.Visible = True
 Label7.Visible = True
 Label26.Visible = True
 Check1.Visible = True
 Check23.Visible = True
 Text5.Visible = True
 Text6.Visible = True
-Label6.Visible = True
-Label5.Visible = True
+
+SysCore = Form1.SetSysCore
+If SysCore = "psx" Or SysCore = "ss" Or SysCore = "pce" Then
+    Label6.Visible = True
+    Label5.Visible = True
+    Label4.Visible = True
+    Text1.Visible = True
+    Command1.Visible = True
+End If
+
 Label3.Visible = True
 Label2.Visible = True
 End Function

@@ -5,11 +5,11 @@ Begin VB.Form Form4
    ClientHeight    =   7965
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   13215
+   ClientWidth     =   14115
    ForeColor       =   &H0000FF00&
    LinkTopic       =   "Form4"
    ScaleHeight     =   7965
-   ScaleWidth      =   13215
+   ScaleWidth      =   14115
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command2 
       Caption         =   "Back"
@@ -45,6 +45,37 @@ Begin VB.Form Form4
       Top             =   7200
       Width           =   1215
    End
+   Begin VB.Label Label14 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00000000&
+      Caption         =   "Game ID:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H0000FF00&
+      Height          =   195
+      Left            =   7920
+      TabIndex        =   15
+      Top             =   1080
+      Width           =   810
+   End
+   Begin VB.Label Label13 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00000000&
+      Caption         =   "BIOS"
+      ForeColor       =   &H0000FF00&
+      Height          =   195
+      Left            =   7920
+      TabIndex        =   14
+      Top             =   1320
+      Width           =   375
+   End
    Begin VB.Label Label12 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
@@ -62,7 +93,7 @@ Begin VB.Form Form4
       Height          =   195
       Left            =   7920
       TabIndex        =   13
-      Top             =   1800
+      Top             =   2040
       Width           =   1440
    End
    Begin VB.Label Label11 
@@ -73,7 +104,7 @@ Begin VB.Form Form4
       Height          =   195
       Left            =   7920
       TabIndex        =   12
-      Top             =   2040
+      Top             =   2280
       Width           =   3120
    End
    Begin VB.Label Label10 
@@ -206,7 +237,7 @@ Begin VB.Form Form4
       Height          =   195
       Left            =   7920
       TabIndex        =   4
-      Top             =   1320
+      Top             =   1560
       Width           =   1305
    End
    Begin VB.Label Label2 
@@ -217,7 +248,7 @@ Begin VB.Form Form4
       Height          =   195
       Left            =   7920
       TabIndex        =   1
-      Top             =   1560
+      Top             =   1800
       Width           =   915
    End
    Begin VB.Label Label1 
@@ -337,7 +368,7 @@ SysCore = Form1.SetSysCore
     cmdstring = cmdstring & Chr(34)
     
     If FatalError = False Then
-        MsgBox cmdstring
+        'MsgBox cmdstring
     End If
     
     If FatalError = False Then
@@ -351,6 +382,28 @@ Private Sub Command2_Click()
     Form3.Visible = True
     Form4.Visible = False
 End Sub
+Public Function GetPSXID()
+
+Set FSO = CreateObject("Scripting.FileSystemObject")
+
+PSXIDList = VB.App.Path & "\dat\psx-usa-id.dat"
+CoverName = Label11.Caption
+If FSO.FileExists(PSXIDList) Then
+    Close #12
+    Open PSXIDList For Input As #12
+    Do
+        Line Input #12, tmp
+            If Mid$(tmp, 1, Len(CoverName)) = CoverName And Mid$(tmp, Len(CoverName) + 1, 1) = " " Then
+                PSXID = tmp
+                'MsgBox "PSXID: " & PSXID
+                tmparray = Split(PSXID, " ")
+                GetPSXID = tmparray(1)
+            End If
+    Loop Until EOF(12)
+    Close #12
+End If
+
+End Function
 Function Validate_Rom(ROMFILE As String)
 Set FSO = CreateObject("Scripting.FileSystemObject")
     If FSO.FileExists(ROMFILE) = True Then
@@ -359,12 +412,15 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
         Sleep (500)
         If FSO.FileExists(VB.App.Path & "\md5a.txt") = True Then
             Open VB.App.Path & "\md5a.txt" For Input As #3
-                Line Input #3, tmp
+                If Not EOF(3) Then Line Input #3, tmp
             Close #3
         End If
-        Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5a.txt" & Chr(34)), vbHide
-        'Text2.Text = ROMFILE
         Label6.Caption = tmp
+        Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5a.txt" & Chr(34)), vbHide
+        tmp = Form1.FileNameCleanup()
+        'Label35.Visible = True
+        CoverName = tmp
+        Label13.Caption = GetPSXID()
     End If
     Validate_Rom = tmp
 End Function
@@ -552,19 +608,31 @@ End Function
 Private Sub Form_Load()
 Build = Form1.GetBuild()
 Form4.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
-Form4.Width = 13455
+Form4.Width = 14355
 Set FSO = CreateObject("Scripting.FileSystemObject")
 a = LoadSettings()
-
+SysCore = Form1.SetSysCore
 tmparray = Split(Form3.Text1.Text, vbCrLf)
-'syscore
+'SysCore
 Label1.Caption = tmparray(0)
 'FileName
-Label2.Caption = tmparray(1)
+Label2.Caption = tmparray(2)
 'CoverSearched
-Label11.Caption = tmparray(2)
+Label11.Caption = tmparray(3)
+
+Label7.Visible = False
+Label8.Visible = False
+
 a = Form4.Validate_Rom(Image1(1).Tag)
-a = Form4.Validate_Bios
+If SysCore = "psx" Or SysCore = "ss" Or SysCore = "pce" Then
+    a = Form4.Validate_Bios
+    Label7.Visible = True
+    Label8.Visible = True
+End If
+
+If SysCore = "snes" Then
+    Image1(1).Height = 5895
+End If
 End Sub
 Function LoadSettings()
 'Load Settings
@@ -612,7 +680,7 @@ scanlines = Mid$(tmp3(30), 11, Len(tmp3(30)))
 axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
 numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
 customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
-BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(34)))
+BasicModeFolder = Mid$(tmp3(34), 17, Len(tmp3(34)))
 End If
 'End Load Settings
 End Function

@@ -2,7 +2,7 @@ VERSION 5.00
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.x.x Frontend) by Nigel Todman [ADV MODE]"
-   ClientHeight    =   6810
+   ClientHeight    =   6840
    ClientLeft      =   225
    ClientTop       =   855
    ClientWidth     =   12630
@@ -17,7 +17,7 @@ Begin VB.Form Form1
    EndProperty
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6810
+   ScaleHeight     =   6840
    ScaleWidth      =   12630
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox Text13 
@@ -32,7 +32,7 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   6375
+      Left            =   6360
       TabIndex        =   86
       Text            =   "Port"
       Top             =   3960
@@ -71,7 +71,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   83
-      Top             =   4200
+      Top             =   4560
       Width           =   1815
    End
    Begin VB.CheckBox Check22 
@@ -89,7 +89,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   82
-      Top             =   3480
+      Top             =   3840
       Width           =   1815
    End
    Begin VB.CheckBox Check21 
@@ -107,7 +107,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   81
-      Top             =   3240
+      Top             =   3600
       Width           =   1455
    End
    Begin VB.CheckBox Check20 
@@ -125,7 +125,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   80
-      Top             =   3000
+      Top             =   3360
       Width           =   1215
    End
    Begin VB.CheckBox Check19 
@@ -143,7 +143,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   79
-      Top             =   3720
+      Top             =   4080
       Width           =   1455
    End
    Begin VB.ComboBox Combo6 
@@ -179,7 +179,7 @@ Begin VB.Form Form1
       Left            =   8520
       TabIndex        =   73
       Text            =   "1.00"
-      Top             =   5880
+      Top             =   5910
       Width           =   405
    End
    Begin VB.CheckBox Check18 
@@ -197,7 +197,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1320
       TabIndex        =   71
-      Top             =   2880
+      Top             =   3000
       Value           =   1  'Checked
       Width           =   855
    End
@@ -214,9 +214,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   195
-      Left            =   2200
+      Left            =   2205
       TabIndex        =   70
-      Top             =   2880
+      Top             =   3000
       Width           =   615
    End
    Begin VB.CheckBox Check16 
@@ -232,9 +232,9 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   195
-      Left            =   3050
+      Left            =   3045
       TabIndex        =   69
-      Top             =   2880
+      Top             =   3000
       Width           =   1095
    End
    Begin VB.TextBox Text10 
@@ -252,7 +252,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   67
       Text            =   "0"
-      Top             =   5520
+      Top             =   5640
       Width           =   285
    End
    Begin VB.CheckBox Check15 
@@ -305,7 +305,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   62
       Text            =   "1"
-      Top             =   6240
+      Top             =   6200
       Width           =   285
    End
    Begin VB.ComboBox Combo5 
@@ -343,7 +343,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   59
-      Top             =   3960
+      Top             =   4320
       Value           =   1  'Checked
       Width           =   1815
    End
@@ -431,11 +431,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
-      Left            =   6000
+      Height          =   255
+      Left            =   5880
       TabIndex        =   51
-      Top             =   4320
-      Width           =   615
+      Top             =   4340
+      Width           =   495
    End
    Begin VB.CheckBox Check10 
       BackColor       =   &H00C0C0C0&
@@ -488,7 +488,7 @@ Begin VB.Form Form1
       Left            =   8400
       TabIndex        =   47
       Text            =   "1080"
-      Top             =   4440
+      Top             =   4800
       Width           =   515
    End
    Begin VB.TextBox Text5 
@@ -506,7 +506,7 @@ Begin VB.Form Form1
       Left            =   7920
       TabIndex        =   46
       Text            =   "1920"
-      Top             =   4440
+      Top             =   4800
       Width           =   495
    End
    Begin VB.TextBox Text4 
@@ -524,7 +524,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   44
       Text            =   "2"
-      Top             =   4800
+      Top             =   5080
       Width           =   285
    End
    Begin VB.CommandButton Command4 
@@ -539,11 +539,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
-      Left            =   6000
+      Height          =   255
+      Left            =   5880
       TabIndex        =   43
-      Top             =   480
-      Width           =   615
+      Top             =   380
+      Width           =   495
    End
    Begin VB.DriveListBox Drive1 
       BackColor       =   &H00C0C0C0&
@@ -573,10 +573,10 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   3210
+      Height          =   3015
       Left            =   9000
       TabIndex        =   39
-      Top             =   3480
+      Top             =   3720
       Width           =   3615
    End
    Begin VB.DirListBox Dir1 
@@ -590,7 +590,7 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   3015
+      Height          =   3240
       Left            =   9000
       TabIndex        =   38
       Top             =   450
@@ -611,7 +611,7 @@ Begin VB.Form Form1
       Height          =   435
       Left            =   4800
       TabIndex        =   37
-      Top             =   2520
+      Top             =   2640
       Width           =   1935
    End
    Begin VB.CheckBox Check7 
@@ -665,7 +665,7 @@ Begin VB.Form Form1
       Height          =   495
       Left            =   4800
       TabIndex        =   27
-      Top             =   3000
+      Top             =   3240
       Width           =   1815
    End
    Begin VB.ComboBox Combo4 
@@ -701,7 +701,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   24
-      Top             =   2760
+      Top             =   3120
       Width           =   1815
    End
    Begin VB.TextBox Text3 
@@ -719,7 +719,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   22
       Text            =   "50"
-      Top             =   5160
+      Top             =   5380
       Width           =   285
    End
    Begin VB.CheckBox Check4 
@@ -737,7 +737,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   7080
       TabIndex        =   21
-      Top             =   2520
+      Top             =   2880
       Width           =   1575
    End
    Begin VB.CheckBox Check3 
@@ -791,7 +791,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   16
       Text            =   "0 - Disabled"
-      Top             =   2520
+      Top             =   2640
       Width           =   3375
    End
    Begin VB.CheckBox Check2 
@@ -824,11 +824,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
-      Left            =   6000
+      Height          =   255
+      Left            =   5880
       TabIndex        =   12
-      Top             =   1920
-      Width           =   615
+      Top             =   1820
+      Width           =   495
    End
    Begin VB.TextBox Text2 
       BackColor       =   &H00C0C0C0&
@@ -845,7 +845,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   11
       Text            =   "Not Set"
-      Top             =   1920
+      Top             =   1800
       Width           =   4575
    End
    Begin VB.CheckBox Check1 
@@ -878,11 +878,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
-      Left            =   6000
+      Height          =   255
+      Left            =   5880
       TabIndex        =   7
-      Top             =   960
-      Width           =   615
+      Top             =   980
+      Width           =   495
    End
    Begin VB.TextBox Text1 
       BackColor       =   &H00C0C0C0&
@@ -919,6 +919,65 @@ Begin VB.Form Form1
       Text            =   "gb (GameBoy (Color))"
       Top             =   360
       Width           =   4575
+   End
+   Begin VB.Label Label40 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "BIOS VER:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   120
+      TabIndex        =   89
+      Top             =   1560
+      Visible         =   0   'False
+      Width           =   795
+   End
+   Begin VB.Label Label39 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "PSX ID:"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   360
+      TabIndex        =   88
+      Top             =   2400
+      Visible         =   0   'False
+      Width           =   570
+   End
+   Begin VB.Label Label35 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Not Set"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   1320
+      TabIndex        =   87
+      Top             =   2400
+      Width           =   5700
    End
    Begin VB.Label Label38 
       AutoSize        =   -1  'True
@@ -1014,7 +1073,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   74
-      Top             =   5880
+      Top             =   6000
       Width           =   780
    End
    Begin VB.Label Label15 
@@ -1033,7 +1092,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   72
-      Top             =   2880
+      Top             =   3000
       Width           =   900
    End
    Begin VB.Label Label14 
@@ -1052,7 +1111,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   68
-      Top             =   5520
+      Top             =   5640
       Width           =   735
    End
    Begin VB.Image Image7 
@@ -1235,7 +1294,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   48
-      Top             =   4440
+      Top             =   4800
       Width           =   750
    End
    Begin VB.Label Label25 
@@ -1254,7 +1313,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   45
-      Top             =   4800
+      Top             =   5100
       Width           =   1020
    End
    Begin VB.Label Label24 
@@ -1436,7 +1495,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   29
-      Top             =   5520
+      Top             =   5640
       Width           =   765
    End
    Begin VB.Label Label13 
@@ -1474,7 +1533,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6840
       TabIndex        =   23
-      Top             =   5160
+      Top             =   5380
       Width           =   1590
    End
    Begin VB.Label Label11 
@@ -1512,7 +1571,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   17
-      Top             =   2520
+      Top             =   2640
       Width           =   750
    End
    Begin VB.Label Label9 
@@ -1531,7 +1590,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   1320
       TabIndex        =   14
-      Top             =   2280
+      Top             =   2160
       Width           =   540
    End
    Begin VB.Label Label8 
@@ -1550,7 +1609,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   13
-      Top             =   2280
+      Top             =   2160
       Width           =   810
    End
    Begin VB.Label Label7 
@@ -1569,7 +1628,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   120
       TabIndex        =   10
-      Top             =   1920
+      Top             =   1800
       Width           =   900
    End
    Begin VB.Label Label6 
@@ -1728,7 +1787,7 @@ Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, S
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
 Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
 Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untrusted_fip_check, cd_image_memcache, scanlines, numplayers, customparams
-
+Dim CoverName, PSXIDList, PSXID
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Private Function Generate_M3U(M3USize As Integer)
 '*** v0.1.3
@@ -1739,6 +1798,130 @@ z = 0
 Open VB.App.Path & "\multi.m3u" For Output As #2
 
 End Function
+Function FileNameCleanup()
+tmparray = Split(ROMFILE, "\")
+'MsgBox UBound(tmparray)
+tmp = Replace(tmparray(UBound(tmparray)), ".cue", "")
+tmp = Replace(tmp, ".smc", "")
+tmp = Replace(tmp, ".nes", "")
+tmp = Replace(tmp, ".iso", "")
+tmp = Replace(tmp, ".bin", "")
+tmp = Replace(tmp, ".gg", "")
+tmp = Replace(tmp, ".lnx", "")
+tmp = Replace(tmp, " (USA) ", "")
+tmp = Replace(tmp, " (USA)", "")
+tmp = Replace(tmp, "(USA)", "")
+For z = 0 To 9
+    tmp = Replace(tmp, " (v1." & z & ")", "")
+    tmp = Replace(tmp, " (V1." & z & ")", "")
+    tmp = Replace(tmp, "(v1." & z & ")", "")
+    tmp = Replace(tmp, "(V1." & z & ")", "")
+Next z
+tmp = Replace(tmp, "_(Arcade)", "")
+tmp = Replace(tmp, "_(Arcade Mode)", "")
+tmp = Replace(tmp, "(Arcade)", "")
+tmp = Replace(tmp, "(Arcade Mode)", "")
+tmp = Replace(tmp, "_(Simulation)", "")
+tmp = Replace(tmp, "_(Simulation Mode)", "")
+tmp = Replace(tmp, "(Simulation Mode)", "")
+tmp = Replace(tmp, "(Simulation)", "")
+tmp = Replace(tmp, "_(Unl)", "")
+tmp = Replace(tmp, "(Unl)", "")
+tmp = Replace(tmp, "(Disc 1)", "")
+tmp = Replace(tmp, "(Disc 2)", "")
+tmp = Replace(tmp, "(Disc 3)", "")
+tmp = Replace(tmp, "(Disc 4)", "")
+tmp = Replace(tmp, "(Disc 5)", "")
+tmp = Replace(tmp, " (En,Fr,De,Es,It)", "")
+tmp = Replace(tmp, "(En,Fr,De,Es,It)", "")
+tmp = Replace(tmp, " (En,Fr,De,Sv)", "")
+tmp = Replace(tmp, "(En,Fr,De,Sv)", "")
+tmp = Replace(tmp, "(Namco)", "")
+tmp = Replace(tmp, "(Tengen)", "")
+tmp = Replace(tmp, "(Hack)", "")
+tmp = Replace(tmp, "(Beta)", "")
+tmp = Replace(tmp, "[!]", "")
+tmp = Replace(tmp, "!!!!", "!")
+tmp = Replace(tmp, "!!!", "!")
+tmp = Replace(tmp, "!!", "!")
+tmp = Replace(tmp, "(U)", "")
+tmp = Replace(tmp, "(J)", "")
+tmp = Replace(tmp, "(E)", "")
+tmp = Replace(tmp, "(G)", "")
+tmp = Replace(tmp, "(W)", "")
+tmp = Replace(tmp, "(R)", "")
+tmp = Replace(tmp, "(VC)", "")
+tmp = Replace(tmp, "(JU)", "")
+tmp = Replace(tmp, "(JE)", "")
+tmp = Replace(tmp, "(M2)", "")
+tmp = Replace(tmp, "(GDI)", "")
+tmp = Replace(tmp, "(NOD)", "")
+tmp = Replace(tmp, "(ECD)", "")
+tmp = Replace(tmp, "(PRG0)", "")
+tmp = Replace(tmp, "(PRG1)", "")
+tmp = Replace(tmp, "(PC10)", "")
+tmp = Replace(tmp, "(REV00)", "")
+tmp = Replace(tmp, "(REV01)", "")
+tmp = Replace(tmp, "(UE)", "")
+tmp = Replace(tmp, "[a1]", "")
+tmp = Replace(tmp, "[b1]", "")
+tmp = Replace(tmp, "[b1+1C]", "")
+tmp = Replace(tmp, "[b1+2C]", "")
+tmp = Replace(tmp, "[b2]", "")
+tmp = Replace(tmp, "[b3]", "")
+tmp = Replace(tmp, "[b4]", "")
+tmp = Replace(tmp, "[b5]", "")
+tmp = Replace(tmp, "[b6]", "")
+tmp = Replace(tmp, "[b7]", "")
+tmp = Replace(tmp, "[b8]", "")
+tmp = Replace(tmp, "[b9]", "")
+tmp = Replace(tmp, "[c]", "")
+tmp = Replace(tmp, "[f1]", "")
+tmp = Replace(tmp, "[f1+1C]", "")
+tmp = Replace(tmp, "[f1+2C]", "")
+tmp = Replace(tmp, "[f1+3C]", "")
+tmp = Replace(tmp, "[f1+4C]", "")
+tmp = Replace(tmp, "[f1+5C]", "")
+tmp = Replace(tmp, "[f2]", "")
+tmp = Replace(tmp, "[f2+1C]", "")
+tmp = Replace(tmp, "[f2+2C]", "")
+tmp = Replace(tmp, "[f2+3C]", "")
+tmp = Replace(tmp, "[o1]", "")
+tmp = Replace(tmp, "[o2]", "")
+tmp = Replace(tmp, "[o3]", "")
+tmp = Replace(tmp, "[p1]", "")
+tmp = Replace(tmp, "[p2]", "")
+tmp = Replace(tmp, "[p3]", "")
+tmp = Replace(tmp, "[p4]", "")
+tmp = Replace(tmp, "[p5]", "")
+tmp = Replace(tmp, "[t1]", "")
+tmp = Replace(tmp, "[t2]", "")
+tmp = Replace(tmp, "[t3]", "")
+tmp = Replace(tmp, "[t4]", "")
+tmp = Replace(tmp, "[t5]", "")
+tmp = Replace(tmp, "[t6]", "")
+tmp = Replace(tmp, "[hI]", "")
+tmp = Replace(tmp, "[hI+C]", "")
+tmp = Replace(tmp, "[h1C]", "")
+tmp = Replace(tmp, "[h2C]", "")
+tmp = Replace(tmp, "[h3C]", "")
+tmp = Replace(tmp, "[h4C]", "")
+tmp = Replace(tmp, "[h5C]", "")
+tmp = Replace(tmp, "'", "")
+tmp = Replace(tmp, ",", "")
+tmp = Replace(tmp, ".", "")
+tmp = Replace(tmp, " - ", "-")
+tmp = Replace(tmp, "  ", " ")
+tmp = Replace(tmp, "_-_", "-")
+tmp = LTrim(RTrim(tmp))
+tmp = Replace(tmp, " ", "_")
+tmp = Replace(tmp, "-", "_")
+tmp = LCase(tmp)
+If Mid$(tmp, Len(tmp) - 3, 4) = "_the" Then
+    tmp = "the_" & Mid$(tmp, 1, Len(tmp) - 4)
+End If
+FileNameCleanup = tmp
+End Function
 Public Function Validate_Rom()
 If Check9.Value = 1 Then
     If FSO.FileExists(ROMFILE) = True Then
@@ -1746,12 +1929,16 @@ If Check9.Value = 1 Then
         Sleep (500)
         If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
             Open VB.App.Path & "\md5.txt" For Input As #3
-                Line Input #3, tmp
+                If Not EOF(3) Then Line Input #3, tmp
             Close #3
         End If
         Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
         Text2.Text = ROMFILE
         Label9.Caption = "MD5: " & tmp
+        tmp = FileNameCleanup()
+        Label35.Visible = True
+        CoverName = tmp
+        Label35.Caption = "Game ID: " & GetPSXID()
     End If
 Else
     Label9.Caption = "MD5: ROM MD5 Disabled"
@@ -1946,52 +2133,52 @@ End Function
 Public Function SetSysCore()
 If Form1.Combo1.Text = "gb (GameBoy (Color))" Then
     SysCore = "gb"
-    Form3.Text1.Text = "gb (GameBoy (Color))" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "gb (GameBoy (Color))" & vbCrLf
 ElseIf Form1.Combo1.Text = "gba (GameBoy Advanced)" Then
     SysCore = "gba"
-    Form3.Text1.Text = "gba (GameBoy Advanced)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "gba (GameBoy Advanced)" & vbCrLf
 ElseIf Form1.Combo1.Text = "gg (Sega Game Gear)" Then
     SysCore = "gg"
-    Form3.Text1.Text = "gg (Sega Game Gear)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "gg (Sega Game Gear)" & vbCrLf
 ElseIf Form1.Combo1.Text = "lynx (Atari Lynx)" Then
     SysCore = "lynx"
-    Form3.Text1.Text = "lynx (Atari Lynx)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "lynx (Atari Lynx)" & vbCrLf
 ElseIf Form1.Combo1.Text = "md (Sega Genesis/MegaDrive)" Then
     SysCore = "md"
-    Form3.Text1.Text = "md (Sega Genesis/MegaDrive)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "md (Sega Genesis/MegaDrive)" & vbCrLf
 ElseIf Form1.Combo1.Text = "nes (Nintendo Entertainment System)" Then
     SysCore = "nes"
-    Form3.Text1.Text = "nes (Nintendo Entertainment System)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "nes (Nintendo Entertainment System)" & vbCrLf
 ElseIf Form1.Combo1.Text = "ngp (Neo Geo Pocket (Color))" Then
     SysCore = "ngp"
-    Form3.Text1.Text = "ngp (Neo Geo Pocket (Color))" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "ngp (Neo Geo Pocket (Color))" & vbCrLf
 ElseIf Form1.Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
     SysCore = "pce"
-    Form3.Text1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" & vbCrLf
 ElseIf Form1.Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
     SysCore = "pce_fast"
-    Form3.Text1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" & vbCrLf
 ElseIf Form1.Combo1.Text = "pcfx (PC-FX)" Then
     SysCore = "pcfx"
-    Form3.Text1.Text = "pcfx (PC-FX)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "pcfx (PC-FX)" & vbCrLf
 ElseIf Form1.Combo1.Text = "psx (Sony PlayStation)" Then
     SysCore = "psx"
-    Form3.Text1.Text = "psx (Sony PlayStation)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "psx (Sony PlayStation)" & vbCrLf
 ElseIf Form1.Combo1.Text = "sms (Sega Master System)" Then
     SysCore = "sms"
-    Form3.Text1.Text = "sms (Sega Master System)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "sms (Sega Master System)" & vbCrLf
 ElseIf Form1.Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
     SysCore = "snes"
-    Form3.Text1.Text = "snes (Super Nintendo Entertainment System)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "snes (Super Nintendo Entertainment System)" & vbCrLf
 ElseIf Form1.Combo1.Text = "ss (Sega Saturn)" Then
     SysCore = "ss"
-    Form3.Text1.Text = "ss (Sega Saturn)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "ss (Sega Saturn)" & vbCrLf
 ElseIf Form1.Combo1.Text = "vb (Virtual Boy)" Then
     SysCore = "vb"
-    Form3.Text1.Text = "vb (Virtual Boy)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "vb (Virtual Boy)" & vbCrLf
 ElseIf Form1.Combo1.Text = "wswan (WonderSwan)" Then
     SysCore = "wswan"
-    Form3.Text1.Text = "wswan (WonderSwan)" & vbCrLf
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "wswan (WonderSwan)" & vbCrLf
 End If
 SetSysCore = SysCore
 End Function
@@ -2055,15 +2242,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Advanced.Checked = True
-Basic.Checked = False
+advanced.Checked = True
+basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Advanced.Checked = False
-Basic.Checked = True
+advanced.Checked = False
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -2943,7 +3130,37 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.2.8"
+GetBuild = "0.2.9"
+End Function
+Public Function ResetSysCore()
+SysCore = ""
+Combo1.Text = ""
+Form3.Text1.Text = ""
+ResetSysCore = ""
+End Function
+Public Function GetPSXID()
+
+Set FSO = CreateObject("Scripting.FileSystemObject")
+
+PSXIDList = VB.App.Path & "\dat\psx-usa-id.dat"
+
+If FSO.FileExists(PSXIDList) Then
+    Close #12
+    Open PSXIDList For Input As #12
+    Do
+        Line Input #12, tmp
+        For x = 1 To Len(tmp)
+            If Mid$(tmp, x, Len(CoverName)) = CoverName Then
+                PSXID = tmp
+                'MsgBox "PSXID: " & PSXID
+                tmparray = Split(PSXID, " ")
+                GetPSXID = tmparray(1)
+            End If
+        Next x
+    Loop Until EOF(12)
+    Close #12
+End If
+
 End Function
 Private Sub Form_Load()
 '12945
@@ -2952,6 +3169,7 @@ FatalError = False
 Form1.Width = 9240
 ActiveFile = "None"
 Label29.Visible = False
+Label35.Visible = False
 'Comments
 'C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe
 'MD5 8F0BC836E2B6023371B99E94829B5CF1
@@ -3275,12 +3493,12 @@ Clipboard.SetText Label2.Caption
 MsgBox "MD5 copied to Clipboard"
 End Sub
 
-Private Sub Label35_Click()
-
-End Sub
-
 Private Sub Label34_Click()
 Shell ("cmd.exe /c start http://www.nigeltodman.com/2016/06/05/medadvcfg-v0-0-1-mednafen-v0-9-38-x-frontend/"), vbHide
+End Sub
+
+Private Sub Label36_Click()
+Shell "cmd.exe /c start http://www.NigelTodman.com/medadvcfg", vbMaximizedFocus
 End Sub
 
 Private Sub Label6_Click()

@@ -6,11 +6,11 @@ Begin VB.Form Form3
    ClientHeight    =   8670
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   12105
+   ClientWidth     =   11280
    LinkTopic       =   "Form3"
    ScaleHeight     =   8670
    ScaleMode       =   0  'User
-   ScaleWidth      =   11815.25
+   ScaleWidth      =   11010
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command4 
       BackColor       =   &H00000000&
@@ -26,8 +26,7 @@ Begin VB.Form Form3
       Left            =   11880
       MultiLine       =   -1  'True
       TabIndex        =   4
-      Text            =   "Form3.frx":0000
-      Top             =   6960
+      Top             =   8400
       Visible         =   0   'False
       Width           =   2175
    End
@@ -77,7 +76,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   12
       Left            =   8880
-      Picture         =   "Form3.frx":0011
+      Picture         =   "Form3.frx":0000
       Stretch         =   -1  'True
       Top             =   5760
       Width           =   2655
@@ -86,7 +85,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   11
       Left            =   6120
-      Picture         =   "Form3.frx":2B40B
+      Picture         =   "Form3.frx":2B3FA
       Stretch         =   -1  'True
       Top             =   5760
       Width           =   2655
@@ -95,7 +94,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   10
       Left            =   3360
-      Picture         =   "Form3.frx":56805
+      Picture         =   "Form3.frx":567F4
       Stretch         =   -1  'True
       Top             =   5760
       Width           =   2655
@@ -104,7 +103,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   9
       Left            =   600
-      Picture         =   "Form3.frx":81BFF
+      Picture         =   "Form3.frx":81BEE
       Stretch         =   -1  'True
       Top             =   5760
       Width           =   2655
@@ -113,7 +112,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   8
       Left            =   8880
-      Picture         =   "Form3.frx":ACFF9
+      Picture         =   "Form3.frx":ACFE8
       Stretch         =   -1  'True
       Top             =   3000
       Width           =   2655
@@ -122,7 +121,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   7
       Left            =   6120
-      Picture         =   "Form3.frx":D83F3
+      Picture         =   "Form3.frx":D83E2
       Stretch         =   -1  'True
       Top             =   3000
       Width           =   2655
@@ -131,7 +130,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   6
       Left            =   3360
-      Picture         =   "Form3.frx":1037ED
+      Picture         =   "Form3.frx":1037DC
       Stretch         =   -1  'True
       Top             =   3000
       Width           =   2655
@@ -140,7 +139,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   5
       Left            =   600
-      Picture         =   "Form3.frx":12EBE7
+      Picture         =   "Form3.frx":12EBD6
       Stretch         =   -1  'True
       Top             =   3000
       Width           =   2655
@@ -149,7 +148,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   4
       Left            =   8880
-      Picture         =   "Form3.frx":159FE1
+      Picture         =   "Form3.frx":159FD0
       Stretch         =   -1  'True
       Top             =   360
       Width           =   2655
@@ -158,7 +157,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   3
       Left            =   6120
-      Picture         =   "Form3.frx":1853DB
+      Picture         =   "Form3.frx":1853CA
       Stretch         =   -1  'True
       Top             =   360
       Width           =   2655
@@ -167,7 +166,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   2
       Left            =   3360
-      Picture         =   "Form3.frx":1B07D5
+      Picture         =   "Form3.frx":1B07C4
       Stretch         =   -1  'True
       Top             =   360
       Width           =   2655
@@ -176,7 +175,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   1
       Left            =   600
-      Picture         =   "Form3.frx":1DBBCF
+      Picture         =   "Form3.frx":1DBBBE
       Stretch         =   -1  'True
       Top             =   360
       Width           =   2655
@@ -185,7 +184,7 @@ Begin VB.Form Form3
       Height          =   2655
       Index           =   0
       Left            =   11880
-      Picture         =   "Form3.frx":206FC9
+      Picture         =   "Form3.frx":206FB8
       Stretch         =   -1  'True
       Top             =   8400
       Visible         =   0   'False
@@ -297,13 +296,14 @@ End Sub
 Private Sub Command4_Click()
 Form3.Visible = False
 Form2.Visible = True
+SysCore = Form1.ResetSysCore()
 End Sub
 
 Private Sub Form_Load()
 Form3.Width = 12345
 Build = Form1.GetBuild()
 Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
-Text1.Text = ""
+'Text1.Text = ""
 SysCore = Form1.SetSysCore
 Set FSO = CreateObject("Scripting.FileSystemObject")
 '12 Games per page..
@@ -759,3 +759,4 @@ Unload Form2
 Unload Form3
 Unload Form4
 End Sub
+
