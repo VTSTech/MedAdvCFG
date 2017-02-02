@@ -5,11 +5,11 @@ Begin VB.Form Form4
    ClientHeight    =   7965
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   14115
+   ClientWidth     =   11280
    ForeColor       =   &H0000FF00&
    LinkTopic       =   "Form4"
    ScaleHeight     =   7965
-   ScaleWidth      =   14115
+   ScaleWidth      =   11280
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command2 
       Caption         =   "Back"
@@ -412,7 +412,12 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
         Sleep (500)
         If FSO.FileExists(VB.App.Path & "\md5a.txt") = True Then
             Open VB.App.Path & "\md5a.txt" For Input As #3
-                If Not EOF(3) Then Line Input #3, tmp
+                If Not EOF(3) Then
+                    Line Input #3, tmp
+                Else
+                    Sleep (100)
+                    If Not EOF(3) Then Line Input #3, tmp
+                End If
             Close #3
         End If
         Label6.Caption = tmp
@@ -684,6 +689,12 @@ BasicModeFolder = Mid$(tmp3(34), 17, Len(tmp3(34)))
 End If
 'End Load Settings
 End Function
+
+Private Sub Label13_Click()
+Clipboard.Clear
+Clipboard.SetText Label13.Caption
+MsgBox "Game ID copied to Clipboard"
+End Sub
 
 Private Sub Quit_Click()
 Unload Form1

@@ -9,12 +9,46 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/303eeb67905ecf7cfc39ce33800686b9.png">
+<img src="https://i.gyazo.com/1bcff0fdc8a525e538fc24277fd45640.png">
 
 <img src="https://i.gyazo.com/b184de2928c24e8c356f21518e8869ba.png">
 
-<img src="https://i.gyazo.com/c98c6105efcf218ee89e9760b22fd18b.png">
+<img src="https://i.gyazo.com/673f11c25bb1703fcb69f63c31b9212e.png">
 
+
+v0.3.0 02-02-2017 4:20AM
+
+Redump verification for PSX
+
+NetPlay controls are now functional*
+
+NetPlay control is now a ComboBox
+
+Several NetPlay servers predefined.
+
+Resolution now selectable from dropdown
+
+Ads, Because who doesn't like ads.
+
+Added link to CoversDB.org
+
+PlayStats are planned for future
+
+Hosted by CoversDB.org
+
+Various Code Optimizations
+
+* Notes on NetPlay Support
+
+Not all SysCores support NetPlay.
+
+Namely, SS does not.
+
+SNES and PSX do :)
+
+To NetPlay, Use Same BIOS and Same ROM
+
+MD5 must match across board. Select same server. Play!
 
 v0.2.9 01-30-2017 9:06PM
 

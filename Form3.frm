@@ -441,29 +441,39 @@ For z = 0 To 9
     tmp = Replace(tmp, "(v1." & z & ")", "")
     tmp = Replace(tmp, "(V1." & z & ")", "")
 Next z
-tmp = Replace(tmp, "_(Arcade)", "")
-tmp = Replace(tmp, "_(Arcade Mode)", "")
 tmp = Replace(tmp, "(Arcade)", "")
 tmp = Replace(tmp, "(Arcade Mode)", "")
-tmp = Replace(tmp, "_(Simulation)", "")
-tmp = Replace(tmp, "_(Simulation Mode)", "")
-tmp = Replace(tmp, "(Simulation Mode)", "")
+tmp = Replace(tmp, "(Arcade Disc)", "")
+tmp = Replace(tmp, "(Evolution Disc)", "")
 tmp = Replace(tmp, "(Simulation)", "")
-tmp = Replace(tmp, "_(Unl)", "")
+tmp = Replace(tmp, "(Simulation Mode)", "")
 tmp = Replace(tmp, "(Unl)", "")
 tmp = Replace(tmp, "(Disc 1)", "")
 tmp = Replace(tmp, "(Disc 2)", "")
 tmp = Replace(tmp, "(Disc 3)", "")
 tmp = Replace(tmp, "(Disc 4)", "")
 tmp = Replace(tmp, "(Disc 5)", "")
-tmp = Replace(tmp, " (En,Fr,De,Es,It)", "")
+tmp = Replace(tmp, "(En,Fr,De,Es,It,Nl,Sv,No,Da,Fi)", "")
+tmp = Replace(tmp, "(En,Fr,De,Es,It,Nl,Sv,Da)", "")
+tmp = Replace(tmp, "(En,Fr,De,Es,It,Sv)", "")
 tmp = Replace(tmp, "(En,Fr,De,Es,It)", "")
-tmp = Replace(tmp, " (En,Fr,De,Sv)", "")
+tmp = Replace(tmp, "(En,Ja,Fr,De)", "")
+tmp = Replace(tmp, "(En,Fr,Es,Pt)", "")
+tmp = Replace(tmp, "(En,Fr,De,Es)", "")
 tmp = Replace(tmp, "(En,Fr,De,Sv)", "")
+tmp = Replace(tmp, "(En,Fr,De)", "")
+tmp = Replace(tmp, "(En,Fr,Es)", "")
+tmp = Replace(tmp, "(En,Fr)", "")
+tmp = Replace(tmp, "(En,Ja)", "")
+tmp = Replace(tmp, "(Soviet)", "")
+tmp = Replace(tmp, "(Allies)", "")
 tmp = Replace(tmp, "(Namco)", "")
 tmp = Replace(tmp, "(Tengen)", "")
 tmp = Replace(tmp, "(Hack)", "")
 tmp = Replace(tmp, "(Beta)", "")
+tmp = Replace(tmp, "(Leon)", "")
+tmp = Replace(tmp, "(Claire)", "")
+tmp = Replace(tmp, "(The Making of)", "")
 tmp = Replace(tmp, "[!]", "")
 tmp = Replace(tmp, "!!!!", "!")
 tmp = Replace(tmp, "!!!", "!")
@@ -750,6 +760,9 @@ ElseIf Form2.Check1.Value = 0 Then
     Form4.Image1(1).Tag = Form3.Image1(Index).Tag
     Form4.Label11.Caption = Image1(Index).ToolTipText
     a = Form4.Validate_Rom(Form4.Image1(1).Tag)
+    Form4.SetFocus
+    Form4.Show
+    Form4.Refresh
 End If
 End Sub
 
