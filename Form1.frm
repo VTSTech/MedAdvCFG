@@ -986,7 +986,7 @@ Begin VB.Form Form1
    Begin VB.Label Label23 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "REDUMP Database verified!"
+      Caption         =   "REDUMP Database unverified!"
       BeginProperty Font 
          Name            =   "MS Sans Serif"
          Size            =   8.25
@@ -996,12 +996,12 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H0000C000&
+      ForeColor       =   &H000080FF&
       Height          =   195
       Left            =   3360
       TabIndex        =   87
       Top             =   2400
-      Width           =   2430
+      Width           =   2640
    End
    Begin VB.Label Label40 
       AutoSize        =   -1  'True
@@ -1805,6 +1805,18 @@ Begin VB.Form Form1
    Begin VB.Menu About 
       Caption         =   "About"
    End
+   Begin VB.Menu Help 
+      Caption         =   "Help"
+      Begin VB.Menu doc 
+         Caption         =   "Documentation"
+      End
+      Begin VB.Menu hlp_netplay 
+         Caption         =   "NetPlay Tips"
+      End
+   End
+   Begin VB.Menu Chat 
+      Caption         =   "Chat"
+   End
 End
 Attribute VB_Name = "Form1"
 Attribute VB_GlobalNameSpace = False
@@ -1819,8 +1831,64 @@ Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, S
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
 Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
 Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untrusted_fip_check, cd_image_memcache, scanlines, numplayers, customparams
-Dim CoverName, PSXIDList, PSXID, RedumpList, REDUMPMD5, ROMMD5
+Dim CoverName, PSXIDList, PSXID, RedumpList, REDUMPMD5, ROMMD5, CUEFILE, BINFILE
+Private Type MD5_CTX
+  i(1 To 2) As Long
+  buf(1 To 4) As Long
+  inp(1 To 64) As Byte
+  digest(1 To 16) As Byte
+End Type
+
+Private Declare Sub MD5Init Lib "cryptdll" (Context As MD5_CTX)
+Private Declare Sub MD5Update Lib "cryptdll" (Context As MD5_CTX, ByVal strInput As String, ByVal lLen As Long)
+Private Declare Sub MD5Final Lib "cryptdll" (Context As MD5_CTX)
+Private Declare Function GetShortPathName Lib "kernel32" _
+   Alias "GetShortPathNameA" (ByVal lpszLongPath As String, _
+   ByVal lpszShortPath As String, ByVal cchBuffer As Long) _
+   As Long
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+Public Function ShortPath(ByVal strFilename As String) As String
+   
+   
+    Dim strBuffer As String * 255
+    Dim lngReturnCode As Long
+    
+    'FILENAME MUST EXIST FOR API FUNCTION TO WORK
+    'SO CREATE THE FILE IF IT DOESN'T EXISTS
+    Dim iFileNumber As Integer
+    iFileNumber = FreeFile
+    If Dir(strFilename) = "" Then
+        On Error Resume Next
+        Open strFilename For Output As #iFileNumber
+        Close #iFileNumber
+    End If
+    lngReturnCode = GetShortPathName(strFilename, strBuffer, 255)
+    ShortPath = Left$(strBuffer, lngReturnCode)
+End Function
+Public Function CalcMD5(strFilename As String) As String
+    Dim strBuffer As String
+    Dim myContext As MD5_CTX
+    Dim result As String
+    Dim lp As Long
+    Dim MD5 As String
+
+    strBuffer = Space(FileLen(strFilename))
+
+    Open strFilename For Binary Access Read As #1
+        Get #1, , strBuffer
+    Close #1
+
+    MD5Init myContext
+    MD5Update myContext, strBuffer, Len(strBuffer)
+    MD5Final myContext
+
+    result = StrConv(myContext.digest, vbUnicode)
+    
+    For lp = 1 To Len(result)
+            CalcMD5 = CalcMD5 & Right("00" & Hex(Asc(Mid(result, lp, 1))), 2)
+    Next
+    
+End Function
 Private Function Generate_M3U(M3USize As Integer)
 '*** v0.1.3
 Form1.Width = 12945
@@ -1965,16 +2033,17 @@ End If
 FileNameCleanup = tmp
 End Function
 Public Function Validate_Rom()
-If Check9.Value = 1 Then
+If Check9.value = 1 Then
     If FSO.FileExists(ROMFILE) = True Then
-        Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & ROMFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-        Sleep (500)
-        If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-            Open VB.App.Path & "\md5.txt" For Input As #3
-                If Not EOF(3) Then Line Input #3, ROMMD5
-            Close #3
-        End If
-        Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
+        ROMMD5 = CalcMD5(ShortPath(ROMFILE))
+        'Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & ROMFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
+        'Sleep (500)
+        'If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
+        '    Open VB.App.Path & "\md5.txt" For Input As #3
+        '        If Not EOF(3) Then Line Input #3, ROMMD5
+        '    Close #3
+        'End If
+        'Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
         Text2.Text = ROMFILE
         Label9.Caption = "MD5: " & ROMMD5
         a = Redump(ROMMD5)
@@ -1982,7 +2051,6 @@ If Check9.Value = 1 Then
         Label35.Visible = True
         CoverName = tmp
         Label35.Caption = "Game ID: " & GetPSXID()
-        
     End If
 Else
     Label9.Caption = "MD5: ROM MD5 Disabled"
@@ -1990,28 +2058,13 @@ End If
 Validate_Rom = tmp
 End Function
 Function Validate_Bios()
-If Check10.Value = 1 Then
+If Check10.value = 1 Then
     If FSO.FileExists(BIOSPATH & "\" & BIOSFILE) = True Then
-        Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSPATH & "\" & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-        Sleep (200)
-        If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-            Open VB.App.Path & "\md5.txt" For Input As #5
-                Line Input #5, tmp
-            Close #5
-        End If
-        Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-        Text1.Text = BIOSFILE
+        tmp = CalcMD5(ShortPath(BIOSPATH & "\" & BIOSFILE))
+        Text1.Text = BIOSPATH & "\" & BIOSFILE
     End If
-    'v0.2.0
     If FSO.FileExists(BIOSFILE) = True Then
-        Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & BIOSFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-        Sleep (200)
-        If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-            Open VB.App.Path & "\md5.txt" For Input As #5
-                Line Input #5, tmp
-            Close #5
-        End If
-        Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
+        tmp = CalcMD5(ShortPath(BIOSFILE))
         Text1.Text = BIOSFILE
     End If
 
@@ -2019,152 +2072,152 @@ If Check10.Value = 1 Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v1.0J BIOS SCPH-1000/DTL-H1000"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         ElseIf LCase(tmp) = "849515939161e62f6b866f6853006780" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v1.1J BIOS SCPH-3000/DTL-H1000H"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         ElseIf LCase(tmp) = "dc2b9bf8da62ec93e868cfd29f0d067d" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v2.0A BIOS DTL-H1001"
-            Check11.Value = 1
-            Check11.Value = 1
+            Check11.value = 1
+            Check11.value = 1
         ElseIf LCase(tmp) = "54847e693405ffeb0359c6287434cbef" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v2.0E BIOS DTL-H1002/SCPH-1002"
-            Check13.Value = 1
-            Check13.Value = 1
+            Check13.value = 1
+            Check13.value = 1
         ElseIf LCase(tmp) = "cba733ceeff5aef5c32254f1d617fa62" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v2.1J BIOS SCPH-3500"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         ElseIf LCase(tmp) = "da27e8b6dab242d8f91a9b25d80c63b8" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v2.1A BIOS DTL-H1101"
-            Check11.Value = 1
-            Check11.Value = 1
+            Check11.value = 1
+            Check11.value = 1
         ElseIf LCase(tmp) = "417b34706319da7cf001e76e40136c23" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v2.1E BIOS SCPH-1002/DTL-H1102"
-            Check13.Value = 1
-            Check13.Value = 1
+            Check13.value = 1
+            Check13.value = 1
         ElseIf LCase(tmp) = "57a06303dfa9cf9351222dfcbb4a29d9" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v2.2J BIOS SCPH-5000/DTL-H1200/DTL-H3000"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         ElseIf LCase(tmp) = "924e392ed05558ffdb115408c263dccf" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v2.2A BIOS SCPH-1001/SCPH-5003/DTL-H1201/DTL-H3001"
-            Check11.Value = 1
-            Check11.Value = 1
+            Check11.value = 1
+            Check11.value = 1
         ElseIf LCase(tmp) = "e2110b8a2b97a8e0b857a45d32f7e187" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v2.2E BIOS SCPH-1002/DTL-H1202/DTL-H3002"
-            Check13.Value = 1
-            Check13.Value = 1
+            Check13.value = 1
+            Check13.value = 1
         ElseIf LCase(tmp) = "ca5cfc321f916756e3f0effbfaeba13b" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v2.2D BIOS DTL-H1100"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         ElseIf LCase(tmp) = "490f666e1afb15b7362b406ed1cea246" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v3.0A BIOS SCPH-5501/SCPH-5503/SCPH-7003"
-            Check11.Value = 1
-            Check11.Value = 1
+            Check11.value = 1
+            Check11.value = 1
         ElseIf LCase(tmp) = "8dd7d5296a650fac7319bce665a6a53c" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v3.0J BIOS SCPH-5500"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         ElseIf LCase(tmp) = "32736f17079d0b2b7024407c39bd3050" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v3.0E BIOS SCPH-5502/SCPH-5552"
-            Check13.Value = 1
-            Check13.Value = 1
+            Check13.value = 1
+            Check13.value = 1
         ElseIf LCase(tmp) = "8e4c14f567745eff2f0408c8129f72a6" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v4.0J BIOS SCPH-7000/SCPH-7500/SCPH-9000"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         ElseIf LCase(tmp) = "b84be139db3ee6cbd075630aa20a6553" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v4.1A BIOS SCPH-7000W"
-            Check11.Value = 1
-            Check11.Value = 1
+            Check11.value = 1
+            Check11.value = 1
         ElseIf LCase(tmp) = "1e68c231d0896b7eadcad1d7d8e76129" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v4.1A BIOS SCPH-7001/SCPH-7501/SCPH-7503/SCPH-9001/SCPH-9003"
-            Check11.Value = 1
-            Check11.Value = 1
+            Check11.value = 1
+            Check11.value = 1
         ElseIf LCase(tmp) = "b9d9a0286c33dc6b7237bb13cd46fdee" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v4.1E BIOS SCPH-7002/SCPH-7502/SCPH-9002"
-            Check13.Value = 1
-            Check13.Value = 1
+            Check13.value = 1
+            Check13.value = 1
         ElseIf LCase(tmp) = "8abc1b549a4a80954addc48ef02c4521" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v4.3J BIOS SCPH-100"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         ElseIf LCase(tmp) = "b10f5e0e3d9eb60e5159690680b1e774" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v4.4E BIOS SCPH-102"
-            Check13.Value = 1
-            Check13.Value = 1
+            Check13.value = 1
+            Check13.value = 1
         ElseIf LCase(tmp) = "6e3735ff4c7dc899ee98981385f6f3d0" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v4.5A BIOS SCPH-101"
-            Check11.Value = 1
-            Check11.Value = 1
+            Check11.value = 1
+            Check11.value = 1
         ElseIf LCase(tmp) = "de93caec13d1a141a40a79f5c86168d6" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v4.5E BIOS SCPH-102"
-            Check13.Value = 1
-            Check13.Value = 1
+            Check13.value = 1
+            Check13.value = 1
         ElseIf LCase(tmp) = "3240872c70984b6cbfda1586cab68dbe" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: SEGA SATURN V1.01A US/EU"
-            Check11.Value = 1
-            Check11.Value = 1
+            Check11.value = 1
+            Check11.value = 1
         ElseIf LCase(tmp) = "85ec9ca47d8f6807718151cbcca8b964" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: SEGA SATURN V1.01 JP"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         ElseIf LCase(tmp) = "af5828fdff51384f99b3c4926be27762" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: SEGA SATURN V1.00 JP"
-            Check12.Value = 1
-            Check12.Value = 1
+            Check12.value = 1
+            Check12.value = 1
         Else
             Label29.Visible = False
             Label6.Caption = "MD5: " & tmp
@@ -2228,14 +2281,7 @@ SetSysCore = SysCore
 End Function
 Public Function Validate_MedEXE()
 If FSO.FileExists(MedEXE) = True Then
-    Shell ("cmd.exe /c " & Chr(34) & Chr(34) & VB.App.Path & "\md5.exe" & Chr(34) & " -n " & Chr(34) & MedEXE & Chr(34) & " >> " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34) & Chr(34)), vbHide
-    'MsgBox ("cmd.exe /c " & Chr(34) & Chr(34) & VB.App.Path & "\md5.exe" & Chr(34) & " -n " & Chr(34) & MedEXE & Chr(34) & " >> " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34) & Chr(34)), vbHide
-    Sleep (800)
-    If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-        Open VB.App.Path & "\md5.txt" For Input As #4
-            Line Input #4, tmp
-        Close #4
-    End If
+    tmp = CalcMD5(ShortPath(MedEXE))
     If tmp = "8F0BC836E2B6023371B99E94829B5CF1" Then
         Label2.Caption = "0.9.38.7-win64 Detected! MD5: 8F0BC836E2B6023371B99E94829B5CF1"
     ElseIf tmp = "C2CA5F8A9A4CF93BB05297272F029B9C" Then
@@ -2268,11 +2314,6 @@ If FSO.FileExists(MedEXE) = True Then
         Label2.Caption = "0.9.41.0-win64 Detected! MD5: 6AADC9A8A196DA610E6DB43367B339B4"
     ElseIf tmp = "74EA6CD12BF60ADF1A93A40854CD4686" Then
         Label2.Caption = "0.9.41.0-win32 Detected! MD5: 74EA6CD12BF60ADF1A93A40854CD4686"
-'Unknown Mednafen Version! MD5: A5AFC70E3B2B267A0E81F64B7366C8C3 x64
-'Unknown Mednafen Version! MD5: AEF947A6E5A35FF108B954683CD3698A x86
-'Unknown Mednafen Version! MD5: 6AADC9A8A196DA610E6DB43367B339B4 x64
-'Unknown Mednafen Version! MD5: DE8348EFB4EA79C58711990031FD7505 x86
-'Unknown Mednafen Version! MD5: 74EA6CD12BF60ADF1A93A40854CD4686 x86
     Else
         Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
@@ -2281,7 +2322,7 @@ End If
 Validate_MedEXE = tmp
 End Function
 
-Private Sub About_Click()
+Private Sub about_Click()
 MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Written by Nigel Todman (nigel@nigeltodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, SS, VB" & vbCrLf & vbCrLf & "Homepage: www.NigelTodman.com" & vbCrLf & "Facebook: facebook.com/nigel.todman.3" & vbCrLf & "Twitter: @Veritas_83" & vbCrLf & "YouTube: Veritas0923" & vbCrLf & "BTC: 18j2Env7QokhGG5MccS3LPBKnjsko6u4NQ"
 End Sub
 
@@ -2299,50 +2340,54 @@ Form1.Visible = False
 Form2.Visible = True
 End Sub
 
+Private Sub Chat_Click()
+Shell ("cmd.exe /c start http://bit.ly/2k5E1Xq"), vbHide
+End Sub
+
 Private Sub Check11_Click()
-Check12.Value = 0
-Check13.Value = 0
+Check12.value = 0
+Check13.value = 0
 End Sub
 
 Private Sub Check12_Click()
-Check11.Value = 0
-Check13.Value = 0
+Check11.value = 0
+Check13.value = 0
 End Sub
 
 Private Sub Check13_Click()
-Check11.Value = 0
-Check12.Value = 0
+Check11.value = 0
+Check12.value = 0
 End Sub
 
 Private Sub Check15_Click()
-If Check15.Value = 1 Then
+If Check15.value = 1 Then
     a = a
 Else
     tmp = MsgBox("Auto Confirm all prompts like this one?", vbYesNo)
 End If
 
 If tmp = vbYes Then
-    Check15.Value = 1
+    Check15.value = 1
 End If
 
 If tmp = vbNo Then
-    Check15.Value = 0
+    Check15.value = 0
 End If
 End Sub
 
 Private Sub Check16_Click()
-Check17.Value = 0
-Check18.Value = 0
+Check17.value = 0
+Check18.value = 0
 End Sub
 
 Private Sub Check17_Click()
-Check18.Value = 0
-Check16.Value = 0
+Check18.value = 0
+Check16.value = 0
 End Sub
 
 Private Sub Check18_Click()
-Check17.Value = 0
-Check16.Value = 0
+Check17.value = 0
+Check16.value = 0
 End Sub
 
 Private Sub Combo1_Change()
@@ -2354,10 +2399,10 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check12.Enabled = True
     Check13.Enabled = True
     Combo5.Enabled = True
-    Check1.Value = 1
-    Check2.Value = 1
-    Check9.Value = 1
-    Check10.Value = 1
+    Check1.value = 1
+    Check2.value = 1
+    Check9.value = 1
+    Check10.value = 1
     Label29.Visible = True
 ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
     For z = 0 To Combo5.ListCount
@@ -2370,19 +2415,19 @@ ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     Check12.Enabled = True
     Check13.Enabled = True
     Combo5.Enabled = True
-    Check1.Value = 1
-    Check2.Value = 1
-    Check9.Value = 1
-    Check10.Value = 1
+    Check1.value = 1
+    Check2.value = 1
+    Check9.value = 1
+    Check10.value = 1
     Label29.Visible = True
 Else
-    Check1.Value = 0
-    Check2.Value = 0
-    Check9.Value = 0
-    Check10.Value = 0
-    Check11.Value = 0
-    Check12.Value = 0
-    Check13.Value = 0
+    Check1.value = 0
+    Check2.value = 0
+    Check9.value = 0
+    Check10.value = 0
+    Check11.value = 0
+    Check12.value = 0
+    Check13.value = 0
     Check1.Enabled = False
     Check2.Enabled = False
     Check11.Enabled = False
@@ -2416,10 +2461,10 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check12.Enabled = True
     Check13.Enabled = True
     Combo5.Enabled = True
-    Check1.Value = 1
-    Check2.Value = 1
-    Check9.Value = 1
-    Check10.Value = 1
+    Check1.value = 1
+    Check2.value = 1
+    Check9.value = 1
+    Check10.value = 1
     Label29.Visible = True
 ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
     For z = 1 To Combo5.ListCount
@@ -2446,8 +2491,8 @@ ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
 ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     Check1.Enabled = True
     Check2.Enabled = True
-    Check9.Value = 1
-    Check10.Value = 1
+    Check9.value = 1
+    Check10.value = 1
     Label29.Visible = True
     For z = 1 To Combo5.ListCount
         Combo5.RemoveItem 0
@@ -2459,13 +2504,13 @@ ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     Combo5.ListIndex = 1
     Combo5.Enabled = True
 Else
-    Check1.Value = 0
-    Check2.Value = 0
-    Check9.Value = 0
-    Check10.Value = 0
-    Check11.Value = 0
-    Check12.Value = 0
-    Check13.Value = 0
+    Check1.value = 0
+    Check2.value = 0
+    Check9.value = 0
+    Check10.value = 0
+    Check11.value = 0
+    Check12.value = 0
+    Check13.value = 0
     Check1.Enabled = False
     Check2.Enabled = False
     Check11.Enabled = False
@@ -2474,11 +2519,6 @@ Else
     Combo5.Enabled = False
     Label29.Visible = False
 End If
-
-'Combo1.AddItem "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)", 7
-'Combo1.AddItem "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)", 8
-'Combo1.AddItem "pcfx (PC-FX)", 9
-'Combo1.AddItem "psx (Sony PlayStation)", 10
 
 If Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Or Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
     MsgBox "BIOS Image File: syscard3.pce is expected"
@@ -2502,7 +2542,7 @@ If Len(Text1.Text) >= 1 Then
     If Text1.Text = "Not Set" Then
         ResetBios = vbYes
     Else
-        If Check15.Value = 1 Then
+        If Check15.value = 1 Then
             a = a
             ResetBios = vbYes
         Else
@@ -2526,7 +2566,7 @@ If Len(Text2.Text) >= 1 Then
     If Text2.Text = "Not Set" Then
         ResetRom = vbYes
     Else
-        If Check15.Value = 1 Then
+        If Check15.value = 1 Then
             a = a
             ResetRom = vbYes
         Else
@@ -2569,7 +2609,7 @@ ElseIf Combo1.Text = "pcfx (PC-FX)" Then
     SysCore = "pcfx"
 ElseIf Combo1.Text = "psx (Sony PlayStation)" Then
     SysCore = "psx"
-    If Check11.Value = 0 And Check12.Value = 0 And Check13.Value = 0 Then
+    If Check11.value = 0 And Check12.value = 0 And Check13.value = 0 Then
         MsgBox "A System Region must be select for PlayStation!", vbCritical, "Error!"
         FatalError = True
     End If
@@ -2593,11 +2633,11 @@ If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" 
         If Len(BIOSPATH) > 1 Then
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
-        If Check11.Value = 1 Then
+        If Check11.value = 1 Then
             cmdstring = cmdstring & " -psx.bios_na " & Chr(34) & BIOSFILE & Chr(34)
-        ElseIf Check12.Value = 1 Then
+        ElseIf Check12.value = 1 Then
             cmdstring = cmdstring & " -psx.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
-        ElseIf Check13.Value = 1 Then
+        ElseIf Check13.value = 1 Then
             cmdstring = cmdstring & " -psx.bios_eu " & Chr(34) & BIOSFILE & Chr(34)
         End If
     End If
@@ -2611,7 +2651,7 @@ If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" 
         If Len(BIOSPATH) > 1 Then
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
-        If Check12.Value = 1 Then
+        If Check12.value = 1 Then
             cmdstring = cmdstring & "-ss.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
         Else
             cmdstring = cmdstring & "-ss.bios_na_eu " & Chr(34) & BIOSFILE & Chr(34)
@@ -2808,12 +2848,6 @@ If Combo5.Enabled = True Then
                 End If
             End If
     End If
-'none
-'gamepad
-'zapper
-'powerpada
-'powerpadb
-'arkanoid
     If Val(Text11.Text) <> "1.00" Then
         If Val(Text8.Text) > 1 Then
             For y = 1 To Val(Text8.Text)
@@ -2826,9 +2860,6 @@ If Combo5.Enabled = True Then
 End If
 
 
-'Combo6.AddItem "OpenGL - OpenGL + SDL", 0
-'Combo6.AddItem "SDL - SDL Surface", 1
-'Combo6.AddItem "Overlay - SDL Overlay", 2
 '**v0.1.7
 If Combo6.Text = "OpenGL - OpenGL + SDL" Then
     cmdstring = cmdstring & " -video.driver opengl"
@@ -2838,90 +2869,86 @@ ElseIf Combo6.Text = "Overlay - SDL Overlay" Then
     cmdstring = cmdstring & " -video.driver overlay"
 End If
 
-If Check19.Value = 1 Then
+If Check19.value = 1 Then
     cmdstring = cmdstring & " -video.glvsync 1"
-ElseIf Check19.Value = 0 Then
+ElseIf Check19.value = 0 Then
     cmdstring = cmdstring & " -video.glvsync 0"
 End If
 
-If Check20.Value = 1 Then
+If Check20.value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".forcemono 1"
-'ElseIf Check20.Value = 0 Then
-'    cmdstring = cmdstring & " -" & SYSCORE & ".forcemono 0"
 End If
 
-If Check21.Value = 1 Then
+If Check21.value = 1 Then
     cmdstring = cmdstring & " -sound 0"
-ElseIf Check21.Value = 0 Then
+ElseIf Check21.value = 0 Then
     cmdstring = cmdstring & " -sound 1"
 End If
 
-If Check22.Value = 1 Then
+If Check22.value = 1 Then
     cmdstring = cmdstring & " -video.blit_timesync 1"
-ElseIf Check22.Value = 0 Then
+ElseIf Check22.value = 0 Then
     cmdstring = cmdstring & " -video.blit_timesync 0"
 End If
 
 'v0.1.9
-If Check23.Value = 1 Then
+If Check23.value = 1 Then
     cmdstring = cmdstring & " -cd.image_memcache 1"
-'ElseIf Check23.Value = 0 Then
-'    cmdstring = cmdstring & " -cd.image_memcache 0"
 End If
 
 '**
 
 
-If Check3.Value = 1 Then
+If Check3.value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".tblur 1"
 End If
 
-If Check4.Value = 1 Then
+If Check4.value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".tblur.accum 1"
     Sleep (100)
     cmdstring = cmdstring & " -" & SysCore & ".tblur.accum.amount " & Text3.Text
 End If
 
-If Check5.Value = 1 Then
+If Check5.value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".videoip 1"
 Else
     cmdstring = cmdstring & " -" & SysCore & ".videoip 0"
 End If
 
-If Check6.Value = 1 Then
+If Check6.value = 1 Then
     cmdstring = cmdstring & " -video.fs 1"
 Else
     cmdstring = cmdstring & " -video.fs 0"
 End If
 
-If Check7.Value = 1 Then
+If Check7.value = 1 Then
     cmdstring = cmdstring & " -video.frameskip 1"
 Else
     cmdstring = cmdstring & " -video.frameskip 0"
 End If
 
 'video.glvsync
-If Check19.Value = 1 Then
+If Check19.value = 1 Then
     cmdtring = cmdstrig & "-video.glvsync 1"
 Else
     cmdtring = cmdstrig & "-video.glvsync 0"
 End If
 
 If SysCore = "psx" Or SysCore = "ss" Then
-    If Check1.Value = 1 Then
+    If Check1.value = 1 Then
         cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 1"
     End If
     
-    If Check2.Value = 1 Then
+    If Check2.value = 1 Then
         cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 1"
     End If
 End If
 
-If Check18.Value = 1 Then
+If Check18.value = 1 Then
     cmdstring = cmdstring & " -video.deinterlacer weave"
-ElseIf Check17.Value = 1 Then
+ElseIf Check17.value = 1 Then
     cmdstring = cmdstring & " -video.deinterlacer bob"
-ElseIf Check16.Value = 1 Then
+ElseIf Check16.value = 1 Then
     cmdstring = cmdstring & " -video.deinterlacer bob_offset"
 End If
 
@@ -2942,7 +2969,7 @@ If Len(Text7.Text) > 0 Then
     cmdstring = cmdstring & " -filesys.path_state " & Chr(34) & Text7.Text & Chr(34) & " -filesys.path_sav " & Chr(34) & Text7.Text & Chr(34)
 End If
 
-If Check14.Value = 0 Then
+If Check14.value = 0 Then
     cmdstring = cmdstring & " -filesys.untrusted_fip_check 0"
 End If
 
@@ -2957,13 +2984,6 @@ Else
 End If
 
 'v0.3.0 NetPlay
-'Combo8.AddItem "[US] netplay.fobby.net", 1
-'Combo8.AddItem "[US] mednafen-us.emuparadise.org", 2
-'Combo8.AddItem "[NL] mednafen-nl.emuparadise.org", 3
-'Combo8.AddItem "[IT] speedvicio.dtdns.net", 4
-'Combo8.AddItem "[IT] scall.org", 5
-'Combo8.AddItem "[RU] gs.emu-land.net", 6
-'Combo8.AddItem "[RU] emu-russia.net", 7
 If Combo8.ListIndex >= 1 Then
 cmdstring = cmdstring & " -netplay.host " & Chr(34) & Mid$(Combo8.Text, 7, Len(Combo8.Text)) & Chr(34) & " -connect"
 End If
@@ -2972,7 +2992,7 @@ cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 
 cmdstring = cmdstring & Chr(34)
 
-If Check8.Value = 1 And FatalError = False Then
+If Check8.value = 1 And FatalError = False Then
     MsgBox cmdstring
 End If
 
@@ -2999,7 +3019,7 @@ If Len(Text7.Text) >= 1 Then
     If Text7.Text = "Not Set" Then
         ResetSave = vbYes
     Else
-        If Check15.Value = 1 Then
+        If Check15.value = 1 Then
             a = a
             ResetSave = vbYes
         Else
@@ -3018,7 +3038,7 @@ End Sub
 Private Sub Dir1_Change()
 File1.Path = Dir1.Path
 If ActiveFile = "SAVE" Then
-        If Check15.Value = 1 Then
+        If Check15.value = 1 Then
             a = a
             tmp2 = vbYes
         Else
@@ -3034,6 +3054,10 @@ If ActiveFile = "SAVE" Then
 End If
 End Sub
 
+Private Sub doc_Click()
+Shell "cmd.exe /c start https://mednafen.github.io/documentation/", vbHide
+End Sub
+
 Private Sub Drive1_Change()
 On Error Resume Next
 Dir1.Path = Drive1.Drive
@@ -3046,14 +3070,14 @@ End Sub
 
 Private Sub File1_Click()
 If ActiveFile = "MEDEXE" Then
-        If Check15.Value = 1 Then
+        If Check15.value = 1 Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set File: " & File1.Filename, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
         End If
     If tmp2 = vbYes Then
-        MedEXE = Dir1.Path & "\" & File1.Filename
+        MedEXE = Dir1.Path & "\" & File1.FileName
         Form1.Width = 9240
         ActiveFile = "None"
         tmp2 = ""
@@ -3062,15 +3086,15 @@ If ActiveFile = "MEDEXE" Then
 End If
 
 If ActiveFile = "BIOS" Then
-        If Check15.Value = 1 Then
+        If Check15.value = 1 Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set File: " & File1.Filename, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
         End If
     If tmp2 = vbYes Then
         BIOSPATH = Dir1.Path
-        BIOSFILE = File1.Filename
+        BIOSFILE = File1.FileName
         Text1.Text = BIOSPATH & "\" & BIOSFILE
         Form1.Width = 9240
         ActiveFile = "None"
@@ -3080,14 +3104,14 @@ If ActiveFile = "BIOS" Then
 End If
 
 If ActiveFile = "ROM" Then
-        If Check15.Value = 1 Then
+        If Check15.value = 1 Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set File: " & File1.Filename, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set File: " & File1.FileName, vbYesNo, "Set this file?")
         End If
     If tmp2 = vbYes Then
-        Text2.Text = Dir1.Path & "\" & File1.Filename
+        Text2.Text = Dir1.Path & "\" & File1.FileName
         ROMDIR = Dir1.Path
         ROMFILE = Text2.Text
         'Form1.Width = 12735
@@ -3100,37 +3124,37 @@ End If
 
 If ActiveFile = "M3U" Then
         If z = 0 Then
-        If Check15.Value = 1 Then
+        If Check15.value = 1 Then
             a = a
             tmp2 = vbYes
         Else
-            tmp2 = MsgBox("Set Disc 1: " & File1.Filename, vbYesNo, "Set this file?")
+            tmp2 = MsgBox("Set Disc 1: " & File1.FileName, vbYesNo, "Set this file?")
         End If
             If tmp2 = vbYes Then
-                Print #2, Dir1.Path & "\" & File1.Filename
-                tmp1 = File1.Filename
+                Print #2, Dir1.Path & "\" & File1.FileName
+                tmp1 = File1.FileName
             End If
             tmp2 = ""
             z = z + 1
             MsgBox ("Now select the next disc")
         ElseIf z >= 1 And z <= Val(M3USize) Then
             Do
-                If File1.Filename <> tmp1 And Len(File1.Filename) > 1 And z <= Val(M3USize) And File1.Filename <> LastFile Then
-                    If Check15.Value = 1 Then
+                If File1.FileName <> tmp1 And Len(File1.FileName) > 1 And z <= Val(M3USize) And File1.FileName <> LastFile Then
+                    If Check15.value = 1 Then
                         a = a
                         tmp2 = vbYes
                     Else
-                        tmp2 = MsgBox("Set Disc " & z + 1 & ": " & File1.Filename, vbYesNo, "Set this file?")
+                        tmp2 = MsgBox("Set Disc " & z + 1 & ": " & File1.FileName, vbYesNo, "Set this file?")
                     End If
-                    LastFile = File1.Filename
+                    LastFile = File1.FileName
                     If tmp2 = vbYes Then
-                        Print #2, Dir1.Path & "\" & File1.Filename
+                        Print #2, Dir1.Path & "\" & File1.FileName
                         z = z + 1
                         If z <> Val(M3USize) Then
                             MsgBox ("Now select the next disc")
                         End If
                     ElseIf tmp2 = vbNo Then
-                        File1.Filename = ""
+                        File1.FileName = ""
                     End If
                 End If
                 DoEvents
@@ -3195,7 +3219,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.3.0"
+GetBuild = "0.3.1"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -3217,7 +3241,6 @@ If FSO.FileExists(RedumpList) Then
         Line Input #13, tmp
         For x = 1 To Len(tmp)
             If Mid$(tmp, x, 32) = REDUMPMD5 Then
-                'Ctrl+F Derp
                 Label23.Caption = "REDUMP Database: verified!"
                 Label23.ForeColor = RGB(0, 153, 0)
                 booltmp = True
@@ -3257,6 +3280,7 @@ If FSO.FileExists(PSXIDList) Then
 End If
 
 End Function
+
 Private Sub Form_Load()
 '12945
 '9240
@@ -3276,7 +3300,6 @@ WebBrowser1.Navigate ("http://ad.a-ads.com/402648?size=468x60&background_color=C
 'Social Media Icons from Rogie King, http://rog.ie/blog/free-social-media-icons
 '"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
 'You can has link backs.
-
 Build = Form1.GetBuild()
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
 Label34.Caption = "MedAdvCFG v" & Build
@@ -3315,80 +3338,81 @@ Combo2.Text = Stretch
 Combo3.Text = PixelShader
 Combo4.Text = VideoScaler
 Combo6.Text = VideoDriver
+Combo7.Text = Text5.Text & "x" & Text6.Text
 
 If BIOSSanity = 1 Then
-    Check1.Value = 1
+    Check1.value = 1
 End If
 
 If ROMSanity = 1 Then
-    Check2.Value = 1
+    Check2.value = 1
 End If
 
 If TBlur = 1 Then
-    Check3.Value = 1
+    Check3.value = 1
 End If
 
 If TblurAccum = 1 Then
-    Check4.Value = 1
+    Check4.value = 1
     Text3.Text = AccumAmount
 End If
 
 If VideoIP = 1 Then
-    Check5.Value = 1
+    Check5.value = 1
 End If
 
 If Fullscreen = 1 Then
-    Check6.Value = 1
+    Check6.value = 1
 End If
 
 If Frameskip = 1 Then
-    Check7.Value = 1
+    Check7.value = 1
 End If
 
 If SystemRegion = none Then
     a = a
 ElseIf SystemRegion = "NTSC-U" Then
-    Check11.Value = 1
+    Check11.value = 1
 ElseIf SystemRegion = "NTSC-J" Then
-    Check12.Value = 1
+    Check12.value = 1
 ElseIf SystemRegion = "PAL" Then
-    Check13.Value = 1
+    Check13.value = 1
 End If
 
 If untrusted_fip_check = 1 Then
-    Check14.Value = 1
+    Check14.value = 1
 ElseIf untrusted_fip_check = 0 Then
-    Check14.Value = 0
+    Check14.value = 0
 End If
 
 If video_glvsync = 1 Then
-    Check19.Value = 1
+    Check19.value = 1
 ElseIf video_glvsync = 0 Then
-    Check19.Value = 0
+    Check19.value = 0
 End If
 
 If ForceMono = 1 Then
-    Check20.Value = 1
+    Check20.value = 1
 ElseIf ForceMono = 0 Then
-    Check20.Value = 0
+    Check20.value = 0
 End If
 
 If DisableSound = 1 Then
-    Check21.Value = 1
+    Check21.value = 1
 ElseIf DisableSound = 0 Then
-    Check21.Value = 0
+    Check21.value = 0
 End If
 
 If video_blit_timesync = 1 Then
-    Check22.Value = 1
+    Check22.value = 1
 ElseIf video_blit_timesync = 0 Then
-    Check22.Value = 0
+    Check22.value = 0
 End If
 
 If cd_image_memcache = 1 Then
-    Check23.Value = 1
+    Check23.value = 1
 ElseIf cd_image_memcache = 0 Then
-    Check23.Value = 0
+    Check23.value = 0
 End If
 
 If Combo1.Text = "psx (Sony PlayStation)" Then
@@ -3398,10 +3422,10 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Check12.Enabled = True
     Check13.Enabled = True
     Combo5.Enabled = True
-    Check1.Value = 1
-    Check2.Value = 1
-    Check9.Value = 1
-    Check10.Value = 1
+    Check1.value = 1
+    Check2.value = 1
+    Check9.value = 1
+    Check10.value = 1
     Combo5.AddItem "none", 0
     Combo5.AddItem "gamepad - SCPH-1080 PlayStation Digital Gamepad", 1
     Combo5.AddItem "dualshock - SCPH-1200 PlayStation DualShock Gamepad", 2
@@ -3426,10 +3450,10 @@ ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     Check12.Enabled = True
     Check13.Enabled = True
     Combo5.Enabled = True
-    Check1.Value = 1
-    Check2.Value = 1
-    Check9.Value = 1
-    Check10.Value = 1
+    Check1.value = 1
+    Check2.value = 1
+    Check9.value = 1
+    Check10.value = 1
     'Label29.Visible = True
     Combo5.AddItem "none", 0
     Combo5.AddItem "gamepad - MK-80100 Sega Saturn Controller", 1
@@ -3437,13 +3461,13 @@ ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     Combo5.AddItem "mouse - HSS-0139 Sega Saturn Shuttle Mouse", 3
     Combo5.ListIndex = 1
 Else
-    Check1.Value = 0
-    Check2.Value = 0
-    Check9.Value = 0
-    Check10.Value = 0
-    Check11.Value = 0
-    Check12.Value = 0
-    Check13.Value = 0
+    Check1.value = 0
+    Check2.value = 0
+    Check9.value = 0
+    Check10.value = 0
+    Check11.value = 0
+    Check12.value = 0
+    Check13.value = 0
     Check1.Enabled = False
     Check2.Enabled = False
     Check11.Enabled = False
@@ -3551,32 +3575,6 @@ Combo8.AddItem "[RU1] gs.emu-land.net", 6
 Combo8.AddItem "[RU2] emu-russia.net", 7
 Combo8.Text = "Disabled/Offline"
 
-'SySCore = PSX
-'none
-'gamepad
-'dualshock
-'dualanalog
-'analogjoy
-'mouse
-'negcon
-'guncon
-'justifier
-'dancepad
-
-'SysCore = SNES
-'none
-'gamepad
-'mouse
-'superscope - port2 only
-
-'SysCore = NES
-'none
-'gamepad
-'zapper
-'powerpada
-'powerpadb
-'arkanoid
-
 If FSO.FileExists(MedEXE) = False Then
     Form1.Width = 12900
     ActiveFile = "MEDEXE"
@@ -3591,6 +3589,10 @@ If M3USize <= 1 Then
 Else
 Generate_M3U (M3USize)
 End If
+End Sub
+
+Private Sub hlp_netplay_Click()
+MsgBox "Tips for NetPlay" & vbCrLf & "All players must be using the same:" & vbCrLf & "System BIOS, ROM Image and Mednafen version." & vbCrLf & "Use the provided MD5 to verify all is the same." & vbCrLf & "Select a NetPlay Host from the list. Player 2 must select the same." & vbCrLf & "First player to connect with that game becomes the 'Source/Host' game." & vbCrLf & "When Player 2 connects it will be just like they plugged their controller in."
 End Sub
 
 Private Sub Image1_Click()
@@ -3695,40 +3697,40 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     ElseIf FSO.FileExists(BIOSFILE) Then
         Print #6, "SystemBIOS=" & BIOSFILE
     End If
-    Print #6, "BIOSSanity=" & Check1.Value
+    Print #6, "BIOSSanity=" & Check1.value
     Print #6, "RomImage=" & ROMFILE
-    Print #6, "ROMSanity=" & Check2.Value
+    Print #6, "ROMSanity=" & Check2.value
     Print #6, "Stretch=" & Combo2.Text
     Print #6, "PixelShader=" & Combo3.Text
     Print #6, "VideoScaler=" & Combo4.Text
-    Print #6, "Fullscreen=" & Check6.Value
-    Print #6, "Frameskip=" & Check7.Value
-    Print #6, "Tblur=" & Check3.Value
-    Print #6, "TblurAccum=" & Check4.Value
+    Print #6, "Fullscreen=" & Check6.value
+    Print #6, "Frameskip=" & Check7.value
+    Print #6, "Tblur=" & Check3.value
+    Print #6, "TblurAccum=" & Check4.value
     Print #6, "AccumAmount=" & Text3.Text
-    Print #6, "VideoIP=" & Check5.Value
+    Print #6, "VideoIP=" & Check5.value
     Print #6, "XRes=" & Text5.Text
     Print #6, "YRes=" & Text6.Text
     Print #6, "ScaleFactor=" & Text4.Text
     Print #6, "LastPath=" & File1.Path
     Print #6, "BiosPathLoad=" & BIOSPATH
     Print #6, "SavePath=" & Text7.Text
-    If Check11.Value = 0 And Check12.Value = 0 And Check13.Value = 0 Then
+    If Check11.value = 0 And Check12.value = 0 And Check13.value = 0 Then
         Print #6, "SystemRegion=None"
-    ElseIf Check11.Value = 1 Then
+    ElseIf Check11.value = 1 Then
         Print #6, "SystemRegion=NTSC-U"
-    ElseIf Check12.Value = 1 Then
+    ElseIf Check12.value = 1 Then
         Print #6, "SystemRegion=NTSC-J"
-    ElseIf Check13.Value = 1 Then
+    ElseIf Check13.value = 1 Then
         Print #6, "SystemRegion=PAL"
     End If
     Print #6, "RomPath=" & ROMDIR
-    Print #6, "DisableSound=" & Check21.Value
-    Print #6, "ForceMono=" & Check20.Value
-    Print #6, "video.blit_timesync=" & Check22.Value
-    Print #6, "video.glvsync=" & Check19.Value
-    Print #6, "untrusted_fip_check=" & Check14.Value
-    Print #6, "cd.image_memcache=" & Check23.Value
+    Print #6, "DisableSound=" & Check21.value
+    Print #6, "ForceMono=" & Check20.value
+    Print #6, "video.blit_timesync=" & Check22.value
+    Print #6, "video.glvsync=" & Check19.value
+    Print #6, "untrusted_fip_check=" & Check14.value
+    Print #6, "cd.image_memcache=" & Check23.value
     Print #6, "scanlines=" & Text10.Text
     Print #6, "axisscale=" & Text11.Text
     Print #6, "numplayers=" & Text8.Text
@@ -3740,3 +3742,5 @@ End Sub
 Private Sub WebBrowser1_DocumentComplete(ByVal pDisp As Object, URL As Variant)
 WebBrowser1.Document.body.Scroll = "no"
 End Sub
+
+

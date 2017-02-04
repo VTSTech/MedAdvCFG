@@ -9,12 +9,45 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/1bcff0fdc8a525e538fc24277fd45640.png">
+<img src="https://i.gyazo.com/9668809531e9b029a6eb13d190aa0e68.png">
 
 <img src="https://i.gyazo.com/b184de2928c24e8c356f21518e8869ba.png">
 
 <img src="https://i.gyazo.com/673f11c25bb1703fcb69f63c31b9212e.png">
 
+v0.3.1 02-04-2017 7:48AM
+
+Added two new menus!
+
+Help & Chat
+
+Under Help is link to Documentation
+
+And Tips for NetPlay
+
+
+Chat will bring you to new #MedAdvCFG Chat
+
+On Freenode!
+
+
+Removed md5.exe requirement. Now using Lib cryptdll.dll
+
+Removed much unneeded commented code
+
+About Menu is now functional on all forms.
+
+Now verifies PSX BIOS with REDUMP
+
+REDUMP Verification now displayed in Basic Mode
+
+
+Added roadmap.txt to GitHub https://github.com/Veritas83/MedAdvCFG
+
+EXE now compressed with UPX v3.91w
+1433600 ->    671232   46.82%    win32/pe     MedAdvCFG.exe
+
+Various Code Optimizations
 
 v0.3.0 02-02-2017 4:20AM
 

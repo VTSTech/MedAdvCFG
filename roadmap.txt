@@ -1,0 +1,29 @@
+MedAdvCFG Roadmap
+
+* = Complete
+
+v0.2.x
+
+* Basic Mode (Functional)
+* Detects PSX Game ID based on CUE filename
+* Cover Support
+
+v0.3.x
+
+* REDUMP Verification (NTSC-U Only)
+* NetPlay Support
+GoodSNES/NES/Gen/SMS Verification ([U][!] only)
+
+Parse CUE for BIN filename
+Parse BIN for PSX ID
+
+Search for REDUMP/GoodTools Verified ROMS
+Maintain list of all verified roms
+
+v0.3.x - v0.4.x
+
+Basic Mode (Complete)
+Play Stats at CoversDB.org
+-Recently Played
+-Most Played
+-Most Emulated Console

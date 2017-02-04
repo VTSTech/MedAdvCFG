@@ -3,14 +3,14 @@ Begin VB.Form Form3
    AutoRedraw      =   -1  'True
    BackColor       =   &H00000000&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
-   ClientHeight    =   8670
+   ClientHeight    =   8490
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   11280
+   ClientWidth     =   12120
    LinkTopic       =   "Form3"
-   ScaleHeight     =   8670
+   ScaleHeight     =   8490
    ScaleMode       =   0  'User
-   ScaleWidth      =   11010
+   ScaleWidth      =   11829.89
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command4 
       BackColor       =   &H00000000&
@@ -26,7 +26,7 @@ Begin VB.Form Form3
       Left            =   11880
       MultiLine       =   -1  'True
       TabIndex        =   4
-      Top             =   8400
+      Top             =   8520
       Visible         =   0   'False
       Width           =   2175
    End
@@ -85,7 +85,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   11
       Left            =   6120
-      Picture         =   "Form3.frx":2B3FA
+      Picture         =   "Form3.frx":8341
       Stretch         =   -1  'True
       Top             =   5760
       Width           =   2655
@@ -94,7 +94,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   10
       Left            =   3360
-      Picture         =   "Form3.frx":567F4
+      Picture         =   "Form3.frx":10682
       Stretch         =   -1  'True
       Top             =   5760
       Width           =   2655
@@ -103,7 +103,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   9
       Left            =   600
-      Picture         =   "Form3.frx":81BEE
+      Picture         =   "Form3.frx":189C3
       Stretch         =   -1  'True
       Top             =   5760
       Width           =   2655
@@ -112,7 +112,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   8
       Left            =   8880
-      Picture         =   "Form3.frx":ACFE8
+      Picture         =   "Form3.frx":20D04
       Stretch         =   -1  'True
       Top             =   3000
       Width           =   2655
@@ -121,7 +121,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   7
       Left            =   6120
-      Picture         =   "Form3.frx":D83E2
+      Picture         =   "Form3.frx":29045
       Stretch         =   -1  'True
       Top             =   3000
       Width           =   2655
@@ -130,7 +130,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   6
       Left            =   3360
-      Picture         =   "Form3.frx":1037DC
+      Picture         =   "Form3.frx":31386
       Stretch         =   -1  'True
       Top             =   3000
       Width           =   2655
@@ -139,7 +139,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   5
       Left            =   600
-      Picture         =   "Form3.frx":12EBD6
+      Picture         =   "Form3.frx":396C7
       Stretch         =   -1  'True
       Top             =   3000
       Width           =   2655
@@ -148,7 +148,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   4
       Left            =   8880
-      Picture         =   "Form3.frx":159FD0
+      Picture         =   "Form3.frx":41A08
       Stretch         =   -1  'True
       Top             =   360
       Width           =   2655
@@ -157,7 +157,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   3
       Left            =   6120
-      Picture         =   "Form3.frx":1853CA
+      Picture         =   "Form3.frx":49D49
       Stretch         =   -1  'True
       Top             =   360
       Width           =   2655
@@ -166,7 +166,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   2
       Left            =   3360
-      Picture         =   "Form3.frx":1B07C4
+      Picture         =   "Form3.frx":5208A
       Stretch         =   -1  'True
       Top             =   360
       Width           =   2655
@@ -175,7 +175,7 @@ Begin VB.Form Form3
       Height          =   2595
       Index           =   1
       Left            =   600
-      Picture         =   "Form3.frx":1DBBBE
+      Picture         =   "Form3.frx":5A3CB
       Stretch         =   -1  'True
       Top             =   360
       Width           =   2655
@@ -184,7 +184,7 @@ Begin VB.Form Form3
       Height          =   2655
       Index           =   0
       Left            =   11880
-      Picture         =   "Form3.frx":206FB8
+      Picture         =   "Form3.frx":6270C
       Stretch         =   -1  'True
       Top             =   8400
       Visible         =   0   'False
@@ -208,6 +208,15 @@ Begin VB.Form Form3
    End
    Begin VB.Menu about 
       Caption         =   "About"
+   End
+   Begin VB.Menu Help 
+      Caption         =   "Help"
+      Begin VB.Menu Documentation 
+         Caption         =   "Documentation"
+      End
+   End
+   Begin VB.Menu Chat 
+      Caption         =   "Chat"
    End
 End
 Attribute VB_Name = "Form3"
@@ -269,6 +278,22 @@ Public Function TrailingSlash(strFolder As String) As String
     End If
 End Function
 
+Private Sub about_Click()
+MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Written by Nigel Todman (nigel@nigeltodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, SS, VB" & vbCrLf & vbCrLf & "Homepage: www.NigelTodman.com" & vbCrLf & "Facebook: facebook.com/nigel.todman.3" & vbCrLf & "Twitter: @Veritas_83" & vbCrLf & "YouTube: Veritas0923" & vbCrLf & "BTC: 18j2Env7QokhGG5MccS3LPBKnjsko6u4NQ"
+End Sub
+
+Private Sub Advanced_Click()
+Basic.Checked = False
+Form1.Basic.Checked = False
+Form1.Visible = True
+Form1.Advanced.Checked = True
+Form3.Visible = False
+End Sub
+
+Private Sub Chat_Click()
+Shell ("cmd.exe /c start http://bit.ly/2k5E1Xq"), vbHide
+End Sub
+
 Private Sub Command1_Click()
 If (PageOn + 1) > PageTotal Then
     PageOn = 1
@@ -299,12 +324,17 @@ Form2.Visible = True
 SysCore = Form1.ResetSysCore()
 End Sub
 
+Private Sub Documentation_Click()
+Shell "cmd.exe /c start https://mednafen.github.io/documentation/", vbHide
+End Sub
+
 Private Sub Form_Load()
 Form3.Width = 12345
 Build = Form1.GetBuild()
 Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 'Text1.Text = ""
 SysCore = Form1.SetSysCore
+Basic.Checked = True
 Set FSO = CreateObject("Scripting.FileSystemObject")
 '12 Games per page..
 For y = 1 To 12
@@ -389,7 +419,6 @@ Dim vFile As Variant
 Close #9
 Open MedAdvCOVERS For Output As #9
 For Each vFile In colFiles
-    'Text1.Text = Text1.Text & vFile & vbCrLf
     Print #9, vFile
 Next vFile
 Close #9
@@ -572,11 +601,11 @@ If PageOn = 1 Then
         CoverFound = False
         tmparray(x) = Split(GamesList(x), "\")
         CurrName(x) = tmparray(x)(FNIndex)
+        ROMFILE = CurrName(x)
         tmp = FileNameCleanup()
         CoverSearched = tmp
             For z = 1 To TotalCovers
             If InStr(1, LCase(CoversList(z)), LCase(CoverSearched), 1) <> 0 Then
-                'MsgBox "Cover: " & PSXCovers(x) & " for " & tmp
                 If y >= 12 Then
                     x = TotalGames
                     y = 12
@@ -623,7 +652,6 @@ ElseIf PageOn >= 2 Then
         CoverSearched = tmp
         For z = 1 To TotalCovers
             If InStr(1, LCase(CoversList(z)), LCase(CoverSearched), 1) <> 0 Then
-                'MsgBox "Cover: " & PSXCovers(x) & " for " & tmp
                 If y >= 12 Then
                     x = TotalGames
                     y = 12
@@ -678,11 +706,11 @@ SysCore = Form1.SetSysCore
             If Len(BIOSPATH) > 1 Then
                 cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
             End If
-            If Form1.Check11.Value = 1 Then
+            If Form1.Check11.value = 1 Then
                 cmdstring = cmdstring & " -psx.bios_na " & Chr(34) & BIOSFILE & Chr(34)
-            ElseIf Form1.Check12.Value = 1 Then
+            ElseIf Form1.Check12.value = 1 Then
                 cmdstring = cmdstring & " -psx.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
-            ElseIf Form1.Check13.Value = 1 Then
+            ElseIf Form1.Check13.value = 1 Then
                 cmdstring = cmdstring & " -psx.bios_eu " & Chr(34) & BIOSFILE & Chr(34)
             End If
         End If
@@ -696,7 +724,7 @@ SysCore = Form1.SetSysCore
             If Len(BIOSPATH) > 1 Then
                 cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
             End If
-            If Check12.Value = 1 Then
+            If Check12.value = 1 Then
                 cmdstring = cmdstring & "-ss.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
             Else
                 cmdstring = cmdstring & "-ss.bios_na_eu " & Chr(34) & BIOSFILE & Chr(34)
@@ -720,7 +748,7 @@ SysCore = Form1.SetSysCore
     End If
     
     'Basic Mode Panel Settings
-    If Form2.Check23.Value = 1 Then
+    If Form2.Check23.value = 1 Then
         cmdstring = cmdstring & " -video.fs 1"
     Else
         cmdstring = cmdstring & " -video.fs 0"
@@ -738,7 +766,7 @@ SysCore = Form1.SetSysCore
     'cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
     cmdstring = cmdstring & " " & Chr(34) & Form3.Image1(Index).Tag & Chr(34)
     cmdstring = cmdstring & Chr(34)
-If Form2.Check1.Value = 1 Then
+If Form2.Check1.value = 1 Then
     If FatalError = False Then
         MsgBox cmdstring
     End If
@@ -748,7 +776,7 @@ If Form2.Check1.Value = 1 Then
     Else
         FatalError = False
     End If
-ElseIf Form2.Check1.Value = 0 Then
+ElseIf Form2.Check1.value = 0 Then
     On Error Resume Next
     'SysCore & vbcrlf & FullPath to Rom & CoverSearched
     Text1.Text = Text1.Text & vbCrLf & Form3.Image1(Index).Tag & vbCrLf & Image1(Index).ToolTipText & vbCrLf
@@ -772,4 +800,6 @@ Unload Form2
 Unload Form3
 Unload Form4
 End Sub
+
+
 
