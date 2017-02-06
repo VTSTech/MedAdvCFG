@@ -24,15 +24,15 @@ Begin VB.Form Form1
    Begin VB.ComboBox Combo8 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
+      Height          =   300
       ItemData        =   "Form1.frx":851A
       Left            =   1320
       List            =   "Form1.frx":851C
@@ -44,15 +44,15 @@ Begin VB.Form Form1
    Begin VB.ComboBox Combo7 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
+      Height          =   300
       ItemData        =   "Form1.frx":851E
       Left            =   7720
       List            =   "Form1.frx":8520
@@ -92,8 +92,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "cd.image_memcache"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -110,8 +110,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "video.blit_timesync"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -128,8 +128,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Disable Sound"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -146,8 +146,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Force Mono"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -164,8 +164,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "video.glvsync"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -181,15 +181,15 @@ Begin VB.Form Form1
    Begin VB.ComboBox Combo6 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
+      Height          =   300
       Left            =   1320
       TabIndex        =   75
       Text            =   "None - None/Disabled"
@@ -199,8 +199,8 @@ Begin VB.Form Form1
    Begin VB.TextBox Text11 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -218,7 +218,7 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "weave"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "OpenSymbol"
          Size            =   8.25
          Charset         =   0
          Weight          =   400
@@ -237,7 +237,7 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "bob"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "OpenSymbol"
          Size            =   8.25
          Charset         =   0
          Weight          =   400
@@ -255,7 +255,7 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "bob_offset"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "OpenSymbol"
          Size            =   8.25
          Charset         =   0
          Weight          =   400
@@ -272,8 +272,8 @@ Begin VB.Form Form1
    Begin VB.TextBox Text10 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -291,8 +291,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Yes to All Prompts(!)"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -308,8 +308,8 @@ Begin VB.Form Form1
    Begin VB.TextBox Text9 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -325,8 +325,8 @@ Begin VB.Form Form1
    Begin VB.TextBox Text8 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -343,15 +343,15 @@ Begin VB.Form Form1
    Begin VB.ComboBox Combo5 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
+      Height          =   300
       ItemData        =   "Form1.frx":8522
       Left            =   1320
       List            =   "Form1.frx":8524
@@ -364,8 +364,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "untrusted_fip_check"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -383,8 +383,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "PAL"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -401,8 +401,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "NTSC-J"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -419,8 +419,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "NTSC-U"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -436,8 +436,8 @@ Begin VB.Form Form1
    Begin VB.TextBox Text7 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -473,8 +473,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS MD5 Check"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -491,8 +491,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM MD5 Check"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -544,8 +544,8 @@ Begin VB.Form Form1
    Begin VB.TextBox Text4 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -563,8 +563,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Clear"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -632,8 +632,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Review Command Line before execution?"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -650,8 +650,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Frameskip"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -668,8 +668,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Fullscreen (FS)"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -686,8 +686,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Launch mednafen.exe"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -695,23 +695,23 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   4800
+      Left            =   5280
       TabIndex        =   27
       Top             =   3240
-      Width           =   1815
+      Width           =   1095
    End
    Begin VB.ComboBox Combo4 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
+      Height          =   300
       Left            =   1320
       TabIndex        =   25
       Text            =   "None - None/Disabled"
@@ -722,8 +722,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Bilinear interpolation"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -739,8 +739,8 @@ Begin VB.Form Form1
    Begin VB.TextBox Text3 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -758,8 +758,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Accumulate color"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -776,8 +776,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Temporal Blur"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -793,15 +793,15 @@ Begin VB.Form Form1
    Begin VB.ComboBox Combo3 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
+      Height          =   300
       Left            =   1320
       TabIndex        =   18
       Text            =   "None - None/Disabled"
@@ -811,15 +811,15 @@ Begin VB.Form Form1
    Begin VB.ComboBox Combo2 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
+      Height          =   300
       Left            =   1320
       TabIndex        =   16
       Text            =   "0 - Disabled"
@@ -830,8 +830,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM Sanity Check"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -848,8 +848,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Set"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -865,8 +865,8 @@ Begin VB.Form Form1
    Begin VB.TextBox Text2 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -884,8 +884,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS Sanity Check"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -902,8 +902,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Set"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -919,8 +919,8 @@ Begin VB.Form Form1
    Begin VB.TextBox Text1 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -937,28 +937,48 @@ Begin VB.Form Form1
    Begin VB.ComboBox Combo1 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   315
+      Height          =   300
       Left            =   1320
       TabIndex        =   2
       Text            =   "gb (GameBoy (Color))"
       Top             =   360
       Width           =   4575
    End
+   Begin VB.Label Label42 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "REDUMP: unverified!"
+      BeginProperty Font 
+         Name            =   "OpenSymbol"
+         Size            =   9
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000080FF&
+      Height          =   180
+      Left            =   5160
+      TabIndex        =   92
+      Top             =   1320
+      Width           =   1725
+   End
    Begin VB.Label Label41 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "18j2Env7QokhGG5MccS3LPBKnjsko6u4NQ"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -966,15 +986,24 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00009900&
-      Height          =   195
+      Height          =   180
       Left            =   3240
       TabIndex        =   89
       Top             =   6555
-      Width           =   3195
+      Width           =   2760
    End
    Begin VB.Label Label24 
       BackStyle       =   0  'Transparent
       Caption         =   "www.CoversDB.org"
+      BeginProperty Font 
+         Name            =   "OpenSymbol"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H00FF0000&
       Height          =   195
       Left            =   7200
@@ -986,10 +1015,10 @@ Begin VB.Form Form1
    Begin VB.Label Label23 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "REDUMP Database unverified!"
+      Caption         =   "REDUMP: unverified!"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -997,112 +1026,121 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000080FF&
-      Height          =   195
-      Left            =   3360
+      Height          =   180
+      Left            =   5160
       TabIndex        =   87
-      Top             =   2400
-      Width           =   2640
+      Top             =   2160
+      Width           =   1725
    End
    Begin VB.Label Label40 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS VER:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   85
       Top             =   1560
       Visible         =   0   'False
-      Width           =   795
+      Width           =   765
    End
    Begin VB.Label Label39 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "PSX ID:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   360
       TabIndex        =   84
       Top             =   2400
       Visible         =   0   'False
-      Width           =   570
+      Width           =   555
    End
    Begin VB.Label Label35 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Not Set"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   1320
       TabIndex        =   83
       Top             =   2400
-      Width           =   1500
+      Width           =   630
    End
    Begin VB.Label Label38 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Netplay Host:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   82
       Top             =   5040
-      Width           =   960
+      Width           =   915
    End
    Begin VB.Label Label37 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Video Driver"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   76
       Top             =   3240
-      Width           =   870
+      Width           =   840
    End
    Begin VB.Label Label36 
       BackStyle       =   0  'Transparent
       Caption         =   "www.NigelTodman.com"
+      BeginProperty Font 
+         Name            =   "OpenSymbol"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   -1  'True
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H00FF0000&
       Height          =   195
       Left            =   7200
@@ -1116,8 +1154,8 @@ Begin VB.Form Form1
       BackStyle       =   0  'Transparent
       Caption         =   "MedAdvCFG v0.0.0"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -1125,68 +1163,68 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FF0000&
-      Height          =   195
+      Height          =   180
       Left            =   7200
       TabIndex        =   73
       Top             =   7320
-      Width           =   1410
+      Width           =   1350
    End
    Begin VB.Label Label33 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Axis Scale:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   6840
       TabIndex        =   72
       Top             =   6000
-      Width           =   780
+      Width           =   765
    End
    Begin VB.Label Label15 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Deinterlacer:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   70
       Top             =   3000
-      Width           =   900
+      Width           =   795
    End
    Begin VB.Label Label14 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Scanlines:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   6840
       TabIndex        =   66
       Top             =   5640
-      Width           =   735
+      Width           =   645
    End
    Begin VB.Image Image7 
       Height          =   480
@@ -1235,114 +1273,114 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Custom Params:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   63
       Top             =   5400
-      Width           =   1140
+      Width           =   1110
    End
    Begin VB.Label Label31 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Number of Players:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   6840
       TabIndex        =   61
       Top             =   6240
-      Width           =   1335
+      Width           =   1305
    End
    Begin VB.Label Label30 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Controller:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   59
       Top             =   4680
-      Width           =   705
+      Width           =   645
    End
    Begin VB.Label Label29 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Not Set"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   1320
       TabIndex        =   56
       Top             =   1560
-      Width           =   6900
+      Width           =   630
    End
    Begin VB.Label Label28 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "System Region:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   55
       Top             =   720
-      Width           =   1110
+      Width           =   1050
    End
    Begin VB.Label Label27 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Save Path:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   51
       Top             =   4320
-      Width           =   795
+      Width           =   750
    End
    Begin VB.Image Image1 
       Height          =   975
@@ -1357,46 +1395,46 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Resolution"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   6840
       TabIndex        =   46
       Top             =   4800
-      Width           =   750
+      Width           =   660
    End
    Begin VB.Label Label25 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Scaling Factor"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   6840
       TabIndex        =   43
       Top             =   5100
-      Width           =   1020
+      Width           =   945
    End
    Begin VB.Label Label22 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "F5:Save state"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1404,19 +1442,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   35
       Top             =   6240
-      Width           =   1200
+      Width           =   1140
    End
    Begin VB.Label Label21 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "F7:Load state"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1424,19 +1462,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   34
       Top             =   6480
-      Width           =   1185
+      Width           =   1110
    End
    Begin VB.Label Label20 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "F10:Reset Console"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1444,19 +1482,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   33
       Top             =   6720
-      Width           =   1620
+      Width           =   1515
    End
    Begin VB.Label Label19 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Alt+Enter:Toggle fullscreen mode"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1464,19 +1502,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   32
       Top             =   6960
-      Width           =   2835
+      Width           =   2715
    End
    Begin VB.Label Label18 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "CTRL+SHIFT+1:Select Controller Type"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1484,19 +1522,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   195
+      Height          =   180
       Left            =   3240
       TabIndex        =   31
       Top             =   6765
-      Width           =   3300
+      Width           =   3180
    End
    Begin VB.Label Label17 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "ALT+SHIFT+1:Configure buttons for Controller Port "
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1504,19 +1542,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   195
+      Height          =   180
       Left            =   3240
       TabIndex        =   30
       Top             =   6960
-      Width           =   4395
+      Width           =   4365
    End
    Begin VB.Label Label16 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "Hotkeys:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1524,258 +1562,258 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   29
       Top             =   6000
-      Width           =   765
+      Width           =   690
    End
    Begin VB.Label Label13 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Video Scaler"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   26
       Top             =   3960
-      Width           =   900
+      Width           =   840
    End
    Begin VB.Label Label12 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Temporal Blur amount:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   6840
       TabIndex        =   23
-      Top             =   5380
-      Width           =   1590
+      Top             =   5385
+      Width           =   1500
    End
    Begin VB.Label Label11 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Pixel Shader"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   19
       Top             =   3600
-      Width           =   885
+      Width           =   825
    End
    Begin VB.Label Label10 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "FS Stretch"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   17
       Top             =   2640
-      Width           =   750
+      Width           =   720
    End
    Begin VB.Label Label9 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Not Set"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   1320
       TabIndex        =   14
       Top             =   2160
-      Width           =   540
+      Width           =   525
    End
    Begin VB.Label Label8 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM MD5:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   13
       Top             =   2160
-      Width           =   810
+      Width           =   795
    End
    Begin VB.Label Label7 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM Image:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   10
       Top             =   1800
-      Width           =   900
+      Width           =   870
    End
    Begin VB.Label Label6 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Not Set"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   1320
       TabIndex        =   8
       Top             =   1320
-      Width           =   540
+      Width           =   525
    End
    Begin VB.Label Label5 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS MD5:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   6
       Top             =   1320
-      Width           =   810
+      Width           =   780
    End
    Begin VB.Label Label4 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "System BIOS:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   4
       Top             =   960
-      Width           =   975
+      Width           =   945
    End
    Begin VB.Label Label3 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "System Core:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   3
       Top             =   360
-      Width           =   930
+      Width           =   915
    End
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "0.9.41.0-win64 Detected! MD5: 6AADC9A8A196DA610E6DB43367B339B4"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   1320
       TabIndex        =   1
       Top             =   120
-      Width           =   6345
+      Width           =   5880
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Mednafen EXE:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "OpenSymbol"
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   195
+      Height          =   180
       Left            =   120
       TabIndex        =   0
       Top             =   120
-      Width           =   1125
+      Width           =   1035
    End
    Begin VB.Menu File 
       Caption         =   "File"
@@ -2033,24 +2071,28 @@ End If
 FileNameCleanup = tmp
 End Function
 Public Function Validate_Rom()
-If Check9.value = 1 Then
+If Check9.Value = 1 Then
     If FSO.FileExists(ROMFILE) = True Then
         ROMMD5 = CalcMD5(ShortPath(ROMFILE))
-        'Shell ("cmd.exe /c " & Chr(34) & VB.App.Path & "\md5.exe -n " & Chr(34) & ROMFILE & Chr(34) & " >> " & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
-        'Sleep (500)
-        'If FSO.FileExists(VB.App.Path & "\md5.txt") = True Then
-        '    Open VB.App.Path & "\md5.txt" For Input As #3
-        '        If Not EOF(3) Then Line Input #3, ROMMD5
-        '    Close #3
-        'End If
-        'Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
         Text2.Text = ROMFILE
         Label9.Caption = "MD5: " & ROMMD5
-        a = Redump(ROMMD5)
         tmp = FileNameCleanup()
         Label35.Visible = True
         CoverName = tmp
-        Label35.Caption = "Game ID: " & GetPSXID()
+        SysCore = SetSysCore()
+        If SysCore = "psx" Then
+            a = Redump(ROMMD5)
+            Label35.Caption = "Game ID: " & GetPSXID()
+        ElseIf SysCore = "ss" Then
+            a = Redump(ROMMD5)
+            Label35.Visible = False
+        ElseIf SysCore = "snes" Then
+            a = Redump(ROMMD5)
+            Label35.Visible = False
+        ElseIf SysCore = "nes" Then
+            a = Redump(ROMMD5)
+            Label35.Visible = False
+        End If
     End If
 Else
     Label9.Caption = "MD5: ROM MD5 Disabled"
@@ -2058,7 +2100,7 @@ End If
 Validate_Rom = tmp
 End Function
 Function Validate_Bios()
-If Check10.value = 1 Then
+If Check10.Value = 1 Then
     If FSO.FileExists(BIOSPATH & "\" & BIOSFILE) = True Then
         tmp = CalcMD5(ShortPath(BIOSPATH & "\" & BIOSFILE))
         Text1.Text = BIOSPATH & "\" & BIOSFILE
@@ -2072,156 +2114,163 @@ If Check10.value = 1 Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v1.0J BIOS SCPH-1000/DTL-H1000"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         ElseIf LCase(tmp) = "849515939161e62f6b866f6853006780" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v1.1J BIOS SCPH-3000/DTL-H1000H"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         ElseIf LCase(tmp) = "dc2b9bf8da62ec93e868cfd29f0d067d" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v2.0A BIOS DTL-H1001"
-            Check11.value = 1
-            Check11.value = 1
+            Check11.Value = 1
+            Check11.Value = 1
         ElseIf LCase(tmp) = "54847e693405ffeb0359c6287434cbef" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v2.0E BIOS DTL-H1002/SCPH-1002"
-            Check13.value = 1
-            Check13.value = 1
+            Check13.Value = 1
+            Check13.Value = 1
         ElseIf LCase(tmp) = "cba733ceeff5aef5c32254f1d617fa62" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v2.1J BIOS SCPH-3500"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         ElseIf LCase(tmp) = "da27e8b6dab242d8f91a9b25d80c63b8" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v2.1A BIOS DTL-H1101"
-            Check11.value = 1
-            Check11.value = 1
+            Check11.Value = 1
+            Check11.Value = 1
         ElseIf LCase(tmp) = "417b34706319da7cf001e76e40136c23" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v2.1E BIOS SCPH-1002/DTL-H1102"
-            Check13.value = 1
-            Check13.value = 1
+            Check13.Value = 1
+            Check13.Value = 1
         ElseIf LCase(tmp) = "57a06303dfa9cf9351222dfcbb4a29d9" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v2.2J BIOS SCPH-5000/DTL-H1200/DTL-H3000"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         ElseIf LCase(tmp) = "924e392ed05558ffdb115408c263dccf" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v2.2A BIOS SCPH-1001/SCPH-5003/DTL-H1201/DTL-H3001"
-            Check11.value = 1
-            Check11.value = 1
+            Check11.Value = 1
+            Check11.Value = 1
         ElseIf LCase(tmp) = "e2110b8a2b97a8e0b857a45d32f7e187" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v2.2E BIOS SCPH-1002/DTL-H1202/DTL-H3002"
-            Check13.value = 1
-            Check13.value = 1
+            Check13.Value = 1
+            Check13.Value = 1
         ElseIf LCase(tmp) = "ca5cfc321f916756e3f0effbfaeba13b" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v2.2D BIOS DTL-H1100"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         ElseIf LCase(tmp) = "490f666e1afb15b7362b406ed1cea246" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v3.0A BIOS SCPH-5501/SCPH-5503/SCPH-7003"
-            Check11.value = 1
-            Check11.value = 1
+            Check11.Value = 1
+            Check11.Value = 1
         ElseIf LCase(tmp) = "8dd7d5296a650fac7319bce665a6a53c" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v3.0J BIOS SCPH-5500"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         ElseIf LCase(tmp) = "32736f17079d0b2b7024407c39bd3050" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v3.0E BIOS SCPH-5502/SCPH-5552"
-            Check13.value = 1
-            Check13.value = 1
+            Check13.Value = 1
+            Check13.Value = 1
         ElseIf LCase(tmp) = "8e4c14f567745eff2f0408c8129f72a6" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v4.0J BIOS SCPH-7000/SCPH-7500/SCPH-9000"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         ElseIf LCase(tmp) = "b84be139db3ee6cbd075630aa20a6553" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v4.1A BIOS SCPH-7000W"
-            Check11.value = 1
-            Check11.value = 1
+            Check11.Value = 1
+            Check11.Value = 1
         ElseIf LCase(tmp) = "1e68c231d0896b7eadcad1d7d8e76129" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v4.1A BIOS SCPH-7001/SCPH-7501/SCPH-7503/SCPH-9001/SCPH-9003"
-            Check11.value = 1
-            Check11.value = 1
+            Check11.Value = 1
+            Check11.Value = 1
         ElseIf LCase(tmp) = "b9d9a0286c33dc6b7237bb13cd46fdee" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v4.1E BIOS SCPH-7002/SCPH-7502/SCPH-9002"
-            Check13.value = 1
-            Check13.value = 1
+            Check13.Value = 1
+            Check13.Value = 1
         ElseIf LCase(tmp) = "8abc1b549a4a80954addc48ef02c4521" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-J v4.3J BIOS SCPH-100"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         ElseIf LCase(tmp) = "b10f5e0e3d9eb60e5159690680b1e774" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v4.4E BIOS SCPH-102"
-            Check13.value = 1
-            Check13.value = 1
+            Check13.Value = 1
+            Check13.Value = 1
         ElseIf LCase(tmp) = "6e3735ff4c7dc899ee98981385f6f3d0" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: NTSC-U v4.5A BIOS SCPH-101"
-            Check11.value = 1
-            Check11.value = 1
+            Check11.Value = 1
+            Check11.Value = 1
         ElseIf LCase(tmp) = "de93caec13d1a141a40a79f5c86168d6" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: PAL v4.5E BIOS SCPH-102"
-            Check13.value = 1
-            Check13.value = 1
+            Check13.Value = 1
+            Check13.Value = 1
         ElseIf LCase(tmp) = "3240872c70984b6cbfda1586cab68dbe" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: SEGA SATURN V1.01A US/EU"
-            Check11.value = 1
-            Check11.value = 1
+            Check11.Value = 1
+            Check11.Value = 1
         ElseIf LCase(tmp) = "85ec9ca47d8f6807718151cbcca8b964" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: SEGA SATURN V1.01 JP"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         ElseIf LCase(tmp) = "af5828fdff51384f99b3c4926be27762" Then
             Label6.Caption = "MD5: " & tmp
             Label29.Visible = True
             Label29.Caption = "Valid: SEGA SATURN V1.00 JP"
-            Check12.value = 1
-            Check12.value = 1
+            Check12.Value = 1
+            Check12.Value = 1
         Else
             Label29.Visible = False
             Label6.Caption = "MD5: " & tmp
         End If
+    If Label29.Visible = True Then
+            Label42.Caption = "REDUMP: verified!"
+            Label42.ForeColor = RGB(0, 153, 0)
+    Else
+            Label42.Caption = "REDUMP: unverified!"
+            Label42.ForeColor = RGB(255, 128, 0)
+    End If
 Else
     Label6.Caption = "MD5: BIOS MD5 Disabled"
 End If
@@ -2317,7 +2366,6 @@ If FSO.FileExists(MedEXE) = True Then
     Else
         Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
     End If
-    Shell ("cmd.exe /c del " & Chr(34) & VB.App.Path & "\md5.txt" & Chr(34)), vbHide
 End If
 Validate_MedEXE = tmp
 End Function
@@ -2327,15 +2375,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Advanced.Checked = True
-Basic.Checked = False
+advanced.Checked = True
+basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Advanced.Checked = False
-Basic.Checked = True
+advanced.Checked = False
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -2345,180 +2393,60 @@ Shell ("cmd.exe /c start http://bit.ly/2k5E1Xq"), vbHide
 End Sub
 
 Private Sub Check11_Click()
-Check12.value = 0
-Check13.value = 0
+Check12.Value = 0
+Check13.Value = 0
 End Sub
 
 Private Sub Check12_Click()
-Check11.value = 0
-Check13.value = 0
+Check11.Value = 0
+Check13.Value = 0
 End Sub
 
 Private Sub Check13_Click()
-Check11.value = 0
-Check12.value = 0
+Check11.Value = 0
+Check12.Value = 0
 End Sub
 
 Private Sub Check15_Click()
-If Check15.value = 1 Then
+If Check15.Value = 1 Then
     a = a
 Else
     tmp = MsgBox("Auto Confirm all prompts like this one?", vbYesNo)
 End If
 
 If tmp = vbYes Then
-    Check15.value = 1
+    Check15.Value = 1
 End If
 
 If tmp = vbNo Then
-    Check15.value = 0
+    Check15.Value = 0
 End If
 End Sub
 
 Private Sub Check16_Click()
-Check17.value = 0
-Check18.value = 0
+Check17.Value = 0
+Check18.Value = 0
 End Sub
 
 Private Sub Check17_Click()
-Check18.value = 0
-Check16.value = 0
+Check18.Value = 0
+Check16.Value = 0
 End Sub
 
 Private Sub Check18_Click()
-Check17.value = 0
-Check16.value = 0
+Check17.Value = 0
+Check16.Value = 0
 End Sub
 
 Private Sub Combo1_Change()
 'MsgBox Combo1.Text
-If Combo1.Text = "psx (Sony PlayStation)" Then
-    Check1.Enabled = True
-    Check2.Enabled = True
-    Check11.Enabled = True
-    Check12.Enabled = True
-    Check13.Enabled = True
-    Combo5.Enabled = True
-    Check1.value = 1
-    Check2.value = 1
-    Check9.value = 1
-    Check10.value = 1
-    Label29.Visible = True
-ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
-    For z = 0 To Combo5.ListCount
-    'Combo5.RemoveItem (z)
-    Next z
-ElseIf Combo1.Text = "ss (Sega Saturn)" Then
-    Check1.Enabled = True
-    Check2.Enabled = True
-    Check11.Enabled = True
-    Check12.Enabled = True
-    Check13.Enabled = True
-    Combo5.Enabled = True
-    Check1.value = 1
-    Check2.value = 1
-    Check9.value = 1
-    Check10.value = 1
-    Label29.Visible = True
-Else
-    Check1.value = 0
-    Check2.value = 0
-    Check9.value = 0
-    Check10.value = 0
-    Check11.value = 0
-    Check12.value = 0
-    Check13.value = 0
-    Check1.Enabled = False
-    Check2.Enabled = False
-    Check11.Enabled = False
-    Check12.Enabled = False
-    Check13.Enabled = False
-    Combo5.Enabled = False
-    Label29.Visible = False
-End If
+a = CoreControls()
 End Sub
 
 Private Sub Combo1_Click()
 'MsgBox Combo1.Text
-If Combo1.Text = "psx (Sony PlayStation)" Then
-    For z = 1 To Combo5.ListCount
-        Combo5.RemoveItem 0
-    Next z
-    Combo5.AddItem "none", 0
-    Combo5.AddItem "gamepad - SCPH-1080 PlayStation Digital Gamepad", 1
-    Combo5.AddItem "dualshock - SCPH-1200 PlayStation DualShock Gamepad", 2
-    Combo5.AddItem "dualanalog - SCPH-1180 PlayStation DualAnalog Gamepad", 3
-    Combo5.AddItem "analogjoy - SCPH-1110 PlayStation Analog Joystick", 4
-    Combo5.AddItem "mouse - SCPH-1090 PlayStation Mouse", 5
-    Combo5.AddItem "negcon - NPC-101 Namco neGcon", 6
-    Combo5.AddItem "guncon - NPC-103 Namco GunCon", 7
-    Combo5.AddItem "justifier - SLUH-00017 Konami Justifier", 8
-    Combo5.AddItem "dancepad - SLUH-00071 Konami Dancepad", 9
-    Combo5.ListIndex = 1
-    Check1.Enabled = True
-    Check2.Enabled = True
-    Check11.Enabled = True
-    Check12.Enabled = True
-    Check13.Enabled = True
-    Combo5.Enabled = True
-    Check1.value = 1
-    Check2.value = 1
-    Check9.value = 1
-    Check10.value = 1
-    Label29.Visible = True
-ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
-    For z = 1 To Combo5.ListCount
-        Combo5.RemoveItem 0
-    Next z
-    Combo5.AddItem "none", 0
-    Combo5.AddItem "gamepad - SNS-005 Super Nintendo Controller", 1
-    Combo5.AddItem "mouse - SNS-016 Super Nintendo Mouse Controller", 2
-    Combo5.AddItem "superscope - SNS-013 Super Nintendo Super Scope", 3
-    Combo5.ListIndex = 1
-    Combo5.Enabled = True
-ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
-    For z = 1 To Combo5.ListCount
-        Combo5.RemoveItem 0
-    Next z
-    Combo5.AddItem "none", 0
-    Combo5.AddItem "gamepad - NES-004 Nintendo Control Pad", 1
-    Combo5.AddItem "zapper - NES-005 Nintendo Zapper", 2
-    Combo5.AddItem "powerpada - NES-028 Nintendo Power Pad", 3
-    Combo5.AddItem "powerpadb - NES-028 Nintendo Power Pad", 4
-    Combo5.AddItem "arkanoid - NES-XXX Taito Arkanoid Vaus Controller", 5
-    Combo5.ListIndex = 1
-    Combo5.Enabled = True
-ElseIf Combo1.Text = "ss (Sega Saturn)" Then
-    Check1.Enabled = True
-    Check2.Enabled = True
-    Check9.value = 1
-    Check10.value = 1
-    Label29.Visible = True
-    For z = 1 To Combo5.ListCount
-        Combo5.RemoveItem 0
-    Next z
-    Combo5.AddItem "none", 0
-    Combo5.AddItem "gamepad - MK-80100 Sega Saturn Controller", 1
-    Combo5.AddItem "3dpad - MK-80117 Sega Saturn 3D Control Pad", 2
-    Combo5.AddItem "mouse - HSS-0139 Sega Saturn Shuttle Mouse", 3
-    Combo5.ListIndex = 1
-    Combo5.Enabled = True
-Else
-    Check1.value = 0
-    Check2.value = 0
-    Check9.value = 0
-    Check10.value = 0
-    Check11.value = 0
-    Check12.value = 0
-    Check13.value = 0
-    Check1.Enabled = False
-    Check2.Enabled = False
-    Check11.Enabled = False
-    Check12.Enabled = False
-    Check13.Enabled = False
-    Combo5.Enabled = False
-    Label29.Visible = False
-End If
+
+a = CoreControls()
 
 If Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Or Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
     MsgBox "BIOS Image File: syscard3.pce is expected"
@@ -2542,7 +2470,7 @@ If Len(Text1.Text) >= 1 Then
     If Text1.Text = "Not Set" Then
         ResetBios = vbYes
     Else
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             ResetBios = vbYes
         Else
@@ -2566,7 +2494,7 @@ If Len(Text2.Text) >= 1 Then
     If Text2.Text = "Not Set" Then
         ResetRom = vbYes
     Else
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             ResetRom = vbYes
         Else
@@ -2583,9 +2511,6 @@ End If
 End Sub
 
 Private Sub Command3_Click()
-'v0.3.0 Remove trailing \ on Save Path..
-If Mid$(Text7.Text, Len(Text7.Text) - 1, 1) = " " Then Text7.Text = Mid$(Text7.Text, 1, Len(Text7.Text) - 1)
-If Mid$(Text7.Text, Len(Text7.Text) - 1, 1) = "\" Then Text7.Text = Mid$(Text7.Text, 1, Len(Text7.Text) - 1)
 
 If Combo1.Text = "gb (GameBoy (Color))" Then
     SysCore = "gb"
@@ -2609,7 +2534,7 @@ ElseIf Combo1.Text = "pcfx (PC-FX)" Then
     SysCore = "pcfx"
 ElseIf Combo1.Text = "psx (Sony PlayStation)" Then
     SysCore = "psx"
-    If Check11.value = 0 And Check12.value = 0 And Check13.value = 0 Then
+    If Check11.Value = 0 And Check12.Value = 0 And Check13.Value = 0 Then
         MsgBox "A System Region must be select for PlayStation!", vbCritical, "Error!"
         FatalError = True
     End If
@@ -2633,11 +2558,11 @@ If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" 
         If Len(BIOSPATH) > 1 Then
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
-        If Check11.value = 1 Then
+        If Check11.Value = 1 Then
             cmdstring = cmdstring & " -psx.bios_na " & Chr(34) & BIOSFILE & Chr(34)
-        ElseIf Check12.value = 1 Then
+        ElseIf Check12.Value = 1 Then
             cmdstring = cmdstring & " -psx.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
-        ElseIf Check13.value = 1 Then
+        ElseIf Check13.Value = 1 Then
             cmdstring = cmdstring & " -psx.bios_eu " & Chr(34) & BIOSFILE & Chr(34)
         End If
     End If
@@ -2651,7 +2576,7 @@ If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" 
         If Len(BIOSPATH) > 1 Then
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
-        If Check12.value = 1 Then
+        If Check12.Value = 1 Then
             cmdstring = cmdstring & "-ss.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
         Else
             cmdstring = cmdstring & "-ss.bios_na_eu " & Chr(34) & BIOSFILE & Chr(34)
@@ -2869,86 +2794,86 @@ ElseIf Combo6.Text = "Overlay - SDL Overlay" Then
     cmdstring = cmdstring & " -video.driver overlay"
 End If
 
-If Check19.value = 1 Then
+If Check19.Value = 1 Then
     cmdstring = cmdstring & " -video.glvsync 1"
-ElseIf Check19.value = 0 Then
+ElseIf Check19.Value = 0 Then
     cmdstring = cmdstring & " -video.glvsync 0"
 End If
 
-If Check20.value = 1 Then
+If Check20.Value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".forcemono 1"
 End If
 
-If Check21.value = 1 Then
+If Check21.Value = 1 Then
     cmdstring = cmdstring & " -sound 0"
-ElseIf Check21.value = 0 Then
+ElseIf Check21.Value = 0 Then
     cmdstring = cmdstring & " -sound 1"
 End If
 
-If Check22.value = 1 Then
+If Check22.Value = 1 Then
     cmdstring = cmdstring & " -video.blit_timesync 1"
-ElseIf Check22.value = 0 Then
+ElseIf Check22.Value = 0 Then
     cmdstring = cmdstring & " -video.blit_timesync 0"
 End If
 
 'v0.1.9
-If Check23.value = 1 Then
+If Check23.Value = 1 Then
     cmdstring = cmdstring & " -cd.image_memcache 1"
 End If
 
 '**
 
 
-If Check3.value = 1 Then
+If Check3.Value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".tblur 1"
 End If
 
-If Check4.value = 1 Then
+If Check4.Value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".tblur.accum 1"
     Sleep (100)
     cmdstring = cmdstring & " -" & SysCore & ".tblur.accum.amount " & Text3.Text
 End If
 
-If Check5.value = 1 Then
+If Check5.Value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".videoip 1"
 Else
     cmdstring = cmdstring & " -" & SysCore & ".videoip 0"
 End If
 
-If Check6.value = 1 Then
+If Check6.Value = 1 Then
     cmdstring = cmdstring & " -video.fs 1"
 Else
     cmdstring = cmdstring & " -video.fs 0"
 End If
 
-If Check7.value = 1 Then
+If Check7.Value = 1 Then
     cmdstring = cmdstring & " -video.frameskip 1"
 Else
     cmdstring = cmdstring & " -video.frameskip 0"
 End If
 
 'video.glvsync
-If Check19.value = 1 Then
+If Check19.Value = 1 Then
     cmdtring = cmdstrig & "-video.glvsync 1"
 Else
     cmdtring = cmdstrig & "-video.glvsync 0"
 End If
 
 If SysCore = "psx" Or SysCore = "ss" Then
-    If Check1.value = 1 Then
+    If Check1.Value = 1 Then
         cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 1"
     End If
     
-    If Check2.value = 1 Then
+    If Check2.Value = 1 Then
         cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 1"
     End If
 End If
 
-If Check18.value = 1 Then
+If Check18.Value = 1 Then
     cmdstring = cmdstring & " -video.deinterlacer weave"
-ElseIf Check17.value = 1 Then
+ElseIf Check17.Value = 1 Then
     cmdstring = cmdstring & " -video.deinterlacer bob"
-ElseIf Check16.value = 1 Then
+ElseIf Check16.Value = 1 Then
     cmdstring = cmdstring & " -video.deinterlacer bob_offset"
 End If
 
@@ -2969,7 +2894,7 @@ If Len(Text7.Text) > 0 Then
     cmdstring = cmdstring & " -filesys.path_state " & Chr(34) & Text7.Text & Chr(34) & " -filesys.path_sav " & Chr(34) & Text7.Text & Chr(34)
 End If
 
-If Check14.value = 0 Then
+If Check14.Value = 0 Then
     cmdstring = cmdstring & " -filesys.untrusted_fip_check 0"
 End If
 
@@ -2992,7 +2917,7 @@ cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 
 cmdstring = cmdstring & Chr(34)
 
-If Check8.value = 1 And FatalError = False Then
+If Check8.Value = 1 And FatalError = False Then
     MsgBox cmdstring
 End If
 
@@ -3019,7 +2944,7 @@ If Len(Text7.Text) >= 1 Then
     If Text7.Text = "Not Set" Then
         ResetSave = vbYes
     Else
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             ResetSave = vbYes
         Else
@@ -3038,7 +2963,7 @@ End Sub
 Private Sub Dir1_Change()
 File1.Path = Dir1.Path
 If ActiveFile = "SAVE" Then
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             tmp2 = vbYes
         Else
@@ -3070,7 +2995,7 @@ End Sub
 
 Private Sub File1_Click()
 If ActiveFile = "MEDEXE" Then
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             tmp2 = vbYes
         Else
@@ -3086,7 +3011,7 @@ If ActiveFile = "MEDEXE" Then
 End If
 
 If ActiveFile = "BIOS" Then
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             tmp2 = vbYes
         Else
@@ -3104,7 +3029,7 @@ If ActiveFile = "BIOS" Then
 End If
 
 If ActiveFile = "ROM" Then
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             tmp2 = vbYes
         Else
@@ -3124,7 +3049,7 @@ End If
 
 If ActiveFile = "M3U" Then
         If z = 0 Then
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             tmp2 = vbYes
         Else
@@ -3140,7 +3065,7 @@ If ActiveFile = "M3U" Then
         ElseIf z >= 1 And z <= Val(M3USize) Then
             Do
                 If File1.FileName <> tmp1 And Len(File1.FileName) > 1 And z <= Val(M3USize) And File1.FileName <> LastFile Then
-                    If Check15.value = 1 Then
+                    If Check15.Value = 1 Then
                         a = a
                         tmp2 = vbYes
                     Else
@@ -3175,7 +3100,7 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
 
 Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
-    For x = 1 To 34
+    For x = 1 To 35
         On Error Resume Next
         Line Input #1, tmp3(x)
     Next x
@@ -3214,12 +3139,13 @@ scanlines = Mid$(tmp3(30), 11, Len(tmp3(30)))
 axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
 numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
 customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
-BasicModeFolder = Mid$(tmp3(34), 15, Len(tmp3(34)))
+BasicModeFolder = Mid$(tmp3(34), 17, Len(tmp3(34)))
+QuickLaunch = Mid$(tmp3(35), 13, 1)
 End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.3.1"
+GetBuild = "0.3.2-r32"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -3231,7 +3157,25 @@ Public Function Redump(REDUMPMD5)
 
 REDUMPMD5 = LCase(REDUMPMD5)
 Set FSO = CreateObject("Scripting.FileSystemObject")
-RedumpList = VB.App.Path & "\dat\psx-usa-redump.dat"
+If SysCore = "psx" Then
+    RedumpList = VB.App.Path & "\dat\psx-usa-redump.dat"
+ElseIf SysCore = "ss" Then
+    RedumpList = VB.App.Path & "\dat\ss-usa-redump.dat"
+ElseIf SysCore = "pce" Then
+    RedumpList = VB.App.Path & "\dat\pce-usa-redump.dat"
+ElseIf SysCore = "nes" Then
+    RedumpList = VB.App.Path & "\dat\nes-all-nointro.dat"
+ElseIf SysCore = "snes" Then
+    RedumpList = VB.App.Path & "\dat\snes-all-nointro.dat"
+ElseIf SysCore = "gg" Then
+    RedumpList = VB.App.Path & "\dat\gg-all-nointro.dat"
+ElseIf SysCore = "gba" Then
+    RedumpList = VB.App.Path & "\dat\gba-all-nointro.dat"
+ElseIf SysCore = "gbc" Then
+    RedumpList = VB.App.Path & "\dat\gbc-all-nointro.dat"
+ElseIf SysCore = "vb" Then
+    RedumpList = VB.App.Path & "\dat\vb-all-nointro.dat"
+End If
 
 If FSO.FileExists(RedumpList) Then
     Close #13
@@ -3240,22 +3184,34 @@ If FSO.FileExists(RedumpList) Then
     Do
         Line Input #13, tmp
         For x = 1 To Len(tmp)
-            If Mid$(tmp, x, 32) = REDUMPMD5 Then
-                Label23.Caption = "REDUMP Database: verified!"
-                Label23.ForeColor = RGB(0, 153, 0)
-                booltmp = True
+            If Mid$(tmp, x, 32) = UCase(REDUMPMD5) Or Mid$(tmp, x, 32) = LCase(REDUMPMD5) Then
+                If SysCore = "psx" Or SysCore = "ss" Or SysCore = "pce" Then
+                    Label23.Caption = "REDUMP: verified!"
+                    Label23.ForeColor = RGB(0, 153, 0)
+                    booltmp = True
+                Else
+                    Label23.Caption = "NOINTRO: verified!"
+                    Label23.ForeColor = RGB(0, 153, 0)
+                    booltmp = True
+                End If
             End If
         Next x
     Loop Until EOF(13)
     Close #13
     If booltmp = False Then
-        Label23.Caption = "REDUMP Database: unverified!"
-        Label23.ForeColor = RGB(255, 128, 0)
+                If SysCore = "psx" Or SysCore = "ss" Or SysCore = "pce" Then
+                    Label23.Caption = "REDUMP: unverified!"
+                    Label23.ForeColor = RGB(255, 128, 0)
+                    booltmp = True
+                Else
+                    Label23.Caption = "NOINTRO: unverified!"
+                    Label23.ForeColor = RGB(255, 128, 0)
+                    booltmp = True
+                End If
     End If
 End If
-
-
 End Function
+
 Public Function GetPSXID()
 
 Set FSO = CreateObject("Scripting.FileSystemObject")
@@ -3278,44 +3234,238 @@ If FSO.FileExists(PSXIDList) Then
     Loop Until EOF(12)
     Close #12
 End If
+End Function
 
+Function CoreControls()
+'v0.3.0 Remove trailing \ on Save Path..
+If Mid$(Text7.Text, Len(Text7.Text), 1) = " " Then Text7.Text = Mid$(Text7.Text, 1, Len(Text7.Text) - 1)
+If Mid$(Text7.Text, Len(Text7.Text), 1) = "\" Then Text7.Text = Mid$(Text7.Text, 1, Len(Text7.Text) - 1)
+
+If Combo1.Text = "psx (Sony PlayStation)" Then
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Check1.Enabled = True
+    Check2.Enabled = True
+    Check11.Enabled = True
+    Check12.Enabled = True
+    Check13.Enabled = True
+    Combo5.Enabled = True
+    Check1.Value = 1
+    Check2.Value = 1
+    Check9.Value = 1
+    Check10.Value = 1
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - SCPH-1080 PlayStation Digital Gamepad", 1
+    Combo5.AddItem "dualshock - SCPH-1200 PlayStation DualShock Gamepad", 2
+    Combo5.AddItem "dualanalog - SCPH-1180 PlayStation DualAnalog Gamepad", 3
+    Combo5.AddItem "analogjoy - SCPH-1110 PlayStation Analog Joystick", 4
+    Combo5.AddItem "mouse - SCPH-1090 PlayStation Mouse", 5
+    Combo5.AddItem "negcon - NPC-101 Namco neGcon", 6
+    Combo5.AddItem "guncon - NPC-103 Namco GunCon", 7
+    Combo5.AddItem "justifier - SLUH-00017 Konami Justifier", 8
+    Combo5.AddItem "dancepad - SLUH-00071 Konami Dancepad", 9
+    Combo5.ListIndex = 1
+    Label23.Caption = "REDUMP: unverified!"
+    Label4.Visible = True
+    Label5.Visible = True
+    Label6.Visible = True
+    Label29.Visible = True
+    Label42.Visible = True
+    Text1.Visible = True
+    Command1.Visible = True
+ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - NES-004 Nintendo Control Pad", 1
+    Combo5.AddItem "zapper - NES-005 Nintendo Zapper", 2
+    Combo5.AddItem "powerpada - NES-028 Nintendo Power Pad", 3
+    Combo5.AddItem "powerpadb - NES-028 Nintendo Power Pad", 4
+    Combo5.AddItem "arkanoid - NES-XXX Taito Arkanoid Vaus Controller", 5
+    Combo5.ListIndex = 1
+    Combo5.Enabled = True
+    Label23.Caption = "NOINTRO: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
+ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - SNS-005 Super Nintendo Controller", 1
+    Combo5.AddItem "mouse - SNS-016 Super Nintendo Mouse Controller", 2
+    Combo5.AddItem "superscope - SNS-013 Super Nintendo Super Scope", 3
+    Combo5.ListIndex = 1
+    Combo5.Enabled = True
+    Label23.Caption = "NOINTRO: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
+ElseIf Combo1.Text = "gb (GameBoy (Color))" Then
+    Label23.Caption = "NOINTRO: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
+ElseIf Combo1.Text = "gba (GameBoy Advanced)" Then
+    Label23.Caption = "NOINTRO: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
+ElseIf Combo1.Text = "lynx (Atari Lynx)" Then
+    Label23.Caption = "NOINTRO: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
+ElseIf Combo1.Text = "md (Sega Genesis/MegaDrive)" Then
+    Label23.Caption = "NOINTRO: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
+ElseIf Combo1.Text = "gg (Sega Game Gear)" Then
+    Label23.Caption = "NOINTRO: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
+ElseIf Combo1.Text = "ss (Sega Saturn)" Then
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Check1.Enabled = True
+    Check2.Enabled = True
+    Check11.Enabled = True
+    Check12.Enabled = True
+    Check13.Enabled = True
+    Check1.Value = 1
+    Check2.Value = 1
+    Check9.Value = 1
+    Check10.Value = 1
+    'Label29.Visible = True
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - MK-80100 Sega Saturn Controller", 1
+    Combo5.AddItem "3dpad - MK-80117 Sega Saturn 3D Control Pad", 2
+    Combo5.AddItem "mouse - HSS-0139 Sega Saturn Shuttle Mouse", 3
+    Combo5.ListIndex = 1
+    Combo5.Enabled = True
+    Label23.Caption = "REDUMP: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+    Label4.Visible = True
+    Label5.Visible = True
+    Label6.Visible = True
+    Label29.Visible = True
+    Label42.Visible = True
+    Text1.Visible = True
+    Command1.Visible = True
+ElseIf Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
+    SysCore = "pce"
+    Label4.Visible = True
+    Label5.Visible = True
+    Label6.Visible = True
+    Label29.Visible = True
+    Label42.Visible = True
+    Text1.Visible = True
+    Command1.Visible = True
+    Label23.Caption = "REDUMP: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+ElseIf Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
+    SysCore = "pce_fast"
+    Label4.Visible = True
+    Label5.Visible = True
+    Label6.Visible = True
+    Label29.Visible = True
+    Label42.Visible = True
+    Text1.Visible = True
+    Command1.Visible = True
+    Label23.Caption = "REDUMP: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+Else
+    Check1.Value = 0
+    Check2.Value = 0
+    Check9.Value = 0
+    Check10.Value = 0
+    Check11.Value = 0
+    Check12.Value = 0
+    Check13.Value = 0
+    Check1.Enabled = False
+    Check2.Enabled = False
+    Check11.Enabled = False
+    Check12.Enabled = False
+    Check13.Enabled = False
+    Combo5.Enabled = False
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
+End If
 End Function
 
 Private Sub Form_Load()
 '12945
 '9240
 FatalError = False
+Build = Form1.GetBuild()
 Form1.Width = 9240
 ActiveFile = "None"
-Label29.Visible = False
-Label35.Visible = False
-'Comments
-'C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe
-'MD5 8F0BC836E2B6023371B99E94829B5CF1
-WebBrowser1.Navigate ("http://ad.a-ads.com/402648?size=468x60&background_color=CCCCCC&title_color=0000ff&link_color=313370&text_color=ffffff&title_hover_color=ff8c00&link_hover_color=ff8c00")
-'Credits
-'md5.exe Source: https://www.fourmilab.ch/md5/
-'MD5.EXE ACKNOWLEDGEMENTS
-'The MD5 algorithm was developed by Ron Rivest. The public domain C language implementation used in this program was written by Colin Plumb in 1993.
-'Social Media Icons from Rogie King, http://rog.ie/blog/free-social-media-icons
-'"This icon set is 100% free under the WTFPL — no link backs or anything needed. All I ask is that you check out my other efforts, Fine Goods and NeonMob."
-'You can has link backs.
-Build = Form1.GetBuild()
-Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
-Label34.Caption = "MedAdvCFG v" & Build
-Dir1.Path = VB.App.Path
-File1.Path = VB.App.Path
+
 WebBrowser1.StatusBar = False
 WebBrowser1.AddressBar = False
 WebBrowser1.MenuBar = False
 WebBrowser1.Resizable = False
 WebBrowser1.ToolBar = False
 WebBrowser1.Resizable = False
+WebBrowser1.Navigate ("http://ad.a-ads.com/402648?size=468x60&background_color=CCCCCC&title_color=0000ff&link_color=313370&text_color=ffffff&title_hover_color=ff8c00&link_hover_color=ff8c00")
+
+Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
+
+Dir1.Path = VB.App.Path
+File1.Path = VB.App.Path
+
+Label29.Visible = False
+Label35.Visible = False
 
 Label2.Caption = "Not Set"
-'MedEXE = "C:\EMU\mednafen-0.9.38.7-win64\mednafen.exe"
-
 Label16.Caption = "Hotkeys:"
+Label34.Caption = "MedAdvCFG v" & Build
 
 a = Form1.LoadSettings()
 
@@ -3341,140 +3491,81 @@ Combo6.Text = VideoDriver
 Combo7.Text = Text5.Text & "x" & Text6.Text
 
 If BIOSSanity = 1 Then
-    Check1.value = 1
+    Check1.Value = 1
 End If
 
 If ROMSanity = 1 Then
-    Check2.value = 1
+    Check2.Value = 1
 End If
 
 If TBlur = 1 Then
-    Check3.value = 1
+    Check3.Value = 1
 End If
 
 If TblurAccum = 1 Then
-    Check4.value = 1
+    Check4.Value = 1
     Text3.Text = AccumAmount
 End If
 
 If VideoIP = 1 Then
-    Check5.value = 1
+    Check5.Value = 1
 End If
 
 If Fullscreen = 1 Then
-    Check6.value = 1
+    Check6.Value = 1
 End If
 
 If Frameskip = 1 Then
-    Check7.value = 1
+    Check7.Value = 1
 End If
 
 If SystemRegion = none Then
     a = a
 ElseIf SystemRegion = "NTSC-U" Then
-    Check11.value = 1
+    Check11.Value = 1
 ElseIf SystemRegion = "NTSC-J" Then
-    Check12.value = 1
+    Check12.Value = 1
 ElseIf SystemRegion = "PAL" Then
-    Check13.value = 1
+    Check13.Value = 1
 End If
 
 If untrusted_fip_check = 1 Then
-    Check14.value = 1
+    Check14.Value = 1
 ElseIf untrusted_fip_check = 0 Then
-    Check14.value = 0
+    Check14.Value = 0
 End If
 
 If video_glvsync = 1 Then
-    Check19.value = 1
+    Check19.Value = 1
 ElseIf video_glvsync = 0 Then
-    Check19.value = 0
+    Check19.Value = 0
 End If
 
 If ForceMono = 1 Then
-    Check20.value = 1
+    Check20.Value = 1
 ElseIf ForceMono = 0 Then
-    Check20.value = 0
+    Check20.Value = 0
 End If
 
 If DisableSound = 1 Then
-    Check21.value = 1
+    Check21.Value = 1
 ElseIf DisableSound = 0 Then
-    Check21.value = 0
+    Check21.Value = 0
 End If
 
 If video_blit_timesync = 1 Then
-    Check22.value = 1
+    Check22.Value = 1
 ElseIf video_blit_timesync = 0 Then
-    Check22.value = 0
+    Check22.Value = 0
 End If
 
 If cd_image_memcache = 1 Then
-    Check23.value = 1
+    Check23.Value = 1
 ElseIf cd_image_memcache = 0 Then
-    Check23.value = 0
+    Check23.Value = 0
 End If
 
-If Combo1.Text = "psx (Sony PlayStation)" Then
-    Check1.Enabled = True
-    Check2.Enabled = True
-    Check11.Enabled = True
-    Check12.Enabled = True
-    Check13.Enabled = True
-    Combo5.Enabled = True
-    Check1.value = 1
-    Check2.value = 1
-    Check9.value = 1
-    Check10.value = 1
-    Combo5.AddItem "none", 0
-    Combo5.AddItem "gamepad - SCPH-1080 PlayStation Digital Gamepad", 1
-    Combo5.AddItem "dualshock - SCPH-1200 PlayStation DualShock Gamepad", 2
-    Combo5.AddItem "dualanalog - SCPH-1180 PlayStation DualAnalog Gamepad", 3
-    Combo5.AddItem "analogjoy - SCPH-1110 PlayStation Analog Joystick", 4
-    Combo5.AddItem "mouse - SCPH-1090 PlayStation Mouse", 5
-    Combo5.AddItem "negcon - NPC-101 Namco neGcon", 6
-    Combo5.AddItem "guncon - NPC-103 Namco GunCon", 7
-    Combo5.AddItem "justifier - SLUH-00017 Konami Justifier", 8
-    Combo5.AddItem "dancepad - SLUH-00071 Konami Dancepad", 9
-    Combo5.ListIndex = 1
-ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
-    Combo5.AddItem "none", 0
-    Combo5.AddItem "gamepad - SNS-005 Super Nintendo Controller", 1
-    Combo5.AddItem "mouse - SNS-016 Super Nintendo Mouse Controller", 2
-    Combo5.AddItem "superscope - SNS-013 Super Nintendo Super Scope", 3
-    Combo5.ListIndex = 1
-ElseIf Combo1.Text = "ss (Sega Saturn)" Then
-    Check1.Enabled = True
-    Check2.Enabled = True
-    Check11.Enabled = True
-    Check12.Enabled = True
-    Check13.Enabled = True
-    Combo5.Enabled = True
-    Check1.value = 1
-    Check2.value = 1
-    Check9.value = 1
-    Check10.value = 1
-    'Label29.Visible = True
-    Combo5.AddItem "none", 0
-    Combo5.AddItem "gamepad - MK-80100 Sega Saturn Controller", 1
-    Combo5.AddItem "3dpad - MK-80117 Sega Saturn 3D Control Pad", 2
-    Combo5.AddItem "mouse - HSS-0139 Sega Saturn Shuttle Mouse", 3
-    Combo5.ListIndex = 1
-Else
-    Check1.value = 0
-    Check2.value = 0
-    Check9.value = 0
-    Check10.value = 0
-    Check11.value = 0
-    Check12.value = 0
-    Check13.value = 0
-    Check1.Enabled = False
-    Check2.Enabled = False
-    Check11.Enabled = False
-    Check12.Enabled = False
-    Check13.Enabled = False
-    Combo5.Enabled = False
-End If
+a = CoreControls()
 
 a = Validate_MedEXE()
 a = Validate_Rom()
@@ -3697,40 +3788,40 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     ElseIf FSO.FileExists(BIOSFILE) Then
         Print #6, "SystemBIOS=" & BIOSFILE
     End If
-    Print #6, "BIOSSanity=" & Check1.value
+    Print #6, "BIOSSanity=" & Check1.Value
     Print #6, "RomImage=" & ROMFILE
-    Print #6, "ROMSanity=" & Check2.value
+    Print #6, "ROMSanity=" & Check2.Value
     Print #6, "Stretch=" & Combo2.Text
     Print #6, "PixelShader=" & Combo3.Text
     Print #6, "VideoScaler=" & Combo4.Text
-    Print #6, "Fullscreen=" & Check6.value
-    Print #6, "Frameskip=" & Check7.value
-    Print #6, "Tblur=" & Check3.value
-    Print #6, "TblurAccum=" & Check4.value
+    Print #6, "Fullscreen=" & Check6.Value
+    Print #6, "Frameskip=" & Check7.Value
+    Print #6, "Tblur=" & Check3.Value
+    Print #6, "TblurAccum=" & Check4.Value
     Print #6, "AccumAmount=" & Text3.Text
-    Print #6, "VideoIP=" & Check5.value
+    Print #6, "VideoIP=" & Check5.Value
     Print #6, "XRes=" & Text5.Text
     Print #6, "YRes=" & Text6.Text
     Print #6, "ScaleFactor=" & Text4.Text
     Print #6, "LastPath=" & File1.Path
     Print #6, "BiosPathLoad=" & BIOSPATH
     Print #6, "SavePath=" & Text7.Text
-    If Check11.value = 0 And Check12.value = 0 And Check13.value = 0 Then
+    If Check11.Value = 0 And Check12.Value = 0 And Check13.Value = 0 Then
         Print #6, "SystemRegion=None"
-    ElseIf Check11.value = 1 Then
+    ElseIf Check11.Value = 1 Then
         Print #6, "SystemRegion=NTSC-U"
-    ElseIf Check12.value = 1 Then
+    ElseIf Check12.Value = 1 Then
         Print #6, "SystemRegion=NTSC-J"
-    ElseIf Check13.value = 1 Then
+    ElseIf Check13.Value = 1 Then
         Print #6, "SystemRegion=PAL"
     End If
     Print #6, "RomPath=" & ROMDIR
-    Print #6, "DisableSound=" & Check21.value
-    Print #6, "ForceMono=" & Check20.value
-    Print #6, "video.blit_timesync=" & Check22.value
-    Print #6, "video.glvsync=" & Check19.value
-    Print #6, "untrusted_fip_check=" & Check14.value
-    Print #6, "cd.image_memcache=" & Check23.value
+    Print #6, "DisableSound=" & Check21.Value
+    Print #6, "ForceMono=" & Check20.Value
+    Print #6, "video.blit_timesync=" & Check22.Value
+    Print #6, "video.glvsync=" & Check19.Value
+    Print #6, "untrusted_fip_check=" & Check14.Value
+    Print #6, "cd.image_memcache=" & Check23.Value
     Print #6, "scanlines=" & Text10.Text
     Print #6, "axisscale=" & Text11.Text
     Print #6, "numplayers=" & Text8.Text
@@ -3742,5 +3833,4 @@ End Sub
 Private Sub WebBrowser1_DocumentComplete(ByVal pDisp As Object, URL As Variant)
 WebBrowser1.Document.body.Scroll = "no"
 End Sub
-
 

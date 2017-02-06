@@ -6,7 +6,7 @@ Begin VB.Form Form3
    ClientHeight    =   8490
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   12120
+   ClientWidth     =   11280
    LinkTopic       =   "Form3"
    ScaleHeight     =   8490
    ScaleMode       =   0  'User
@@ -283,10 +283,10 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Basic.Checked = False
-Form1.Basic.Checked = False
+basic.Checked = False
+Form1.basic.Checked = False
 Form1.Visible = True
-Form1.Advanced.Checked = True
+Form1.advanced.Checked = True
 Form3.Visible = False
 End Sub
 
@@ -334,7 +334,7 @@ Build = Form1.GetBuild()
 Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 'Text1.Text = ""
 SysCore = Form1.SetSysCore
-Basic.Checked = True
+basic.Checked = True
 Set FSO = CreateObject("Scripting.FileSystemObject")
 '12 Games per page..
 For y = 1 To 12
@@ -695,22 +695,72 @@ For x = 1 To 12
 Next x
 
 End Function
+Function LoadSettings()
+'Load Settings
+Set FSO = CreateObject("Scripting.FileSystemObject")
 
+If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
+
+Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
+    For x = 1 To 35
+        On Error Resume Next
+        Line Input #1, tmp3(x)
+    Next x
+Close #1
+
+MedEXE = Mid$(tmp3(1), 8, Len(tmp3(1)))
+SystemCore = Mid$(tmp3(2), 12, Len(tmp3(2)))
+BIOSFILE = Mid$(tmp3(3), 12, Len(tmp3(3)))
+BIOSSanity = Mid$(tmp3(4), 12, 1)
+ROMFILE = Mid$(tmp3(5), 10, Len(tmp3(5)))
+ROMSanity = Mid$(tmp3(6), 11, 1)
+Stretch = Mid$(tmp3(7), 9, Len(tmp3(7)))
+PixelShader = Mid$(tmp3(8), 13, Len(tmp3(8)))
+VideoScaler = Mid$(tmp3(9), 13, Len(tmp3(9)))
+Fullscreen = Mid$(tmp3(10), 12, 1)
+Frameskip = Mid$(tmp3(11), 11, 1)
+TBlur = Mid$(tmp3(12), 7, 1)
+TblurAccum = Mid$(tmp3(13), 13, Len(tmp3(13)))
+AccumAmount = Mid$(tmp3(14), 11, 1)
+VideoIP = Mid$(tmp3(15), 9, 1)
+XRes = Mid$(tmp3(16), 6, Len(tmp3(16)))
+YRes = Mid$(tmp3(17), 6, Len(tmp3(17)))
+ScaleFactor = Mid$(tmp3(18), 13, 1)
+LastPath = Mid$(tmp3(19), 10, Len(tmp3(19)))
+BiosPathLoad = Mid$(tmp3(20), 14, Len(tmp3(20)))
+SavePath = Mid$(tmp3(21), 10, Len(tmp3(21)))
+SystemRegion = Mid$(tmp3(22), 14, Len(tmp3(22)))
+ROMPathLoad = Mid$(tmp3(23), 9, Len(tmp3(23)))
+DisableSound = Mid$(tmp3(24), 14, Len(tmp3(24)))
+ForceMono = Mid$(tmp3(25), 11, Len(tmp3(25)))
+video_blit_timesync = Mid$(tmp3(26), 21, Len(tmp3(26)))
+video_glvsync = Mid$(tmp3(27), 15, Len(tmp3(27)))
+untrusted_fip_check = Mid$(tmp3(28), 21, Len(tmp3(28)))
+cd_image_memcache = Mid$(tmp3(29), 19, Len(tmp3(29)))
+scanlines = Mid$(tmp3(30), 11, Len(tmp3(30)))
+axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
+numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
+customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
+BasicModeFolder = Mid$(tmp3(34), 17, Len(tmp3(34)))
+QuickLaunch = Mid$(tmp3(35), 13, 1)
+End If
+'End Load Settings
+End Function
 Private Sub Image1_Click(Index As Integer)
 'Quick Launch
+a = LoadSettings()
 SysCore = Form1.SetSysCore
-    
     If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" Then
         cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -loadcd " & SysCore
         If SysCore = "psx" Then
             If Len(BIOSPATH) > 1 Then
                 cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
             End If
-            If Form1.Check11.value = 1 Then
+            If Form1.Check11.Value = 1 Then
                 cmdstring = cmdstring & " -psx.bios_na " & Chr(34) & BIOSFILE & Chr(34)
-            ElseIf Form1.Check12.value = 1 Then
+            ElseIf Form1.Check12.Value = 1 Then
                 cmdstring = cmdstring & " -psx.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
-            ElseIf Form1.Check13.value = 1 Then
+            ElseIf Form1.Check13.Value = 1 Then
                 cmdstring = cmdstring & " -psx.bios_eu " & Chr(34) & BIOSFILE & Chr(34)
             End If
         End If
@@ -724,7 +774,7 @@ SysCore = Form1.SetSysCore
             If Len(BIOSPATH) > 1 Then
                 cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
             End If
-            If Check12.value = 1 Then
+            If Check12.Value = 1 Then
                 cmdstring = cmdstring & "-ss.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
             Else
                 cmdstring = cmdstring & "-ss.bios_na_eu " & Chr(34) & BIOSFILE & Chr(34)
@@ -748,7 +798,7 @@ SysCore = Form1.SetSysCore
     End If
     
     'Basic Mode Panel Settings
-    If Form2.Check23.value = 1 Then
+    If Form2.Check23.Value = 1 Then
         cmdstring = cmdstring & " -video.fs 1"
     Else
         cmdstring = cmdstring & " -video.fs 0"
@@ -766,9 +816,9 @@ SysCore = Form1.SetSysCore
     'cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
     cmdstring = cmdstring & " " & Chr(34) & Form3.Image1(Index).Tag & Chr(34)
     cmdstring = cmdstring & Chr(34)
-If Form2.Check1.value = 1 Then
+If Form2.Check1.Value = 1 Then
     If FatalError = False Then
-        MsgBox cmdstring
+        'MsgBox cmdstring
     End If
     
     If FatalError = False Then
@@ -776,7 +826,7 @@ If Form2.Check1.value = 1 Then
     Else
         FatalError = False
     End If
-ElseIf Form2.Check1.value = 0 Then
+ElseIf Form2.Check1.Value = 0 Then
     On Error Resume Next
     'SysCore & vbcrlf & FullPath to Rom & CoverSearched
     Text1.Text = Text1.Text & vbCrLf & Form3.Image1(Index).Tag & vbCrLf & Image1(Index).ToolTipText & vbCrLf

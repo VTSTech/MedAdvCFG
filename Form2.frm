@@ -431,7 +431,7 @@ Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, S
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
 Dim ResetBios, ResetRom, ResetRomDir, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
 Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untrusted_fip_check, cd_image_memcache, scanlines, numplayers, customparams
-Dim MedAdvGAMES, MedAdvCOVERS, MedAdvEXT, BasicModeFolder, LogoTop, LogoLeft
+Dim MedAdvGAMES, MedAdvCOVERS, MedAdvEXT, BasicModeFolder, LogoTop, LogoLeft, QuickLaunch
 Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
 Private Sub about_Click()
@@ -774,7 +774,7 @@ End Sub
 
 Private Sub File1_Click()
 If ActiveFile = "MEDEXE" Then
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             tmp2 = vbYes
         Else
@@ -803,7 +803,7 @@ If ActiveFile = "BIOS" Then
 End If
 
 If ActiveFile = "ROM" Then
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             tmp2 = vbYes
         Else
@@ -823,7 +823,7 @@ End If
 
 If ActiveFile = "M3U" Then
         If z = 0 Then
-        If Check15.value = 1 Then
+        If Check15.Value = 1 Then
             a = a
             tmp2 = vbYes
         Else
@@ -839,7 +839,7 @@ If ActiveFile = "M3U" Then
         ElseIf z >= 1 And z <= Val(M3USize) Then
             Do
                 If File1.FileName <> tmp1 And Len(File1.FileName) > 1 And z <= Val(M3USize) And File1.FileName <> LastFile Then
-                    If Check15.value = 1 Then
+                    If Check15.Value = 1 Then
                         a = a
                         tmp2 = vbYes
                     Else
@@ -900,7 +900,7 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
 
 Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
-    For x = 1 To 34
+    For x = 1 To 35
         On Error Resume Next
         Line Input #1, tmp3(x)
     Next x
@@ -940,6 +940,7 @@ axisscale = Mid$(tmp3(31), 11, Len(tmp3(31)))
 numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
 customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
 BasicModeFolder = Mid$(tmp3(34), 17, Len(tmp3(34)))
+QuickLaunch = Mid$(tmp3(35), 13, 1)
 End If
 'End Load Settings
 End Function
@@ -957,7 +958,7 @@ SysCore = "psx"
 
 End Sub
 Function Validate_Rom()
-If Check9.value = 1 Then
+If Check9.Value = 1 Then
     If FSO.FileExists(ROMFILE) = True Then
         tmp = Form1.CalcMD5(Form1.ShortPath(ROMFILE))
         Text2.Text = ROMFILE
@@ -1089,6 +1090,9 @@ If SysCore = "psx" Or SysCore = "ss" Or SysCore = "pce" Then
     Text1.Visible = True
     Command1.Visible = True
 End If
+
+If QuickLaunch = 0 Then Check1.Value = 0
+If QuickLaunch = 1 Then Check1.Value = 1
 
 Label3.Visible = True
 Label2.Visible = True
@@ -1310,6 +1314,7 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     Print #6, "numplayers=1"
     Print #6, "customparams="
     Print #6, "BasicModeFolder=" & Text2.Text
+    Print #6, "QuickLaunch=" & Check1.Value
 Close #6
 End Sub
 

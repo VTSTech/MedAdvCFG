@@ -252,7 +252,6 @@ criticom SLUS-00046
 croc_legend_of_the_gobbos SLUS-00530
 croc_2 SLUS-00634
 crossroad_crisis SLUS-01342
-crow,_the_city_of_angels SLUS-00242
 crusader_no_remorse SLUS-00268
 crusaders_of_might_and_magic SLUS-00799
 crypt_killer SLUS-00335
@@ -326,7 +325,6 @@ disneys_toy_story_2_buzz_lightyear_to_the_rescue SLUS-00893
 disneys_toy_story_racer SLUS-01214
 disneys_treasure_planet SCUS-94647
 disruptor SLUS-00224
-divide,_the_enemies_within SLUS-00317
 donald_duck_goin_quackers SLUS-01242
 doom SLUS-00077
 dora_the_explorer_barnyard_buddies SLUS-01576
@@ -339,7 +337,7 @@ dragon_warrior_vii SLUS-01206
 dragonball_gt_final_bout SLUS-00493
 dragonball_z_ultimate_battle_22 SLUS-01550
 dragonheart_fire_&_steel SLUS-00226
-driver SLUS-00842
+driver_you_are_the_wheelman SLUS-00842
 driver_2 SLUS-01161
 ducati_world SLUS-01025
 duke_nukem_land_of_the_babes SLUS-01002
@@ -506,7 +504,7 @@ incredible_crisis SLUS-01225
 incredible_hulk_the_pantheon_saga SLUS-00150
 independence_day SLUS-00221
 inspector_gadget_gadgets_crazy_maze SLUS-01267
-intelligent_qube SCUS-94181
+iq_intelligent_qube SCUS-94181
 intellivision_classics SLUS-00906
 international_track_&_field SLUS-00238
 international_track_&_field_2000 SLUS-00987
@@ -558,8 +556,6 @@ kileak_the_dna_imperative SCUS-94102
 killer_loop SLUS-00938
 killing_zone SLUS-00369
 king_of_fighters_evolution SLUS-01154
-king_of_fighters_95 SCUS-94205
-king_of_fighters_99 SLUS-01332
 kings_field SLUS-00158
 kings_field_ii SLUS-00255
 kingsleys_adventure SLUS-00801
@@ -1153,7 +1149,11 @@ theme_park SLUS-00017
 thousand_arms SLUS-00845
 thrasher_skate_and_destroy SLUS-00935
 threads_of_fate SLUS-01019
+the_crow_city_of_angels SLUS-00242
+the_divide_enemies_within SLUS-00317
 the_three_stooges 	SLUS-01486
+the_king_of_fighters_95 SCUS-94205
+the_king_of_fighters_99 SLUS-01332
 thrill_kill SLUS-00752
 thrill_kill_beta SLUS-12345
 thunder_force_v_perfect_system SLUS-00727
@@ -1185,7 +1185,7 @@ tomb_raider_5_chronicles SLUS-01311
 tomba! SCUS-94236
 tomba!_2_the_evil_swine_returns SCUS-94454
 tonka_space_station SLUS-01007
-tony_hawks_pro_skateboarding SLUS-00860
+tony_hawks_pro_skater SLUS-00860
 tony_hawks_pro_skater_2 SLUS-01066
 tony_hawks_pro_skater_3 SLUS-01419
 tony_hawks_pro_skater_4 SLUS-01485
@@ -1224,7 +1224,7 @@ urban_chaos SLUS-01091
 vagrant_story SLUS-01040
 valkyrie_profile SLUS-01156
 vampire_hunter_d SLUS-01138
-vanark_astro_trooper SLUS-01035
+vanark SLUS-01035
 vandal_hearts SLUS-00447
 vandal_hearts_ii SLUS-00940
 vanguard_bandits SLUS-01070

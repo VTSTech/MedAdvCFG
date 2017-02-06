@@ -15,6 +15,31 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/673f11c25bb1703fcb69f63c31b9212e.png">
 
+<img src="https://i.gyazo.com/16be2b29dc558035dc9d0121cf021451.png">
+
+v0.3.2-r32 02-06-2017 7:23AM
+
+New versioning. Allows multiple revisions per minor version.
+
+Changed Advanced Mode Font.
+
+Hiding PSX Game ID on unused cores
+
+Hiding unused BIOS Controls in Large Cover view
+
+Added CoreControls() function to hide/show controls in Adv Mode
+
+Basic Mode Quick Launch setting is now saved
+
+Now verifies SNES Roms with NoIntro
+
+SS and PCE will be verified with REDUMP, Rest with NoIntro
+
+Removed md5.exe credits. No longer used.
+
+Settings now loaded on Game Cover screen. Fixes incorrect Quick Launch cmdline
+
+
 v0.3.1 02-04-2017 7:48AM
 
 Added two new menus!
