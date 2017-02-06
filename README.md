@@ -9,7 +9,7 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/136eb1c30a37707ba350ad78a0be02ad.png">
+<img src="https://i.gyazo.com/d27c7678b3066b73cdf354f35f9c275d.png">
 
 <img src="https://i.gyazo.com/b184de2928c24e8c356f21518e8869ba.png">
 
