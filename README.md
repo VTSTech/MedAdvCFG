@@ -9,13 +9,13 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/9668809531e9b029a6eb13d190aa0e68.png">
+<img src="https://i.gyazo.com/136eb1c30a37707ba350ad78a0be02ad.png">
 
 <img src="https://i.gyazo.com/b184de2928c24e8c356f21518e8869ba.png">
 
 <img src="https://i.gyazo.com/673f11c25bb1703fcb69f63c31b9212e.png">
 
-<img src="https://i.gyazo.com/16be2b29dc558035dc9d0121cf021451.png">
+<img src="https://i.gyazo.com/136eb1c30a37707ba350ad78a0be02ad.png">
 
 v0.3.2-r32 02-06-2017 7:23AM
 
@@ -39,6 +39,7 @@ Removed md5.exe credits. No longer used.
 
 Settings now loaded on Game Cover screen. Fixes incorrect Quick Launch cmdline
 
+Various Code Optimizations
 
 v0.3.1 02-04-2017 7:48AM
 
