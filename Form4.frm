@@ -358,10 +358,10 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Basic_Click()
-basic.Checked = False
-Form1.basic.Checked = False
+Basic.Checked = False
+Form1.Basic.Checked = False
 Form1.Visible = True
-Form1.advanced.Checked = True
+Form1.Advanced.Checked = True
 Form2.Visible = False
 End Sub
 
@@ -679,6 +679,8 @@ ElseIf SysCore = "gbc" Then
     RedumpList = VB.App.Path & "\dat\gbc-all-nointro.dat"
 ElseIf SysCore = "vb" Then
     RedumpList = VB.App.Path & "\dat\vb-all-nointro.dat"
+ElseIf SysCore = "md" Then
+    RedumpList = VB.App.Path & "\dat\md-all-nointro.dat"
 End If
 
 If FSO.FileExists(RedumpList) Then
@@ -725,7 +727,7 @@ Form4.Width = 14355
 Set FSO = CreateObject("Scripting.FileSystemObject")
 a = LoadSettings()
 SysCore = Form1.SetSysCore
-basic.Checked = True
+Basic.Checked = True
 tmparray = Split(Form3.Text1.Text, vbCrLf)
 'SysCore
 Label1.Caption = tmparray(0)
@@ -751,6 +753,12 @@ End If
 
 If SysCore = "snes" Then
     Image1(1).Height = 5895
+ElseIf SysCore = "nes" Then
+    Image1(1).Width = 5895
+ElseIf SysCore = "gg" Then
+    Image1(1).Width = 5895
+ElseIf SysCore = "md" Then
+    Image1(1).Width = 5895
 End If
 End Sub
 Function LoadSettings()
@@ -807,6 +815,12 @@ Private Sub Label13_Click()
 Clipboard.Clear
 Clipboard.SetText Label13.Caption
 MsgBox "Game ID copied to Clipboard"
+End Sub
+
+Private Sub Label6_Click()
+Clipboard.Clear
+Clipboard.SetText Label6.Caption
+MsgBox "MD5 copied to Clipboard"
 End Sub
 
 Private Sub Quit_Click()

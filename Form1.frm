@@ -2375,15 +2375,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-advanced.Checked = True
-basic.Checked = False
+Advanced.Checked = True
+Basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-advanced.Checked = False
-basic.Checked = True
+Advanced.Checked = False
+Basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -3145,7 +3145,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.3.2-r32"
+GetBuild = "0.3.2-r33"
 End Function
 Public Function ResetSysCore()
 SysCore = ""

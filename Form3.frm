@@ -283,10 +283,10 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-basic.Checked = False
-Form1.basic.Checked = False
+Basic.Checked = False
+Form1.Basic.Checked = False
 Form1.Visible = True
-Form1.advanced.Checked = True
+Form1.Advanced.Checked = True
 Form3.Visible = False
 End Sub
 
@@ -334,7 +334,7 @@ Build = Form1.GetBuild()
 Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 'Text1.Text = ""
 SysCore = Form1.SetSysCore
-basic.Checked = True
+Basic.Checked = True
 Set FSO = CreateObject("Scripting.FileSystemObject")
 '12 Games per page..
 For y = 1 To 12
@@ -382,6 +382,10 @@ ElseIf SysCore = "gg" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvGG.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGGCOVERS.dat"
     MedAdvEXT = "gg"
+    For y = 1 To 12
+        Image1(y).Width = 2000
+    Next y
+    y = 1
 ElseIf SysCore = "pce" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvPCE.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvPCECOVERS.dat"

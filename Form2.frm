@@ -650,6 +650,23 @@ Private Sub Command3_Click()
 ROMDIR = Text2.Text
 CurrFolder = Dir(Text2.Text, vbDirectory)
 
+If SysCore = "gb" Then Form1.Combo1.Text = "gb (GameBoy (Color))"
+If SysCore = "gba" Then Form1.Combo1.Text = "gba (GameBoy Advanced)"
+If SysCore = "gg" Then Form1.Combo1.Text = "gg (Sega Game Gear)"
+If SysCore = "lynx" Then Form1.Combo1.Text = "lynx (Atari Lynx)"
+If SysCore = "md" Then Form1.Combo1.Text = "md (Sega Genesis/MegaDrive)"
+If SysCore = "nes" Then Form1.Combo1.Text = "nes (Nintendo Entertainment System)"
+If SysCore = "ngp" Then Form1.Combo1.Text = "ngp (Neo Geo Pocket (Color))"
+If SysCore = "pce" Then Form1.Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)"
+If SysCore = "pce_fast" Then Form1.Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)"
+If SysCore = "pcfx" Then Form1.Combo1.Text = "pcfx (PC-FX)"
+If SysCore = "psx" Then Form1.Combo1.Text = "psx (Sony PlayStation)"
+If SysCore = "sms" Then Form1.Combo1.Text = "sms (Sega Master System)"
+If SysCore = "snes" Then Form1.Combo1.Text = "snes (Super Nintendo Entertainment System)"
+If SysCore = "ss" Then Form1.Combo1.Text = "ss (Sega Saturn)"
+If SysCore = "vb" Then Form1.Combo1.Text = "vb (Virtual Boy)"
+If SysCore = "wswan" Then Form1.Combo1.Text = "wswan (WonderSwan)"
+
 'Create list of extracted cue sheets
 Dim colFiles As New Collection
 
@@ -704,6 +721,12 @@ ElseIf SysCore = "vb" Then
 End If
 
 RecursiveDir colFiles, Text2.Text, "*." & MedAdvEXT, True
+
+If FSO.FileExists(MedAdvGAMES) = False Then
+    'MsgBox "cmd.exe /c echo " & Chr(34) & Chr(34) & " >> " & Chr(34) & MedAdvGAMES & Chr(34)
+    Shell ("cmd.exe /c echo " & Chr(34) & Chr(34) & " >> " & Chr(34) & MedAdvGAMES & Chr(34))
+End If
+
 Dim vFile As Variant
 Close #7
 Open MedAdvGAMES For Output As #7
@@ -712,7 +735,8 @@ For Each vFile In colFiles
     Print #7, vFile
 Next vFile
 Close #7
-
+Unload Form3
+Form3.Refresh
 Form2.Visible = False
 Form3.Visible = True
 End Sub
@@ -1199,6 +1223,7 @@ a = Hide_Buttons()
 Image4.Visible = True
 SysCore = "md"
 Form1.Combo1.Text = "md (Sega Genesis/MegaDrive)"
+SysCore = Form1.SetSysCore
 LogoTop = Image4.Top
 LogoLeft = Image4.Left
 Image4.Left = 4740

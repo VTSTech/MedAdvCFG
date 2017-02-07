@@ -15,7 +15,22 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/673f11c25bb1703fcb69f63c31b9212e.png">
 
-<img src="https://i.gyazo.com/136eb1c30a37707ba350ad78a0be02ad.png">
+<img src="https://i.gyazo.com/31d4efe670207400ae89813abad8af6f.png">
+
+v0.3.2-r33 02-06-2017 8:40PM
+
+More reliable switching of SysCores (Reloads Form3)
+
+Better handling of first instance of SysCores (Creates empty game/cover file)
+
+Verifying GG,MD with NoIntro (www.No-Intro.org)
+
+Resizing NES,GG,MD Covers on Large Cover view
+
+ROM MD5 Copies to Clipboard on click in Large Cover view
+
+Various Code Optimizations
+
 
 v0.3.2-r32 02-06-2017 7:23AM
 
