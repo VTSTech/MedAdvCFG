@@ -29,6 +29,8 @@ Now using bios.dat and Mednafen.dat under /dat/
 
 Fixed 'Path Not Found' error when no bios set and settings are saved/loaded
 
+Removed CoversDB data from GitHub. Added URLS+Mirrors in CoversDB.txt in respective cover folders
+
 Various Code Optimizations
 
 
