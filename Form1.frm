@@ -1869,7 +1869,7 @@ Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, S
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
 Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
 Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untrusted_fip_check, cd_image_memcache, scanlines, numplayers, customparams
-Dim CoverName, PSXIDList, PSXID, RedumpList, REDUMPMD5, ROMMD5, CUEFILE, BINFILE
+Dim CoverName, PSXIDList, PSXID, RedumpList, REDUMPMD5, ROMMD5, CUEFILE, BINFILE, MedMD5, MedDat
 Private Type MD5_CTX
   i(1 To 2) As Long
   buf(1 To 4) As Long
@@ -2092,6 +2092,9 @@ If Check9.Value = 1 Then
         ElseIf SysCore = "nes" Then
             a = Redump(ROMMD5)
             Label35.Visible = False
+        ElseIf SysCore = "md" Then
+            a = Redump(ROMMD5)
+            Label35.Visible = False
         End If
     End If
 Else
@@ -2109,161 +2112,26 @@ If Check10.Value = 1 Then
         tmp = CalcMD5(ShortPath(BIOSFILE))
         Text1.Text = BIOSFILE
     End If
-
-        If LCase(tmp) = "239665b1a3dade1b5a52c06338011044" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-J v1.0J BIOS SCPH-1000/DTL-H1000"
-            Check12.Value = 1
-            Check12.Value = 1
-        ElseIf LCase(tmp) = "849515939161e62f6b866f6853006780" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-J v1.1J BIOS SCPH-3000/DTL-H1000H"
-            Check12.Value = 1
-            Check12.Value = 1
-        ElseIf LCase(tmp) = "dc2b9bf8da62ec93e868cfd29f0d067d" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-U v2.0A BIOS DTL-H1001"
-            Check11.Value = 1
-            Check11.Value = 1
-        ElseIf LCase(tmp) = "54847e693405ffeb0359c6287434cbef" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: PAL v2.0E BIOS DTL-H1002/SCPH-1002"
-            Check13.Value = 1
-            Check13.Value = 1
-        ElseIf LCase(tmp) = "cba733ceeff5aef5c32254f1d617fa62" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-J v2.1J BIOS SCPH-3500"
-            Check12.Value = 1
-            Check12.Value = 1
-        ElseIf LCase(tmp) = "da27e8b6dab242d8f91a9b25d80c63b8" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-U v2.1A BIOS DTL-H1101"
-            Check11.Value = 1
-            Check11.Value = 1
-        ElseIf LCase(tmp) = "417b34706319da7cf001e76e40136c23" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: PAL v2.1E BIOS SCPH-1002/DTL-H1102"
-            Check13.Value = 1
-            Check13.Value = 1
-        ElseIf LCase(tmp) = "57a06303dfa9cf9351222dfcbb4a29d9" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-J v2.2J BIOS SCPH-5000/DTL-H1200/DTL-H3000"
-            Check12.Value = 1
-            Check12.Value = 1
-        ElseIf LCase(tmp) = "924e392ed05558ffdb115408c263dccf" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-U v2.2A BIOS SCPH-1001/SCPH-5003/DTL-H1201/DTL-H3001"
-            Check11.Value = 1
-            Check11.Value = 1
-        ElseIf LCase(tmp) = "e2110b8a2b97a8e0b857a45d32f7e187" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: PAL v2.2E BIOS SCPH-1002/DTL-H1202/DTL-H3002"
-            Check13.Value = 1
-            Check13.Value = 1
-        ElseIf LCase(tmp) = "ca5cfc321f916756e3f0effbfaeba13b" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-J v2.2D BIOS DTL-H1100"
-            Check12.Value = 1
-            Check12.Value = 1
-        ElseIf LCase(tmp) = "490f666e1afb15b7362b406ed1cea246" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-U v3.0A BIOS SCPH-5501/SCPH-5503/SCPH-7003"
-            Check11.Value = 1
-            Check11.Value = 1
-        ElseIf LCase(tmp) = "8dd7d5296a650fac7319bce665a6a53c" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-J v3.0J BIOS SCPH-5500"
-            Check12.Value = 1
-            Check12.Value = 1
-        ElseIf LCase(tmp) = "32736f17079d0b2b7024407c39bd3050" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: PAL v3.0E BIOS SCPH-5502/SCPH-5552"
-            Check13.Value = 1
-            Check13.Value = 1
-        ElseIf LCase(tmp) = "8e4c14f567745eff2f0408c8129f72a6" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-J v4.0J BIOS SCPH-7000/SCPH-7500/SCPH-9000"
-            Check12.Value = 1
-            Check12.Value = 1
-        ElseIf LCase(tmp) = "b84be139db3ee6cbd075630aa20a6553" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-U v4.1A BIOS SCPH-7000W"
-            Check11.Value = 1
-            Check11.Value = 1
-        ElseIf LCase(tmp) = "1e68c231d0896b7eadcad1d7d8e76129" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-U v4.1A BIOS SCPH-7001/SCPH-7501/SCPH-7503/SCPH-9001/SCPH-9003"
-            Check11.Value = 1
-            Check11.Value = 1
-        ElseIf LCase(tmp) = "b9d9a0286c33dc6b7237bb13cd46fdee" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: PAL v4.1E BIOS SCPH-7002/SCPH-7502/SCPH-9002"
-            Check13.Value = 1
-            Check13.Value = 1
-        ElseIf LCase(tmp) = "8abc1b549a4a80954addc48ef02c4521" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-J v4.3J BIOS SCPH-100"
-            Check12.Value = 1
-            Check12.Value = 1
-        ElseIf LCase(tmp) = "b10f5e0e3d9eb60e5159690680b1e774" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: PAL v4.4E BIOS SCPH-102"
-            Check13.Value = 1
-            Check13.Value = 1
-        ElseIf LCase(tmp) = "6e3735ff4c7dc899ee98981385f6f3d0" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: NTSC-U v4.5A BIOS SCPH-101"
-            Check11.Value = 1
-            Check11.Value = 1
-        ElseIf LCase(tmp) = "de93caec13d1a141a40a79f5c86168d6" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: PAL v4.5E BIOS SCPH-102"
-            Check13.Value = 1
-            Check13.Value = 1
-        ElseIf LCase(tmp) = "3240872c70984b6cbfda1586cab68dbe" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: SEGA SATURN V1.01A US/EU"
-            Check11.Value = 1
-            Check11.Value = 1
-        ElseIf LCase(tmp) = "85ec9ca47d8f6807718151cbcca8b964" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: SEGA SATURN V1.01 JP"
-            Check12.Value = 1
-            Check12.Value = 1
-        ElseIf LCase(tmp) = "af5828fdff51384f99b3c4926be27762" Then
-            Label6.Caption = "MD5: " & tmp
-            Label29.Visible = True
-            Label29.Caption = "Valid: SEGA SATURN V1.00 JP"
-            Check12.Value = 1
-            Check12.Value = 1
-        Else
-            Label29.Visible = False
-            Label6.Caption = "MD5: " & tmp
+    Label6.Caption = "MD5: " & tmp
+    BiosDat = VB.App.Path & "\dat\bios.dat"
+    If FSO.FileExists(BiosDat) = True Then
+        Close #16
+        Open BiosDat For Input As #16
+        Do
+            Line Input #16, BiosMD5
+            If LCase(tmp) = Mid$(BiosMD5, 1, 32) Then
+                'MsgBox Mid$(MedMD5, 34, Len(MedMD5))
+                Label29.Caption = Mid$(BiosMD5, 34, Len(BiosMD5))
+            End If
+        Loop Until EOF(16)
+        If Label29.Caption = "Not Set" Then
+            Label29.Caption = "Unknown Mednafen Version! MD5: " & tmp
         End If
+    Else
+        MsgBox "Fatal Error: bios.dat verification missing. Reinstall MedAdvCFG"
+        Unload Form1
+    End If
+        
     If Label29.Visible = True Then
             Label42.Caption = "REDUMP: verified!"
             Label42.ForeColor = RGB(0, 153, 0)
@@ -2330,41 +2198,24 @@ SetSysCore = SysCore
 End Function
 Public Function Validate_MedEXE()
 If FSO.FileExists(MedEXE) = True Then
-    tmp = CalcMD5(ShortPath(MedEXE))
-    If tmp = "8F0BC836E2B6023371B99E94829B5CF1" Then
-        Label2.Caption = "0.9.38.7-win64 Detected! MD5: 8F0BC836E2B6023371B99E94829B5CF1"
-    ElseIf tmp = "C2CA5F8A9A4CF93BB05297272F029B9C" Then
-        Label2.Caption = "0.9.38.7-win32 Detected! MD5: C2CA5F8A9A4CF93BB05297272F029B9C"
-    ElseIf tmp = "D89B755B1616323B7181C9D1931D4E39" Then
-        Label2.Caption = "0.9.38.6-win64 Detected! MD5: D89B755B1616323B7181C9D1931D4E39"
-    ElseIf tmp = "D6A8592FB42104327EF7E57D4F0C8ED1" Then
-        Label2.Caption = "0.9.38.6-win32 Detected! MD5: D6A8592FB42104327EF7E57D4F0C8ED1"
-    ElseIf tmp = "E7A5FBC376B2DAA55AB4A3FF9C6AF1E1" Then
-        Label2.Caption = "0.9.38.5-win64 Detected! MD5: E7A5FBC376B2DAA55AB4A3FF9C6AF1E1"
-    ElseIf tmp = "74B1D63CBAB0CC4F91A9F3FB5020AB78" Then
-        Label2.Caption = "0.9.38.5-win32 Detected! MD5: 74B1D63CBAB0CC4F91A9F3FB5020AB78"
-    ElseIf tmp = "A30FC82730A62781BBF39DF0652456D2" Then
-        Label2.Caption = "0.9.37.1-win64 Detected! MD5: A30FC82730A62781BBF39DF0652456D2"
-    ElseIf tmp = "D02DE97F10E0FE544427B8F0BBEED3F1" Then
-        Label2.Caption = "0.9.37.1-win32 Detected! MD5: D02DE97F10E0FE544427B8F0BBEED3F1"
-    ElseIf tmp = "9357B96CB347AA52E5F2796AB9A062BD" Then
-        Label2.Caption = "0.9.39-unstable-win64 Detected! MD5: 9357B96CB347AA52E5F2796AB9A062BD"
-    ElseIf tmp = "84438BB30BB5F15488AEAE662D91E56C" Then
-        Label2.Caption = "0.9.39-unstable-win32 Detected! MD5: 84438BB30BB5F15488AEAE662D91E56C"
-    ElseIf tmp = "942641E6C569B6AC26A66BA9051FCD1C" Then
-        Label2.Caption = "0.9.39.1-win64 Detected! MD5: 942641E6C569B6AC26A66BA9051FCD1C"
-    ElseIf tmp = "213AE98231F8F96D26B0C409085DAB73" Then
-        Label2.Caption = "0.9.39.1-win32 Detected! MD5: 213AE98231F8F96D26B0C409085DAB73"
-    ElseIf tmp = "A5AFC70E3B2B267A0E81F64B7366C8C3" Then
-        Label2.Caption = "0.9.39.2-win64 Detected! MD5: A5AFC70E3B2B267A0E81F64B7366C8C3"
-    ElseIf tmp = "AEF947A6E5A35FF108B954683CD3698A" Then
-        Label2.Caption = "0.9.39.2-win32 Detected! MD5: AEF947A6E5A35FF108B954683CD3698A"
-    ElseIf tmp = "6AADC9A8A196DA610E6DB43367B339B4" Then
-        Label2.Caption = "0.9.41.0-win64 Detected! MD5: 6AADC9A8A196DA610E6DB43367B339B4"
-    ElseIf tmp = "74EA6CD12BF60ADF1A93A40854CD4686" Then
-        Label2.Caption = "0.9.41.0-win32 Detected! MD5: 74EA6CD12BF60ADF1A93A40854CD4686"
+    MedDat = VB.App.Path & "\dat\Mednafen.dat"
+    If FSO.FileExists(MedDat) = True Then
+        tmp = CalcMD5(ShortPath(MedEXE))
+        Close #16
+        Open MedDat For Input As #16
+        Do
+            Line Input #16, MedMD5
+            If tmp = Mid$(MedMD5, 1, 32) Then
+                'MsgBox Mid$(MedMD5, 34, Len(MedMD5))
+                Label2.Caption = Mid$(MedMD5, 34, Len(MedMD5)) & " Detected! MD5: " & Mid$(MedMD5, 1, 32)
+            End If
+        Loop Until EOF(16)
+        If Label2.Caption = "Not Set" Then
+            Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
+        End If
     Else
-        Label2.Caption = "Unknown Mednafen Version! MD5: " & tmp
+        MsgBox "Fatal Error: Mednafen.dat verification missing. Reinstall MedAdvCFG"
+        Unload Form1
     End If
 End If
 Validate_MedEXE = tmp
@@ -3145,7 +2996,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.3.2-r33"
+GetBuild = "0.3.2-r34"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -3175,6 +3026,8 @@ ElseIf SysCore = "gbc" Then
     RedumpList = VB.App.Path & "\dat\gbc-all-nointro.dat"
 ElseIf SysCore = "vb" Then
     RedumpList = VB.App.Path & "\dat\vb-all-nointro.dat"
+ElseIf SysCore = "md" Then
+    RedumpList = VB.App.Path & "\dat\md-all-nointro.dat"
 End If
 
 If FSO.FileExists(RedumpList) Then
@@ -3238,8 +3091,14 @@ End Function
 
 Function CoreControls()
 'v0.3.0 Remove trailing \ on Save Path..
-If Mid$(Text7.Text, Len(Text7.Text), 1) = " " Then Text7.Text = Mid$(Text7.Text, 1, Len(Text7.Text) - 1)
-If Mid$(Text7.Text, Len(Text7.Text), 1) = "\" Then Text7.Text = Mid$(Text7.Text, 1, Len(Text7.Text) - 1)
+If Len(Text7.Text) <> 0 Then
+    If Mid$(Text7.Text, Len(Text7.Text), 1) = " " Then
+        Text7.Text = Mid$(Text7.Text, 1, Len(Text7.Text) - 1)
+    End If
+    If Mid$(Text7.Text, Len(Text7.Text), 1) = "\" Then
+        Text7.Text = Mid$(Text7.Text, 1, Len(Text7.Text) - 1)
+    End If
+End If
 
 If Combo1.Text = "psx (Sony PlayStation)" Then
     For z = 1 To Combo5.ListCount
@@ -3787,6 +3646,8 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
         Print #6, "SystemBIOS=" & BIOSPATH & "\" & BIOSFILE
     ElseIf FSO.FileExists(BIOSFILE) Then
         Print #6, "SystemBIOS=" & BIOSFILE
+    Else
+        Print #6, "SystemBIOS="
     End If
     Print #6, "BIOSSanity=" & Check1.Value
     Print #6, "RomImage=" & ROMFILE

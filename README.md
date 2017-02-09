@@ -17,6 +17,21 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/31d4efe670207400ae89813abad8af6f.png">
 
+v0.3.2-r34 02-09-2017 4:51AM
+
+Added support for Mednafen v0.9.42.0-win64/win32
+
+Should be verifying MD in both Basic and Advanced Mode now
+
+Removed hardcoded MD5 for BIOS and Mednafen.
+
+Now using bios.dat and Mednafen.dat under /dat/
+
+Fixed 'Path Not Found' error when no bios set and settings are saved/loaded
+
+Various Code Optimizations
+
+
 v0.3.2-r33 02-06-2017 8:40PM
 
 More reliable switching of SysCores (Reloads Form3)
