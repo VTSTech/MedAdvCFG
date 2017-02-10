@@ -346,7 +346,7 @@ If SysCore = "psx" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvPSX.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvPSXCOVERS.dat"
     MedAdvEXT = "cue"
-ElseIf SysCore = "snes" Then
+ElseIf SysCore = "snes" Or SysCore = "snes_faust" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvSNES.dat"
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvSNESCOVERS.dat"
     MedAdvEXT = "smc"

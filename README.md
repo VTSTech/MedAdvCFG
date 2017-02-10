@@ -9,13 +9,23 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/d27c7678b3066b73cdf354f35f9c275d.png">
+<img src="https://i.gyazo.com/aeb948f5a9faa2cadbba67b5a983cd2f.png">
 
 <img src="https://i.gyazo.com/b184de2928c24e8c356f21518e8869ba.png">
 
 <img src="https://i.gyazo.com/673f11c25bb1703fcb69f63c31b9212e.png">
 
-<img src="https://i.gyazo.com/31d4efe670207400ae89813abad8af6f.png">
+<img src="https://i.gyazo.com/24142e24b1463684653a73eac2141691.png">
+
+v0.3.3-r35 02-10-2017 1:09PM
+
+Added snes_faust SysCore support
+
+Added controllers for Sega Genesis/MegaDrive
+
+Added GOAT Shader + Options
+
+Various Code Optimizations
 
 v0.3.2-r34 02-09-2017 4:51AM
 

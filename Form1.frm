@@ -21,6 +21,60 @@ Begin VB.Form Form1
    ScaleHeight     =   8160
    ScaleWidth      =   8955
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox Check25 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Goat Force Progressive"
+      BeginProperty Font 
+         Name            =   "OpenSymbol"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   96
+      Top             =   5040
+      Width           =   1935
+   End
+   Begin VB.CheckBox Check24 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Goat Scanlines"
+      BeginProperty Font 
+         Name            =   "OpenSymbol"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   7080
+      TabIndex        =   95
+      Top             =   4800
+      Width           =   1335
+   End
+   Begin VB.ComboBox Combo9 
+      BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "OpenSymbol"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   300
+      Left            =   4800
+      TabIndex        =   93
+      Text            =   "None - None/Disabled"
+      Top             =   3960
+      Width           =   2055
+   End
    Begin VB.ComboBox Combo8 
       BackColor       =   &H00C0C0C0&
       BeginProperty Font 
@@ -58,7 +112,7 @@ Begin VB.Form Form1
       List            =   "Form1.frx":8520
       TabIndex        =   90
       Text            =   "800x600"
-      Top             =   4800
+      Top             =   5280
       Width           =   1215
    End
    Begin SHDocVwCtl.WebBrowser WebBrowser1 
@@ -211,7 +265,7 @@ Begin VB.Form Form1
       Left            =   8520
       TabIndex        =   71
       Text            =   "1.00"
-      Top             =   5910
+      Top             =   6390
       Width           =   405
    End
    Begin VB.CheckBox Check18 
@@ -284,7 +338,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   65
       Text            =   "0"
-      Top             =   5640
+      Top             =   6120
       Width           =   285
    End
    Begin VB.CheckBox Check15 
@@ -337,7 +391,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   60
       Text            =   "1"
-      Top             =   6200
+      Top             =   6675
       Width           =   285
    End
    Begin VB.ComboBox Combo5 
@@ -520,7 +574,7 @@ Begin VB.Form Form1
       Left            =   8400
       TabIndex        =   45
       Text            =   "1080"
-      Top             =   4800
+      Top             =   5280
       Width           =   515
    End
    Begin VB.TextBox Text5 
@@ -538,7 +592,7 @@ Begin VB.Form Form1
       Left            =   7920
       TabIndex        =   44
       Text            =   "1920"
-      Top             =   4800
+      Top             =   5280
       Width           =   495
    End
    Begin VB.TextBox Text4 
@@ -556,7 +610,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   42
       Text            =   "2"
-      Top             =   5080
+      Top             =   5565
       Width           =   285
    End
    Begin VB.CommandButton Command4 
@@ -630,7 +684,7 @@ Begin VB.Form Form1
    End
    Begin VB.CheckBox Check8 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Review Command Line before execution?"
+      Caption         =   "Review cmdline?"
       BeginProperty Font 
          Name            =   "OpenSymbol"
          Size            =   9
@@ -640,11 +694,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   435
-      Left            =   4800
+      Height          =   315
+      Left            =   4920
       TabIndex        =   37
       Top             =   2640
-      Width           =   1935
+      Width           =   1455
    End
    Begin VB.CheckBox Check7 
       BackColor       =   &H00C0C0C0&
@@ -695,10 +749,10 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   5280
+      Left            =   4920
       TabIndex        =   27
-      Top             =   3240
-      Width           =   1095
+      Top             =   3000
+      Width           =   1335
    End
    Begin VB.ComboBox Combo4 
       BackColor       =   &H00C0C0C0&
@@ -715,7 +769,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   25
       Text            =   "None - None/Disabled"
-      Top             =   3960
+      Top             =   3600
       Width           =   3375
    End
    Begin VB.CheckBox Check5 
@@ -751,7 +805,7 @@ Begin VB.Form Form1
       Left            =   8640
       TabIndex        =   22
       Text            =   "50"
-      Top             =   5380
+      Top             =   5865
       Width           =   285
    End
    Begin VB.CheckBox Check4 
@@ -805,7 +859,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   18
       Text            =   "None - None/Disabled"
-      Top             =   3600
+      Top             =   3960
       Width           =   3375
    End
    Begin VB.ComboBox Combo2 
@@ -951,6 +1005,25 @@ Begin VB.Form Form1
       Text            =   "gb (GameBoy (Color))"
       Top             =   360
       Width           =   4575
+   End
+   Begin VB.Label Label43 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Goat Mask:"
+      BeginProperty Font 
+         Name            =   "OpenSymbol"
+         Size            =   9
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   180
+      Left            =   4800
+      TabIndex        =   94
+      Top             =   3720
+      Width           =   795
    End
    Begin VB.Label Label42 
       AutoSize        =   -1  'True
@@ -1185,7 +1258,7 @@ Begin VB.Form Form1
       Height          =   180
       Left            =   6840
       TabIndex        =   72
-      Top             =   6000
+      Top             =   6480
       Width           =   765
    End
    Begin VB.Label Label15 
@@ -1223,7 +1296,7 @@ Begin VB.Form Form1
       Height          =   180
       Left            =   6840
       TabIndex        =   66
-      Top             =   5640
+      Top             =   6120
       Width           =   645
    End
    Begin VB.Image Image7 
@@ -1303,7 +1376,7 @@ Begin VB.Form Form1
       Height          =   180
       Left            =   6840
       TabIndex        =   61
-      Top             =   6240
+      Top             =   6720
       Width           =   1305
    End
    Begin VB.Label Label30 
@@ -1406,7 +1479,7 @@ Begin VB.Form Form1
       Height          =   180
       Left            =   6840
       TabIndex        =   46
-      Top             =   4800
+      Top             =   5280
       Width           =   660
    End
    Begin VB.Label Label25 
@@ -1425,7 +1498,7 @@ Begin VB.Form Form1
       Height          =   180
       Left            =   6840
       TabIndex        =   43
-      Top             =   5100
+      Top             =   5580
       Width           =   945
    End
    Begin VB.Label Label22 
@@ -1584,7 +1657,7 @@ Begin VB.Form Form1
       Height          =   180
       Left            =   120
       TabIndex        =   26
-      Top             =   3960
+      Top             =   3600
       Width           =   840
    End
    Begin VB.Label Label12 
@@ -1603,7 +1676,7 @@ Begin VB.Form Form1
       Height          =   180
       Left            =   6840
       TabIndex        =   23
-      Top             =   5385
+      Top             =   5865
       Width           =   1500
    End
    Begin VB.Label Label11 
@@ -1622,7 +1695,7 @@ Begin VB.Form Form1
       Height          =   180
       Left            =   120
       TabIndex        =   19
-      Top             =   3600
+      Top             =   3960
       Width           =   825
    End
    Begin VB.Label Label10 
@@ -2086,7 +2159,7 @@ If Check9.Value = 1 Then
         ElseIf SysCore = "ss" Then
             a = Redump(ROMMD5)
             Label35.Visible = False
-        ElseIf SysCore = "snes" Then
+       ElseIf SysCore = "snes" Or SysCore = "snes_faust" Then
             a = Redump(ROMMD5)
             Label35.Visible = False
         ElseIf SysCore = "nes" Then
@@ -2184,6 +2257,9 @@ ElseIf Form1.Combo1.Text = "sms (Sega Master System)" Then
 ElseIf Form1.Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
     SysCore = "snes"
     If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "snes (Super Nintendo Entertainment System)" & vbCrLf
+ElseIf Form1.Combo1.Text = "snes_faust (Super Nintendo Entertainment System)" Then
+    SysCore = "snes_faust"
+    If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "snes_faust (Super Nintendo Entertainment System)" & vbCrLf
 ElseIf Form1.Combo1.Text = "ss (Sega Saturn)" Then
     SysCore = "ss"
     If Len(Form3.Text1.Text) <= 1 Then Form3.Text1.Text = "ss (Sega Saturn)" & vbCrLf
@@ -2362,46 +2438,7 @@ End If
 End Sub
 
 Private Sub Command3_Click()
-
-If Combo1.Text = "gb (GameBoy (Color))" Then
-    SysCore = "gb"
-ElseIf Combo1.Text = "gba (GameBoy Advanced)" Then
-    SysCore = "gba"
-ElseIf Combo1.Text = "gg (Sega Game Gear)" Then
-    SysCore = "gg"
-ElseIf Combo1.Text = "lynx (Atari Lynx)" Then
-    SysCore = "lynx"
-ElseIf Combo1.Text = "md (Sega Genesis/MegaDrive)" Then
-    SysCore = "md"
-ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
-    SysCore = "nes"
-ElseIf Combo1.Text = "ngp (Neo Geo Pocket (Color))" Then
-    SysCore = "ngp"
-ElseIf Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
-    SysCore = "pce"
-ElseIf Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
-    SysCore = "pce_fast"
-ElseIf Combo1.Text = "pcfx (PC-FX)" Then
-    SysCore = "pcfx"
-ElseIf Combo1.Text = "psx (Sony PlayStation)" Then
-    SysCore = "psx"
-    If Check11.Value = 0 And Check12.Value = 0 And Check13.Value = 0 Then
-        MsgBox "A System Region must be select for PlayStation!", vbCritical, "Error!"
-        FatalError = True
-    End If
-ElseIf Combo1.Text = "sms (Sega Master System)" Then
-    SysCore = "sms"
-ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
-    SysCore = "snes"
-'v0.1.8
-'Combo1.AddItem "ss (Sega Saturn)", 13
-ElseIf Combo1.Text = "ss (Sega Saturn)" Then
-    SysCore = "ss"
-ElseIf Combo1.Text = "vb (Virtual Boy)" Then
-    SysCore = "vb"
-ElseIf Combo1.Text = "wswan (WonderSwan)" Then
-    SysCore = "wswan"
-End If
+SysCore = SetSysCore()
 
 If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" Then
     cmdstring = "cmd.exe /c " & Chr(34) & MedEXE & " -loadcd " & SysCore
@@ -2469,6 +2506,8 @@ ElseIf Combo3.Text = "ipxnotysharper - Sharper version of ipxnoty." Then
     cmdstring = cmdstring & " -" & SysCore & ".shader ipynotysharper"
 ElseIf Combo3.Text = "ipynotxsharper - Sharper version of ipynotx." Then
     cmdstring = cmdstring & " -" & SysCore & ".shader ipynotxsharper"
+ElseIf Combo3.Text = "goat - Simple approximation of a color TV CRT look." Then
+    cmdstring = cmdstring & " -" & SysCore & ".shader goat"
 End If
 
 If Combo4.Text = "None - None/Disabled" Then
@@ -2621,6 +2660,16 @@ If Combo5.Enabled = True Then
                     cmdstring = cmdstring & " -" & SysCore & ".input.port1 3dpad"
                 ElseIf Combo5.ListIndex = 3 Then
                     cmdstring = cmdstring & " -" & SysCore & ".input.port1 mouse"
+                End If
+            ElseIf SysCore = "md" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad6"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 megamouse"
                 End If
             End If
     End If
@@ -2996,7 +3045,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.3.2-r34"
+GetBuild = "0.3.3-r35"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -3017,6 +3066,8 @@ ElseIf SysCore = "pce" Then
 ElseIf SysCore = "nes" Then
     RedumpList = VB.App.Path & "\dat\nes-all-nointro.dat"
 ElseIf SysCore = "snes" Then
+    RedumpList = VB.App.Path & "\dat\snes-all-nointro.dat"
+ElseIf SysCore = "snes_faust" Then
     RedumpList = VB.App.Path & "\dat\snes-all-nointro.dat"
 ElseIf SysCore = "gg" Then
     RedumpList = VB.App.Path & "\dat\gg-all-nointro.dat"
@@ -3183,6 +3234,16 @@ ElseIf Combo1.Text = "gb (GameBoy (Color))" Then
     Label42.Visible = False
     Text1.Visible = False
     Command1.Visible = False
+ElseIf Combo1.Text = "snes_faust (Super Nintendo Entertainment System)" Then
+    Label23.Caption = "NOINTRO: unverified!"
+    Label23.ForeColor = RGB(255, 128, 0)
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
 ElseIf Combo1.Text = "gba (GameBoy Advanced)" Then
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
@@ -3204,6 +3265,15 @@ ElseIf Combo1.Text = "lynx (Atari Lynx)" Then
     Text1.Visible = False
     Command1.Visible = False
 ElseIf Combo1.Text = "md (Sega Genesis/MegaDrive)" Then
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - MK-1650 Sega Genesis Control Pad", 1
+    Combo5.AddItem "gamepad6 - MK-1653 Sega Genesis 6 Button Arcade Pad", 2
+    Combo5.AddItem "megamouse - HAA-2651 Sega Mega Mouse", 3
+    Combo5.ListIndex = 1
+    Combo5.Enabled = True
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
     Label4.Visible = False
@@ -3443,9 +3513,10 @@ Combo1.AddItem "pcfx (PC-FX)", 9
 Combo1.AddItem "psx (Sony PlayStation)", 10
 Combo1.AddItem "sms (Sega Master System)", 11
 Combo1.AddItem "snes (Super Nintendo Entertainment System)", 12
-Combo1.AddItem "ss (Sega Saturn)", 13
-Combo1.AddItem "vb (Virtual Boy)", 14
-Combo1.AddItem "wswan (WonderSwan)", 15
+Combo1.AddItem "snes_faust (Super Nintendo Entertainment System)", 13
+Combo1.AddItem "ss (Sega Saturn)", 14
+Combo1.AddItem "vb (Virtual Boy)", 15
+Combo1.AddItem "wswan (WonderSwan)", 16
 
 Combo2.AddItem "0 - Disabled", 0
 Combo2.AddItem "full - Full", 1
@@ -3463,6 +3534,7 @@ Combo3.AddItem "ipxnoty - Linear interpolation on X axis only.", 6
 Combo3.AddItem "ipynotx - Linear interpolation on Y axis only.", 7
 Combo3.AddItem "ipxnotysharper - Sharper version of ipxnoty.", 8
 Combo3.AddItem "ipynotxsharper - Sharper version of ipynotx.", 9
+Combo3.AddItem "goat - Simple approximation of a color TV CRT look.", 10
 
 Combo4.AddItem "None - None/Disabled", 0
 Combo4.AddItem "hq2x - hq2x", 1
@@ -3524,6 +3596,10 @@ Combo8.AddItem "[IT2] scall.org", 5
 Combo8.AddItem "[RU1] gs.emu-land.net", 6
 Combo8.AddItem "[RU2] emu-russia.net", 7
 Combo8.Text = "Disabled/Offline"
+
+Combo9.AddItem "goatron - Brightest", 0
+Combo9.AddItem "borg - Darkest", 1
+Combo9.AddItem "slenderman - Spookiest?", 1
 
 If FSO.FileExists(MedEXE) = False Then
     Form1.Width = 12900
