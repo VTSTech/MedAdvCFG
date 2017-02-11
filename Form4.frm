@@ -668,8 +668,10 @@ ElseIf SysCore = "ss" Then
 ElseIf SysCore = "pce" Then
     RedumpList = VB.App.Path & "\dat\pce-usa-redump.dat"
 ElseIf SysCore = "nes" Then
-    RedumpList = VB.App.Path & "\dat\nes-all-nointro.dat"
+    RedumpList = VB.App.Path & "\dat\nes-all-goodtools.dat"
 ElseIf SysCore = "snes" Then
+    RedumpList = VB.App.Path & "\dat\snes-all-nointro.dat"
+ElseIf SysCore = "snes_faust" Then
     RedumpList = VB.App.Path & "\dat\snes-all-nointro.dat"
 ElseIf SysCore = "gg" Then
     RedumpList = VB.App.Path & "\dat\gg-all-nointro.dat"
@@ -695,6 +697,10 @@ If FSO.FileExists(RedumpList) Then
                     Label23.Caption = "REDUMP: verified!"
                     Label23.ForeColor = RGB(0, 153, 0)
                     booltmp = True
+                ElseIf SysCore = "nes" Then
+                    Label23.Caption = "GOODTOOLS: verified!"
+                    Label23.ForeColor = RGB(0, 153, 0)
+                    booltmp = True
                 Else
                     Label23.Caption = "NOINTRO: verified!"
                     Label23.ForeColor = RGB(0, 153, 0)
@@ -707,6 +713,10 @@ If FSO.FileExists(RedumpList) Then
     If booltmp = False Then
                 If SysCore = "psx" Or SysCore = "ss" Or SysCore = "pce" Then
                     Label23.Caption = "REDUMP: unverified!"
+                    Label23.ForeColor = RGB(255, 128, 0)
+                    booltmp = True
+                ElseIf SysCore = "nes" Then
+                    Label23.Caption = "GOODTOOLS: unverified!"
                     Label23.ForeColor = RGB(255, 128, 0)
                     booltmp = True
                 Else

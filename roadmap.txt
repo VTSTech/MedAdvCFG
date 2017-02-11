@@ -12,11 +12,17 @@ v0.3.x
 
 * REDUMP Verification (NTSC-U Only)
 * NetPlay Support
-GoodSNES/NES/Gen/SMS Verification ([U][!] only)
+* NoIntro Verification for SNES/MD/GG
+* GoodTools Verification for NES
+* Chat on #MedAdvCFG on Freenode
+* GOAT Shader support
+* SNES_FAUST SysCore Support
 
+SS and SNES_FAUST specific options
+NoIntro Verification for GBA/GBC
+REDUMP Verification for SS/PCE
 Parse CUE for BIN filename
 Parse BIN for PSX ID
-
 Search for REDUMP/GoodTools Verified ROMS
 Maintain list of all verified roms
 

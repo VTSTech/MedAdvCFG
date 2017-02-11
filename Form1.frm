@@ -2019,6 +2019,11 @@ tmp = Replace(tmp, ".iso", "")
 tmp = Replace(tmp, ".bin", "")
 tmp = Replace(tmp, ".gg", "")
 tmp = Replace(tmp, ".lnx", "")
+tmp = Replace(tmp, ".gba", "")
+tmp = Replace(tmp, ".gbc", "")
+tmp = Replace(tmp, ".gb", "")
+tmp = Replace(tmp, ".rom", "")
+tmp = Replace(tmp, ".ccd", "")
 tmp = Replace(tmp, " (USA) ", "")
 tmp = Replace(tmp, " (USA)", "")
 tmp = Replace(tmp, "(USA)", "")
@@ -2694,6 +2699,15 @@ ElseIf Combo6.Text = "Overlay - SDL Overlay" Then
     cmdstring = cmdstring & " -video.driver overlay"
 End If
 
+'**v0.3.3-r36
+If Combo9.Text = "goatron - Brightest" Then
+    cmdstring = cmdstring & " -" & SysCore & ".shader.goat.pat goatron"
+ElseIf Combo9.Text = "borg - Darkest" Then
+    cmdstring = cmdstring & " -" & SysCore & ".shader.goat.pat borg"
+ElseIf Combo9.Text = "slenderman - Spookiest?" Then
+    cmdstring = cmdstring & " -" & SysCore & ".shader.goat.pat slenderman"
+End If
+
 If Check19.Value = 1 Then
     cmdstring = cmdstring & " -video.glvsync 1"
 ElseIf Check19.Value = 0 Then
@@ -3045,7 +3059,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.3.3-r35"
+GetBuild = "0.3.3-r36"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -3054,7 +3068,6 @@ Form3.Text1.Text = ""
 ResetSysCore = ""
 End Function
 Public Function Redump(REDUMPMD5)
-
 REDUMPMD5 = LCase(REDUMPMD5)
 Set FSO = CreateObject("Scripting.FileSystemObject")
 If SysCore = "psx" Then
@@ -3064,7 +3077,7 @@ ElseIf SysCore = "ss" Then
 ElseIf SysCore = "pce" Then
     RedumpList = VB.App.Path & "\dat\pce-usa-redump.dat"
 ElseIf SysCore = "nes" Then
-    RedumpList = VB.App.Path & "\dat\nes-all-nointro.dat"
+    RedumpList = VB.App.Path & "\dat\nes-all-goodtools.dat"
 ElseIf SysCore = "snes" Then
     RedumpList = VB.App.Path & "\dat\snes-all-nointro.dat"
 ElseIf SysCore = "snes_faust" Then
@@ -3093,6 +3106,10 @@ If FSO.FileExists(RedumpList) Then
                     Label23.Caption = "REDUMP: verified!"
                     Label23.ForeColor = RGB(0, 153, 0)
                     booltmp = True
+                ElseIf SysCore = "nes" Then
+                    Label23.Caption = "GOODTOOLS: verified!"
+                    Label23.ForeColor = RGB(0, 153, 0)
+                    booltmp = True
                 Else
                     Label23.Caption = "NOINTRO: verified!"
                     Label23.ForeColor = RGB(0, 153, 0)
@@ -3105,6 +3122,10 @@ If FSO.FileExists(RedumpList) Then
     If booltmp = False Then
                 If SysCore = "psx" Or SysCore = "ss" Or SysCore = "pce" Then
                     Label23.Caption = "REDUMP: unverified!"
+                    Label23.ForeColor = RGB(255, 128, 0)
+                    booltmp = True
+                ElseIf SysCore = "nes" Then
+                    Label23.Caption = "GOODTOOLS: unverified!"
                     Label23.ForeColor = RGB(255, 128, 0)
                     booltmp = True
                 Else

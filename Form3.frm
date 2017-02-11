@@ -375,8 +375,8 @@ ElseIf SysCore = "gba" Then
     MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGBACOVERS.dat"
     MedAdvEXT = "gba"
 ElseIf SysCore = "gb" Then
-    MedAdvGAMES = VB.App.Path & "\dat\MedAdvGB.dat"
-    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGBCOVERS.dat"
+    MedAdvGAMES = VB.App.Path & "\dat\MedAdvGBC.dat"
+    MedAdvCOVERS = VB.App.Path & "\dat\MedAdvGBCCOVERS.dat"
     MedAdvEXT = "gbc"
 ElseIf SysCore = "gg" Then
     MedAdvGAMES = VB.App.Path & "\dat\MedAdvGG.dat"
@@ -414,28 +414,37 @@ End If
 
 x = 1
 y = 1
+Set FSO = CreateObject("Scripting.FileSystemObject")
 
 'Create list downloaded covers
 Dim colFiles As New Collection
 RecursiveDir colFiles, VB.App.Path & "\covers\" & SysCore & "\", "*.jpg", True
-
 Dim vFile As Variant
-Close #9
-Open MedAdvCOVERS For Output As #9
-For Each vFile In colFiles
-    Print #9, vFile
-Next vFile
-Close #9
+If FSO.FileExists(MedAdvCOVERS) Then
+    Close #9
+    Open MedAdvCOVERS For Output As #9
+    For Each vFile In colFiles
+        Print #9, vFile
+    Next vFile
+    Close #9
+Else
+    Shell ("cmd.exe /c echo " & Chr(34) & Chr(34) & " >> " & MedAdvCOVERS)
+End If
 
-'Read list of extracted cue sheets
-Close #8
-Open MedAdvGAMES For Input As #8
-While Not EOF(8)
-Line Input #8, tmp
-GamesList(x) = tmp
-x = x + 1
-Wend
-Close #8
+
+If FSO.FileExists(MedAdvGAMES) Then
+    'Read list of extracted cue sheets
+    Close #8
+    Open MedAdvGAMES For Input As #8
+    While Not EOF(8)
+    Line Input #8, tmp
+    GamesList(x) = tmp
+    x = x + 1
+    Wend
+    Close #8
+Else
+    Shell ("cmd.exe /c echo " & Chr(34) & Chr(34) & " >> " & MedAdvGAMES)
+End If
 
 TotalGames = x
 PageOn = 1
@@ -445,14 +454,18 @@ Label2.Caption = "Page: 1/" & PageTotal
 x = 1
 
 'Read list of installed covers
-Close #10
-Open MedAdvCOVERS For Input As #10
-While Not EOF(10)
-Line Input #10, tmp
-CoversList(x) = tmp
-x = x + 1
-Wend
-Close #10
+If FSO.FileExists(MedAdvCOVERS) Then
+    Close #10
+    Open MedAdvCOVERS For Input As #10
+    While Not EOF(10)
+    Line Input #10, tmp
+    CoversList(x) = tmp
+    x = x + 1
+    Wend
+    Close #10
+Else
+    Shell ("cmd.exe /c echo " & Chr(34) & Chr(34) & " >> " & MedAdvCOVERS)
+End If
 
 TotalCovers = x
 a = Find_Covers()
@@ -465,6 +478,11 @@ tmp = Replace(tmp, ".iso", "")
 tmp = Replace(tmp, ".bin", "")
 tmp = Replace(tmp, ".gg", "")
 tmp = Replace(tmp, ".lnx", "")
+tmp = Replace(tmp, ".gba", "")
+tmp = Replace(tmp, ".gbc", "")
+tmp = Replace(tmp, ".gb", "")
+tmp = Replace(tmp, ".rom", "")
+tmp = Replace(tmp, ".ccd", "")
 tmp = Replace(tmp, " (USA) ", "")
 tmp = Replace(tmp, " (USA)", "")
 tmp = Replace(tmp, "(USA)", "")

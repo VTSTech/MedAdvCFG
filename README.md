@@ -9,13 +9,28 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/aeb948f5a9faa2cadbba67b5a983cd2f.png">
+<img src="https://i.gyazo.com/77f133534e1e18479af2b3fc256f2798.png">
 
-<img src="https://i.gyazo.com/b184de2928c24e8c356f21518e8869ba.png">
+<img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
-<img src="https://i.gyazo.com/673f11c25bb1703fcb69f63c31b9212e.png">
+<img src="https://i.gyazo.com/0fdd3ab59d2e938e4f22f6062d44b724.png">
 
-<img src="https://i.gyazo.com/24142e24b1463684653a73eac2141691.png">
+<img src="https://i.gyazo.com/6a2fe1b84457739aa1f87e3ae319b566.png">
+
+v0.3.3-r36 02-11-2017 11:44AM
+
+Goat Mask control is now functional
+
+Verifying NES with GoodTools
+
+FileNameCleanup for Cover Search cleans gba/gbc/gb/ccd roms
+
+Better handling of first instance of cover/rom search
+
+Updated roadmap.txt
+
+Various Code Optimizations
+
 
 v0.3.3-r35 02-10-2017 1:09PM
 
