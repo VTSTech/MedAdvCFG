@@ -9,13 +9,23 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/77f133534e1e18479af2b3fc256f2798.png">
+<img src="https://i.gyazo.com/b1e6ce8dc1f31ef915b8272c11ea9616.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
 <img src="https://i.gyazo.com/0fdd3ab59d2e938e4f22f6062d44b724.png">
 
 <img src="https://i.gyazo.com/6a2fe1b84457739aa1f87e3ae319b566.png">
+
+v0.3.3-r37 02-12-2017 12:26PM
+
+Changed main font to Arial
+
+Added TurboGrafx-16 Controller support
+
+Added PC-FX Bios support (untested)
+
+Various code optimizations
 
 v0.3.3-r36 02-11-2017 11:44AM
 
