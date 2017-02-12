@@ -6,69 +6,42 @@ Begin VB.Form Form1
    ClientHeight    =   8160
    ClientLeft      =   225
    ClientTop       =   555
-   ClientWidth     =   8955
+   ClientWidth     =   8985
    BeginProperty Font 
-      Name            =   "MS Sans Serif"
+      Name            =   "Arial"
       Size            =   8.25
       Charset         =   0
       Weight          =   400
-      Underline       =   -1  'True
+      Underline       =   0   'False
       Italic          =   0   'False
       Strikethrough   =   0   'False
    EndProperty
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   8160
-   ScaleWidth      =   8955
+   ScaleWidth      =   8985
    StartUpPosition =   2  'CenterScreen
    Begin VB.CheckBox Check25 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Goat Force Progressive"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
+      Caption         =   "goat progressive"
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   96
       Top             =   5040
-      Width           =   1935
+      Width           =   2055
    End
    Begin VB.CheckBox Check24 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Goat Scanlines"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
+      Caption         =   "goat scanlines"
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   95
       Top             =   4800
-      Width           =   1335
+      Width           =   2055
    End
    Begin VB.ComboBox Combo9 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   300
+      Height          =   330
       Left            =   4800
       TabIndex        =   93
       Text            =   "None - None/Disabled"
@@ -77,16 +50,7 @@ Begin VB.Form Form1
    End
    Begin VB.ComboBox Combo8 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   300
+      Height          =   330
       ItemData        =   "Form1.frx":851A
       Left            =   1320
       List            =   "Form1.frx":851C
@@ -97,16 +61,7 @@ Begin VB.Form Form1
    End
    Begin VB.ComboBox Combo7 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   300
+      Height          =   330
       ItemData        =   "Form1.frx":851E
       Left            =   7720
       List            =   "Form1.frx":8520
@@ -145,105 +100,51 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check23 
       BackColor       =   &H00C0C0C0&
       Caption         =   "cd.image_memcache"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   81
       Top             =   4560
-      Width           =   1815
+      Width           =   2055
    End
    Begin VB.CheckBox Check22 
       BackColor       =   &H00C0C0C0&
       Caption         =   "video.blit_timesync"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   80
       Top             =   3840
-      Width           =   1815
+      Width           =   2055
    End
    Begin VB.CheckBox Check21 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Disable Sound"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   79
       Top             =   3600
-      Width           =   1455
+      Width           =   1935
    End
    Begin VB.CheckBox Check20 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Force Mono"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   78
       Top             =   3360
-      Width           =   1215
+      Width           =   2055
    End
    Begin VB.CheckBox Check19 
       BackColor       =   &H00C0C0C0&
       Caption         =   "video.glvsync"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   77
       Top             =   4080
-      Width           =   1455
+      Width           =   2055
    End
    Begin VB.ComboBox Combo6 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   300
+      Height          =   330
       Left            =   1320
       TabIndex        =   75
       Text            =   "None - None/Disabled"
@@ -252,15 +153,6 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text11 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   8520
       TabIndex        =   71
@@ -325,15 +217,6 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text10 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   8640
       TabIndex        =   65
@@ -344,32 +227,14 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check15 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Yes to All Prompts(!)"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   64
       Top             =   360
-      Width           =   1935
+      Width           =   2055
    End
    Begin VB.TextBox Text9 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   1320
       TabIndex        =   62
@@ -378,15 +243,6 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text8 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   8640
       TabIndex        =   60
@@ -396,16 +252,7 @@ Begin VB.Form Form1
    End
    Begin VB.ComboBox Combo5 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   300
+      Height          =   330
       ItemData        =   "Form1.frx":8522
       Left            =   1320
       List            =   "Form1.frx":8524
@@ -417,34 +264,16 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check14 
       BackColor       =   &H00C0C0C0&
       Caption         =   "untrusted_fip_check"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   57
       Top             =   4320
       Value           =   1  'Checked
-      Width           =   1815
+      Width           =   2055
    End
    Begin VB.CheckBox Check13 
       BackColor       =   &H00C0C0C0&
       Caption         =   "PAL"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
       Left            =   3050
       TabIndex        =   54
@@ -454,15 +283,6 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check12 
       BackColor       =   &H00C0C0C0&
       Caption         =   "NTSC-J"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
       Left            =   2200
       TabIndex        =   53
@@ -472,15 +292,6 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check11 
       BackColor       =   &H00C0C0C0&
       Caption         =   "NTSC-U"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
       Left            =   1320
       TabIndex        =   52
@@ -489,15 +300,6 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text7 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   1320
       TabIndex        =   50
@@ -508,68 +310,32 @@ Begin VB.Form Form1
    Begin VB.CommandButton Command5 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Set"
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   255
-      Left            =   5880
+      Left            =   6000
       TabIndex        =   49
       Top             =   4340
-      Width           =   495
+      Width           =   615
    End
    Begin VB.CheckBox Check10 
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS MD5 Check"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   48
       Top             =   840
-      Width           =   1695
+      Width           =   2055
    End
    Begin VB.CheckBox Check9 
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM MD5 Check"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   47
       Top             =   1320
-      Width           =   1695
+      Width           =   2055
    End
    Begin VB.TextBox Text6 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   8400
       TabIndex        =   45
@@ -579,15 +345,6 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text5 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   7920
       TabIndex        =   44
@@ -597,15 +354,6 @@ Begin VB.Form Form1
    End
    Begin VB.TextBox Text4 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   8640
       TabIndex        =   42
@@ -616,20 +364,11 @@ Begin VB.Form Form1
    Begin VB.CommandButton Command4 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Clear"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   255
-      Left            =   5880
+      Left            =   6000
       TabIndex        =   41
       Top             =   380
-      Width           =   495
+      Width           =   615
    End
    Begin VB.DriveListBox Drive1 
       BackColor       =   &H00C0C0C0&
@@ -685,69 +424,33 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check8 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Review cmdline?"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   315
       Left            =   4920
       TabIndex        =   37
       Top             =   2640
-      Width           =   1455
+      Width           =   1815
    End
    Begin VB.CheckBox Check7 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Frameskip"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   36
       Top             =   2040
-      Width           =   1095
+      Width           =   2055
    End
    Begin VB.CheckBox Check6 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Fullscreen (FS)"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   28
       Top             =   1800
-      Width           =   1455
+      Width           =   2055
    End
    Begin VB.CommandButton Command3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Launch mednafen.exe"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   495
       Left            =   4920
       TabIndex        =   27
@@ -756,16 +459,7 @@ Begin VB.Form Form1
    End
    Begin VB.ComboBox Combo4 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   300
+      Height          =   330
       Left            =   1320
       TabIndex        =   25
       Text            =   "None - None/Disabled"
@@ -775,32 +469,14 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check5 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Bilinear interpolation"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   24
       Top             =   3120
-      Width           =   1815
+      Width           =   2055
    End
    Begin VB.TextBox Text3 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   8640
       TabIndex        =   22
@@ -811,51 +487,24 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check4 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Accumulate color"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   21
       Top             =   2880
-      Width           =   1575
+      Width           =   2055
    End
    Begin VB.CheckBox Check3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Temporal Blur"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   20
       Top             =   2280
-      Width           =   1335
+      Width           =   2055
    End
    Begin VB.ComboBox Combo3 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   300
+      Height          =   330
       Left            =   1320
       TabIndex        =   18
       Text            =   "None - None/Disabled"
@@ -864,16 +513,7 @@ Begin VB.Form Form1
    End
    Begin VB.ComboBox Combo2 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   300
+      Height          =   330
       Left            =   1320
       TabIndex        =   16
       Text            =   "0 - Disabled"
@@ -883,50 +523,23 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check2 
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM Sanity Check"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   15
       Top             =   1080
-      Width           =   1695
+      Width           =   2055
    End
    Begin VB.CommandButton Command2 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Set"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   255
-      Left            =   5880
+      Left            =   6000
       TabIndex        =   12
       Top             =   1820
-      Width           =   495
+      Width           =   615
    End
    Begin VB.TextBox Text2 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   1320
       TabIndex        =   11
@@ -937,50 +550,23 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check1 
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS Sanity Check"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   7080
+      Left            =   6960
       TabIndex        =   9
       Top             =   600
-      Width           =   1695
+      Width           =   2055
    End
    Begin VB.CommandButton Command1 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Set"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   255
-      Left            =   5880
+      Left            =   6000
       TabIndex        =   7
       Top             =   980
-      Width           =   495
+      Width           =   615
    End
    Begin VB.TextBox Text1 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   285
       Left            =   1320
       TabIndex        =   5
@@ -990,16 +576,7 @@ Begin VB.Form Form1
    End
    Begin VB.ComboBox Combo1 
       BackColor       =   &H00C0C0C0&
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   300
+      Height          =   330
       Left            =   1320
       TabIndex        =   2
       Text            =   "gb (GameBoy (Color))"
@@ -1010,28 +587,19 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Goat Mask:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   4800
       TabIndex        =   94
       Top             =   3720
-      Width           =   795
+      Width           =   810
    End
    Begin VB.Label Label42 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "REDUMP: unverified!"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1039,18 +607,18 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000080FF&
-      Height          =   180
+      Height          =   210
       Left            =   5160
       TabIndex        =   92
       Top             =   1320
-      Width           =   1725
+      Width           =   1635
    End
    Begin VB.Label Label41 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "18j2Env7QokhGG5MccS3LPBKnjsko6u4NQ"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
+         Name            =   "Arial"
          Size            =   9
          Charset         =   0
          Weight          =   400
@@ -1059,18 +627,18 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00009900&
-      Height          =   180
-      Left            =   3240
+      Height          =   225
+      Left            =   3120
       TabIndex        =   89
       Top             =   6555
-      Width           =   2760
+      Width           =   3615
    End
    Begin VB.Label Label24 
       BackStyle       =   0  'Transparent
       Caption         =   "www.CoversDB.org"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   400
          Underline       =   -1  'True
@@ -1090,8 +658,8 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "REDUMP: unverified!"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1099,26 +667,17 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000080FF&
-      Height          =   180
+      Height          =   210
       Left            =   5160
       TabIndex        =   87
       Top             =   2160
-      Width           =   1725
+      Width           =   1635
    End
    Begin VB.Label Label40 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS VER:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   85
       Top             =   1560
@@ -1129,85 +688,49 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "PSX ID:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   360
       TabIndex        =   84
       Top             =   2400
       Visible         =   0   'False
-      Width           =   555
+      Width           =   525
    End
    Begin VB.Label Label35 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Not Set"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   1320
       TabIndex        =   83
       Top             =   2400
-      Width           =   630
+      Width           =   525
    End
    Begin VB.Label Label38 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Netplay Host:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   82
       Top             =   5040
-      Width           =   915
+      Width           =   960
    End
    Begin VB.Label Label37 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Video Driver"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   76
       Top             =   3240
-      Width           =   840
+      Width           =   900
    End
    Begin VB.Label Label36 
       BackStyle       =   0  'Transparent
       Caption         =   "www.NigelTodman.com"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   400
          Underline       =   -1  'True
@@ -1226,78 +749,42 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "MedAdvCFG v0.0.0"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       ForeColor       =   &H00FF0000&
-      Height          =   180
+      Height          =   210
       Left            =   7200
       TabIndex        =   73
       Top             =   7320
-      Width           =   1350
+      Width           =   1410
    End
    Begin VB.Label Label33 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Axis Scale:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   6840
       TabIndex        =   72
       Top             =   6480
-      Width           =   765
+      Width           =   825
    End
    Begin VB.Label Label15 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Deinterlacer:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   70
       Top             =   3000
-      Width           =   795
+      Width           =   915
    End
    Begin VB.Label Label14 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Scanlines:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   6840
       TabIndex        =   66
       Top             =   6120
-      Width           =   645
+      Width           =   750
    End
    Begin VB.Image Image7 
       Height          =   480
@@ -1345,115 +832,61 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Custom Params:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   63
       Top             =   5400
-      Width           =   1110
+      Width           =   1170
    End
    Begin VB.Label Label31 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Number of Players:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   6840
       TabIndex        =   61
       Top             =   6720
-      Width           =   1305
+      Width           =   1380
    End
    Begin VB.Label Label30 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Controller:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   59
       Top             =   4680
-      Width           =   645
+      Width           =   735
    End
    Begin VB.Label Label29 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Not Set"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   1320
       TabIndex        =   56
       Top             =   1560
-      Width           =   630
+      Width           =   525
    End
    Begin VB.Label Label28 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "System Region:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   55
       Top             =   720
-      Width           =   1050
+      Width           =   1125
    End
    Begin VB.Label Label27 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Save Path:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   51
       Top             =   4320
-      Width           =   750
+      Width           =   780
    End
    Begin VB.Image Image1 
       Height          =   975
@@ -1467,47 +900,29 @@ Begin VB.Form Form1
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Resolution"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   6840
       TabIndex        =   46
       Top             =   5280
-      Width           =   660
+      Width           =   750
    End
    Begin VB.Label Label25 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Scaling Factor"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   6840
       TabIndex        =   43
       Top             =   5580
-      Width           =   945
+      Width           =   1035
    End
    Begin VB.Label Label22 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "F5:Save state"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1515,19 +930,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   35
       Top             =   6240
-      Width           =   1140
+      Width           =   1080
    End
    Begin VB.Label Label21 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "F7:Load state"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1535,19 +950,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   34
       Top             =   6480
-      Width           =   1110
+      Width           =   1095
    End
    Begin VB.Label Label20 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "F10:Reset Console"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1555,19 +970,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   33
       Top             =   6720
-      Width           =   1515
+      Width           =   1530
    End
    Begin VB.Label Label19 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Alt+Enter:Toggle fullscreen mode"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1575,19 +990,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   32
       Top             =   6960
-      Width           =   2715
+      Width           =   2775
    End
    Begin VB.Label Label18 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "CTRL+SHIFT+1:Select Controller Type"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1595,19 +1010,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   180
-      Left            =   3240
+      Height          =   210
+      Left            =   3120
       TabIndex        =   31
       Top             =   6765
-      Width           =   3180
+      Width           =   3045
    End
    Begin VB.Label Label17 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "ALT+SHIFT+1:Configure buttons for Controller Port "
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1615,19 +1030,19 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   180
-      Left            =   3240
+      Height          =   210
+      Left            =   3120
       TabIndex        =   30
       Top             =   6960
-      Width           =   4365
+      Width           =   4215
    End
    Begin VB.Label Label16 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "Hotkeys:"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -1635,258 +1050,168 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   29
       Top             =   6000
-      Width           =   690
+      Width           =   720
    End
    Begin VB.Label Label13 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Video Scaler"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   26
       Top             =   3600
-      Width           =   840
+      Width           =   930
    End
    Begin VB.Label Label12 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Temporal Blur amount:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   6840
       TabIndex        =   23
       Top             =   5865
-      Width           =   1500
+      Width           =   1605
    End
    Begin VB.Label Label11 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Pixel Shader"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   19
       Top             =   3960
-      Width           =   825
+      Width           =   900
    End
    Begin VB.Label Label10 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "FS Stretch"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   17
       Top             =   2640
-      Width           =   720
+      Width           =   765
    End
    Begin VB.Label Label9 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Not Set"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
-      Left            =   1320
-      TabIndex        =   14
-      Top             =   2160
-      Width           =   525
-   End
-   Begin VB.Label Label8 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "ROM MD5:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
-      Left            =   120
-      TabIndex        =   13
-      Top             =   2160
-      Width           =   795
-   End
-   Begin VB.Label Label7 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "ROM Image:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
-      Left            =   120
-      TabIndex        =   10
-      Top             =   1800
-      Width           =   870
-   End
-   Begin VB.Label Label6 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "Not Set"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
-      Left            =   1320
-      TabIndex        =   8
-      Top             =   1320
-      Width           =   525
-   End
-   Begin VB.Label Label5 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "BIOS MD5:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
-      Left            =   120
-      TabIndex        =   6
-      Top             =   1320
-      Width           =   780
-   End
-   Begin VB.Label Label4 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "System BIOS:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
-      Left            =   120
-      TabIndex        =   4
-      Top             =   960
-      Width           =   945
-   End
-   Begin VB.Label Label3 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "System Core:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
-      Left            =   120
-      TabIndex        =   3
-      Top             =   360
-      Width           =   915
-   End
-   Begin VB.Label Label2 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "0.9.41.0-win64 Detected! MD5: 6AADC9A8A196DA610E6DB43367B339B4"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
+         Name            =   "Arial"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   180
+      Height          =   210
+      Left            =   1320
+      TabIndex        =   14
+      Top             =   2160
+      Width           =   585
+   End
+   Begin VB.Label Label8 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "ROM MD5:"
+      Height          =   210
+      Left            =   120
+      TabIndex        =   13
+      Top             =   2160
+      Width           =   750
+   End
+   Begin VB.Label Label7 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "ROM Image:"
+      Height          =   210
+      Left            =   120
+      TabIndex        =   10
+      Top             =   1800
+      Width           =   855
+   End
+   Begin VB.Label Label6 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Not Set"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   210
+      Left            =   1320
+      TabIndex        =   8
+      Top             =   1320
+      Width           =   585
+   End
+   Begin VB.Label Label5 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "BIOS MD5:"
+      Height          =   210
+      Left            =   120
+      TabIndex        =   6
+      Top             =   1320
+      Width           =   765
+   End
+   Begin VB.Label Label4 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "System BIOS:"
+      Height          =   210
+      Left            =   120
+      TabIndex        =   4
+      Top             =   960
+      Width           =   990
+   End
+   Begin VB.Label Label3 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "System Core:"
+      Height          =   210
+      Left            =   120
+      TabIndex        =   3
+      Top             =   360
+      Width           =   975
+   End
+   Begin VB.Label Label2 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "0.9.41.0-win64 Detected! MD5: 6AADC9A8A196DA610E6DB43367B339B4"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   210
       Left            =   1320
       TabIndex        =   1
       Top             =   120
-      Width           =   5880
+      Width           =   5580
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Mednafen EXE:"
-      BeginProperty Font 
-         Name            =   "OpenSymbol"
-         Size            =   9
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   180
+      Height          =   210
       Left            =   120
       TabIndex        =   0
       Top             =   120
-      Width           =   1035
+      Width           =   1095
    End
    Begin VB.Menu File 
       Caption         =   "File"
@@ -2386,6 +1711,8 @@ ElseIf Combo1.Text = "psx (Sony PlayStation)" Then
     MsgBox "BIOS Image File: scph5500.bin/scph5501.bin/scph5502.bin is expected"
 ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     MsgBox "BIOS Image File: sega_101.bin/mpr-17933.bin is expected"
+ElseIf Combo1.Text = "pcfx (PC-FX)" Then
+    MsgBox "BIOS Image File: pcfx.rom is expected"
 End If
 End Sub
 
@@ -2464,6 +1791,12 @@ If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" 
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
         cmdstring = cmdstring & "-pce.cdbios " & Chr(34) & BIOSFILE & Chr(34)
+    End If
+    If SysCore = "pcfx" Then
+        If Len(BIOSPATH) > 1 Then
+            cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
+        End If
+        cmdstring = cmdstring & "-pcfx.bios " & Chr(34) & BIOSFILE & Chr(34)
     End If
     If SysCore = "ss" Then
         If Len(BIOSPATH) > 1 Then
@@ -2675,6 +2008,16 @@ If Combo5.Enabled = True Then
                     cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad6"
                 ElseIf Combo5.ListIndex = 3 Then
                     cmdstring = cmdstring & " -" & SysCore & ".input.port1 megamouse"
+                End If
+            ElseIf SysCore = "pce" Or SysCore = "pce_fast" Then
+                If Combo5.ListIndex = 0 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 none"
+                ElseIf Combo5.ListIndex = 1 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gamepad"
+                ElseIf Combo5.ListIndex = 2 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 mouse"
+                ElseIf Combo5.ListIndex = 3 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 tsushinkb"
                 End If
             End If
     End If
@@ -3059,7 +2402,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.3.3-r36"
+GetBuild = "0.3.3-r37"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -3343,8 +2686,20 @@ ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     Label42.Visible = True
     Text1.Visible = True
     Command1.Visible = True
-ElseIf Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
+ElseIf Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Or Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
     SysCore = "pce"
+    If Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
+        SysCore = "pce_fast"
+    End If
+    For z = 1 To Combo5.ListCount
+        Combo5.RemoveItem 0
+    Next z
+    Combo5.AddItem "none", 0
+    Combo5.AddItem "gamepad - HES-PAD-01 TurboGrafx-16 TurboPad", 1
+    Combo5.AddItem "mouse - PI-PD10 NEC PC-Engine Mouse", 2
+    Combo5.AddItem "tsushinkb - Tsushin Keyboard", 3
+    Combo5.ListIndex = 1
+    Combo5.Enabled = True
     Label4.Visible = True
     Label5.Visible = True
     Label6.Visible = True
@@ -3354,8 +2709,8 @@ ElseIf Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
     Command1.Visible = True
     Label23.Caption = "REDUMP: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-ElseIf Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
-    SysCore = "pce_fast"
+ElseIf Combo1.Text = "pcfx (PC-FX)" Then
+    SysCore = "pcfx"
     Label4.Visible = True
     Label5.Visible = True
     Label6.Visible = True

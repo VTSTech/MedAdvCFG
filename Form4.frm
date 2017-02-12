@@ -5,16 +5,25 @@ Begin VB.Form Form4
    ClientHeight    =   7965
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   11280
+   ClientWidth     =   13125
+   BeginProperty Font 
+      Name            =   "Arial"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
    ForeColor       =   &H0000FF00&
    LinkTopic       =   "Form4"
    ScaleHeight     =   7965
-   ScaleWidth      =   11280
+   ScaleWidth      =   13125
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command2 
       Caption         =   "Back"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -31,7 +40,7 @@ Begin VB.Form Form4
    Begin VB.CommandButton Command1 
       Caption         =   "Play Game"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -50,7 +59,7 @@ Begin VB.Form Form4
       BackColor       =   &H00000000&
       Caption         =   "REDUMP Database unverified!"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -59,18 +68,18 @@ Begin VB.Form Form4
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000080FF&
-      Height          =   195
+      Height          =   210
       Left            =   9000
       TabIndex        =   17
       Top             =   2520
-      Width           =   2640
+      Width           =   2385
    End
    Begin VB.Label Label23 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "REDUMP Database unverified!"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -79,18 +88,18 @@ Begin VB.Form Form4
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000080FF&
-      Height          =   195
+      Height          =   210
       Left            =   9000
       TabIndex        =   16
       Top             =   3000
-      Width           =   2640
+      Width           =   2385
    End
    Begin VB.Label Label14 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "Game ID:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -99,29 +108,29 @@ Begin VB.Form Form4
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   15
       Top             =   1080
-      Width           =   810
+      Width           =   720
    End
    Begin VB.Label Label13 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "GAMEID"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   14
       Top             =   1320
-      Width           =   630
+      Width           =   585
    End
    Begin VB.Label Label12 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "Cover Searched:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -130,29 +139,29 @@ Begin VB.Form Form4
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   13
       Top             =   2040
-      Width           =   1440
+      Width           =   1365
    End
    Begin VB.Label Label11 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "6AADC9A8A196DA610E6DB43367B339B4"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   12
       Top             =   2280
-      Width           =   3120
+      Width           =   3135
    End
    Begin VB.Label Label10 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "BIOS MD5:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -161,40 +170,40 @@ Begin VB.Form Form4
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   11
       Top             =   2520
-      Width           =   960
+      Width           =   810
    End
    Begin VB.Label Label9 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "6AADC9A8A196DA610E6DB43367B339B4"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   10
       Top             =   2760
-      Width           =   3120
+      Width           =   3135
    End
    Begin VB.Label Label8 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "BIOS"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   9
       Top             =   840
-      Width           =   375
+      Width           =   360
    End
    Begin VB.Label Label7 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "System BIOS:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -203,29 +212,29 @@ Begin VB.Form Form4
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   8
       Top             =   600
-      Width           =   1170
+      Width           =   1095
    End
    Begin VB.Label Label6 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "6AADC9A8A196DA610E6DB43367B339B4"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   7
       Top             =   3240
-      Width           =   3120
+      Width           =   3135
    End
    Begin VB.Label Label5 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "ROM MD5:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -234,18 +243,18 @@ Begin VB.Form Form4
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   6
       Top             =   3000
-      Width           =   945
+      Width           =   810
    End
    Begin VB.Label Label4 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "System Core:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -254,7 +263,7 @@ Begin VB.Form Form4
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   5
       Top             =   120
@@ -265,7 +274,7 @@ Begin VB.Form Form4
       BackColor       =   &H00000000&
       Caption         =   "ROM Filename:"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
+         Name            =   "Arial"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -274,18 +283,18 @@ Begin VB.Form Form4
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   4
       Top             =   1560
-      Width           =   1305
+      Width           =   1215
    End
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "FileName.ext"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   1
       Top             =   1800
@@ -296,11 +305,11 @@ Begin VB.Form Form4
       BackColor       =   &H00000000&
       Caption         =   "SysCore"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   7920
       TabIndex        =   0
       Top             =   360
-      Width           =   585
+      Width           =   630
    End
    Begin VB.Image Image1 
       Height          =   7695
@@ -735,6 +744,7 @@ Build = Form1.GetBuild()
 Form4.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Form4.Width = 14355
 Set FSO = CreateObject("Scripting.FileSystemObject")
+SysCore = Form1.SetSysCore
 a = LoadSettings()
 SysCore = Form1.SetSysCore
 Basic.Checked = True

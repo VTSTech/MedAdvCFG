@@ -6,6 +6,15 @@ Begin VB.Form Form2
    ClientLeft      =   225
    ClientTop       =   855
    ClientWidth     =   10920
+   BeginProperty Font 
+      Name            =   "Arial"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
    LinkTopic       =   "Form2"
    ScaleHeight     =   11799.5
    ScaleMode       =   0  'User
@@ -34,6 +43,15 @@ Begin VB.Form Form2
       Width           =   2175
    End
    Begin VB.TextBox Text3 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   2055
       Left            =   9840
       MultiLine       =   -1  'True
@@ -45,6 +63,15 @@ Begin VB.Form Form2
    End
    Begin VB.DirListBox Dir1 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   1890
       Left            =   11160
       TabIndex        =   16
@@ -53,6 +80,15 @@ Begin VB.Form Form2
    End
    Begin VB.FileListBox File1 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   2820
       Left            =   11160
       TabIndex        =   15
@@ -61,6 +97,15 @@ Begin VB.Form Form2
    End
    Begin VB.DriveListBox Drive1 
       BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   11160
       TabIndex        =   14
@@ -157,8 +202,8 @@ Begin VB.Form Form2
       BackColor       =   &H00000000&
       Caption         =   "Not Set"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "Arial"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -166,41 +211,41 @@ Begin VB.Form Form2
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   225
       Left            =   3240
       TabIndex        =   18
       Top             =   2280
-      Width           =   660
+      Width           =   615
    End
    Begin VB.Label Label5 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "System BIOS:"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   2040
       TabIndex        =   17
       Top             =   2280
-      Width           =   975
+      Width           =   990
    End
    Begin VB.Label Label3 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "Mednafen EXE:"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   1920
       TabIndex        =   13
       Top             =   2040
-      Width           =   1125
+      Width           =   1095
    End
    Begin VB.Label Label2 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "0.9.41.0-win64 Detected! MD5: 6AADC9A8A196DA610E6DB43367B339B4"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
+         Name            =   "Arial"
+         Size            =   9
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -208,19 +253,19 @@ Begin VB.Form Form2
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   225
       Left            =   3240
       TabIndex        =   12
       Top             =   2040
-      Width           =   6345
+      Width           =   6135
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "BASIC MODE is not Finished yet."
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   12
+         Name            =   "Arial"
+         Size            =   11.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
@@ -228,42 +273,42 @@ Begin VB.Form Form2
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H000000FF&
-      Height          =   300
+      Height          =   270
       Left            =   3480
       TabIndex        =   11
       Top             =   1680
-      Width           =   4020
+      Width           =   3480
    End
    Begin VB.Label Label4 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "System BIOS:"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   2040
       TabIndex        =   9
       Top             =   2520
       Visible         =   0   'False
-      Width           =   975
+      Width           =   990
    End
    Begin VB.Label Label7 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "ROM Folder:"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   2070
       TabIndex        =   8
       Top             =   2880
       Visible         =   0   'False
-      Width           =   900
+      Width           =   885
    End
    Begin VB.Label Label26 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "Resolution"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   6000
       TabIndex        =   3
       Top             =   3360

@@ -7,6 +7,15 @@ Begin VB.Form Form3
    ClientLeft      =   225
    ClientTop       =   855
    ClientWidth     =   11280
+   BeginProperty Font 
+      Name            =   "Arial"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
    LinkTopic       =   "Form3"
    ScaleHeight     =   8490
    ScaleMode       =   0  'User
@@ -15,6 +24,15 @@ Begin VB.Form Form3
    Begin VB.CommandButton Command4 
       BackColor       =   &H00000000&
       Caption         =   "Back"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   315
       Left            =   11520
       TabIndex        =   5
@@ -22,6 +40,15 @@ Begin VB.Form Form3
       Width           =   615
    End
    Begin VB.TextBox Text1 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   1335
       Left            =   11880
       MultiLine       =   -1  'True
@@ -33,6 +60,15 @@ Begin VB.Form Form3
    Begin VB.CommandButton Command2 
       BackColor       =   &H00404040&
       Caption         =   "<"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   2650
       Left            =   120
       MaskColor       =   &H00404040&
@@ -43,6 +79,15 @@ Begin VB.Form Form3
    Begin VB.CommandButton Command1 
       BackColor       =   &H00404040&
       Caption         =   ">"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       Height          =   2650
       Left            =   11640
       MaskColor       =   &H00404040&
@@ -55,22 +100,22 @@ Begin VB.Form Form3
       BackColor       =   &H00000000&
       Caption         =   "Page: 1/x"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   5880
       TabIndex        =   3
       Top             =   120
-      Width           =   705
+      Width           =   675
    End
    Begin VB.Label Label1 
       AutoSize        =   -1  'True
       BackColor       =   &H00000000&
       Caption         =   "Total Games: x"
       ForeColor       =   &H0000FF00&
-      Height          =   195
+      Height          =   210
       Left            =   9480
       TabIndex        =   2
       Top             =   120
-      Width           =   1065
+      Width           =   1080
    End
    Begin VB.Image Image1 
       Height          =   2595
