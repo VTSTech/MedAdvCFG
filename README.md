@@ -9,7 +9,7 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/b1e6ce8dc1f31ef915b8272c11ea9616.png">
+<img src="https://i.gyazo.com/64f9e17088ecc3ad743c4f451f2cc5b6.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
@@ -21,7 +21,7 @@ v0.3.3-r38 02-26-2017 11:32PM
 
 Added support for Mednafen v0.9.43.0-win64/win32
 
-Goat Scanlines/Progression controls are now functional
+Goat Scanlines/Progressive controls are now functional
 
 Added Horizontal Overscan (PSX)
 
