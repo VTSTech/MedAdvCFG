@@ -17,6 +17,18 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/6a2fe1b84457739aa1f87e3ae319b566.png">
 
+v0.3.3-r38 02-26-2017 11:32PM
+
+Added support for Mednafen v0.9.43.0-win64/win32
+
+Goat Scanlines/Progression controls are now functional
+
+Added Horizontal Overscan (PSX)
+
+Basic Mode now saves settings when games are listed.
+
+Various code optimizations
+
 v0.3.3-r37 02-12-2017 12:26PM
 
 Changed main font to Arial

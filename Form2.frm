@@ -274,9 +274,9 @@ Begin VB.Form Form2
       EndProperty
       ForeColor       =   &H000000FF&
       Height          =   270
-      Left            =   3480
+      Left            =   3720
       TabIndex        =   11
-      Top             =   1680
+      Top             =   0
       Width           =   3480
    End
    Begin VB.Label Label4 
@@ -724,6 +724,7 @@ For Each vFile In colFiles
     Print #7, vFile
 Next vFile
 Close #7
+a = Save_Settings()
 Unload Form3
 Form3.Refresh
 Form2.Visible = False
@@ -974,7 +975,6 @@ Image1.Left = 4740
 Image1.Top = 809.109
 Image1.Visible = True
 SysCore = "psx"
-
 End Sub
 Function Validate_Rom()
 If Check9.Value = 1 Then
@@ -1127,7 +1127,6 @@ LogoLeft = Image10.Left
 Image10.Left = 4740
 Image10.Top = 809.109
 End Sub
-
 Private Sub Image11_Click()
 'Sega Master System
 a = Hide_Buttons()
@@ -1139,7 +1138,6 @@ LogoLeft = Image11.Left
 Image11.Left = 4740
 Image11.Top = 809.109
 End Sub
-
 Private Sub Image12_Click()
 'PC-Engine/Turbografx
 a = Hide_Buttons()
@@ -1151,7 +1149,6 @@ LogoLeft = Image12.Left
 Image12.Left = 4740
 Image12.Top = 809.109
 End Sub
-
 Private Sub Image13_Click()
 'PC-FX
 a = Hide_Buttons()
@@ -1163,7 +1160,6 @@ LogoLeft = Image13.Left
 Image13.Left = 4740
 Image13.Top = 809.109
 End Sub
-
 Private Sub Image14_Click()
 'VB
 a = Hide_Buttons()
@@ -1175,7 +1171,6 @@ LogoLeft = Image14.Left
 Image14.Left = 4740
 Image14.Top = 809.109
 End Sub
-
 Private Sub Image15_Click()
 'Wonderswan
 a = Hide_Buttons()
@@ -1187,7 +1182,6 @@ LogoLeft = Image5.Left
 Image15.Left = 4740
 Image15.Top = 809.109
 End Sub
-
 Private Sub Image2_Click()
 'NES
 a = Hide_Buttons()
@@ -1199,7 +1193,6 @@ LogoLeft = Image2.Left
 Image2.Left = 4740
 Image2.Top = 809.109
 End Sub
-
 Private Sub Image3_Click()
 'SNES
 a = Hide_Buttons()
@@ -1211,7 +1204,6 @@ LogoLeft = Image3.Left
 Image3.Left = 4740
 Image3.Top = 809.109
 End Sub
-
 Private Sub Image4_Click()
 'Genesis
 a = Hide_Buttons()
@@ -1224,7 +1216,6 @@ LogoLeft = Image4.Left
 Image4.Left = 4740
 Image4.Top = 809.109
 End Sub
-
 Private Sub Image5_Click()
 'Gameboy
 a = Hide_Buttons()
@@ -1236,7 +1227,6 @@ LogoLeft = Image5.Left
 Image5.Left = 4740
 Image5.Top = 809.109
 End Sub
-
 Private Sub Image6_Click()
 'GameBoy Adv
 a = Hide_Buttons()
@@ -1248,7 +1238,6 @@ LogoLeft = Image6.Left
 Image6.Left = 4740
 Image6.Top = 809.109
 End Sub
-
 Private Sub Image7_Click()
 'GameGear
 a = Hide_Buttons()
@@ -1260,7 +1249,6 @@ LogoLeft = Image7.Left
 Image7.Left = 4740
 Image7.Top = 809.109
 End Sub
-
 Private Sub Image8_Click()
 'Saturn
 a = Hide_Buttons()
@@ -1272,7 +1260,6 @@ LogoLeft = Image8.Left
 Image8.Left = 4740
 Image8.Top = 809.109
 End Sub
-
 Private Sub Image9_Click()
 'Atari
 a = Hide_Buttons()
@@ -1284,15 +1271,13 @@ LogoLeft = Image9.Left
 Image9.Left = 4740
 Image9.Top = 809.109
 End Sub
-
 Private Sub Quit_Click()
 Unload Form1
 Unload Form2
 Unload Form3
 Unload Form4
 End Sub
-
-Private Sub Save_Click()
+Function Save_Settings()
 Set FSO = CreateObject("Scripting.FileSystemObject")
 Close #6
 Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
@@ -1338,7 +1323,9 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     Print #6, "BasicModeFolder=" & Text2.Text
     Print #6, "QuickLaunch=" & Check1.Value
 Close #6
+End Function
+Private Sub Save_Click()
+a = Save_Settings()
 End Sub
-
 
 

@@ -21,22 +21,31 @@ Begin VB.Form Form1
    ScaleHeight     =   8160
    ScaleWidth      =   8985
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox Check26 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Horizontal Overscan"
+      Height          =   195
+      Left            =   6960
+      TabIndex        =   97
+      Top             =   4920
+      Width           =   1935
+   End
    Begin VB.CheckBox Check25 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "goat progressive"
+      Caption         =   "Goat Progressive"
       Height          =   195
       Left            =   6960
       TabIndex        =   96
-      Top             =   5040
+      Top             =   4680
       Width           =   2055
    End
    Begin VB.CheckBox Check24 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "goat scanlines"
+      Caption         =   "Goat Scanlines"
       Height          =   195
       Left            =   6960
       TabIndex        =   95
-      Top             =   4800
+      Top             =   4440
       Width           =   2055
    End
    Begin VB.ComboBox Combo9 
@@ -103,7 +112,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   81
-      Top             =   4560
+      Top             =   4200
       Width           =   2055
    End
    Begin VB.CheckBox Check22 
@@ -112,7 +121,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   80
-      Top             =   3840
+      Top             =   3480
       Width           =   2055
    End
    Begin VB.CheckBox Check21 
@@ -121,7 +130,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   79
-      Top             =   3600
+      Top             =   3240
       Width           =   1935
    End
    Begin VB.CheckBox Check20 
@@ -130,7 +139,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   78
-      Top             =   3360
+      Top             =   3000
       Width           =   2055
    End
    Begin VB.CheckBox Check19 
@@ -139,7 +148,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   77
-      Top             =   4080
+      Top             =   3720
       Width           =   2055
    End
    Begin VB.ComboBox Combo6 
@@ -267,7 +276,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   57
-      Top             =   4320
+      Top             =   3960
       Value           =   1  'Checked
       Width           =   2055
    End
@@ -441,7 +450,7 @@ Begin VB.Form Form1
    End
    Begin VB.CheckBox Check6 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Fullscreen (FS)"
+      Caption         =   "Fullscreen"
       Height          =   195
       Left            =   6960
       TabIndex        =   28
@@ -472,7 +481,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   24
-      Top             =   3120
+      Top             =   2760
       Width           =   2055
    End
    Begin VB.TextBox Text3 
@@ -490,7 +499,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   21
-      Top             =   2880
+      Top             =   2520
       Width           =   2055
    End
    Begin VB.CheckBox Check3 
@@ -634,6 +643,7 @@ Begin VB.Form Form1
       Width           =   3615
    End
    Begin VB.Label Label24 
+      AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "www.CoversDB.org"
       BeginProperty Font 
@@ -646,11 +656,11 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FF0000&
-      Height          =   195
+      Height          =   210
       Left            =   7200
       TabIndex        =   88
       Top             =   7920
-      Width           =   1455
+      Width           =   1515
       WordWrap        =   -1  'True
    End
    Begin VB.Label Label23 
@@ -726,6 +736,7 @@ Begin VB.Form Form1
       Width           =   900
    End
    Begin VB.Label Label36 
+      AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "www.NigelTodman.com"
       BeginProperty Font 
@@ -738,7 +749,7 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00FF0000&
-      Height          =   195
+      Height          =   210
       Left            =   7200
       TabIndex        =   74
       Top             =   7680
@@ -746,7 +757,6 @@ Begin VB.Form Form1
       WordWrap        =   -1  'True
    End
    Begin VB.Label Label34 
-      AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "MedAdvCFG v0.0.0"
       ForeColor       =   &H00FF0000&
@@ -2078,8 +2088,26 @@ If Check23.Value = 1 Then
     cmdstring = cmdstring & " -cd.image_memcache 1"
 End If
 
-'**
+'r38
+If Check24.Value = 0 Then
+    cmdstring = cmdstring & " -" & SysCore & ".shader.goat.slen 0"
+ElseIf Check24.Value = 1 Then
+    cmdstring = cmdstring & " -" & SysCore & ".shader.goat.slen 1"
+End If
 
+If Check25.Value = 0 Then
+    cmdstring = cmdstring & " -" & SysCore & ".shader.goat.fprog 0"
+ElseIf Check25.Value = 1 Then
+    cmdstring = cmdstring & " -" & SysCore & ".shader.goat.fprog 1"
+End If
+
+If SysCore = "psx" Then
+    If Check26.Value = 0 Then
+        cmdstring = cmdstring & " -" & SysCore & ".h_overscan 0"
+    ElseIf Check26.Value = 1 Then
+        cmdstring = cmdstring & " -" & SysCore & ".h_overscan 1"
+    End If
+End If
 
 If Check3.Value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".tblur 1"
@@ -2402,7 +2430,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.3.3-r37"
+GetBuild = "0.3.3-r38"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
