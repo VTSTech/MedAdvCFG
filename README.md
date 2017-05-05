@@ -9,13 +9,18 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/64f9e17088ecc3ad743c4f451f2cc5b6.png">
+<img src="https://i.gyazo.com/6df7544dd76c240486a418db6b65c0b7.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
 <img src="https://i.gyazo.com/0fdd3ab59d2e938e4f22f6062d44b724.png">
 
 <img src="https://i.gyazo.com/6a2fe1b84457739aa1f87e3ae319b566.png">
+
+v0.3.3-r38 04-27-2017 5:11PM
+
+(Mednafen.dat update. No code changes required)
+Added support for Mednafen v0.9.43.0-win64/win32
 
 v0.3.3-r38 02-26-2017 11:32PM
 
