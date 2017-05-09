@@ -20,7 +20,7 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 v0.3.3-r38 04-27-2017 5:11PM
 
 (Mednafen.dat update. No code changes required)
-Added support for Mednafen v0.9.43.0-win64/win32
+Added support for Mednafen v0.9.44.1-win64/win32
 
 v0.3.3-r38 02-26-2017 11:32PM
 
