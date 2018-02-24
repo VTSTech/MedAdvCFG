@@ -17,6 +17,34 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/6a2fe1b84457739aa1f87e3ae319b566.png">
 
+v0.3.3-r38 02-24-2018 5:14PM
+
+(Mednafen.dat update. Code changes for 1.xx-unstable coming in next build)
+
+Added support for Mednafen 0.9.48.0-win64/win32
+
+Detects Mednafen 1.21.0-unstable-win64/win32
+
+v0.3.3-r38 09-10-2017 12:17PM
+
+(Mednafen.dat update. No code changes required)
+
+Added support for Mednafen v0.9.46.0-win64/win32
+
+Added support for Mednafen v0.9.47.0-win64/win32
+
+v0.3.3-r38 06-10-2017 07:22PM
+
+(Mednafen.dat update. No code changes required)
+
+Added support for Mednafen v0.9.45.1-win64/win32
+
+v0.3.3-r38 06-04-2017 02:30AM
+
+(Mednafen.dat update. No code changes required)
+
+Added support for Mednafen v0.9.45.0-win64/win32
+
 v0.3.3-r38 04-27-2017 5:11PM
 
 (Mednafen.dat update. No code changes required)
