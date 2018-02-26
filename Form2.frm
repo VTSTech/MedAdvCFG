@@ -484,15 +484,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Basic.Checked = False
-Form1.Basic.Checked = False
+basic.Checked = False
+Form1.basic.Checked = False
 Form1.Visible = True
-Form1.Advanced.Checked = True
+Form1.advanced.Checked = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Basic.Checked = True
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -887,7 +887,7 @@ Build = Form1.GetBuild()
 Form2.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 Form2.Width = 11145
 Form2.Height = 6120
-Basic.Checked = True
+basic.Checked = True
 Set FSO = CreateObject("Scripting.FileSystemObject")
 a = LoadSettings()
 
@@ -1106,6 +1106,7 @@ If SysCore = "psx" Or SysCore = "ss" Or SysCore = "pce" Then
     Label6.Visible = True
     Label5.Visible = True
     Label4.Visible = True
+    Label40.Visible = True
     Text1.Visible = True
     Command1.Visible = True
 End If

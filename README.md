@@ -9,13 +9,40 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/6df7544dd76c240486a418db6b65c0b7.png">
+<img src="https://i.gyazo.com/00381c5ea1ad0de1ad1ac589b59af62c.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
 <img src="https://i.gyazo.com/0fdd3ab59d2e938e4f22f6062d44b724.png">
 
 <img src="https://i.gyazo.com/6a2fe1b84457739aa1f87e3ae319b566.png">
+
+
+v0.4.0-r39 02-26-2018 12:14AM
+
+Condensed bios.dat names slightly
+
+Added missing entry to psx-usa-id.dat
+
+Resized main form slightly
+
+Reorganized main form controls
+
+Removed Region checkboxes
+
+Added support for 1.21.0-unstable-win64/win32
+
+Added fps.autoenable (Show FPS)
+
+Added video.fs.display
+
+Removed 'Overlay' video driver option
+
+Fixed bug in passing Sega Saturn region to cmdline
+
+Scanlines and Custom Params are now loaded with settings
+
+Various code optimizations
 
 v0.3.3-r38 02-24-2018 5:14PM
 

@@ -3,7 +3,7 @@ Object = "{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}#1.1#0"; "ieframe.dll"
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.x.x Frontend) by Nigel Todman [ADV MODE]"
-   ClientHeight    =   8160
+   ClientHeight    =   8265
    ClientLeft      =   225
    ClientTop       =   555
    ClientWidth     =   8985
@@ -18,16 +18,64 @@ Begin VB.Form Form1
    EndProperty
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   8160
+   ScaleHeight     =   8265
    ScaleWidth      =   8985
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox Check13 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "PAL"
+      Height          =   195
+      Left            =   7800
+      TabIndex        =   99
+      Top             =   7200
+      Visible         =   0   'False
+      Width           =   975
+   End
+   Begin VB.CheckBox Check12 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "NTSC-J"
+      Height          =   195
+      Left            =   7800
+      TabIndex        =   98
+      Top             =   6960
+      Visible         =   0   'False
+      Width           =   975
+   End
+   Begin VB.CheckBox Check11 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "NTSC-U"
+      Height          =   195
+      Left            =   7800
+      TabIndex        =   97
+      Top             =   6720
+      Visible         =   0   'False
+      Width           =   975
+   End
+   Begin VB.TextBox Text12 
+      BackColor       =   &H00C0C0C0&
+      Height          =   285
+      Left            =   8520
+      TabIndex        =   95
+      Text            =   "-1"
+      Top             =   4920
+      Width           =   405
+   End
+   Begin VB.CheckBox Check27 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Show FPS"
+      Height          =   195
+      Left            =   6960
+      TabIndex        =   94
+      Top             =   600
+      Width           =   1455
+   End
    Begin VB.CheckBox Check26 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Horizontal Overscan"
       Height          =   195
       Left            =   6960
-      TabIndex        =   97
-      Top             =   4920
+      TabIndex        =   93
+      Top             =   3960
       Width           =   1935
    End
    Begin VB.CheckBox Check25 
@@ -35,8 +83,8 @@ Begin VB.Form Form1
       Caption         =   "Goat Progressive"
       Height          =   195
       Left            =   6960
-      TabIndex        =   96
-      Top             =   4680
+      TabIndex        =   92
+      Top             =   3720
       Width           =   2055
    End
    Begin VB.CheckBox Check24 
@@ -44,17 +92,17 @@ Begin VB.Form Form1
       Caption         =   "Goat Scanlines"
       Height          =   195
       Left            =   6960
-      TabIndex        =   95
-      Top             =   4440
+      TabIndex        =   91
+      Top             =   3480
       Width           =   2055
    End
    Begin VB.ComboBox Combo9 
       BackColor       =   &H00C0C0C0&
       Height          =   330
       Left            =   4800
-      TabIndex        =   93
+      TabIndex        =   89
       Text            =   "None - None/Disabled"
-      Top             =   3960
+      Top             =   4200
       Width           =   2055
    End
    Begin VB.ComboBox Combo8 
@@ -63,29 +111,29 @@ Begin VB.Form Form1
       ItemData        =   "Form1.frx":851A
       Left            =   1320
       List            =   "Form1.frx":851C
-      TabIndex        =   91
+      TabIndex        =   87
       Text            =   "[US] netplay.fobby.net:4046"
-      Top             =   5040
+      Top             =   5280
       Width           =   4575
    End
    Begin VB.ComboBox Combo7 
       BackColor       =   &H00C0C0C0&
       Height          =   330
       ItemData        =   "Form1.frx":851E
-      Left            =   7720
+      Left            =   7710
       List            =   "Form1.frx":8520
-      TabIndex        =   90
+      TabIndex        =   86
       Text            =   "800x600"
-      Top             =   5280
+      Top             =   4560
       Width           =   1215
    End
    Begin SHDocVwCtl.WebBrowser WebBrowser1 
       CausesValidation=   0   'False
       Height          =   945
       Left            =   0
-      TabIndex        =   86
+      TabIndex        =   82
       TabStop         =   0   'False
-      Top             =   7200
+      Top             =   7320
       Width           =   7035
       ExtentX         =   12409
       ExtentY         =   1676
@@ -111,8 +159,8 @@ Begin VB.Form Form1
       Caption         =   "cd.image_memcache"
       Height          =   195
       Left            =   6960
-      TabIndex        =   81
-      Top             =   4200
+      TabIndex        =   77
+      Top             =   3240
       Width           =   2055
    End
    Begin VB.CheckBox Check22 
@@ -120,8 +168,8 @@ Begin VB.Form Form1
       Caption         =   "video.blit_timesync"
       Height          =   195
       Left            =   6960
-      TabIndex        =   80
-      Top             =   3480
+      TabIndex        =   76
+      Top             =   2520
       Width           =   2055
    End
    Begin VB.CheckBox Check21 
@@ -129,8 +177,8 @@ Begin VB.Form Form1
       Caption         =   "Disable Sound"
       Height          =   195
       Left            =   6960
-      TabIndex        =   79
-      Top             =   3240
+      TabIndex        =   75
+      Top             =   2280
       Width           =   1935
    End
    Begin VB.CheckBox Check20 
@@ -138,8 +186,8 @@ Begin VB.Form Form1
       Caption         =   "Force Mono"
       Height          =   195
       Left            =   6960
-      TabIndex        =   78
-      Top             =   3000
+      TabIndex        =   74
+      Top             =   2040
       Width           =   2055
    End
    Begin VB.CheckBox Check19 
@@ -147,26 +195,26 @@ Begin VB.Form Form1
       Caption         =   "video.glvsync"
       Height          =   195
       Left            =   6960
-      TabIndex        =   77
-      Top             =   3720
+      TabIndex        =   73
+      Top             =   2760
       Width           =   2055
    End
    Begin VB.ComboBox Combo6 
       BackColor       =   &H00C0C0C0&
       Height          =   330
       Left            =   1320
-      TabIndex        =   75
+      TabIndex        =   71
       Text            =   "None - None/Disabled"
-      Top             =   3240
+      Top             =   3480
       Width           =   3375
    End
    Begin VB.TextBox Text11 
       BackColor       =   &H00C0C0C0&
       Height          =   285
       Left            =   8520
-      TabIndex        =   71
+      TabIndex        =   67
       Text            =   "1.00"
-      Top             =   6390
+      Top             =   6030
       Width           =   405
    End
    Begin VB.CheckBox Check18 
@@ -183,8 +231,8 @@ Begin VB.Form Form1
       EndProperty
       Height          =   195
       Left            =   1320
-      TabIndex        =   69
-      Top             =   3000
+      TabIndex        =   65
+      Top             =   3240
       Value           =   1  'Checked
       Width           =   855
    End
@@ -202,8 +250,8 @@ Begin VB.Form Form1
       EndProperty
       Height          =   195
       Left            =   2205
-      TabIndex        =   68
-      Top             =   3000
+      TabIndex        =   64
+      Top             =   3240
       Width           =   615
    End
    Begin VB.CheckBox Check16 
@@ -220,25 +268,25 @@ Begin VB.Form Form1
       EndProperty
       Height          =   195
       Left            =   3045
-      TabIndex        =   67
-      Top             =   3000
+      TabIndex        =   63
+      Top             =   3240
       Width           =   1095
    End
    Begin VB.TextBox Text10 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   8640
-      TabIndex        =   65
+      Left            =   8520
+      TabIndex        =   61
       Text            =   "0"
-      Top             =   6120
-      Width           =   285
+      Top             =   5760
+      Width           =   405
    End
    Begin VB.CheckBox Check15 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Yes to All Prompts(!)"
       Height          =   195
       Left            =   6960
-      TabIndex        =   64
+      TabIndex        =   60
       Top             =   360
       Width           =   2055
    End
@@ -246,18 +294,18 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Height          =   285
       Left            =   1320
-      TabIndex        =   62
-      Top             =   5400
+      TabIndex        =   58
+      Top             =   5640
       Width           =   4575
    End
    Begin VB.TextBox Text8 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   8640
-      TabIndex        =   60
+      Left            =   8520
+      TabIndex        =   56
       Text            =   "1"
-      Top             =   6675
-      Width           =   285
+      Top             =   6315
+      Width           =   405
    End
    Begin VB.ComboBox Combo5 
       BackColor       =   &H00C0C0C0&
@@ -265,9 +313,9 @@ Begin VB.Form Form1
       ItemData        =   "Form1.frx":8522
       Left            =   1320
       List            =   "Form1.frx":8524
-      TabIndex        =   58
+      TabIndex        =   54
       Text            =   "gamepad - SCPH-1080 PlayStation Digital Gamepad"
-      Top             =   4680
+      Top             =   4920
       Width           =   4575
    End
    Begin VB.CheckBox Check14 
@@ -275,37 +323,9 @@ Begin VB.Form Form1
       Caption         =   "untrusted_fip_check"
       Height          =   195
       Left            =   6960
-      TabIndex        =   57
-      Top             =   3960
-      Value           =   1  'Checked
-      Width           =   2055
-   End
-   Begin VB.CheckBox Check13 
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "PAL"
-      Height          =   195
-      Left            =   3050
-      TabIndex        =   54
-      Top             =   720
-      Width           =   735
-   End
-   Begin VB.CheckBox Check12 
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "NTSC-J"
-      Height          =   195
-      Left            =   2200
       TabIndex        =   53
-      Top             =   720
-      Width           =   975
-   End
-   Begin VB.CheckBox Check11 
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "NTSC-U"
-      Height          =   195
-      Left            =   1320
-      TabIndex        =   52
-      Top             =   720
-      Width           =   975
+      Top             =   3000
+      Width           =   2055
    End
    Begin VB.TextBox Text7 
       BackColor       =   &H00C0C0C0&
@@ -313,7 +333,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   50
       Text            =   "Not Set"
-      Top             =   4320
+      Top             =   4560
       Width           =   4575
    End
    Begin VB.CommandButton Command5 
@@ -322,53 +342,55 @@ Begin VB.Form Form1
       Height          =   255
       Left            =   6000
       TabIndex        =   49
-      Top             =   4340
+      Top             =   4575
       Width           =   615
    End
    Begin VB.CheckBox Check10 
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS MD5 Check"
       Height          =   195
-      Left            =   6960
+      Left            =   3480
       TabIndex        =   48
-      Top             =   840
-      Width           =   2055
+      Top             =   1560
+      Width           =   1575
    End
    Begin VB.CheckBox Check9 
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM MD5 Check"
       Height          =   195
-      Left            =   6960
+      Left            =   3480
       TabIndex        =   47
-      Top             =   1320
-      Width           =   2055
+      Top             =   2400
+      Width           =   1575
    End
    Begin VB.TextBox Text6 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   8400
+      Left            =   8280
       TabIndex        =   45
       Text            =   "1080"
-      Top             =   5280
+      Top             =   4560
+      Visible         =   0   'False
       Width           =   515
    End
    Begin VB.TextBox Text5 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   7920
+      Left            =   7680
       TabIndex        =   44
       Text            =   "1920"
-      Top             =   5280
+      Top             =   4560
+      Visible         =   0   'False
       Width           =   495
    End
    Begin VB.TextBox Text4 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   8640
+      Left            =   8520
       TabIndex        =   42
       Text            =   "2"
-      Top             =   5565
-      Width           =   285
+      Top             =   5205
+      Width           =   405
    End
    Begin VB.CommandButton Command4 
       BackColor       =   &H00C0C0C0&
@@ -433,11 +455,11 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check8 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Review cmdline?"
-      Height          =   315
-      Left            =   4920
+      Height          =   255
+      Left            =   5040
       TabIndex        =   37
-      Top             =   2640
-      Width           =   1815
+      Top             =   3360
+      Width           =   1575
    End
    Begin VB.CheckBox Check7 
       BackColor       =   &H00C0C0C0&
@@ -445,7 +467,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   36
-      Top             =   2040
+      Top             =   1080
       Width           =   2055
    End
    Begin VB.CheckBox Check6 
@@ -454,16 +476,16 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   28
-      Top             =   1800
+      Top             =   840
       Width           =   2055
    End
    Begin VB.CommandButton Command3 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Launch mednafen.exe"
       Height          =   495
-      Left            =   4920
+      Left            =   5160
       TabIndex        =   27
-      Top             =   3000
+      Top             =   2760
       Width           =   1335
    End
    Begin VB.ComboBox Combo4 
@@ -472,7 +494,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   25
       Text            =   "None - None/Disabled"
-      Top             =   3600
+      Top             =   3840
       Width           =   3375
    End
    Begin VB.CheckBox Check5 
@@ -481,17 +503,17 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   24
-      Top             =   2760
+      Top             =   1800
       Width           =   2055
    End
    Begin VB.TextBox Text3 
       BackColor       =   &H00C0C0C0&
       Height          =   285
-      Left            =   8640
+      Left            =   8520
       TabIndex        =   22
       Text            =   "50"
-      Top             =   5865
-      Width           =   285
+      Top             =   5505
+      Width           =   405
    End
    Begin VB.CheckBox Check4 
       BackColor       =   &H00C0C0C0&
@@ -499,7 +521,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   21
-      Top             =   2520
+      Top             =   1560
       Width           =   2055
    End
    Begin VB.CheckBox Check3 
@@ -508,7 +530,7 @@ Begin VB.Form Form1
       Height          =   195
       Left            =   6960
       TabIndex        =   20
-      Top             =   2280
+      Top             =   1320
       Width           =   2055
    End
    Begin VB.ComboBox Combo3 
@@ -517,7 +539,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   18
       Text            =   "None - None/Disabled"
-      Top             =   3960
+      Top             =   4200
       Width           =   3375
    End
    Begin VB.ComboBox Combo2 
@@ -526,17 +548,17 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   16
       Text            =   "0 - Disabled"
-      Top             =   2640
+      Top             =   2880
       Width           =   3375
    End
    Begin VB.CheckBox Check2 
       BackColor       =   &H00C0C0C0&
       Caption         =   "ROM Sanity Check"
-      Height          =   195
-      Left            =   6960
+      Height          =   210
+      Left            =   5040
       TabIndex        =   15
-      Top             =   1080
-      Width           =   2055
+      Top             =   2400
+      Width           =   1695
    End
    Begin VB.CommandButton Command2 
       BackColor       =   &H00C0C0C0&
@@ -544,7 +566,7 @@ Begin VB.Form Form1
       Height          =   255
       Left            =   6000
       TabIndex        =   12
-      Top             =   1820
+      Top             =   1815
       Width           =   615
    End
    Begin VB.TextBox Text2 
@@ -559,11 +581,11 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check1 
       BackColor       =   &H00C0C0C0&
       Caption         =   "BIOS Sanity Check"
-      Height          =   195
-      Left            =   6960
+      Height          =   210
+      Left            =   5040
       TabIndex        =   9
-      Top             =   600
-      Width           =   2055
+      Top             =   1560
+      Width           =   1695
    End
    Begin VB.CommandButton Command1 
       BackColor       =   &H00C0C0C0&
@@ -571,7 +593,7 @@ Begin VB.Form Form1
       Height          =   255
       Left            =   6000
       TabIndex        =   7
-      Top             =   980
+      Top             =   735
       Width           =   615
    End
    Begin VB.TextBox Text1 
@@ -580,7 +602,7 @@ Begin VB.Form Form1
       Left            =   1320
       TabIndex        =   5
       Text            =   "Not Set"
-      Top             =   960
+      Top             =   720
       Width           =   4575
    End
    Begin VB.ComboBox Combo1 
@@ -592,14 +614,24 @@ Begin VB.Form Form1
       Top             =   360
       Width           =   4575
    End
+   Begin VB.Label Label28 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "video.fs.display"
+      Height          =   210
+      Left            =   6840
+      TabIndex        =   96
+      Top             =   4935
+      Width           =   1140
+   End
    Begin VB.Label Label43 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
       Caption         =   "Goat Mask:"
       Height          =   210
       Left            =   4800
-      TabIndex        =   94
-      Top             =   3720
+      TabIndex        =   90
+      Top             =   3960
       Width           =   810
    End
    Begin VB.Label Label42 
@@ -618,8 +650,8 @@ Begin VB.Form Form1
       ForeColor       =   &H000080FF&
       Height          =   210
       Left            =   5160
-      TabIndex        =   92
-      Top             =   1320
+      TabIndex        =   88
+      Top             =   1080
       Width           =   1635
    End
    Begin VB.Label Label41 
@@ -638,8 +670,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00009900&
       Height          =   225
       Left            =   3120
-      TabIndex        =   89
-      Top             =   6555
+      TabIndex        =   85
+      Top             =   6675
       Width           =   3615
    End
    Begin VB.Label Label24 
@@ -658,8 +690,9 @@ Begin VB.Form Form1
       ForeColor       =   &H00FF0000&
       Height          =   210
       Left            =   7200
-      TabIndex        =   88
-      Top             =   7920
+      TabIndex        =   84
+      Top             =   8040
+      Visible         =   0   'False
       Width           =   1515
       WordWrap        =   -1  'True
    End
@@ -679,7 +712,7 @@ Begin VB.Form Form1
       ForeColor       =   &H000080FF&
       Height          =   210
       Left            =   5160
-      TabIndex        =   87
+      TabIndex        =   83
       Top             =   2160
       Width           =   1635
    End
@@ -689,8 +722,8 @@ Begin VB.Form Form1
       Caption         =   "BIOS VER:"
       Height          =   210
       Left            =   120
-      TabIndex        =   85
-      Top             =   1560
+      TabIndex        =   81
+      Top             =   1320
       Visible         =   0   'False
       Width           =   765
    End
@@ -700,7 +733,7 @@ Begin VB.Form Form1
       Caption         =   "PSX ID:"
       Height          =   210
       Left            =   360
-      TabIndex        =   84
+      TabIndex        =   80
       Top             =   2400
       Visible         =   0   'False
       Width           =   525
@@ -711,7 +744,7 @@ Begin VB.Form Form1
       Caption         =   "Not Set"
       Height          =   210
       Left            =   1320
-      TabIndex        =   83
+      TabIndex        =   79
       Top             =   2400
       Width           =   525
    End
@@ -721,8 +754,8 @@ Begin VB.Form Form1
       Caption         =   "Netplay Host:"
       Height          =   210
       Left            =   120
-      TabIndex        =   82
-      Top             =   5040
+      TabIndex        =   78
+      Top             =   5280
       Width           =   960
    End
    Begin VB.Label Label37 
@@ -731,8 +764,8 @@ Begin VB.Form Form1
       Caption         =   "Video Driver"
       Height          =   210
       Left            =   120
-      TabIndex        =   76
-      Top             =   3240
+      TabIndex        =   72
+      Top             =   3480
       Width           =   900
    End
    Begin VB.Label Label36 
@@ -751,8 +784,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00FF0000&
       Height          =   210
       Left            =   7200
-      TabIndex        =   74
-      Top             =   7680
+      TabIndex        =   70
+      Top             =   7800
       Width           =   1815
       WordWrap        =   -1  'True
    End
@@ -762,8 +795,8 @@ Begin VB.Form Form1
       ForeColor       =   &H00FF0000&
       Height          =   210
       Left            =   7200
-      TabIndex        =   73
-      Top             =   7320
+      TabIndex        =   69
+      Top             =   7560
       Width           =   1410
    End
    Begin VB.Label Label33 
@@ -772,8 +805,8 @@ Begin VB.Form Form1
       Caption         =   "Axis Scale:"
       Height          =   210
       Left            =   6840
-      TabIndex        =   72
-      Top             =   6480
+      TabIndex        =   68
+      Top             =   6120
       Width           =   825
    End
    Begin VB.Label Label15 
@@ -782,8 +815,8 @@ Begin VB.Form Form1
       Caption         =   "Deinterlacer:"
       Height          =   210
       Left            =   120
-      TabIndex        =   70
-      Top             =   3000
+      TabIndex        =   66
+      Top             =   3240
       Width           =   915
    End
    Begin VB.Label Label14 
@@ -792,50 +825,50 @@ Begin VB.Form Form1
       Caption         =   "Scanlines:"
       Height          =   210
       Left            =   6840
-      TabIndex        =   66
-      Top             =   6120
+      TabIndex        =   62
+      Top             =   5760
       Width           =   750
    End
    Begin VB.Image Image7 
       Height          =   480
       Left            =   4680
       Picture         =   "Form1.frx":8526
-      Top             =   5940
+      Top             =   6060
       Width           =   480
    End
    Begin VB.Image Image6 
       Height          =   480
       Left            =   4200
       Picture         =   "Form1.frx":91F0
-      Top             =   5940
+      Top             =   6060
       Width           =   480
    End
    Begin VB.Image Image5 
       Height          =   480
       Left            =   5640
       Picture         =   "Form1.frx":9EBA
-      Top             =   5940
+      Top             =   6060
       Width           =   480
    End
    Begin VB.Image Image4 
       Height          =   480
       Left            =   5160
       Picture         =   "Form1.frx":AB84
-      Top             =   5940
+      Top             =   6060
       Width           =   480
    End
    Begin VB.Image Image3 
       Height          =   480
       Left            =   3720
       Picture         =   "Form1.frx":B84E
-      Top             =   5940
+      Top             =   6060
       Width           =   480
    End
    Begin VB.Image Image2 
       Height          =   480
       Left            =   3240
       Picture         =   "Form1.frx":C518
-      Top             =   5940
+      Top             =   6060
       Width           =   480
    End
    Begin VB.Label Label32 
@@ -844,8 +877,8 @@ Begin VB.Form Form1
       Caption         =   "Custom Params:"
       Height          =   210
       Left            =   120
-      TabIndex        =   63
-      Top             =   5400
+      TabIndex        =   59
+      Top             =   5640
       Width           =   1170
    End
    Begin VB.Label Label31 
@@ -854,8 +887,8 @@ Begin VB.Form Form1
       Caption         =   "Number of Players:"
       Height          =   210
       Left            =   6840
-      TabIndex        =   61
-      Top             =   6720
+      TabIndex        =   57
+      Top             =   6360
       Width           =   1380
    End
    Begin VB.Label Label30 
@@ -864,8 +897,8 @@ Begin VB.Form Form1
       Caption         =   "Controller:"
       Height          =   210
       Left            =   120
-      TabIndex        =   59
-      Top             =   4680
+      TabIndex        =   55
+      Top             =   4920
       Width           =   735
    End
    Begin VB.Label Label29 
@@ -874,19 +907,9 @@ Begin VB.Form Form1
       Caption         =   "Not Set"
       Height          =   210
       Left            =   1320
-      TabIndex        =   56
-      Top             =   1560
+      TabIndex        =   52
+      Top             =   1320
       Width           =   525
-   End
-   Begin VB.Label Label28 
-      AutoSize        =   -1  'True
-      BackColor       =   &H00C0C0C0&
-      Caption         =   "System Region:"
-      Height          =   210
-      Left            =   120
-      TabIndex        =   55
-      Top             =   720
-      Width           =   1125
    End
    Begin VB.Label Label27 
       AutoSize        =   -1  'True
@@ -895,16 +918,16 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   51
-      Top             =   4320
+      Top             =   4560
       Width           =   780
    End
    Begin VB.Image Image1 
-      Height          =   975
-      Left            =   1200
+      Height          =   855
+      Left            =   1440
       Picture         =   "Form1.frx":D1E2
       Stretch         =   -1  'True
-      Top             =   5760
-      Width           =   1665
+      Top             =   6000
+      Width           =   1545
    End
    Begin VB.Label Label26 
       AutoSize        =   -1  'True
@@ -913,7 +936,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   46
-      Top             =   5280
+      Top             =   4560
       Width           =   750
    End
    Begin VB.Label Label25 
@@ -923,7 +946,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   43
-      Top             =   5580
+      Top             =   5220
       Width           =   1035
    End
    Begin VB.Label Label22 
@@ -943,7 +966,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   35
-      Top             =   6240
+      Top             =   6360
       Width           =   1080
    End
    Begin VB.Label Label21 
@@ -963,7 +986,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   34
-      Top             =   6480
+      Top             =   6600
       Width           =   1095
    End
    Begin VB.Label Label20 
@@ -983,7 +1006,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   33
-      Top             =   6720
+      Top             =   6840
       Width           =   1530
    End
    Begin VB.Label Label19 
@@ -1003,7 +1026,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   32
-      Top             =   6960
+      Top             =   7080
       Width           =   2775
    End
    Begin VB.Label Label18 
@@ -1023,7 +1046,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   3120
       TabIndex        =   31
-      Top             =   6765
+      Top             =   6885
       Width           =   3045
    End
    Begin VB.Label Label17 
@@ -1043,7 +1066,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   3120
       TabIndex        =   30
-      Top             =   6960
+      Top             =   7080
       Width           =   4215
    End
    Begin VB.Label Label16 
@@ -1063,7 +1086,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   29
-      Top             =   6000
+      Top             =   6120
       Width           =   720
    End
    Begin VB.Label Label13 
@@ -1073,7 +1096,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   26
-      Top             =   3600
+      Top             =   3840
       Width           =   930
    End
    Begin VB.Label Label12 
@@ -1083,7 +1106,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   23
-      Top             =   5865
+      Top             =   5505
       Width           =   1605
    End
    Begin VB.Label Label11 
@@ -1093,7 +1116,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   19
-      Top             =   3960
+      Top             =   4200
       Width           =   900
    End
    Begin VB.Label Label10 
@@ -1103,7 +1126,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   17
-      Top             =   2640
+      Top             =   2880
       Width           =   765
    End
    Begin VB.Label Label9 
@@ -1161,7 +1184,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   1320
       TabIndex        =   8
-      Top             =   1320
+      Top             =   1080
       Width           =   585
    End
    Begin VB.Label Label5 
@@ -1171,7 +1194,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   6
-      Top             =   1320
+      Top             =   1080
       Width           =   765
    End
    Begin VB.Label Label4 
@@ -1181,7 +1204,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   4
-      Top             =   960
+      Top             =   720
       Width           =   990
    End
    Begin VB.Label Label3 
@@ -1642,15 +1665,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Advanced.Checked = True
-Basic.Checked = False
+advanced.Checked = True
+basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Advanced.Checked = False
-Basic.Checked = True
+advanced.Checked = False
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -1813,9 +1836,9 @@ If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" 
             cmdstring = cmdstring & " -filesys.path_firmware " & Chr(34) & BIOSPATH & Chr(34)
         End If
         If Check12.Value = 1 Then
-            cmdstring = cmdstring & "-ss.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
+            cmdstring = cmdstring & " -ss.bios_jp " & Chr(34) & BIOSFILE & Chr(34)
         Else
-            cmdstring = cmdstring & "-ss.bios_na_eu " & Chr(34) & BIOSFILE & Chr(34)
+            cmdstring = cmdstring & " -ss.bios_na_eu " & Chr(34) & BIOSFILE & Chr(34)
         End If
     End If
 Else
@@ -2044,12 +2067,10 @@ End If
 
 
 '**v0.1.7
-If Combo6.Text = "OpenGL - OpenGL + SDL" Then
+If Combo6.Text = "OpenGL - OpenGL" Then
     cmdstring = cmdstring & " -video.driver opengl"
-ElseIf Combo6.Text = "SDL - SDL Surface" Then
-    cmdstring = cmdstring & " -video.driver sdl"
-ElseIf Combo6.Text = "Overlay - SDL Overlay" Then
-    cmdstring = cmdstring & " -video.driver overlay"
+ElseIf Combo6.Text = "SoftFB - Software Blitting to Framebuffer" Then
+    cmdstring = cmdstring & " -video.driver softfb"
 End If
 
 '**v0.3.3-r36
@@ -2181,6 +2202,8 @@ End If
 
 If Check14.Value = 0 Then
     cmdstring = cmdstring & " -filesys.untrusted_fip_check 0"
+ElseIf Check14.Value = 1 Then
+    cmdstring = cmdstring & " -filesys.untrusted_fip_check 1"
 End If
 
 If Len(Text9.Text) > 1 Then
@@ -2198,10 +2221,21 @@ If Combo8.ListIndex >= 1 Then
 cmdstring = cmdstring & " -netplay.host " & Chr(34) & Mid$(Combo8.Text, 7, Len(Combo8.Text)) & Chr(34) & " -connect"
 End If
 
-cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
+'v0.4.0 ShowFPS, video.fs.display
+If Check27.Value = 1 Then
+    cmdstring = cmdstring & " -fps.autoenable 1"
+End If
 
+If Val(Text12.Text) < -1 Then
+cmdstring = cmdstring & " -video.fs.display " & Text12.Text
+End If
+
+'Specify ROM
+cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
+'Closing "
 cmdstring = cmdstring & Chr(34)
 
+'Review CMDLine?
 If Check8.Value = 1 And FatalError = False Then
     MsgBox cmdstring
 End If
@@ -2378,6 +2412,26 @@ If ActiveFile = "M3U" Then
         End If
 End If
 End Sub
+Function HideBIOSControls()
+    Label4.Visible = False
+    Label5.Visible = False
+    Label6.Visible = False
+    Label29.Visible = False
+    Label40.Visible = False
+    Label42.Visible = False
+    Text1.Visible = False
+    Command1.Visible = False
+End Function
+Function ShowBIOSControls()
+    Label4.Visible = 1
+    Label5.Visible = 1
+    Label6.Visible = 1
+    Label29.Visible = 1
+    Label40.Visible = 1
+    Label42.Visible = 1
+    Text1.Visible = 1
+    Command1.Visible = 1
+End Function
 Function LoadSettings()
 'Load Settings
 Set FSO = CreateObject("Scripting.FileSystemObject")
@@ -2430,7 +2484,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.3.3-r38"
+GetBuild = "0.4.0-r39"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -2549,9 +2603,9 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Next z
     Check1.Enabled = True
     Check2.Enabled = True
-    Check11.Enabled = True
-    Check12.Enabled = True
-    Check13.Enabled = True
+    'Check11.Enabled = True
+    'Check12.Enabled = True
+    'Check13.Enabled = True
     Combo5.Enabled = True
     Check1.Value = 1
     Check2.Value = 1
@@ -2569,13 +2623,7 @@ If Combo1.Text = "psx (Sony PlayStation)" Then
     Combo5.AddItem "dancepad - SLUH-00071 Konami Dancepad", 9
     Combo5.ListIndex = 1
     Label23.Caption = "REDUMP: unverified!"
-    Label4.Visible = True
-    Label5.Visible = True
-    Label6.Visible = True
-    Label29.Visible = True
-    Label42.Visible = True
-    Text1.Visible = True
-    Command1.Visible = True
+    a = ShowBIOSControls()
 ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
     For z = 1 To Combo5.ListCount
         Combo5.RemoveItem 0
@@ -2590,13 +2638,7 @@ ElseIf Combo1.Text = "nes (Nintendo Entertainment System)" Then
     Combo5.Enabled = True
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
+    a = HideBIOSControls()
 ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
     For z = 1 To Combo5.ListCount
         Combo5.RemoveItem 0
@@ -2609,54 +2651,24 @@ ElseIf Combo1.Text = "snes (Super Nintendo Entertainment System)" Then
     Combo5.Enabled = True
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
+    a = HideBIOSControls()
 ElseIf Combo1.Text = "gb (GameBoy (Color))" Then
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
-ElseIf Combo1.Text = "snes_faust (Super Nintendo Entertainment System)" Then
+    a = HideBIOSControls()
+    ElseIf Combo1.Text = "snes_faust (Super Nintendo Entertainment System)" Then
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
-ElseIf Combo1.Text = "gba (GameBoy Advanced)" Then
+    a = HideBIOSControls()
+    ElseIf Combo1.Text = "gba (GameBoy Advanced)" Then
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
-ElseIf Combo1.Text = "lynx (Atari Lynx)" Then
+    a = HideBIOSControls()
+    ElseIf Combo1.Text = "lynx (Atari Lynx)" Then
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
-ElseIf Combo1.Text = "md (Sega Genesis/MegaDrive)" Then
+    a = HideBIOSControls()
+    ElseIf Combo1.Text = "md (Sega Genesis/MegaDrive)" Then
     For z = 1 To Combo5.ListCount
         Combo5.RemoveItem 0
     Next z
@@ -2668,24 +2680,12 @@ ElseIf Combo1.Text = "md (Sega Genesis/MegaDrive)" Then
     Combo5.Enabled = True
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
-ElseIf Combo1.Text = "gg (Sega Game Gear)" Then
+    a = HideBIOSControls()
+    ElseIf Combo1.Text = "gg (Sega Game Gear)" Then
     Label23.Caption = "NOINTRO: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
-ElseIf Combo1.Text = "ss (Sega Saturn)" Then
+    a = HideBIOSControls()
+    ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     For z = 1 To Combo5.ListCount
         Combo5.RemoveItem 0
     Next z
@@ -2707,13 +2707,7 @@ ElseIf Combo1.Text = "ss (Sega Saturn)" Then
     Combo5.Enabled = True
     Label23.Caption = "REDUMP: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
-    Label4.Visible = True
-    Label5.Visible = True
-    Label6.Visible = True
-    Label29.Visible = True
-    Label42.Visible = True
-    Text1.Visible = True
-    Command1.Visible = True
+    a = ShowBIOSControls()
 ElseIf Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Or Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
     SysCore = "pce"
     If Combo1.Text = "pce_fast (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Then
@@ -2728,24 +2722,12 @@ ElseIf Combo1.Text = "pce (PC Engine (CD)/TurboGrafx 16 (CD)/SuperGrafx)" Or Com
     Combo5.AddItem "tsushinkb - Tsushin Keyboard", 3
     Combo5.ListIndex = 1
     Combo5.Enabled = True
-    Label4.Visible = True
-    Label5.Visible = True
-    Label6.Visible = True
-    Label29.Visible = True
-    Label42.Visible = True
-    Text1.Visible = True
-    Command1.Visible = True
+    a = ShowBIOSControls()
     Label23.Caption = "REDUMP: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
 ElseIf Combo1.Text = "pcfx (PC-FX)" Then
     SysCore = "pcfx"
-    Label4.Visible = True
-    Label5.Visible = True
-    Label6.Visible = True
-    Label29.Visible = True
-    Label42.Visible = True
-    Text1.Visible = True
-    Command1.Visible = True
+    a = ShowBIOSControls()
     Label23.Caption = "REDUMP: unverified!"
     Label23.ForeColor = RGB(255, 128, 0)
 Else
@@ -2762,13 +2744,7 @@ Else
     Check12.Enabled = False
     Check13.Enabled = False
     Combo5.Enabled = False
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
+    a = HideBIOSControls()
 End If
 End Function
 
@@ -2788,7 +2764,7 @@ WebBrowser1.ToolBar = False
 WebBrowser1.Resizable = False
 WebBrowser1.Navigate ("http://ad.a-ads.com/402648?size=468x60&background_color=CCCCCC&title_color=0000ff&link_color=313370&text_color=ffffff&title_hover_color=ff8c00&link_hover_color=ff8c00")
 
-Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman"
+Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v1.x Frontend) by Nigel Todman"
 
 Dir1.Path = VB.App.Path
 File1.Path = VB.App.Path
@@ -2809,7 +2785,8 @@ Text5.Text = XRes
 Text6.Text = YRes
 Text7.Text = SavePath
 Text8.Text = numplayers
-
+Text9.Text = customparams
+Text10.Text = scanlines
 Dir1.Path = LastPath
 File1.Path = LastPath
 
@@ -2957,9 +2934,8 @@ Combo4.AddItem "nny2x - Nearest-neighbor 2x, y axis only", 13
 Combo4.AddItem "nny3x - Nearest-neighbor 3x, y axis only", 14
 Combo4.AddItem "nny4x - Nearest-neighbor 4x, y axis only", 15
 
-Combo6.AddItem "OpenGL - OpenGL + SDL", 0
-Combo6.AddItem "SDL - SDL Surface", 1
-Combo6.AddItem "Overlay - SDL Overlay", 2
+Combo6.AddItem "OpenGL - OpenGL", 0
+Combo6.AddItem "SoftFB - Software Blitting to Framebuffer", 1
 Combo6.ListIndex = 0
 
 Combo7.AddItem "320x200", 0
