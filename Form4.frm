@@ -769,6 +769,11 @@ If SysCore = "psx" Or SysCore = "ss" Or SysCore = "pce" Then
     a = Form4.Validate_Bios
     Label7.Visible = True
     Label8.Visible = True
+    If SysCore = "psx" Then
+        Label13.Visible = True
+        Label14.Visible = True
+        Label13.Caption = GetPSXID()
+    End If
 End If
 
 If SysCore = "snes" Then

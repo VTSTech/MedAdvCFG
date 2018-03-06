@@ -2518,7 +2518,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.4.0-r40"
+GetBuild = "0.4.0-r41"
 End Function
 Public Function ResetSysCore()
 SysCore = ""

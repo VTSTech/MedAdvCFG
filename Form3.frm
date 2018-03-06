@@ -3,7 +3,7 @@ Begin VB.Form Form3
    AutoRedraw      =   -1  'True
    BackColor       =   &H00000000&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
-   ClientHeight    =   8490
+   ClientHeight    =   8730
    ClientLeft      =   225
    ClientTop       =   855
    ClientWidth     =   11280
@@ -17,7 +17,7 @@ Begin VB.Form Form3
       Strikethrough   =   0   'False
    EndProperty
    LinkTopic       =   "Form3"
-   ScaleHeight     =   8490
+   ScaleHeight     =   8730
    ScaleMode       =   0  'User
    ScaleWidth      =   11829.89
    StartUpPosition =   3  'Windows Default
