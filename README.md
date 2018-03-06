@@ -15,7 +15,7 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/0fdd3ab59d2e938e4f22f6062d44b724.png">
 
-<img src="https://i.gyazo.com/6a2fe1b84457739aa1f87e3ae319b566.png">
+<img src="https://i.gyazo.com/3f67974b9b851cc8496a9fc6bd99dae8.png">
 
 v0.4.0-r40 03-06-2018 4:34PM
 
