@@ -1,6 +1,6 @@
 # MedAdvCFG - Mednafen Advanced Configuration Tool
 
-Frontend for <a href="http://mednafen.github.io/releases/">Mednafen</a> v0.9.x.x
+Frontend for <a href="http://mednafen.github.io/releases/">Mednafen</a> v1.x
 
 Tested with the following System Cores:
 
@@ -9,7 +9,7 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/00381c5ea1ad0de1ad1ac589b59af62c.png">
+<img src="https://i.gyazo.com/fcbb6ca7b390d6c23c4f598227b1afef.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
@@ -17,6 +17,24 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/6a2fe1b84457739aa1f87e3ae319b566.png">
 
+v0.4.0-r40 03-06-2018 4:34PM
+
+Added support for Sega Saturn Racing Controller (MK-80107)
+
+Added support for Sega Saturn Mission Stick (MK-80104)
+
+Added support for Sega Saturn Dual Mission Stick (MK-80104)
+
+Added support for Sega Saturn Virtua Gun/Stunner (MK-80113)
+
+Added support for Sega Saturn NetLink US Keyboard (MK-80120)
+
+Added support for Sega Saturn 89-Key JP Keyboard (HSS-0129)
+
+
+Added '0.9.x.x Mode' - Prevents 1.x parameters from being passed to cmdline. Automatically activates when a known 0.9.x.x version is detected.
+
+Various code optimizations
 
 v0.4.0-r39 02-26-2018 12:14AM
 

@@ -21,6 +21,15 @@ Begin VB.Form Form1
    ScaleHeight     =   8265
    ScaleWidth      =   8985
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox Check28 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "0.9.x.x Mode"
+      Height          =   255
+      Left            =   5040
+      TabIndex        =   100
+      Top             =   3600
+      Width           =   1335
+   End
    Begin VB.CheckBox Check13 
       BackColor       =   &H00C0C0C0&
       Caption         =   "PAL"
@@ -677,7 +686,7 @@ Begin VB.Form Form1
    Begin VB.Label Label24 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
-      Caption         =   "www.CoversDB.org"
+      Caption         =   "CoversDB (Mirror)"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -692,7 +701,6 @@ Begin VB.Form Form1
       Left            =   7200
       TabIndex        =   84
       Top             =   8040
-      Visible         =   0   'False
       Width           =   1515
       WordWrap        =   -1  'True
    End
@@ -790,6 +798,7 @@ Begin VB.Form Form1
       WordWrap        =   -1  'True
    End
    Begin VB.Label Label34 
+      AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
       Caption         =   "MedAdvCFG v0.0.0"
       ForeColor       =   &H00FF0000&
@@ -1385,6 +1394,9 @@ tmp = Replace(tmp, ".ccd", "")
 tmp = Replace(tmp, " (USA) ", "")
 tmp = Replace(tmp, " (USA)", "")
 tmp = Replace(tmp, "(USA)", "")
+tmp = Replace(tmp, " (Demo) ", "")
+tmp = Replace(tmp, " (Demo)", "")
+tmp = Replace(tmp, "(Demo)", "")
 For z = 0 To 9
     tmp = Replace(tmp, " (v1." & z & ")", "")
     tmp = Replace(tmp, " (V1." & z & ")", "")
@@ -1647,6 +1659,11 @@ If FSO.FileExists(MedEXE) = True Then
             If tmp = Mid$(MedMD5, 1, 32) Then
                 'MsgBox Mid$(MedMD5, 34, Len(MedMD5))
                 Label2.Caption = Mid$(MedMD5, 34, Len(MedMD5)) & " Detected! MD5: " & Mid$(MedMD5, 1, 32)
+                If Mid$(MedMD5, 34, 3) = "0.9" Then
+                    Check28.Value = 1
+                Else
+                    Check28.Value = 0
+                End If
             End If
         Loop Until EOF(16)
         If Label2.Caption = "Not Set" Then
@@ -1665,15 +1682,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-advanced.Checked = True
-basic.Checked = False
+Advanced.Checked = True
+Basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-advanced.Checked = False
-basic.Checked = True
+Advanced.Checked = False
+Basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -2031,6 +2048,18 @@ If Combo5.Enabled = True Then
                     cmdstring = cmdstring & " -" & SysCore & ".input.port1 3dpad"
                 ElseIf Combo5.ListIndex = 3 Then
                     cmdstring = cmdstring & " -" & SysCore & ".input.port1 mouse"
+                ElseIf Combo5.ListIndex = 4 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 wheel"
+                ElseIf Combo5.ListIndex = 5 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 mission"
+                ElseIf Combo5.ListIndex = 6 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 dmission"
+                ElseIf Combo5.ListIndex = 7 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 gun"
+                ElseIf Combo5.ListIndex = 8 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 keyboard"
+                ElseIf Combo5.ListIndex = 9 Then
+                    cmdstring = cmdstring & " -" & SysCore & ".input.port1 jpkeyboard"
                 End If
             ElseIf SysCore = "md" Then
                 If Combo5.ListIndex = 0 Then
@@ -2069,8 +2098,10 @@ End If
 '**v0.1.7
 If Combo6.Text = "OpenGL - OpenGL" Then
     cmdstring = cmdstring & " -video.driver opengl"
-ElseIf Combo6.Text = "SoftFB - Software Blitting to Framebuffer" Then
+ElseIf Combo6.Text = "SoftFB - Software Blitting to Framebuffer" And Check28.Value = 1 Then
     cmdstring = cmdstring & " -video.driver softfb"
+ElseIf Combo6.Text = "SoftFB - Software Blitting to Framebuffer" And Check28.Value = 0 Then
+    cmdstring = cmdstring & " -video.driver sdl"
 End If
 
 '**v0.3.3-r36
@@ -2221,13 +2252,16 @@ If Combo8.ListIndex >= 1 Then
 cmdstring = cmdstring & " -netplay.host " & Chr(34) & Mid$(Combo8.Text, 7, Len(Combo8.Text)) & Chr(34) & " -connect"
 End If
 
-'v0.4.0 ShowFPS, video.fs.display
-If Check27.Value = 1 Then
-    cmdstring = cmdstring & " -fps.autoenable 1"
-End If
-
-If Val(Text12.Text) < -1 Then
-cmdstring = cmdstring & " -video.fs.display " & Text12.Text
+'v0.4.0-39 ShowFPS, video.fs.display
+If Check28.Value = 1 Then
+'Mednafen v1.x specific here
+    If Check27.Value = 1 Then
+        cmdstring = cmdstring & " -fps.autoenable 1"
+    End If
+    
+    If Val(Text12.Text) < -1 Then
+    cmdstring = cmdstring & " -video.fs.display " & Text12.Text
+    End If
 End If
 
 'Specify ROM
@@ -2484,7 +2518,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.4.0-r39"
+GetBuild = "0.4.0-r40"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -2703,6 +2737,12 @@ ElseIf Combo1.Text = "gb (GameBoy (Color))" Then
     Combo5.AddItem "gamepad - MK-80100 Sega Saturn Controller", 1
     Combo5.AddItem "3dpad - MK-80117 Sega Saturn 3D Control Pad", 2
     Combo5.AddItem "mouse - HSS-0139 Sega Saturn Shuttle Mouse", 3
+    Combo5.AddItem "wheel - MK-80107 Sega Saturn Racing Controller", 4
+    Combo5.AddItem "mission - MK-80104 Sega Saturn Mission Stick", 5
+    Combo5.AddItem "dmission - MK-80104 Sega Saturn Dual Mission Stick", 6
+    Combo5.AddItem "gun - MK-80113 Sega Saturn Virtua Gun/Stunner", 7
+    Combo5.AddItem "keyboard - MK-80120 Sega Saturn NetLink US Keyboard", 8
+    Combo5.AddItem "jpkeyboard - HSS-0129 Sega Saturn 89-Key JP Keyboard", 9
     Combo5.ListIndex = 1
     Combo5.Enabled = True
     Label23.Caption = "REDUMP: unverified!"
@@ -2787,8 +2827,10 @@ Text7.Text = SavePath
 Text8.Text = numplayers
 Text9.Text = customparams
 Text10.Text = scanlines
-Dir1.Path = LastPath
-File1.Path = LastPath
+If FSO.FolderExists(LastPath) Then
+    Dir1.Path = LastPath
+    File1.Path = LastPath
+End If
 
 ROMDIR = ROMPathLoad
 BIOSPATH = BiosPathLoad
@@ -3002,7 +3044,7 @@ MsgBox "Tips for NetPlay" & vbCrLf & "All players must be using the same:" & vbC
 End Sub
 
 Private Sub Image1_Click()
-Shell ("cmd.exe /c start http://mednafen.fobby.net/"), vbHide
+Shell ("cmd.exe /c start http://mednafen.github.io/"), vbHide
 End Sub
 
 Private Sub Label15_Click()
@@ -3040,7 +3082,7 @@ MsgBox "MD5 copied to Clipboard"
 End Sub
 
 Private Sub Label24_Click()
-Shell ("cmd.exe /c start http://www.CoversDB.org"), vbHide
+Shell ("cmd.exe /c start http://CoversDB.NigelTodman.com"), vbHide
 End Sub
 
 Private Sub Label34_Click()
