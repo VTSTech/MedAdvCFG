@@ -17,6 +17,14 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/3f67974b9b851cc8496a9fc6bd99dae8.png">
 
+v0.4.0-r41 03-06-2018 5:20PM
+
+Fixed reference to removed control in Basic Mode
+
+Resized game selection form in Basic Mode slightly
+
+Game ID is now displayed in Basic Mode for PSX System Core
+
 v0.4.0-r40 03-06-2018 4:34PM
 
 Added support for Sega Saturn Racing Controller (MK-80107)
