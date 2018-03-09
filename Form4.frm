@@ -5,7 +5,7 @@ Begin VB.Form Form4
    ClientHeight    =   7965
    ClientLeft      =   225
    ClientTop       =   855
-   ClientWidth     =   13125
+   ClientWidth     =   11280
    BeginProperty Font 
       Name            =   "Arial"
       Size            =   8.25
@@ -18,7 +18,7 @@ Begin VB.Form Form4
    ForeColor       =   &H0000FF00&
    LinkTopic       =   "Form4"
    ScaleHeight     =   7965
-   ScaleWidth      =   13125
+   ScaleWidth      =   11280
    StartUpPosition =   3  'Windows Default
    Begin VB.CommandButton Command2 
       Caption         =   "Back"
@@ -364,6 +364,14 @@ Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 
 Private Sub about_Click()
 MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Written by Nigel Todman (nigel@nigeltodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, SS, VB" & vbCrLf & vbCrLf & "Homepage: www.NigelTodman.com" & vbCrLf & "Facebook: facebook.com/nigel.todman.3" & vbCrLf & "Twitter: @Veritas_83" & vbCrLf & "YouTube: Veritas0923" & vbCrLf & "BTC: 18j2Env7QokhGG5MccS3LPBKnjsko6u4NQ"
+End Sub
+
+Private Sub Advanced_Click()
+Basic.Checked = False
+Form1.Basic.Checked = False
+Form1.Visible = True
+Form1.Advanced.Checked = True
+Form3.Visible = False
 End Sub
 
 Private Sub Basic_Click()

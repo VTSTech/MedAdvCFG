@@ -9,13 +9,25 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/fcbb6ca7b390d6c23c4f598227b1afef.png">
+<img src="https://i.gyazo.com/176f36c5664eb31f3be0cc4b43d00395.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
 <img src="https://i.gyazo.com/0fdd3ab59d2e938e4f22f6062d44b724.png">
 
 <img src="https://i.gyazo.com/3f67974b9b851cc8496a9fc6bd99dae8.png">
+
+v0.4.0-r42 03-09-2018 8:49AM
+
+Region is now autodetected based on BIOS, Defaults to NTSC-U if using unknown BIOS.
+
+Regions added to bios.dat
+
+Added option to boot SysCore with Disc Tray/Cart Ejected
+
+Clicking 'Mode -> Advanced' from the 'Game Info' screen of Basic Mode now actually returns you to Advanced Mode.
+
+Various Code Optimizations
 
 v0.4.0-r41 03-06-2018 5:20PM
 

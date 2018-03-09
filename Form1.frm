@@ -21,6 +21,15 @@ Begin VB.Form Form1
    ScaleHeight     =   8265
    ScaleWidth      =   8985
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox Check29 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Disc Tray/Cart Ejected"
+      Height          =   195
+      Left            =   6960
+      TabIndex        =   101
+      Top             =   4200
+      Width           =   1935
+   End
    Begin VB.CheckBox Check28 
       BackColor       =   &H00C0C0C0&
       Caption         =   "0.9.x.x Mode"
@@ -129,12 +138,12 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Height          =   330
       ItemData        =   "Form1.frx":851E
-      Left            =   7710
+      Left            =   7680
       List            =   "Form1.frx":8520
       TabIndex        =   86
       Text            =   "800x600"
       Top             =   4560
-      Width           =   1215
+      Width           =   1250
    End
    Begin SHDocVwCtl.WebBrowser WebBrowser1 
       CausesValidation=   0   'False
@@ -230,7 +239,7 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "weave"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
+         Name            =   "Arial Narrow"
          Size            =   8.25
          Charset         =   0
          Weight          =   400
@@ -249,7 +258,7 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "bob"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
+         Name            =   "Arial Narrow"
          Size            =   8.25
          Charset         =   0
          Weight          =   400
@@ -267,7 +276,7 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "bob_offset"
       BeginProperty Font 
-         Name            =   "OpenSymbol"
+         Name            =   "Arial Narrow"
          Size            =   8.25
          Charset         =   0
          Weight          =   400
@@ -1377,6 +1386,9 @@ Open VB.App.Path & "\multi.m3u" For Output As #2
 
 End Function
 Function FileNameCleanup()
+If ROMFILE = "" Then
+    ROMFILE = Form4.Label2.Caption
+End If
 tmparray = Split(ROMFILE, "\")
 'MsgBox UBound(tmparray)
 tmp = Replace(tmparray(UBound(tmparray)), ".cue", "")
@@ -1569,7 +1581,18 @@ If Check10.Value = 1 Then
             Line Input #16, BiosMD5
             If LCase(tmp) = Mid$(BiosMD5, 1, 32) Then
                 'MsgBox Mid$(MedMD5, 34, Len(MedMD5))
-                Label29.Caption = Mid$(BiosMD5, 34, Len(BiosMD5))
+                Label29.Caption = Mid$(BiosMD5, 41, Len(BiosMD5))
+                SystemRegion = Mid$(BiosMD5, 34, 6)
+                'MsgBox SystemRegion
+                If SystemRegion = "NTSC-U" Then
+                    Check11.Value = 1
+                ElseIf SystemRegion = "NTSC-J" Then
+                    Check12.Value = 1
+                ElseIf SystemRegion = "PAL   " Then
+                    Check13.Value = 1
+                Else
+                    Check11.Value = 1
+                End If
             End If
         Loop Until EOF(16)
         If Label29.Caption = "Not Set" Then
@@ -2098,9 +2121,9 @@ End If
 '**v0.1.7
 If Combo6.Text = "OpenGL - OpenGL" Then
     cmdstring = cmdstring & " -video.driver opengl"
-ElseIf Combo6.Text = "SoftFB - Software Blitting to Framebuffer" And Check28.Value = 1 Then
-    cmdstring = cmdstring & " -video.driver softfb"
 ElseIf Combo6.Text = "SoftFB - Software Blitting to Framebuffer" And Check28.Value = 0 Then
+    cmdstring = cmdstring & " -video.driver softfb"
+ElseIf Combo6.Text = "SoftFB - Software Blitting to Framebuffer" And Check28.Value = 1 Then
     cmdstring = cmdstring & " -video.driver sdl"
 End If
 
@@ -2253,7 +2276,7 @@ cmdstring = cmdstring & " -netplay.host " & Chr(34) & Mid$(Combo8.Text, 7, Len(C
 End If
 
 'v0.4.0-39 ShowFPS, video.fs.display
-If Check28.Value = 1 Then
+If Check28.Value = 0 Then
 'Mednafen v1.x specific here
     If Check27.Value = 1 Then
         cmdstring = cmdstring & " -fps.autoenable 1"
@@ -2264,6 +2287,10 @@ If Check28.Value = 1 Then
     End If
 End If
 
+'v0.4.0-r42 Disc/Cart Tray Ejected
+If Check29.Value = 1 Then
+    cmdstring = cmdstring & " -which_medium -1"
+End If
 'Specify ROM
 cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 'Closing "
@@ -2518,7 +2545,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.4.0-r41"
+GetBuild = "0.4.0-r42"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -2795,6 +2822,9 @@ FatalError = False
 Build = Form1.GetBuild()
 Form1.Width = 9240
 ActiveFile = "None"
+
+'**
+'Form5.Visible = True
 
 WebBrowser1.StatusBar = False
 WebBrowser1.AddressBar = False
