@@ -18,18 +18,17 @@ v0.3.x
 * GOAT Shader support
 * SNES_FAUST SysCore Support
 
-SS and SNES_FAUST specific options
+* SS and SNES_FAUST specific options
+* Parse CUE for BIN filename
+* Parse BIN for PSX ID
+* Search for REDUMP/GoodTools Verified ROMS
+* Maintain list of all verified roms
+
+v0.4.x
+
+* 0.9.x.x compatability mode
+* Disc Tray/Cart Ejected option
+Basic Mode (Complete)
 NoIntro Verification for GBA/GBC
 REDUMP Verification for SS/PCE
-Parse CUE for BIN filename
-Parse BIN for PSX ID
-Search for REDUMP/GoodTools Verified ROMS
-Maintain list of all verified roms
-
-v0.3.x - v0.4.x
-
-Basic Mode (Complete)
-Play Stats at CoversDB.org
--Recently Played
--Most Played
--Most Emulated Console
+Future v1.x options

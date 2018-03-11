@@ -9,13 +9,32 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/176f36c5664eb31f3be0cc4b43d00395.png">
+<img src="https://i.gyazo.com/95e8ef1d902ba28b9bf2df7ada637320.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
 <img src="https://i.gyazo.com/0fdd3ab59d2e938e4f22f6062d44b724.png">
 
 <img src="https://i.gyazo.com/3f67974b9b851cc8496a9fc6bd99dae8.png">
+
+
+v0.4.0-r43 03-11-2018 11:13AM
+
+Added option to autosave/load game state
+
+Added option to disable Desktop composition
+
+Renamed some controls to more accurately reflect the parameter they control
+
+'Number of Players' control renamed to netplay.localplayers. Also passes that parameter in addition to setting the 'Controller' to specified type and plugged in for specified number of players
+
+Horizantal Overscan renamed to h_overscan and now also works for Sega Saturn SysCore
+
+Added Twitch icon and link
+
+Updated roadmap
+
+Various code optimizations
 
 v0.4.0-r42 03-09-2018 8:49AM
 
