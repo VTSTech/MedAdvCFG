@@ -28,7 +28,7 @@ Renamed some controls to more accurately reflect the parameter they control
 
 'Number of Players' control renamed to netplay.localplayers. Also passes that parameter in addition to setting the 'Controller' to specified type and plugged in for specified number of players
 
-Horizantal Overscan renamed to h_overscan and now also works for Sega Saturn SysCore
+Horizontal Overscan renamed to h_overscan and now also works for Sega Saturn SysCore
 
 Added Twitch icon and link
 
