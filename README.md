@@ -9,7 +9,7 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/95e8ef1d902ba28b9bf2df7ada637320.png">
+<img src="https://i.gyazo.com/3cfc961fddd403f5fe60389f28b3d00d.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
@@ -17,6 +17,24 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/3f67974b9b851cc8496a9fc6bd99dae8.png">
 
+
+v0.4.1-r44 03-12-2018 12:09PM
+
+Desktop Composition is now saved/loaded with settings
+
+Autosave/load State is now saved/loaded with settings
+
+Disc Tray/Cart ejected is now saved/loaded with settings
+
+Saving in Advanced Mode no longer forgets Basic Mode Folder setting
+
+HQ2X is now the hardcoded Video Scaler in Basic Mode.
+
+Frameskip is now set to enabled for Basic Mode.
+
+BIOS & ROM Sanity is now set to disabled for Basic Mode.
+
+Various code optimizations
 
 v0.4.0-r43 03-11-2018 11:13AM
 

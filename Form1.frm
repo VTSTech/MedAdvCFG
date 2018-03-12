@@ -1343,7 +1343,7 @@ Dim MedEXE, FSO, tmp, tmp2, tmp3(99), BIOSFILE, BIOSPATH, ROMFILE, SystemCore, S
 Dim cmdstring, Build, Frameskip, Fullscreen, TBlur, TblurAccum, AccumAmount, VideoIP, ActiveFile, XRes, YRes, ScaleFactor, LastPath, SavePath, BiosPathLoad
 Dim ResetBios, ResetRom, ResetSave, FatalError, SystemRegion, SystemRegionLoad, ROMDIR, M3USize, LastFile, VideoDriver
 Dim Bilinear, DisableSound, ForceMono, video_blit_timesync, video_glvsync, untrusted_fip_check, cd_image_memcache, scanlines, numplayers, customparams
-Dim CoverName, PSXIDList, PSXID, RedumpList, REDUMPMD5, ROMMD5, CUEFILE, BINFILE, MedMD5, MedDat
+Dim CoverName, PSXIDList, PSXID, RedumpList, REDUMPMD5, ROMMD5, CUEFILE, BINFILE, MedMD5, MedDat, autosave, desktopcomp, bootbios
 Private Type MD5_CTX
   i(1 To 2) As Long
   buf(1 To 4) As Long
@@ -1950,15 +1950,15 @@ If Combo4.Text = "None - None/Disabled" Then
     cmdstring = cmdstring & " -" & SysCore & ".special none"
 ElseIf Combo4.Text = "hq2x - hq2x" Then
     cmdstring = cmdstring & " -" & SysCore & ".special hq2x"
-ElseIf Combo4.Text = "hq3x -hq3x" Then
+ElseIf Combo4.Text = "hq3x - hq3x" Then
     cmdstring = cmdstring & " -" & SysCore & ".special hq3x"
-ElseIf Combo4.Text = "hq4x -hq4x" Then
+ElseIf Combo4.Text = "hq4x - hq4x" Then
     cmdstring = cmdstring & " -" & SysCore & ".special hq4x"
-ElseIf Combo4.Text = "scale2x -scale2x" Then
+ElseIf Combo4.Text = "scale2x - scale2x" Then
     cmdstring = cmdstring & " -" & SysCore & ".special scale2x"
-ElseIf Combo4.Text = "scale3x -scale3x" Then
+ElseIf Combo4.Text = "scale3x - scale3x" Then
     cmdstring = cmdstring & " -" & SysCore & ".special scale3x"
-ElseIf Combo4.Text = "scale4x -scale4x" Then
+ElseIf Combo4.Text = "scale4x - scale4x" Then
     cmdstring = cmdstring & " -" & SysCore & ".special scale4x"
 ElseIf Combo4.Text = "2xsai - 2xSaI" Then
     cmdstring = cmdstring & " -" & SysCore & ".special 2xsai"
@@ -2543,7 +2543,7 @@ Set FSO = CreateObject("Scripting.FileSystemObject")
 If FSO.FileExists(VB.App.Path & "\MedAdvCFG.dat") Then
 
 Open VB.App.Path & "\MedAdvCFG.dat" For Input As #1
-    For x = 1 To 35
+    For x = 1 To 39
         On Error Resume Next
         Line Input #1, tmp3(x)
     Next x
@@ -2584,11 +2584,14 @@ numplayers = Mid$(tmp3(32), 12, Len(tmp3(32)))
 customparams = Mid$(tmp3(33), 14, Len(tmp3(33)))
 BasicModeFolder = Mid$(tmp3(34), 17, Len(tmp3(34)))
 QuickLaunch = Mid$(tmp3(35), 13, 1)
+desktopcomp = Mid$(tmp3(36), 13, 1)
+autosave = Mid$(tmp3(37), 10, 1)
+bootbios = Mid$(tmp3(38), 10, 1)
 End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.4.0-r43"
+GetBuild = "0.4.1-r44"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -2990,6 +2993,10 @@ ElseIf cd_image_memcache = 0 Then
     Check23.Value = 0
 End If
 
+If autosave = 1 Then Check31.Value = 1
+If desktopcomp = 1 Then Check30.Value = 1
+If bootbios = 1 Then Check29.Value = 1
+
 a = CoreControls()
 
 a = Validate_MedEXE()
@@ -3034,11 +3041,11 @@ Combo3.AddItem "goat - Simple approximation of a color TV CRT look.", 10
 
 Combo4.AddItem "None - None/Disabled", 0
 Combo4.AddItem "hq2x - hq2x", 1
-Combo4.AddItem "hq3x -hq3x", 2
-Combo4.AddItem "hq4x -hq4x", 3
-Combo4.AddItem "scale2x -scale2x", 4
-Combo4.AddItem "scale3x -scale3x", 5
-Combo4.AddItem "scale4x -scale4x", 6
+Combo4.AddItem "hq3x - hq3x", 2
+Combo4.AddItem "hq4x - hq4x", 3
+Combo4.AddItem "scale2x - scale2x", 4
+Combo4.AddItem "scale3x - scale3x", 5
+Combo4.AddItem "scale4x - scale4x", 6
 Combo4.AddItem "2xsai - 2xSaI", 7
 Combo4.AddItem "super2xsai - Super 2xSaI", 8
 Combo4.AddItem "supereagle - Super Eagle", 9
@@ -3262,6 +3269,19 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     Print #6, "axisscale=" & Text11.Text
     Print #6, "numplayers=" & Text8.Text
     Print #6, "customparams=" & Text9.Text
+    If BasicModeFolder = "" Then
+        Print #6, "BasicModeFolder=C:\"
+    Else
+        Print #6, "BasicModeFolder=" & BasicModeFolder
+    End If
+    If QuickLaunch = "" Then
+        Print #6, "QuickLaunch=0"
+    Else
+        Print #6, "QuickLaunch=" & QuickLaunch
+    End If
+    Print #6, "desktopcomp=" & Check30.Value
+    Print #6, "autosave=" & Check31.Value
+    Print #6, "bootbios=" & Check29.Value
 Close #6
 End Sub
 

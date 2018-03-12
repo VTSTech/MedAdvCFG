@@ -1310,9 +1310,9 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     Print #6, "ROMSanity=0"
     Print #6, "Stretch=full - Full"
     Print #6, "PixelShader=None - None/Disabled"
-    Print #6, "VideoScaler=None - None/Disabled"
+    Print #6, "VideoScaler=hq2x - hq2x"
     Print #6, "Fullscreen=1"
-    Print #6, "Frameskip=0"
+    Print #6, "Frameskip=1"
     Print #6, "Tblur=0"
     Print #6, "TblurAccum=0"
     Print #6, "AccumAmount=50"
@@ -1337,6 +1337,9 @@ Open VB.App.Path & "\MedAdvCFG.dat" For Output As #6
     Print #6, "customparams="
     Print #6, "BasicModeFolder=" & Text2.Text
     Print #6, "QuickLaunch=" & Check1.Value
+    Print #6, "desktopcomp=0"
+    Print #6, "autosave=0"
+    Print #6, "bootbios=0"
 Close #6
 End Function
 Private Sub Save_Click()

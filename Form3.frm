@@ -328,10 +328,10 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Basic.Checked = False
-Form1.Basic.Checked = False
+basic.Checked = False
+Form1.basic.Checked = False
 Form1.Visible = True
-Form1.Advanced.Checked = True
+Form1.advanced.Checked = True
 Form3.Visible = False
 End Sub
 
@@ -379,7 +379,7 @@ Build = Form1.GetBuild()
 Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
 'Text1.Text = ""
 SysCore = Form1.SetSysCore
-Basic.Checked = True
+basic.Checked = True
 Set FSO = CreateObject("Scripting.FileSystemObject")
 '12 Games per page..
 For y = 1 To 12
@@ -857,9 +857,12 @@ SysCore = Form1.SetSysCore
         cmdstring = cmdstring & " -" & SysCore & ".videoip 1"
         cmdstring = cmdstring & " -cd.image_memcache 1"
         cmdstring = cmdstring & " -" & SysCore & ".stretch full"
+        cmdstring = cmdstring & " -" & SysCore & ".special hq2x"
+        cmdstring = cmdstring & " -" & SysCore & ".xscale 2 -" & SysCore & ".xscalefs 2"
+        cmdstring = cmdstring & " -" & SysCore & ".yscale 2 -" & SysCore & ".yscalefs 2"
         If SysCore = "psx" Or SysCore = "ss" Then
-                cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 1"
-                cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 1"
+                cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 0"
+                cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 0"
                 cmdstring = cmdstring & " -cd.image_memcache 1"
         End If
     End If
