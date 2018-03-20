@@ -3,7 +3,7 @@ Object = "{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}#1.1#0"; "ieframe.dll"
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.x.x Frontend) by Nigel Todman [ADV MODE]"
-   ClientHeight    =   8265
+   ClientHeight    =   8670
    ClientLeft      =   225
    ClientTop       =   555
    ClientWidth     =   8985
@@ -18,9 +18,36 @@ Begin VB.Form Form1
    EndProperty
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   8265
+   ScaleHeight     =   8670
    ScaleWidth      =   8985
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox Check34 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "ffnosound"
+      Height          =   195
+      Left            =   7800
+      TabIndex        =   106
+      Top             =   4920
+      Width           =   1095
+   End
+   Begin VB.CheckBox Check33 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "nothrottle"
+      Height          =   195
+      Left            =   6960
+      TabIndex        =   105
+      Top             =   5160
+      Width           =   975
+   End
+   Begin VB.CheckBox Check32 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "fftoggle"
+      Height          =   195
+      Left            =   6960
+      TabIndex        =   104
+      Top             =   4920
+      Width           =   855
+   End
    Begin VB.CheckBox Check31 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Autosave/load state"
@@ -93,7 +120,7 @@ Begin VB.Form Form1
       Left            =   8520
       TabIndex        =   95
       Text            =   "-1"
-      Top             =   5400
+      Top             =   5880
       Width           =   405
    End
    Begin VB.CheckBox Check27 
@@ -160,7 +187,7 @@ Begin VB.Form Form1
       List            =   "Form1.frx":8520
       TabIndex        =   86
       Text            =   "800x600"
-      Top             =   5040
+      Top             =   5520
       Width           =   1250
    End
    Begin SHDocVwCtl.WebBrowser WebBrowser1 
@@ -169,7 +196,7 @@ Begin VB.Form Form1
       Left            =   0
       TabIndex        =   82
       TabStop         =   0   'False
-      Top             =   7320
+      Top             =   7680
       Width           =   7035
       ExtentX         =   12409
       ExtentY         =   1676
@@ -250,7 +277,7 @@ Begin VB.Form Form1
       Left            =   8520
       TabIndex        =   67
       Text            =   "1.00"
-      Top             =   6510
+      Top             =   6990
       Width           =   405
    End
    Begin VB.CheckBox Check18 
@@ -314,7 +341,7 @@ Begin VB.Form Form1
       Left            =   8520
       TabIndex        =   61
       Text            =   "0"
-      Top             =   6240
+      Top             =   6720
       Width           =   405
    End
    Begin VB.CheckBox Check15 
@@ -340,7 +367,7 @@ Begin VB.Form Form1
       Left            =   8520
       TabIndex        =   56
       Text            =   "1"
-      Top             =   6795
+      Top             =   7275
       Width           =   405
    End
    Begin VB.ComboBox Combo5 
@@ -405,7 +432,7 @@ Begin VB.Form Form1
       Left            =   8280
       TabIndex        =   45
       Text            =   "1080"
-      Top             =   5040
+      Top             =   5520
       Visible         =   0   'False
       Width           =   515
    End
@@ -415,7 +442,7 @@ Begin VB.Form Form1
       Left            =   7680
       TabIndex        =   44
       Text            =   "1920"
-      Top             =   5040
+      Top             =   5520
       Visible         =   0   'False
       Width           =   495
    End
@@ -425,7 +452,7 @@ Begin VB.Form Form1
       Left            =   8520
       TabIndex        =   42
       Text            =   "2"
-      Top             =   5685
+      Top             =   6165
       Width           =   405
    End
    Begin VB.CommandButton Command4 
@@ -548,7 +575,7 @@ Begin VB.Form Form1
       Left            =   8520
       TabIndex        =   22
       Text            =   "50"
-      Top             =   5985
+      Top             =   6465
       Width           =   405
    End
    Begin VB.CheckBox Check4 
@@ -654,7 +681,7 @@ Begin VB.Form Form1
       Height          =   480
       Left            =   6000
       Picture         =   "Form1.frx":8526
-      Top             =   6060
+      Top             =   6420
       Width           =   480
    End
    Begin VB.Label Label28 
@@ -664,7 +691,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   96
-      Top             =   5415
+      Top             =   5895
       Width           =   1680
    End
    Begin VB.Label Label43 
@@ -714,7 +741,7 @@ Begin VB.Form Form1
       Height          =   225
       Left            =   3120
       TabIndex        =   85
-      Top             =   6675
+      Top             =   7035
       Width           =   3615
    End
    Begin VB.Label Label24 
@@ -734,7 +761,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   7200
       TabIndex        =   84
-      Top             =   8040
+      Top             =   8400
       Width           =   1515
       WordWrap        =   -1  'True
    End
@@ -827,7 +854,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   7200
       TabIndex        =   70
-      Top             =   7800
+      Top             =   8160
       Width           =   1815
       WordWrap        =   -1  'True
    End
@@ -839,7 +866,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   7200
       TabIndex        =   69
-      Top             =   7560
+      Top             =   7920
       Width           =   1410
    End
    Begin VB.Label Label33 
@@ -849,7 +876,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   68
-      Top             =   6480
+      Top             =   6960
       Width           =   1710
    End
    Begin VB.Label Label15 
@@ -869,49 +896,49 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   62
-      Top             =   6240
+      Top             =   6720
       Width           =   1680
    End
    Begin VB.Image Image7 
       Height          =   480
       Left            =   4560
       Picture         =   "Form1.frx":91F0
-      Top             =   6060
+      Top             =   6420
       Width           =   480
    End
    Begin VB.Image Image6 
       Height          =   480
       Left            =   4080
       Picture         =   "Form1.frx":9EBA
-      Top             =   6060
+      Top             =   6420
       Width           =   480
    End
    Begin VB.Image Image5 
       Height          =   480
       Left            =   5520
       Picture         =   "Form1.frx":AB84
-      Top             =   6060
+      Top             =   6420
       Width           =   480
    End
    Begin VB.Image Image4 
       Height          =   480
       Left            =   5040
       Picture         =   "Form1.frx":B84E
-      Top             =   6060
+      Top             =   6420
       Width           =   480
    End
    Begin VB.Image Image3 
       Height          =   480
       Left            =   3600
       Picture         =   "Form1.frx":C518
-      Top             =   6060
+      Top             =   6420
       Width           =   480
    End
    Begin VB.Image Image2 
       Height          =   480
       Left            =   3120
       Picture         =   "Form1.frx":D1E2
-      Top             =   6060
+      Top             =   6420
       Width           =   480
    End
    Begin VB.Label Label32 
@@ -931,7 +958,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   57
-      Top             =   6720
+      Top             =   7200
       Width           =   1755
    End
    Begin VB.Label Label30 
@@ -969,7 +996,7 @@ Begin VB.Form Form1
       Left            =   1440
       Picture         =   "Form1.frx":DEAC
       Stretch         =   -1  'True
-      Top             =   6000
+      Top             =   6360
       Width           =   1545
    End
    Begin VB.Label Label26 
@@ -979,7 +1006,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   46
-      Top             =   5040
+      Top             =   5520
       Width           =   750
    End
    Begin VB.Label Label25 
@@ -989,7 +1016,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   43
-      Top             =   5700
+      Top             =   6180
       Width           =   1740
    End
    Begin VB.Label Label22 
@@ -1009,7 +1036,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   35
-      Top             =   6360
+      Top             =   6720
       Width           =   1080
    End
    Begin VB.Label Label21 
@@ -1029,7 +1056,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   34
-      Top             =   6600
+      Top             =   6960
       Width           =   1095
    End
    Begin VB.Label Label20 
@@ -1049,7 +1076,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   33
-      Top             =   6840
+      Top             =   7200
       Width           =   1530
    End
    Begin VB.Label Label19 
@@ -1069,7 +1096,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   32
-      Top             =   7080
+      Top             =   7440
       Width           =   2775
    End
    Begin VB.Label Label18 
@@ -1089,7 +1116,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   3120
       TabIndex        =   31
-      Top             =   6885
+      Top             =   7245
       Width           =   3045
    End
    Begin VB.Label Label17 
@@ -1109,7 +1136,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   3120
       TabIndex        =   30
-      Top             =   7080
+      Top             =   7440
       Width           =   4215
    End
    Begin VB.Label Label16 
@@ -1129,7 +1156,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   29
-      Top             =   6120
+      Top             =   6480
       Width           =   720
    End
    Begin VB.Label Label13 
@@ -1149,7 +1176,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   6840
       TabIndex        =   23
-      Top             =   5985
+      Top             =   6465
       Width           =   1680
    End
    Begin VB.Label Label11 
@@ -2332,6 +2359,25 @@ If Check31.Value = 0 Then
     cmdstring = cmdstring & " -autosave 0"
 ElseIf Check31.Value = 1 Then
     cmdstring = cmdstring & " -autosave 1"
+End If
+
+'v0.4.1-r45
+If Check32.Value = 0 Then
+    cmdstring = cmdstring & " -fftoggle 0"
+ElseIf Check32.Value = 1 Then
+    cmdstring = cmdstring & " -fftoggle 1"
+End If
+
+If Check33.Value = 0 Then
+    cmdstring = cmdstring & " -nothrottle 0"
+ElseIf Check33.Value = 1 Then
+    cmdstring = cmdstring & " -nothrottle 1"
+End If
+
+If Check34.Value = 0 Then
+    cmdstring = cmdstring & " -ffnosound 0"
+ElseIf Check34.Value = 1 Then
+    cmdstring = cmdstring & " -ffnosound 1"
 End If
 
 'Specify ROM
