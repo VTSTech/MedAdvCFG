@@ -21,11 +21,20 @@ Begin VB.Form Form1
    ScaleHeight     =   8625
    ScaleWidth      =   8985
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox Check35 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "2x ffspeed"
+      Height          =   195
+      Left            =   7920
+      TabIndex        =   112
+      Top             =   5160
+      Width           =   1215
+   End
    Begin VB.CheckBox Check34 
       BackColor       =   &H00C0C0C0&
       Caption         =   "ffnosound"
       Height          =   195
-      Left            =   7800
+      Left            =   7920
       TabIndex        =   106
       Top             =   4920
       Width           =   1095
@@ -674,6 +683,46 @@ Begin VB.Form Form1
       Top             =   360
       Width           =   4575
    End
+   Begin VB.Label Label48 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "F9: Screenshot"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   210
+      Left            =   120
+      TabIndex        =   111
+      Top             =   6720
+      Width           =   1230
+   End
+   Begin VB.Label Label47 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "F8: Open Disc Tray"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   210
+      Left            =   3120
+      TabIndex        =   110
+      Top             =   6960
+      Width           =   1500
+   End
    Begin VB.Label Label46 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
@@ -689,9 +738,9 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   210
-      Left            =   120
+      Left            =   4800
       TabIndex        =   109
-      Top             =   6720
+      Top             =   6960
       Width           =   1530
    End
    Begin VB.Label Label45 
@@ -788,7 +837,7 @@ Begin VB.Form Form1
       Height          =   225
       Left            =   3120
       TabIndex        =   85
-      Top             =   6840
+      Top             =   6720
       Width           =   3615
    End
    Begin VB.Label Label24 
@@ -2436,6 +2485,12 @@ ElseIf Check34.Value = 1 Then
     cmdstring = cmdstring & " -ffnosound 1"
 End If
 
+If Check35.Value = 0 Then
+    cmdstring = cmdstring & " -ffspeed 4"
+ElseIf Check35.Value = 1 Then
+    cmdstring = cmdstring & " -ffspeed 8"
+End If
+
 'Specify ROM
 cmdstring = cmdstring & " " & Chr(34) & ROMFILE & Chr(34)
 'Closing "
@@ -2697,7 +2752,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.4.1-r46"
+GetBuild = "0.4.1-r47"
 End Function
 Public Function ResetSysCore()
 SysCore = ""

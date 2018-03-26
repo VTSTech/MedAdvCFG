@@ -9,7 +9,7 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/6a787c81da065b3a2a064719f823bca6.png">
+<img src="https://i.gyazo.com/1e2bc4c25aff99a7df0b5f12a96f8dfd.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
@@ -17,6 +17,15 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/3f67974b9b851cc8496a9fc6bd99dae8.png">
 
+v0.4.1-r47 03-26-2018 7:05PM
+
+Added Hotkey hints for F9/Screenshot & F8/Open Tray
+
+You must F8/Open Tray before you F6/Swap Disc
+
+Added 2x Fast Forward Speed option
+
+Various Code optimizations
 
 v0.4.1-r46 03-26-2018 12:35AM
 
