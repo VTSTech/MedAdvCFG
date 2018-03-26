@@ -9,7 +9,7 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/3cfc961fddd403f5fe60389f28b3d00d.png">
+<img src="https://i.gyazo.com/6a787c81da065b3a2a064719f823bca6.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
@@ -17,6 +17,44 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/3f67974b9b851cc8496a9fc6bd99dae8.png">
 
+
+v0.4.1-r46 03-26-2018 12:35AM
+
+Resized main form slightly
+
+Readded Region checkboxes
+
+NTSC-U Auto selected if ROM is detected in one of the NTSC-U verified rom sets (GoodTools/NoIntro/Redump)
+
+NTSC-J and PAL are auto selected based on System Bios. (So is NTSC-U)
+
+Added Hotkey hints for Swap Disc/ROM & Fast Forward
+
+Window Title is now uniform across all forms
+
+Forms should now be unloaded when switching between Basic and Advanced mode, instead of hidden. Prevents ghost MedAdvCFG.exe
+
+File Name Cleanup improvements for cover search
+
+Basic Mode now uses hardcoded untrusted_fip_check = 0
+
+Various Code Optimizations
+
+v0.4.1-r45 03-20-2018 5:58PM
+
+Fixed bug in passing -netplay.localplayers values > 1
+
+Added Fast Forward Toggle option
+
+Added Fast Forward No Sound option
+
+Added Fast Forward No Throttle option
+
+Added support for 1.21.1-unstable-win64/win32
+
+Resized Twitch icon
+
+Various code optimizations
 
 v0.4.1-r44 03-12-2018 12:09PM
 
