@@ -371,7 +371,8 @@ Basic.Checked = False
 Form1.Basic.Checked = False
 Form1.Visible = True
 Form1.Advanced.Checked = True
-Form3.Visible = False
+Form4.Visible = False
+Unload Form4
 End Sub
 
 Private Sub Basic_Click()
@@ -428,10 +429,14 @@ If SysCore = "psx" Or SysCore = "pce" Or SysCore = "pce_fast" Or SysCore = "ss" 
             cmdstring = cmdstring & " -" & SysCore & ".videoip 1"
             cmdstring = cmdstring & " -cd.image_memcache 1"
             cmdstring = cmdstring & " -" & SysCore & ".stretch full"
+            cmdstring = cmdstring & " -" & SysCore & ".special hq2x"
+            cmdstring = cmdstring & " -" & SysCore & ".xscale 2 -" & SysCore & ".xscalefs 2"
+            cmdstring = cmdstring & " -" & SysCore & ".yscale 2 -" & SysCore & ".yscalefs 2"
+            cmdstring = cmdstring & " -filesys.untrusted_fip_check 0"
             If SysCore = "psx" Or SysCore = "ss" Then
-                cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 1"
-                cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 1"
-                cmdstring = cmdstring & " -cd.image_memcache 1"
+                    cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 0"
+                    cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 0"
+                    cmdstring = cmdstring & " -cd.image_memcache 1"
             End If
         End If
 
@@ -749,7 +754,7 @@ Private Sub Documentation_Click()
 End Sub
 Private Sub Form_Load()
 Build = Form1.GetBuild()
-Form4.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
+Form4.Caption = "MedAdvCFG v" & Build & " (Mednafen v1.x Frontend) by Nigel Todman"
 Form4.Width = 14355
 Set FSO = CreateObject("Scripting.FileSystemObject")
 SysCore = Form1.SetSysCore

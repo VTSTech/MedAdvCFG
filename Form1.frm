@@ -3,7 +3,7 @@ Object = "{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}#1.1#0"; "ieframe.dll"
 Begin VB.Form Form1 
    BackColor       =   &H00C0C0C0&
    Caption         =   "MedAdvCFG v0.0.0 (Mednafen v0.9.x.x Frontend) by Nigel Todman [ADV MODE]"
-   ClientHeight    =   8670
+   ClientHeight    =   8625
    ClientLeft      =   225
    ClientTop       =   555
    ClientWidth     =   8985
@@ -18,7 +18,7 @@ Begin VB.Form Form1
    EndProperty
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
-   ScaleHeight     =   8670
+   ScaleHeight     =   8625
    ScaleWidth      =   8985
    StartUpPosition =   2  'CenterScreen
    Begin VB.CheckBox Check34 
@@ -87,31 +87,28 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check13 
       BackColor       =   &H00C0C0C0&
       Caption         =   "PAL"
-      Height          =   195
-      Left            =   5640
+      Height          =   210
+      Left            =   3045
       TabIndex        =   99
-      Top             =   5400
-      Visible         =   0   'False
+      Top             =   2640
       Width           =   975
    End
    Begin VB.CheckBox Check12 
       BackColor       =   &H00C0C0C0&
       Caption         =   "NTSC-J"
-      Height          =   195
-      Left            =   5640
+      Height          =   210
+      Left            =   2205
       TabIndex        =   98
-      Top             =   5160
-      Visible         =   0   'False
+      Top             =   2640
       Width           =   975
    End
    Begin VB.CheckBox Check11 
       BackColor       =   &H00C0C0C0&
       Caption         =   "NTSC-U"
       Height          =   195
-      Left            =   5640
+      Left            =   1320
       TabIndex        =   97
-      Top             =   4920
-      Visible         =   0   'False
+      Top             =   2640
       Width           =   975
    End
    Begin VB.TextBox Text12 
@@ -677,11 +674,61 @@ Begin VB.Form Form1
       Top             =   360
       Width           =   4575
    End
+   Begin VB.Label Label46 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "F6: Swap Disc/Rom"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   210
+      Left            =   120
+      TabIndex        =   109
+      Top             =   6720
+      Width           =   1530
+   End
+   Begin VB.Label Label45 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "`: Fast Forward"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   210
+      Left            =   120
+      TabIndex        =   108
+      Top             =   6480
+      Width           =   1230
+   End
+   Begin VB.Label Label44 
+      AutoSize        =   -1  'True
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Region"
+      Height          =   210
+      Left            =   120
+      TabIndex        =   107
+      Top             =   2640
+      Width           =   495
+   End
    Begin VB.Image Image8 
       Height          =   480
       Left            =   6000
       Picture         =   "Form1.frx":8526
-      Top             =   6420
+      Top             =   6180
       Width           =   480
    End
    Begin VB.Label Label28 
@@ -737,11 +784,11 @@ Begin VB.Form Form1
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00009900&
+      ForeColor       =   &H000080FF&
       Height          =   225
       Left            =   3120
       TabIndex        =   85
-      Top             =   7035
+      Top             =   6840
       Width           =   3615
    End
    Begin VB.Label Label24 
@@ -761,7 +808,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   7200
       TabIndex        =   84
-      Top             =   8400
+      Top             =   8280
       Width           =   1515
       WordWrap        =   -1  'True
    End
@@ -801,7 +848,7 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "PSX ID:"
       Height          =   210
-      Left            =   360
+      Left            =   120
       TabIndex        =   80
       Top             =   2400
       Visible         =   0   'False
@@ -854,7 +901,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   7200
       TabIndex        =   70
-      Top             =   8160
+      Top             =   8040
       Width           =   1815
       WordWrap        =   -1  'True
    End
@@ -866,7 +913,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   7200
       TabIndex        =   69
-      Top             =   7920
+      Top             =   7800
       Width           =   1410
    End
    Begin VB.Label Label33 
@@ -903,42 +950,42 @@ Begin VB.Form Form1
       Height          =   480
       Left            =   4560
       Picture         =   "Form1.frx":91F0
-      Top             =   6420
+      Top             =   6180
       Width           =   480
    End
    Begin VB.Image Image6 
       Height          =   480
       Left            =   4080
       Picture         =   "Form1.frx":9EBA
-      Top             =   6420
+      Top             =   6180
       Width           =   480
    End
    Begin VB.Image Image5 
       Height          =   480
       Left            =   5520
       Picture         =   "Form1.frx":AB84
-      Top             =   6420
+      Top             =   6180
       Width           =   480
    End
    Begin VB.Image Image4 
       Height          =   480
       Left            =   5040
       Picture         =   "Form1.frx":B84E
-      Top             =   6420
+      Top             =   6180
       Width           =   480
    End
    Begin VB.Image Image3 
       Height          =   480
       Left            =   3600
       Picture         =   "Form1.frx":C518
-      Top             =   6420
+      Top             =   6180
       Width           =   480
    End
    Begin VB.Image Image2 
       Height          =   480
       Left            =   3120
       Picture         =   "Form1.frx":D1E2
-      Top             =   6420
+      Top             =   6180
       Width           =   480
    End
    Begin VB.Label Label32 
@@ -996,7 +1043,7 @@ Begin VB.Form Form1
       Left            =   1440
       Picture         =   "Form1.frx":DEAC
       Stretch         =   -1  'True
-      Top             =   6360
+      Top             =   6000
       Width           =   1545
    End
    Begin VB.Label Label26 
@@ -1022,7 +1069,7 @@ Begin VB.Form Form1
    Begin VB.Label Label22 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "F5:Save state"
+      Caption         =   "F5: Save state"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -1036,13 +1083,13 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   35
-      Top             =   6720
-      Width           =   1080
+      Top             =   6960
+      Width           =   1125
    End
    Begin VB.Label Label21 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "F7:Load state"
+      Caption         =   "F7: Load state"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -1054,15 +1101,15 @@ Begin VB.Form Form1
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   210
-      Left            =   120
+      Left            =   1560
       TabIndex        =   34
       Top             =   6960
-      Width           =   1095
+      Width           =   1140
    End
    Begin VB.Label Label20 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "F10:Reset Console"
+      Caption         =   "F10: Soft Reset    F11: Hard Reset"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -1077,12 +1124,12 @@ Begin VB.Form Form1
       Left            =   120
       TabIndex        =   33
       Top             =   7200
-      Width           =   1530
+      Width           =   2655
    End
    Begin VB.Label Label19 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Alt+Enter:Toggle fullscreen mode"
+      Caption         =   "Alt+Enter: Toggle fullscreen mode"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -1097,12 +1144,12 @@ Begin VB.Form Form1
       Left            =   120
       TabIndex        =   32
       Top             =   7440
-      Width           =   2775
+      Width           =   2820
    End
    Begin VB.Label Label18 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "CTRL+SHIFT+1:Select Controller Type"
+      Caption         =   "CTRL+SHIFT+1: Select Controller Type"
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -1117,12 +1164,12 @@ Begin VB.Form Form1
       Left            =   3120
       TabIndex        =   31
       Top             =   7245
-      Width           =   3045
+      Width           =   3090
    End
    Begin VB.Label Label17 
       AutoSize        =   -1  'True
       BackStyle       =   0  'Transparent
-      Caption         =   "ALT+SHIFT+1:Configure buttons for Controller Port "
+      Caption         =   "ALT+SHIFT+1: Configure buttons for Controller Port "
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   8.25
@@ -1137,7 +1184,7 @@ Begin VB.Form Form1
       Left            =   3120
       TabIndex        =   30
       Top             =   7440
-      Width           =   4215
+      Width           =   4260
    End
    Begin VB.Label Label16 
       AutoSize        =   -1  'True
@@ -1156,7 +1203,7 @@ Begin VB.Form Form1
       Height          =   210
       Left            =   120
       TabIndex        =   29
-      Top             =   6480
+      Top             =   6240
       Width           =   720
    End
    Begin VB.Label Label13 
@@ -1511,6 +1558,7 @@ tmp = Replace(tmp, "(G)", "")
 tmp = Replace(tmp, "(W)", "")
 tmp = Replace(tmp, "(R)", "")
 tmp = Replace(tmp, "(VC)", "")
+tmp = Replace(tmp, "(VS)", "")
 tmp = Replace(tmp, "(JU)", "")
 tmp = Replace(tmp, "(JE)", "")
 tmp = Replace(tmp, "(M2)", "")
@@ -1522,7 +1570,9 @@ tmp = Replace(tmp, "(PRG1)", "")
 tmp = Replace(tmp, "(PC10)", "")
 tmp = Replace(tmp, "(REV00)", "")
 tmp = Replace(tmp, "(REV01)", "")
+tmp = Replace(tmp, "(NJ037)", "")
 tmp = Replace(tmp, "(UE)", "")
+tmp = Replace(tmp, "(Ch)", "")
 tmp = Replace(tmp, "[a1]", "")
 tmp = Replace(tmp, "[b1]", "")
 tmp = Replace(tmp, "[b1+1C]", "")
@@ -1757,15 +1807,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Advanced.Checked = True
-Basic.Checked = False
+advanced.Checked = True
+basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Advanced.Checked = False
-Basic.Checked = True
+advanced.Checked = False
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -1775,18 +1825,24 @@ Shell ("cmd.exe /c start http://bit.ly/2k5E1Xq"), vbHide
 End Sub
 
 Private Sub Check11_Click()
-Check12.Value = 0
-Check13.Value = 0
+If Check12.Value = 1 Or Check13.Value = 1 Then
+    Check12.Value = 0
+    Check13.Value = 0
+End If
 End Sub
 
 Private Sub Check12_Click()
-Check11.Value = 0
-Check13.Value = 0
+If Check11.Value = 1 Or Check13.Value = 1 Then
+    Check11.Value = 0
+    Check13.Value = 0
+End If
 End Sub
 
 Private Sub Check13_Click()
-Check11.Value = 0
-Check12.Value = 0
+If Check12.Value = 1 Or Check11.Value = 1 Then
+    Check11.Value = 0
+    Check12.Value = 0
+End If
 End Sub
 
 Private Sub Check15_Click()
@@ -2563,14 +2619,16 @@ If ActiveFile = "M3U" Then
 End If
 End Sub
 Function HideBIOSControls()
-    Label4.Visible = False
-    Label5.Visible = False
-    Label6.Visible = False
-    Label29.Visible = False
-    Label40.Visible = False
-    Label42.Visible = False
-    Text1.Visible = False
-    Command1.Visible = False
+    Label4.Visible = 0
+    Label5.Visible = 0
+    Label6.Visible = 0
+    Label29.Visible = 0
+    Label40.Visible = 0
+    Label42.Visible = 0
+    Text1.Visible = 0
+    Command1.Visible = 0
+    Check1.Visible = 0
+    Check10.Visible = 0
 End Function
 Function ShowBIOSControls()
     Label4.Visible = 1
@@ -2581,6 +2639,8 @@ Function ShowBIOSControls()
     Label42.Visible = 1
     Text1.Visible = 1
     Command1.Visible = 1
+    Check1.Visible = 1
+    Check10.Visible = 1
 End Function
 Function LoadSettings()
 'Load Settings
@@ -2637,7 +2697,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.4.1-r45"
+GetBuild = "0.4.1-r46"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -2684,14 +2744,17 @@ If FSO.FileExists(RedumpList) Then
                     Label23.Caption = "REDUMP: verified!"
                     Label23.ForeColor = RGB(0, 153, 0)
                     booltmp = True
+                    Check11.Value = 1
                 ElseIf SysCore = "nes" Then
                     Label23.Caption = "GOODTOOLS: verified!"
                     Label23.ForeColor = RGB(0, 153, 0)
                     booltmp = True
+                    Check11.Value = 1
                 Else
                     Label23.Caption = "NOINTRO: verified!"
                     Label23.ForeColor = RGB(0, 153, 0)
                     booltmp = True
+                    Check11.Value = 1
                 End If
             End If
         Next x
@@ -2924,7 +2987,7 @@ WebBrowser1.MenuBar = False
 WebBrowser1.Resizable = False
 WebBrowser1.ToolBar = False
 WebBrowser1.Resizable = False
-WebBrowser1.Navigate ("http://ad.a-ads.com/402648?size=468x60&background_color=CCCCCC&title_color=0000ff&link_color=313370&text_color=ffffff&title_hover_color=ff8c00&link_hover_color=ff8c00")
+WebBrowser1.Navigate ("http://ad.a-ads.com/701097?size=468x60&background_color=CCCCCC&title_color=0000ff&link_color=313370&text_color=ffffff&title_hover_color=ff8c00&link_hover_color=ff8c00")
 
 Form1.Caption = "MedAdvCFG v" & Build & " (Mednafen v1.x Frontend) by Nigel Todman"
 

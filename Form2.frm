@@ -489,6 +489,7 @@ Form1.Basic.Checked = False
 Form1.Visible = True
 Form1.Advanced.Checked = True
 Form2.Visible = False
+Unload Form2
 End Sub
 
 Private Sub Basic_Click()
@@ -884,7 +885,7 @@ End Sub
 
 Private Sub Form_Load()
 Build = Form1.GetBuild()
-Form2.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
+Form2.Caption = "MedAdvCFG v" & Build & " (Mednafen v1.x Frontend) by Nigel Todman"
 Form2.Width = 11145
 Form2.Height = 6120
 Basic.Checked = True

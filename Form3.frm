@@ -328,11 +328,12 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-basic.Checked = False
-Form1.basic.Checked = False
+Basic.Checked = False
+Form1.Basic.Checked = False
 Form1.Visible = True
-Form1.advanced.Checked = True
+Form1.Advanced.Checked = True
 Form3.Visible = False
+Unload Form3
 End Sub
 
 Private Sub Chat_Click()
@@ -376,10 +377,10 @@ End Sub
 Private Sub Form_Load()
 Form3.Width = 12345
 Build = Form1.GetBuild()
-Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend) by Nigel Todman [BASIC MODE]"
+Form3.Caption = "MedAdvCFG v" & Build & " (Mednafen v1.x Frontend) by Nigel Todman"
 'Text1.Text = ""
 SysCore = Form1.SetSysCore
-basic.Checked = True
+Basic.Checked = True
 Set FSO = CreateObject("Scripting.FileSystemObject")
 '12 Games per page..
 For y = 1 To 12
@@ -531,6 +532,9 @@ tmp = Replace(tmp, ".ccd", "")
 tmp = Replace(tmp, " (USA) ", "")
 tmp = Replace(tmp, " (USA)", "")
 tmp = Replace(tmp, "(USA)", "")
+tmp = Replace(tmp, " (Demo) ", "")
+tmp = Replace(tmp, " (Demo)", "")
+tmp = Replace(tmp, "(Demo)", "")
 For z = 0 To 9
     tmp = Replace(tmp, " (v1." & z & ")", "")
     tmp = Replace(tmp, " (V1." & z & ")", "")
@@ -581,6 +585,7 @@ tmp = Replace(tmp, "(G)", "")
 tmp = Replace(tmp, "(W)", "")
 tmp = Replace(tmp, "(R)", "")
 tmp = Replace(tmp, "(VC)", "")
+tmp = Replace(tmp, "(VS)", "")
 tmp = Replace(tmp, "(JU)", "")
 tmp = Replace(tmp, "(JE)", "")
 tmp = Replace(tmp, "(M2)", "")
@@ -592,7 +597,9 @@ tmp = Replace(tmp, "(PRG1)", "")
 tmp = Replace(tmp, "(PC10)", "")
 tmp = Replace(tmp, "(REV00)", "")
 tmp = Replace(tmp, "(REV01)", "")
+tmp = Replace(tmp, "(NJ037)", "")
 tmp = Replace(tmp, "(UE)", "")
+tmp = Replace(tmp, "(Ch)", "")
 tmp = Replace(tmp, "[a1]", "")
 tmp = Replace(tmp, "[b1]", "")
 tmp = Replace(tmp, "[b1+1C]", "")
@@ -860,6 +867,7 @@ SysCore = Form1.SetSysCore
         cmdstring = cmdstring & " -" & SysCore & ".special hq2x"
         cmdstring = cmdstring & " -" & SysCore & ".xscale 2 -" & SysCore & ".xscalefs 2"
         cmdstring = cmdstring & " -" & SysCore & ".yscale 2 -" & SysCore & ".yscalefs 2"
+        cmdstring = cmdstring & " -filesys.untrusted_fip_check 0"
         If SysCore = "psx" Or SysCore = "ss" Then
                 cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 0"
                 cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 0"
