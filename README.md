@@ -17,6 +17,18 @@ Homepage: http://www.nigeltodman.com/medadvcfg
 
 <img src="https://i.gyazo.com/3f67974b9b851cc8496a9fc6bd99dae8.png">
 
+v0.4.1-r48 01-27-2019 8:45PM
+
+Added blend/blend_rg video deinterlacers
+
+Added support for 1.21.2-unstable-win64/win32
+
+Added support for 1.22.0-unstable-win64/win32
+
+Updated BitCoin Address
+
+Various Code Optimizations
+
 v0.4.1-r47 03-26-2018 7:05PM
 
 Added Hotkey hints for F9/Screenshot & F8/Open Tray

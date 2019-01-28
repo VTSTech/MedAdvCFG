@@ -1,6 +1,6 @@
 Type=Exe
 Form=Form1.frm
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\WINDOWS\SysWow64\stdole2.tlb#OLE Automation
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\Windows\SysWOW64\stdole2.tlb#OLE Automation
 Form=Form2.frm
 Form=Form3.frm
 Form=Form4.frm
@@ -16,7 +16,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=4
 MinorVer=1
-RevisionVer=47
+RevisionVer=48
 AutoIncrementVer=0
 ServerSupportFiles=0
 VersionCompanyName="Nigel Todman"

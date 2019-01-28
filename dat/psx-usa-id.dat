@@ -333,7 +333,7 @@ dragon_seeds SLUS-00734
 dragon_tales_dragon_seek SLUS-01176
 dragon_valor SLUS-01092
 dragon_warrior_vii SLUS-01206
-dragonball_gt_final_bout SLUS-00493
+dragon_ball_gt_final_bout SLUS-00493
 dragonball_z_ultimate_battle_22 SLUS-01550
 dragonheart_fire_&_steel SLUS-00226
 driver_you_are_the_wheelman SLUS-00842
@@ -399,8 +399,10 @@ fighter_maker SLUS-00641
 fighting_force SLUS-00433
 fighting_force_2 SLUS-00934
 final_doom SLUS-00331
-final_fantasy_anthology SLUS-00879
-final_fantasy_chronicles SLUS-01363
+final_fantasy_anthology_final_fantasy_v SLUS-00879
+final_fantasy_anthology_final_fantasy_vi SLUS-00900
+final_fantasy_chronicles_chrono_trigger SLUS-01363
+final_fantasy_chronicles_final_fantasy_iv SLUS-01360
 final_fantasy_ix SLUS-01251
 final_fantasy_origins SLUS-01541
 final_fantasy_tactics SCUS-94221

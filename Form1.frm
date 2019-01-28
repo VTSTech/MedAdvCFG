@@ -6,7 +6,7 @@ Begin VB.Form Form1
    ClientHeight    =   8625
    ClientLeft      =   225
    ClientTop       =   555
-   ClientWidth     =   8985
+   ClientWidth     =   9000
    BeginProperty Font 
       Name            =   "Arial"
       Size            =   8.25
@@ -19,8 +19,26 @@ Begin VB.Form Form1
    Icon            =   "Form1.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   8625
-   ScaleWidth      =   8985
+   ScaleWidth      =   9000
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CheckBox Check37 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "blend_rg"
+      Height          =   195
+      Left            =   4680
+      TabIndex        =   114
+      Top             =   3240
+      Width           =   975
+   End
+   Begin VB.CheckBox Check36 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "blend"
+      Height          =   195
+      Left            =   3960
+      TabIndex        =   113
+      Top             =   3240
+      Width           =   735
+   End
    Begin VB.CheckBox Check35 
       BackColor       =   &H00C0C0C0&
       Caption         =   "2x ffspeed"
@@ -28,7 +46,7 @@ Begin VB.Form Form1
       Left            =   7920
       TabIndex        =   112
       Top             =   5160
-      Width           =   1215
+      Width           =   1095
    End
    Begin VB.CheckBox Check34 
       BackColor       =   &H00C0C0C0&
@@ -88,9 +106,9 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "0.9.x.x Mode"
       Height          =   255
-      Left            =   5040
+      Left            =   5280
       TabIndex        =   100
-      Top             =   3600
+      Top             =   3720
       Width           =   1335
    End
    Begin VB.CheckBox Check13 
@@ -136,7 +154,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   94
       Top             =   600
-      Width           =   1455
+      Width           =   1215
    End
    Begin VB.CheckBox Check26 
       BackColor       =   &H00C0C0C0&
@@ -145,7 +163,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   93
       Top             =   4680
-      Width           =   1935
+      Width           =   1215
    End
    Begin VB.CheckBox Check25 
       BackColor       =   &H00C0C0C0&
@@ -154,7 +172,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   92
       Top             =   4440
-      Width           =   2055
+      Width           =   1695
    End
    Begin VB.CheckBox Check24 
       BackColor       =   &H00C0C0C0&
@@ -163,7 +181,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   91
       Top             =   4200
-      Width           =   2055
+      Width           =   1695
    End
    Begin VB.ComboBox Combo9 
       BackColor       =   &H00C0C0C0&
@@ -230,7 +248,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   77
       Top             =   3960
-      Width           =   2055
+      Width           =   1815
    End
    Begin VB.CheckBox Check22 
       BackColor       =   &H00C0C0C0&
@@ -239,7 +257,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   76
       Top             =   3240
-      Width           =   2055
+      Width           =   1695
    End
    Begin VB.CheckBox Check21 
       BackColor       =   &H00C0C0C0&
@@ -248,7 +266,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   75
       Top             =   2520
-      Width           =   1935
+      Width           =   1455
    End
    Begin VB.CheckBox Check20 
       BackColor       =   &H00C0C0C0&
@@ -257,7 +275,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   74
       Top             =   2280
-      Width           =   2055
+      Width           =   1335
    End
    Begin VB.CheckBox Check19 
       BackColor       =   &H00C0C0C0&
@@ -266,7 +284,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   73
       Top             =   3480
-      Width           =   2055
+      Width           =   1455
    End
    Begin VB.ComboBox Combo6 
       BackColor       =   &H00C0C0C0&
@@ -289,15 +307,6 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check18 
       BackColor       =   &H00C0C0C0&
       Caption         =   "weave"
-      BeginProperty Font 
-         Name            =   "Arial Narrow"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
       Left            =   1320
       TabIndex        =   65
@@ -308,17 +317,8 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check17 
       BackColor       =   &H00C0C0C0&
       Caption         =   "bob"
-      BeginProperty Font 
-         Name            =   "Arial Narrow"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   2205
+      Left            =   2160
       TabIndex        =   64
       Top             =   3240
       Width           =   615
@@ -326,17 +326,8 @@ Begin VB.Form Form1
    Begin VB.CheckBox Check16 
       BackColor       =   &H00C0C0C0&
       Caption         =   "bob_offset"
-      BeginProperty Font 
-         Name            =   "Arial Narrow"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
       Height          =   195
-      Left            =   3045
+      Left            =   2760
       TabIndex        =   63
       Top             =   3240
       Width           =   1095
@@ -394,7 +385,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   53
       Top             =   3720
-      Width           =   2055
+      Width           =   1815
    End
    Begin VB.TextBox Text7 
       BackColor       =   &H00C0C0C0&
@@ -525,9 +516,9 @@ Begin VB.Form Form1
       BackColor       =   &H00C0C0C0&
       Caption         =   "Review cmdline?"
       Height          =   255
-      Left            =   5040
+      Left            =   5280
       TabIndex        =   37
-      Top             =   3360
+      Top             =   3480
       Width           =   1575
    End
    Begin VB.CheckBox Check7 
@@ -537,7 +528,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   36
       Top             =   1080
-      Width           =   2055
+      Width           =   1215
    End
    Begin VB.CheckBox Check6 
       BackColor       =   &H00C0C0C0&
@@ -546,7 +537,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   28
       Top             =   840
-      Width           =   2055
+      Width           =   1335
    End
    Begin VB.CommandButton Command3 
       BackColor       =   &H00C0C0C0&
@@ -554,7 +545,7 @@ Begin VB.Form Form1
       Height          =   495
       Left            =   5160
       TabIndex        =   27
-      Top             =   2760
+      Top             =   2675
       Width           =   1335
    End
    Begin VB.ComboBox Combo4 
@@ -573,7 +564,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   24
       Top             =   1800
-      Width           =   2055
+      Width           =   1815
    End
    Begin VB.TextBox Text3 
       BackColor       =   &H00C0C0C0&
@@ -591,7 +582,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   21
       Top             =   1560
-      Width           =   2055
+      Width           =   1695
    End
    Begin VB.CheckBox Check3 
       BackColor       =   &H00C0C0C0&
@@ -600,7 +591,7 @@ Begin VB.Form Form1
       Left            =   6960
       TabIndex        =   20
       Top             =   1320
-      Width           =   2055
+      Width           =   1335
    End
    Begin VB.ComboBox Combo3 
       BackColor       =   &H00C0C0C0&
@@ -823,7 +814,7 @@ Begin VB.Form Form1
    Begin VB.Label Label41 
       AutoSize        =   -1  'True
       BackColor       =   &H00C0C0C0&
-      Caption         =   "18j2Env7QokhGG5MccS3LPBKnjsko6u4NQ"
+      Caption         =   "1ByfBujg9bnmk1XXY2rxY6obhqHMUNiDuP "
       BeginProperty Font 
          Name            =   "Arial"
          Size            =   9
@@ -838,7 +829,7 @@ Begin VB.Form Form1
       Left            =   3120
       TabIndex        =   85
       Top             =   6720
-      Width           =   3615
+      Width           =   3570
    End
    Begin VB.Label Label24 
       AutoSize        =   -1  'True
@@ -1852,19 +1843,19 @@ Validate_MedEXE = tmp
 End Function
 
 Private Sub about_Click()
-MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Written by Nigel Todman (nigel@nigeltodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, SS, VB" & vbCrLf & vbCrLf & "Homepage: www.NigelTodman.com" & vbCrLf & "Facebook: facebook.com/nigel.todman.3" & vbCrLf & "Twitter: @Veritas_83" & vbCrLf & "YouTube: Veritas0923" & vbCrLf & "BTC: 18j2Env7QokhGG5MccS3LPBKnjsko6u4NQ"
+MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Written by Nigel Todman (nigel@nigeltodman.com)" & vbCrLf & "Primarily written as a PSX Frontend." & vbCrLf & "Tested with the following System Cores:" & vbCrLf & "GB, GBA, GG, MD, NES, PCE, PCE_FAST, PSX, SNES, SS, VB" & vbCrLf & vbCrLf & "Homepage: www.NigelTodman.com" & vbCrLf & "Facebook: facebook.com/nigel.todman.3" & vbCrLf & "Twitter: @Veritas_83" & vbCrLf & "YouTube: Veritas0923" & vbCrLf & "BTC: 1ByfBujg9bnmk1XXY2rxY6obhqHMUNiDuP "
 End Sub
 
 Private Sub Advanced_Click()
-advanced.Checked = True
-basic.Checked = False
+Advanced.Checked = True
+Basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-advanced.Checked = False
-basic.Checked = True
+Advanced.Checked = False
+Basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -1918,11 +1909,29 @@ End Sub
 Private Sub Check17_Click()
 Check18.Value = 0
 Check16.Value = 0
+Check36.Value = 0
+Check37.Value = 0
 End Sub
 
 Private Sub Check18_Click()
 Check17.Value = 0
 Check16.Value = 0
+Check36.Value = 0
+Check37.Value = 0
+End Sub
+
+Private Sub Check36_Click()
+Check17.Value = 0
+Check16.Value = 0
+Check18.Value = 0
+Check37.Value = 0
+End Sub
+
+Private Sub Check37_Click()
+Check17.Value = 0
+Check16.Value = 0
+Check18.Value = 0
+Check36.Value = 0
 End Sub
 
 Private Sub Combo1_Change()
@@ -2396,6 +2405,10 @@ ElseIf Check17.Value = 1 Then
     cmdstring = cmdstring & " -video.deinterlacer bob"
 ElseIf Check16.Value = 1 Then
     cmdstring = cmdstring & " -video.deinterlacer bob_offset"
+ElseIf Check36.Value = 1 Then
+    cmdstring = cmdstring & " -video.deinterlacer blend"
+ElseIf Check37.Value = 1 Then
+    cmdstring = cmdstring & " -video.deinterlacer blend_rg"
 End If
 
 
@@ -2752,7 +2765,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.4.1-r47"
+GetBuild = "0.4.1-r48"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -3370,6 +3383,7 @@ Unload Form1
 Unload Form2
 Unload Form3
 Unload Form4
+Shell ("cmd.exe /c taskkill /im /f MedAdvCFG.exe"), vbHide
 End Sub
 
 Private Sub Reset_Settings_Click()
