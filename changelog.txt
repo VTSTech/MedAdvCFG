@@ -1,0 +1,109 @@
+v0.4.1-r49 01-28-2019 11:46PM
+
+Fixed bug in command line to kill process on Quit.
+Unchecked options now passes 0 in most instances.
+Added support for 1.22.1-unstable-win64/win32
+Various Code Optimizations
+
+v0.4.1-r48 01-27-2019 8:45PM
+
+Added blend/blend_rg video deinterlacers
+Added support for 1.21.2-unstable-win64/win32
+Added support for 1.22.0-unstable-win64/win32
+Updated BitCoin Address
+Various Code Optimizations
+
+v0.4.1-r47 03-26-2018 7:05PM
+
+Added Hotkey hints for F9/Screenshot & F8/Open Tray
+You must F8/Open Tray before you F6/Swap Disc
+Added 2x Fast Forward Speed option
+Various Code optimizations
+
+v0.4.1-r46 03-26-2018 12:35AM
+
+Resized main form slightly
+Readded Region checkboxes
+NTSC-U Auto selected if ROM is detected in one of the NTSC-U verified rom sets (GoodTools/NoIntro/Redump)
+NTSC-J and PAL are auto selected based on System Bios. (So is NTSC-U)
+Added Hotkey hints for Swap Disc/ROM & Fast Forward
+Window Title is now uniform across all forms
+Forms should now be unloaded when switching between Basic and Advanced mode, instead of hidden. Prevents ghost MedAdvCFG.exe
+File Name Cleanup improvements for cover search
+Basic Mode now uses hardcoded untrusted_fip_check = 0
+Various Code Optimizations
+
+v0.4.1-r45 03-20-2018 5:58PM
+
+Fixed bug in passing -netplay.localplayers values > 1
+Added Fast Forward Toggle option
+Added Fast Forward No Sound option
+Added Fast Forward No Throttle option
+Added support for 1.21.1-unstable-win64/win32
+Resized Twitch icon
+Various code optimizations
+
+v0.4.1-r44 03-12-2018 12:09PM
+
+Desktop Composition is now saved/loaded with settings
+Autosave/load State is now saved/loaded with settings
+Disc Tray/Cart ejected is now saved/loaded with settings
+Saving in Advanced Mode no longer forgets Basic Mode Folder setting
+
+HQ2X is now the hardcoded Video Scaler in Basic Mode.
+Frameskip is now set to enabled for Basic Mode.
+BIOS & ROM Sanity is now set to disabled for Basic Mode.
+
+v0.4.0-r43 03-11-2018 11:13AM
+
+Added option to autosave/load game state
+Added option to disable Desktop composition
+Renamed some controls to more accurately reflect the parameter they control
+
+'Number of Players' control renamed to netplay.localplayers. Also passes that parameter in addition to setting the 'Controller' to specified type and plugged in for specified number of players
+
+Horizontal Overscan renamed to h_overscan and now also works for Sega Saturn SysCore
+Added Twitch icon and link
+Updated roadmap
+Various code optimizations
+
+v0.4.0-r42 03-09-2018 8:49AM
+
+Region is now autodetected based on BIOS, Defaults to NTSC-U if using unknown BIOS.
+Regions added to bios.dat
+Added option to boot SysCore with Disc Tray/Cart Ejected
+Clicking 'Mode -> Advanced' from the 'Game Info' screen of Basic Mode now actually returns you to Advanced Mode.
+Various Code Optimizations
+
+v0.4.0-r41 03-06-2018 5:20PM
+
+Fixed reference to removed control in Basic Mode
+Resized game selection form in Basic Mode slightly
+Game ID is now displayed in Basic Mode for PSX System Core
+
+v0.4.0-r40 03-06-2018 4:34PM
+
+Added support for Sega Saturn Racing Controller (MK-80107)
+Added support for Sega Saturn Mission Stick (MK-80104)
+Added support for Sega Saturn Dual Mission Stick (MK-80104)
+Added support for Sega Saturn Virtua Gun/Stunner (MK-80113)
+Added support for Sega Saturn NetLink US Keyboard (MK-80120)
+Added support for Sega Saturn 89-Key JP Keyboard (HSS-0129)
+
+Added '0.9.x.x Mode' - Prevents 1.x parameters from being passed to cmdline. Automatically activates when a known 0.9.x.x version is detected.
+Various code optimizations
+
+v0.4.0-r39 02-26-2018 12:14AM
+
+Condensed bios.dat names slightly
+Added missing entry to psx-usa-id.dat
+Resized main form slightly
+Reorganized main form controls
+Removed Region checkboxes
+Added support for 1.21.0-unstable-win64/win32
+Added fps.autoenable (Show FPS)
+Added video.fs.display
+Removed 'Overlay' video driver option
+Fixed bug in passing Sega Saturn region to cmdline
+Scanlines and Custom Params are now loaded with settings
+Various code optimizations

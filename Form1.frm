@@ -1847,15 +1847,15 @@ MsgBox "MedAdvCFG v" & Build & " (Mednafen v0.9.x.x Frontend)" & vbCrLf & "Writt
 End Sub
 
 Private Sub Advanced_Click()
-Advanced.Checked = True
-Basic.Checked = False
+advanced.Checked = True
+basic.Checked = False
 Form1.Visible = True
 Form2.Visible = False
 End Sub
 
 Private Sub Basic_Click()
-Advanced.Checked = False
-Basic.Checked = True
+advanced.Checked = False
+basic.Checked = True
 Form1.Visible = False
 Form2.Visible = True
 End Sub
@@ -1904,6 +1904,8 @@ End Sub
 Private Sub Check16_Click()
 Check17.Value = 0
 Check18.Value = 0
+Check36.Value = 0
+Check37.Value = 0
 End Sub
 
 Private Sub Check17_Click()
@@ -2314,6 +2316,8 @@ End If
 
 If Check20.Value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".forcemono 1"
+ElseIf Check20.Value = 0 Then
+    cmdstring = cmdstring & " -" & SysCore & ".forcemono 0"
 End If
 
 If Check21.Value = 1 Then
@@ -2331,6 +2335,8 @@ End If
 'v0.1.9
 If Check23.Value = 1 Then
     cmdstring = cmdstring & " -cd.image_memcache 1"
+ElseIf Check23.Value = 0 Then
+    cmdstring = cmdstring & " -cd.image_memcache 0"
 End If
 
 'r38
@@ -2356,6 +2362,8 @@ End If
 
 If Check3.Value = 1 Then
     cmdstring = cmdstring & " -" & SysCore & ".tblur 1"
+ElseIf Check3.Value = 0 Then
+    cmdstring = cmdstring & " -" & SysCore & ".tblur 0"
 End If
 
 If Check4.Value = 1 Then
@@ -2392,10 +2400,14 @@ End If
 If SysCore = "psx" Or SysCore = "ss" Then
     If Check1.Value = 1 Then
         cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 1"
+    ElseIf Check1.Value = 0 Then
+        cmdstring = cmdstring & " -" & SysCore & ".bios_sanity 0"
     End If
     
     If Check2.Value = 1 Then
         cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 1"
+    ElseIf Check2.Value = 0 Then
+        cmdstring = cmdstring & " -" & SysCore & ".cd_sanity 0"
     End If
 End If
 
@@ -2454,10 +2466,12 @@ If Check28.Value = 0 Then
 'Mednafen v1.x specific here
     If Check27.Value = 1 Then
         cmdstring = cmdstring & " -fps.autoenable 1"
+    ElseIf Check27.Value = 0 Then
+        cmdstring = cmdstring & " -fps.autoenable 0"
     End If
     
     If Val(Text12.Text) < -1 Then
-    cmdstring = cmdstring & " -video.fs.display " & Text12.Text
+        cmdstring = cmdstring & " -video.fs.display " & Text12.Text
     End If
 End If
 
@@ -2765,7 +2779,7 @@ End If
 'End Load Settings
 End Function
 Public Function GetBuild()
-GetBuild = "0.4.1-r48"
+GetBuild = "0.4.1-r49"
 End Function
 Public Function ResetSysCore()
 SysCore = ""
@@ -3383,7 +3397,7 @@ Unload Form1
 Unload Form2
 Unload Form3
 Unload Form4
-Shell ("cmd.exe /c taskkill /im /f MedAdvCFG.exe"), vbHide
+Shell ("cmd.exe /c taskkill /f /im MedAdvCFG.exe"), vbHide
 End Sub
 
 Private Sub Reset_Settings_Click()

@@ -9,13 +9,23 @@ GB,GBA,GG,MD,NES,PCE/PCE_FAST,PSX,SNES,SS,VB
 Homepage: http://www.nigeltodman.com/medadvcfg
 
 
-<img src="https://i.gyazo.com/1e2bc4c25aff99a7df0b5f12a96f8dfd.png">
+<img src="https://i.gyazo.com/3ea9b19751d866209441bc0f302f6299.png">
 
 <img src="https://i.gyazo.com/a748b38a9e2ffb846691f0413da21ea6.png">
 
 <img src="https://i.gyazo.com/0fdd3ab59d2e938e4f22f6062d44b724.png">
 
 <img src="https://i.gyazo.com/3f67974b9b851cc8496a9fc6bd99dae8.png">
+
+v0.4.1-r49 01-28-2019 11:46PM
+
+Fixed bug in command line to kill process on Quit.
+
+Unchecked options now passes 0 in most instances.
+
+Added support for 1.22.1-unstable-win64/win32
+
+Various Code Optimizations
 
 v0.4.1-r48 01-27-2019 8:45PM
 
